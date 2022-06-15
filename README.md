@@ -1,6 +1,6 @@
 ## **Idea del proyecto**
 
-####  ▸▸ Keys virtuales y venta de productos "usados o nuevos físicos" (hardware, figuras relacionadas al gaming o otaku, merchandising).
+####  ▸▸ Keys virtuales y venta de productos "usados o nuevos físicos" (hardware, figuras de acción, merchandising).
 
 ## **(Descripción)**
 
