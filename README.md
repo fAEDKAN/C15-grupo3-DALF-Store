@@ -21,3 +21,7 @@ en un espacio pequeño.
 https://www.instant-gaming.com/es/
 Este es un ejemplo parecido pero con dispocicion rectangular horizontal.En este caso la pagina contiene 
 un header fijo, es comodo para acceder a inicio de manera rapida.
+https://www.gog.com/en
+Esta pagina destaca mas en el detalle, el cuerpo y el header; si bien es esteticamente agradable, puede llegar a ser tedioso de ver la cantidad de opciones que se nos dan a medida que bajamos. Con respecto al header, me gusta el uso de una promoción siendo que es lo primero que se ve cuando uno entra.
+https://www.humblebundle.com
+La estetica es mediocre, pero podemos tomar referencia por sobre el login y registro, que son interfaces simples y comodas.
