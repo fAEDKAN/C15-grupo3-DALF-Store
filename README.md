@@ -4,7 +4,7 @@
 
 ## **(Descripción)**
 
-####    ● Descuentos por día de keys de juegos o software al azar. También pueden comprar merchandising propio de la pagina Ej: tazas, portas bazos y ropa.
+####    ● Descuentos por día de keys de juegos o software al azar. También pueden comprar merchandising propio de la pagina Ej: tazas, porta bazos y ropa de calidad.
 
 ####    ● Apunta para todas esas personas, sentadas 24/7 en  frente de una pc.
 
@@ -14,6 +14,8 @@
 
 
 ## **Links referentes**
+"https://www.eneba.com/latam/"
+● Esta pagina se va basar la nuestra y va hacer nuestra competencia.
 
 "https://www.gamestorrents.fm/home/"
 ● Esta pagina tiene el fondo oscuro, una buena opcion para que la gente pueda pasar un largo tiempo
