@@ -15,7 +15,7 @@
 
 ## **Links referentes**
 "https://www.eneba.com/latam/"
-● Esta pagina se va basar la nuestra y va hacer nuestra competencia.
+● Esta pagina se va basar nuestra pagina y va hacer nuestra competencia.
 
 "https://www.gamestorrents.fm/home/"
 ● Esta pagina tiene el fondo oscuro, una buena opcion para que la gente pueda pasar un largo tiempo
