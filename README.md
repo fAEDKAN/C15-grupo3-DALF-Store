@@ -10,7 +10,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## *Descripción*
+## *Descripción:*
 
 ### **El sitio contará con 3 enfoques principales:**
 
@@ -22,7 +22,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## ***Links referentes***
+## *Links referentes:*
 
 #### - En [ésta página][ref1] nos inspiramos, y será nuestra competencia.
 [ref1]: https://www.eneba.com/latam/
@@ -46,5 +46,33 @@
 
 #### - A continuación podemos apreciar [una referencia][ref6], donde en primera instancia se observa una página bien organizada con un desglose de las categorías cómodo y con una estrategia de venta en el header. Sin embargo el atractivo visual no es muy convincente, por ejemplo, pareciera que las fuentes utilizadas no han tenido mucha dedicación y el menú desplegable es poco práctico, pero es una referencia a tener en cuenta.
 [ref6]: https://www.greenmangaming.com/es/
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+## **Descripción de los Integrantes del Equipo:*
+
+#### Nombre: Diego Montes - Edad: 19 años - Ciudad: Plaza Huincul, Neuquén, Argentina.
+
+#### Lo que más me apasiona de la programación es el front-end. Me sienta relajante realizar un diseño y que el cliente quede satisfecho con el trabajo final, es satisfactorio poder darle 'un toque' personal a la idea original del proyecto.
+
+**************************************************************************************************************************************
+
+#### Nombre: Luca Kumric - Edad: 23 años - Ciudad: Cutral-Có, Neuquén, Argentina.
+
+#### Me interesan los videojuegos y me gusta analizar cine. También me apasiona todo lo que tenga que ver con contar historias y plasmar una narrativa, generando emociones y sensaciones en los espectadores.
+#### Estoy adentrándome en la programación para crear páginas web que ayuden y satisfagan las necesidades del cliente.
+
+**************************************************************************************************************************************
+
+#### Nombre: Axel Bustos - Edad: 25 años - Ciudad: Cutral-Có, Neuquén, Argentina.
+
+#### Mi formación está orientada a la programación y las telecomunicaciones.
+#### Estoy interesado en el mundo IT en general, en mi tiempo libre disfruto leer libros, principalmente novelas, y me gusta la música en general.
+
+**************************************************************************************************************************************
+
+#### Nombre: Federico Somma - Edad: 27 años - Ciudad: Cutral-Có, Neuquén, Argentina.
+
+#### Estoy estudiando programación porque me gusta buscar y encontrar solución a los problemas. Soy un amante del mundo de los videojuegos y la tecnología, me parece increíble cómo avanza día a día. Me divierte y entretiene aprender cosas nuevas, soy bastante curioso. Además, disfruto de la lectura, sobre todo si es algo relacionado a la ciencia, o poesía. También me gusta la astronomía, cocinar, escuchar música (puntualmente rap) y dibujar.
 
 --------------------------------------------------------------------------------------------------------------------------------------
