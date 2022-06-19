@@ -1,34 +1,48 @@
-## **Idea del proyecto**
+# **NOMBRE DEL PROYECTO**
 
-####  ▸▸ Keys virtuales y venta de productos físicos "usados o nuevos", pueden ser (hardware, figuras de acción, merchandising).
+-------------------------------------------------------------------------------------------------------------------------------------
 
-## **(Descripción)**
+## *Idea del Proyecto:*
 
-####    ● Descuentos por día de keys de juegos o software al azar. También pueden comprar merchandising propio de la pagina Ej: tazas, porta bazos y ropa de calidad.
+#### La idea del proyecto es brindar un sitio dedicado a la comercialización de 'keys' digitales y productos destinados a amantes y/o aficionados a la informática/gaming, así como también a personas que dedican largas jornadas frente a una pantalla (oficinistas, estudiantes, etc...).
 
-####    ● Apunta para todas esas personas, sentadas 24/7 en  frente de una pc.
+--------------------------------------------------------------------------------------------------------------------------------------
 
-####    ● Todo al alcanze de un click.
+## *Descripción*
 
-####    ● 
+### **El sitio contará con 3 enfoques principales:**
+
+#### El primero de ellos será la facilidad de adquirir keys digitales de videojuegos y de software. 
+
+#### El segundo la adquisición de productos físicos: componentes informáticos internos, periféricos, artículos ergonómicos, figuras de acción coleccionables y además también podrán conseguir merchandising oficial de la página! Tal como indumentaria, accesorios, mochilas, tazas y calcos.
+
+#### Como último cabe mencionar que los usuarios podrán vender o intercambiar productos símiles en un apartado de la página dedicado exclusivamente a eso.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+## ***Links referentes***
+
+#### - En [ésta página][ref1] nos inspiramos, y será nuestra competencia.
+[ref1]: https://www.eneba.com/latam/
 
 
-## **Links referentes**
-"https://www.eneba.com/latam/"
-● Esta pagina se va basar nuestra pagina y va hacer nuestra competencia.
+#### - [Éste sitio][ref2] cuenta con un fondo oscuro, es buena opción para pasar largo tiempo recorriéndolo sin sufrir fatiga visual. Otra cosa interesante es la disposición rectangular vertical de las imágenes del catálogo, aunque da la sensación de que hay mucha densidad de productos en un espacio bastante reducido.
+[ref2]: https://www.gamestorrents.fm/home/
 
-"https://www.gamestorrents.fm/home/"
-● Esta pagina tiene el fondo oscuro, una buena opcion para que la gente pueda pasar un largo tiempo
-recorriendo nuestra pagina sin sufrir cansancio visual.Otra cosa interesante es la disposicion rectangular 
-de las imagenes con los productos, aunque en este caso me parece que hay mucha densidad de productos
-en un espacio pequeño.
 
-"https://www.instant-gaming.com/es/"
-● Este es un ejemplo parecido pero con dispocicion rectangular horizontal.En este caso la pagina contiene 
-un header fijo, es comodo para acceder a inicio de manera rapida.
+#### - [Acá][ref3] tenemos un ejemplo parecido al anterior pero con dispocición rectangular horizontal. En éste caso la página contiene un header fijo, es muy cómodo para acceder de manera rápida y sencilla, sin tener que estar sufriendo al pasar el cursor por encima y que se desaparezcan las opciones. También cuenta con un estilo visual muy cuidado.
+[ref3]: https://www.instant-gaming.com/es/
 
-"https://www.gog.com/en"
-● Esta pagina destaca mas en el detalle, el cuerpo y el header; si bien es esteticamente agradable, puede llegar a ser tedioso de ver la cantidad de opciones que se nos dan a medida que bajamos. Con respecto al header, me gusta el uso de una promoción siendo que es lo primero que se ve cuando uno entra.
 
-"https://www.humblebundle.com"
-● La estetica es mediocre, pero podemos tomar referencia por sobre el login y registro, que son interfaces simples y comodas.
+#### - [Ésta opción][ref4] destaca más en el detalle, el cuerpo y el header; la estética destaca, minimalista pero muy agradable. Respecto al header, gusta mucho el utilizar promociones y/o descuentos, siendo que es lo primero que se ve al entrar al sitio.
+[ref4]: https://www.gog.com/en
+
+
+#### - [En éste caso][ref5] nos encontramos con una página estéticamente sencilla, se puede tomar referencia del login y registro, ya que cuenta con una interfaz simple y cómoda. Los colores están interesantes, y el tamaño de la portada de los productos en catálogo está bueno, ya que se pueden apreciar muy bien.
+[ref5]: https://www.humblebundle.com
+
+
+#### - Ahora presentamos [una referencia][ref6] en donde el header nos ofrece un producto destacado/en oferta, la página está bien organizada, tiene a la vista las categorías de los juegos en venta, aunque los colores no convencen del todo y a simple vista se puede decir que algunas fuentes utilizadas carecen de dedicación y el menú desplegable es automático y no fijo, es una referencia a tener en cuenta.
+[ref6]: https://www.greenmangaming.com/es/
+
+--------------------------------------------------------------------------------------------------------------------------------------
