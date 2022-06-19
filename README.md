@@ -4,7 +4,9 @@
 
 ## *Idea del Proyecto:*
 
-#### La idea del proyecto es brindar un sitio dedicado a la comercialización de 'keys' digitales y productos destinados a amantes y/o aficionados a la informática/gaming, así como también a personas que dedican largas jornadas frente a una pantalla (oficinistas, estudiantes, etc...).
+#### Nuestra misión es brindar un espacio dedicado a la comercialización de 'keys' digitales y productos destinados a amantes y/o aficionados a la informática/gaming, así como también a personas que dedican largas jornadas frente a una pantalla (oficinistas, estudiantes, etc...).
+
+#### Nuestra visión es llegar a ser la primera opción de los usuarios, que nos elijan por la confianza, la seguridad, la garantía de que sus compras y/o ventas son seguras, y por poder ofrecerles los mejores precios del mercado local.
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
@@ -12,7 +14,7 @@
 
 ### **El sitio contará con 3 enfoques principales:**
 
-#### El primero de ellos será la facilidad de adquirir keys digitales de videojuegos y de software. 
+#### El primero de ellos será la facilidad de adquirir keys digitales de videojuegos y de software, así como también productos internacionales.
 
 #### El segundo la adquisición de productos físicos: componentes informáticos internos, periféricos, artículos ergonómicos, figuras de acción coleccionables y además también podrán conseguir merchandising oficial de la página! Tal como indumentaria, accesorios, mochilas, tazas y calcos.
 
@@ -42,7 +44,7 @@
 [ref5]: https://www.humblebundle.com
 
 
-#### - Ahora presentamos [una referencia][ref6] en donde el header nos ofrece un producto destacado/en oferta, la página está bien organizada, tiene a la vista las categorías de los juegos en venta, aunque los colores no convencen del todo y a simple vista se puede decir que algunas fuentes utilizadas carecen de dedicación y el menú desplegable es automático y no fijo, es una referencia a tener en cuenta.
+#### - A continuación podemos apreciar [una referencia][ref6], donde en primera instancia se observa una página bien organizada con un desglose de las categorías cómodo y con una estrategia de venta en el header. Sin embargo el atractivo visual no es muy convincente, por ejemplo, pareciera que las fuentes utilizadas no han tenido mucha dedicación y el menú desplegable es poco práctico, pero es una referencia a tener en cuenta.
 [ref6]: https://www.greenmangaming.com/es/
 
 --------------------------------------------------------------------------------------------------------------------------------------
