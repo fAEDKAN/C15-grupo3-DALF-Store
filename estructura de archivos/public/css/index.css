@@ -106,7 +106,7 @@ h2 {
 /*  Corazón / Articulo favorito */
 
 .main__section--product-favorite {
-    position: absolute;
+    position: relative;
 }
 
 .main__section--product-favorite i {
@@ -115,7 +115,7 @@ h2 {
     border: solid 1px #0d6efd;
     border-radius: 50%;
     padding: 5px;
-    position: relative;
+    position: absolute;
     top: -200px;
     left: 110px;
 }
