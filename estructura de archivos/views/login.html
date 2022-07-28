@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/ae7c764a16.js" crossorigin="anonymous"></script>
+
+    <title>LOGIN</title>
+</head>
+<body>
+    <header>
+        <div class="header__container">
+            <div class="header__container--login">
+                <div class="login">
+                    <h2>INICIAR SESIÓN</h2>
+                    <div class="header__container--registerPage">
+                        <div class="registerPage">
+                            <a href="/register"><h2>REGISTRARSE</h2></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="main__container">
+            <div class="main__container--form">
+                <form action="">
+                    <i class="fas fa-user-astronaut"></i><input type="text" placeholder="Usuario o Email" class="userName-Email">
+                    <i class="fa-regular fa-keyboard"></i><input type="password" placeholder="Contraseña" class="pass">
+                    <div class="main__container__form--checkbox">
+                        <input type="checkbox" value="recordarme" class="checkbox">
+                        <p>Recordarme</p>
+                    </div>
+                    <input type="submit" value="ENTRAR" class="input--submit">
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__container--recoveryPass">
+                <form action="">
+                    <div class="footer__container__recoveryPass--form">
+                        <input type="submit" value="¿Olvidaste tu contraseña?" class="input--recoveryPass">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer__container--newAcc">
+            <div class="newAcc">
+                <p>¿Todavía no tenés una cuenta?</p>
+                <a href="/register"><input type="submit" value="¡REGISTRATE!" class="input--newAcc"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
