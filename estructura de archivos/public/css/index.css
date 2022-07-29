@@ -48,6 +48,7 @@ h2 {
     width: 50%;
     padding: 10px;
     color: #dee2e6;
+    position: relative;
 }
 
 .figure {
@@ -66,7 +67,9 @@ h2 {
 /*  Corazón / Articulo favorito */
 
 .main__section--product-favorite {
-    position: relative;
+    position: absolute;
+    top: 13px;
+    left: 118px;
 }
 
 .main__section--product-favorite i {
@@ -75,9 +78,6 @@ h2 {
     border: solid 1px #0d6efd;
     border-radius: 50%;
     padding: 5px;
-    position: absolute;
-    top: -200px;
-    left: 110px;
 }
 
 .main__section--product-content_offers {
@@ -154,39 +154,39 @@ h5 {
 /*  F O O T E R */
 
 @media (min-width: 375px) {
-    .main__section--product-favorite i {
-        top: -240px;
-        left: 135px;
+    .main__section--product-favorite {
+        top: 13px;
+        left: 144px;
     }
 }
 
 @media (min-width: 425px) {
-    .main__section--product-favorite i {
-        top: -274px;
-        left: 157px;
+    .main__section--product-favorite {
+        top: 13px;
+        left: 170px;
     }
 }
 
 @media (min-width: 768px) {
     /* HEADER */
-    /* FOOTER */
     /* MAIN */
     .main__section--product {
         width: 100%;
         display: flex;
         flex-wrap: nowrap;
     }
-    .main__section--product-favorite i {
-        top: -242px;
-        left: 138px;
+    .main__section--product-favorite {
+        top: 13px;
+        left: 150px;
         display: block;
     }
 }
 
 @media (min-width: 1024px) {
-    .main__section--product-favorite i {
-        top: -336px;
-        left: 200px;
+    /* MAIN */
+    .main__section--product-favorite {
+        top: 13px;
+        left: 212px;
     }
 }
 
