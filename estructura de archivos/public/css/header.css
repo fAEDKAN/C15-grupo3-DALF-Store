@@ -56,11 +56,6 @@ h1 {
     text-decoration: none;
 }
 
-.header__top--general a img {
-    width: 40%;
-    height: 40%;
-}
-
 .header--figure-logo img {
     height: 50px;
     padding-top: 5px;
@@ -76,5 +71,9 @@ h1 {
     border: none;
     background-color: transparent;
     align-items: center;
+    color: #dee2e6;
+}
+
+.header__top--general-navigation_button button a {
     color: #dee2e6;
 }
