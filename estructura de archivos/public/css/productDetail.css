@@ -1,0 +1,36 @@
+/* DETAIL PURCHASE BOX*/
+
+.detail__purchase{
+    background-color: #3d47a0;
+    padding: 10px;
+    border: solid 2px var(--C_Ice-Cream);
+    margin-bottom: 20px;
+}
+.detail__purchase__product--title {
+    width: 100%;
+    text-align: center;
+    color: var( --C_Ice-Cream);
+ }
+
+.detail__purchase__product--price {
+    color: var( --C_Ice-Cream);
+}
+
+.detail__purchase__product--rebajas{
+    color: var( --C_Ice-Cream);
+}
+
+.detail__purchase__product--discount{
+    color: #27a95d;
+}
+
+.detail__product__envio{
+    color: var( --C_Ice-Cream);
+}
+
+.detail__product--button{
+
+}
+.detail__product__images{
+    display: none;
+}
