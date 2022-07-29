@@ -16,17 +16,21 @@
             <p class="detail__purchase__product--price">$precio</p>
             <p class="detail__purchase__product--discount">10% OFF</p>
             <p class="detail__purchase__product--rebajas">En 12 cuotas sin interes</p>
-           </article> 
-            <input type="text" class="stock-input" placeholder="Stock disponible">
+           </article >
+           <div>
+            <input type="text" class="stock-input" placeholder=" Stock disponible: 99">
+            <button class="contador-resta">-</button>
+                    <button class="contador-valor">1</button>
+                    <button class="contador-suma">+</button>
+            </div>         
             <p class="detail__product__envio">Envio: Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
            <article class="detail__purchase__buttons">
-            <div class="detail__purchase--button">
-            <button type="submit" name="cart">Agregar al carrito</button>
-            <i class="fa-solid fa-cart-shopping"></i>
+            <div class="detail__purchase__buttons--cart">
+            <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i>   Agregar al carrito</button>
             </div>
-            <div class="detail__purchase--button">
-            <button type="submit" name="favorites">Agregar a favoritos</button>
-            <i class="fa-solid fa-heart"></i>
+            <div class="detail__purchase__buttons--fav">
+            <button  type="submit" name="favorites"><i class="fa-solid fa-heart"></i>   Agregar a favoritos</button>
+            
             </div>
            </article>
         </section>
@@ -49,6 +53,7 @@
             </ul>
         </section>
         <section class="detail__product__store">
+            <h2>Descripción</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse culpa eum architecto, sint deserunt labore aperiam consectetur corrupti cupiditate voluptate veniam doloremque temporibus eaque id, eos inventore, fugiat obcaecati odit tempore. Earum optio doloremque nihil iusto ratione totam praesentium vel numquam sed perferendis culpa reprehenderit velit repudiandae, iste necessitatibus asperiores.</p>
         </section>
         <section class="detail__product__ratings">
@@ -86,6 +91,9 @@
         </section>
     </main>
     <footer>
+        <div class="footer--logo">
+        <a href="/index"><img src="/images/logo2.png" alt="Logo"></a>
+        </div>
        <section class="footer__formas-de-pago">
             <a href="https://www.visa.com.ar"><img src="/images/Visa.png" alt="Visa"></a>
             <a href="https://www.mastercard.com.ar/es-ar.html"><img src="/images/Mastercard.png" alt="Mastercard"></a>            

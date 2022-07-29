@@ -3,9 +3,17 @@
 .detail__purchase{
     background-color: #3d47a0;
     padding: 10px;
-    border: solid 2px var(--C_Ice-Cream);
+    border: solid 2px var(--C_Light_Dark);
     margin-bottom: 20px;
 }
+
+.detail__purchase__product{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
 .detail__purchase__product--title {
     width: 100%;
     text-align: center;
@@ -14,23 +22,73 @@
 
 .detail__purchase__product--price {
     color: var( --C_Ice-Cream);
+    display: inline-block;
+    margin-left: 5px;
 }
 
 .detail__purchase__product--rebajas{
     color: var( --C_Ice-Cream);
+    margin: -16px 0px 15px 5px;
+    font-size: 13px;
 }
 
 .detail__purchase__product--discount{
     color: #27a95d;
+    margin-left: 36px;
+    font-size: 13px;
+    margin-top: 19px;
 }
 
 .detail__product__envio{
     color: var( --C_Ice-Cream);
+    border: solid 2px var(--C_Ice-Cream);
+    padding: 5px;
+    margin: 5px 0px;
 }
 
-.detail__product--button{
-
+.stock-input{
+    border-radius: 3%;
+    border: none;
+    width: 70%;
+    height: 21.35px;
 }
+
+.contador-resta, .contador-valor, .contador-suma {
+    width: 23px;
+    height: 21.35px;
+    margin: 0 -2px 0 0;
+    border:none;
+    border-radius: 10%;
+}
+
+.detail__purchase__buttons{
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.detail__purchase__buttons button{
+    width: 280px;
+    background-color: #606164;
+    color: var(--C_Ice-Cream);
+    height: 30px;
+}
+
+.detail__purchase__buttons--cart {
+    margin: 5px 0px;
+}
+
 .detail__product__images{
     display: none;
+}
+
+
+
+@media (min-width: 768px) {
+    
+    .detail__purchase{
+        width: 280px;
+    }
 }
