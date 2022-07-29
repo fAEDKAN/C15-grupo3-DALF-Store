@@ -7,6 +7,7 @@
     <title>Carrito</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/21043c454e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/glider.css">
 </head>
 <body class="carrito">
     <header>
@@ -15,7 +16,8 @@
         <section class="carrito__main__section--productos">
             <h2 class="carrito__main__section--pruductos-title">Tu carrito</h2>
             <div class="linea"><hr></div>
-            <article>
+            <div class="articulos">
+                <article>
                 <img src="/images/xbox-key.jpeg" alt="auriculares">
                 <div>
                     <h3>Mortal combat II</h3>
@@ -28,8 +30,8 @@
                     <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
                     <button class="precio">$2000</button>
                 </div>
-            </article>
-            <article>
+                </article>
+                <article>
                 <img src="/images/xbox-key.jpeg" alt="silla">
                 <div>
                     <h3>Producto 2</h3>
@@ -40,8 +42,8 @@
                     <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
                     <button class="precio">$2000</button>
                 </div>
-            </article>
-            <article>
+                </article>
+                <article>
                 <img src="/images/xbox-key.jpeg" alt="placagrafica">
                 <div>
                     <h3>Producto 3</h3>
@@ -52,7 +54,8 @@
                     <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
                     <button class="precio">$2000</button>
                 </div>
-            </article>
+                </article>
+            </div>
             <div class="total">
                 <div>
                     <p class="total-productos">Productos</p>
@@ -68,22 +71,46 @@
                 </div>
                 <img src="/images/medios-de-pago-1723294542" alt="">
                 <div class="total-comprar">
-                    <button>Comprar</button>
+                    <button><a href="/cartAdress">Comprar</a></button>
                 </div>
             </div>
         </section>
-        <section class="carrito__main__section--pruductos">
+        <section class="carrito__main__section--pruductos-recomendados">
             <h2 class="carrito__main__section--pruductos-title">Productos que pueden interesarte</h2>
             <div class="linea"><hr></div>
             <article class="productos-recomendados">
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <div class="glider-contain">
+                    <div class="glider">
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                    </div>
+                  
+                    <button aria-label="Previous" class="glider-prev">«</button>
+                    <button aria-label="Next" class="glider-next">»</button>
+                    <div role="tablist" class="dots"></div>
+                  </div>
+                
             </article>
         </section>
     </main>
     <footer>
 
     </footer>
+    <script src="/js/glider.js"></script>
+    <script>
+        window.addEventListener('load', function(){
+  new Glider(document.querySelector('.glider'), {
+    slidesToShow: 1,
+    slidesToScroll:1,
+    dots: '#dots',
+    arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+    }
+  })
+})
+    </script>
 </body>
 </html>

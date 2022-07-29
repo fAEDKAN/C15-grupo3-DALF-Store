@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://kit.fontawesome.com/21043c454e.js" crossorigin="anonymous"></script>
+</head>
+<body class="carrito">
+    <header>
+    </header> 
+    <main class="carrito__main">
+        <section class="carrito__main__section--productos">
+            <h2 class="carrito__main__section--pruductos-title">Metodos de pago</h2>
+            <div class="linea"><hr></div>
+            <form action="/cartPay" method="POST">
+
+                <input type="text" name="nameSurname" id="entero" placeholder="Nombre y apellido" >
+                <input type="number" name="numberCard" id="entero" placeholder="Numero de tarjeta">
+                <div class="expira">
+                    <p>Expira</p>
+                    <input type="date" name="fecha" id="chico" value="DD/MM/AAAA">
+                    <input type="password" name="clave" id="chico" placeholder="CVC">
+                    <p id="bitsecured"><i class="fa-solid fa-lock"></i>128-bit secured</p>
+                </div>
+            </form>
+            <div class="total">
+                <div>
+                    <p class="total-productos">Productos</p>
+                    <p class="total-cantidad">$0</p>
+                </div>
+                <div >
+                    <p class="total-envio">Envio</p>
+                    <p class="total-cantidad">$0</p>
+                </div>
+                <div >
+                    <p class="total-total">Total</p>
+                    <p class="total-total-cantidad">$0</p>
+                </div>
+                <img src="/images/medios-de-pago-1723294542" alt="">
+                <div class="total-comprar">
+                    <button><a href="/cartPay">Comprar</a></button>
+                </div>
+            </div>
+        </section>
+        <section class="carrito__main__section--pruductos-recomendados">
+            <h2 class="carrito__main__section--pruductos-title">Productos que pueden interesarte</h2>
+            <div class="linea"><hr></div>
+            <article class="productos-recomendados">
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+            </article>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
