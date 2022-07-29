@@ -152,12 +152,15 @@ h2 {
     font-size: 17px;
 }
 
-.main-article-carousel {}
-
 .main-carousel-button {
     background-color: #2b2d32;
     border: solid 1px #000000;
     border-radius: 50%;
+}
+
+.main--carousel-p-color {
+    color: black;
+    background-color: #6061641c;
 }
 
 
