@@ -1,0 +1,84 @@
+footer{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    background-color: #212529;
+}
+
+.footer--logo{
+    margin: 20px 0px;
+    text-align: center;
+}
+
+.footer--logo img{
+    width: 60%;
+}
+
+.footer__formas-de-pago {
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer__formas-de-pago img {
+    height: 57px;
+    width: 84px;
+}
+
+.footer__lastsection {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__lastsection__navbar ul li {
+    list-style: none;
+}
+
+.footer__lastsection__navbar {
+    color: var( --C_Ice-Cream);
+    
+}
+
+.footer__lastsection__copyright{
+    text-align: center;
+    color: var( --C_Ice-Cream);
+}
+
+@media (min-width : 768px) {
+
+    .footer--logo img{
+        width: 40%;
+    }
+
+    .footer__formas-de-pago img {
+        height: 57px;
+        width: 90px;
+    }
+
+    .footer__lastsection__navbar {
+        color: var( --C_Ice-Cream);
+        display: flex;
+        justify-content: center;
+    }
+    .footer__lastsection__navbar ul li{
+        display: inline-block;
+        justify-content: space-between;
+        padding: 0px 10px;
+    }
+}
+
+@media (min-width : 1024px){
+
+    .footer--logo img{
+        width: 30%;
+    }
+
+    .footer__formas-de-pago img {
+        height: 64px;
+        width: 105px;
+    }
+
+
+    .footer__lastsection {
+        font-size: 20px;
+    }
+}
