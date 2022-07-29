@@ -11,7 +11,35 @@
 </head>
 
 <body>
+    <header id="top">
+        <div class="header__top--general">
+            <button id="burger"><i class="fa-solid fa-bars"></i></button>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Juegos</a></li>
+                    <li><a href="#">Tarjetas de Regalo</a></li>
+                    <li><a href="#">Xbox</a></li>
+                    <li><a href="#">Software</a></li>
+                    <li><a href="#">Español Latinoamericano | ARS</a></li>
+                </ul>
+            </nav>
+            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
+            <div class="header__top--general-navigation_button">
+                <button><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                <button><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
+                <button><a href="/login"><i class="fa-solid fa-user"></i></a></button>
+            </div>
+        </div>
+    </header>
     <main class="productdetail__main">
+        <section class="detail__product__images">
+            <div class="main__product__images"><img src="/images/Silla gamer 1.webp" alt="Producto"></div>
+            <img src="/images/Silla gamer 1.webp" alt="foto1">
+            <img src="/images/Silla gamer 1.webp" alt="foto2">
+            <img src="/images/Silla gamer 1.webp" alt="foto3">
+            <img src="/images/Silla gamer 1.webp" alt="foto4">
+        </section>
         <section class="detail__purchase">
             <article class="detail__purchase__product">
                 <h1 class="detail__purchase__product--title">Producto</h1>
@@ -23,7 +51,7 @@
                     <p class="detail__purchase__product--rebajas">En 12 cuotas sin interes</p>
                 </div>
             </article>
-            <div>
+            <div class="bar-button-stock">
                 <input type="text" class="stock-input" placeholder=" Stock disponible: 99">
                 <button class="contador-resta">-</button>
                 <button class="contador-valor">1</button>
@@ -36,19 +64,11 @@
                 </div>
                 <div class="detail__purchase__buttons--fav">
                     <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i>   Agregar a favoritos</button>
-
                 </div>
             </article>
         </section>
-        <section class="detail__product__images">
-            <img src="/images/Silla gamer 1.webp" alt="Producto">
-            <img src="/images/Silla gamer 1.webp" alt="foto1">
-            <img src="/images/Silla gamer 1.webp" alt="foto2">
-            <img src="/images/Silla gamer 1.webp" alt="foto3">
-            <img src="/images/Silla gamer 1.webp" alt="foto4">
-        </section>
         <section class="detail__product__features">
-            <h2>Caracteristicas</h2>
+            <h3>Caracteristicas</h3>
             <ul>
                 <li>Lorem ipsum dolor sit.</li>
                 <li>Lorem ipsum dolor sit.</li>
@@ -58,16 +78,15 @@
                 <li>Lorem ipsum dolor sit.</li>
             </ul>
         </section>
+        <h3>Descripción</h3>
         <section class="detail__product__store">
-            <h2>Descripción</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse culpa eum architecto, sint deserunt labore aperiam consectetur corrupti cupiditate voluptate veniam doloremque temporibus eaque id, eos inventore, fugiat obcaecati odit tempore.
                 Earum optio doloremque nihil iusto ratione totam praesentium vel numquam sed perferendis culpa reprehenderit velit repudiandae, iste necessitatibus asperiores.</p>
         </section>
         <section class="detail__product__ratings">
-
         </section>
+        <h3>Preguntas Frecuentes</h3>
         <section class="detail__product__questions">
-            <h2>Preguntas Frecuentes</h2>
             <article>
                 <ul>
                     <li> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, tempore.</li>
@@ -85,8 +104,8 @@
                 </ul>
             </article>
         </section>
+        <h3>Otros productos que te pueden interesar</h3>
         <section class="detail__product__otherproducts">
-            <h2>Otros productos que te pueden interesar</h2>
             <p>titulo</p>
             <img src="" alt="">
             <p>titulo</p>

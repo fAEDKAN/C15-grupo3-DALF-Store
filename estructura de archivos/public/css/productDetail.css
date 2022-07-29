@@ -3,12 +3,36 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
+
+h3 {
+    color: var(--C_Ice-Cream)
+}
+
+
+/*  H E A D E R */
+
+
+/* M A I N */
+
+.productdetail__main {
+    padding-top: 78px;
+}
+
+.main__product__images {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+/*  F O O T E R */
 
 .detail__purchase {
     background-color: #3d47a0;
     padding: 10px;
-    border: solid 2px var(--C_Light_Dark);
+    border-top: solid 1px var(--C_Light_Dark);
     margin-bottom: 20px;
 }
 
@@ -17,6 +41,14 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
+    padding: 5px;
+    background-color: #2b2d32;
+    border: solid 1px #212529;
+    border-radius: 5px;
+}
+
+.bar-button-stock {
+    padding: 10px;
 }
 
 .detail__purchase__product--title {
@@ -51,14 +83,17 @@ body {
 
 .detail__product__envio {
     color: var( --C_Ice-Cream);
-    border: solid 2px var(--C_Ice-Cream);
+    border: solid 1px #212529;
     padding: 5px;
     margin: 5px 0px;
+    border-radius: 5px;
+    background-color: #2b2d32;
 }
 
 .stock-input {
-    border-radius: 3%;
-    border: none;
+    border-radius: 5px;
+    border: solid 1px #212529;
+    border-radius: 5px;
     width: 70%;
     height: 21.35px;
 }
@@ -86,6 +121,9 @@ body {
     background-color: #606164;
     color: var(--C_Ice-Cream);
     height: 30px;
+    border: none;
+    border-radius: 5px;
+    border: solid 1px #212529;
 }
 
 .detail__purchase__buttons--cart {
@@ -93,7 +131,37 @@ body {
 }
 
 .detail__product__images {
-    display: none;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #2b2d32;
+    justify-content: center;
+}
+
+.detail__product__images img {
+    width: 18%;
+    padding: 10px;
+}
+
+.detail__product__features {
+    background-color: var(--C_Discord);
+    border: solid 1px #212529;
+}
+
+.detail__product__features h3 {
+    text-align: center;
+    margin: 0;
+    border-bottom: solid 1px #212529;
+}
+
+.detail__product__features ul {
+    margin: 0;
+    padding: 0;
+}
+
+.detail__product__features ul li {
+    list-style: none;
+    color: var(--C_Ice-Cream);
+    padding: 5px 0px 5px 10px;
 }
 
 @media (min-width: 768px) {
