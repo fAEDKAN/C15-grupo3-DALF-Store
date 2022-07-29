@@ -1,0 +1,36 @@
+footer{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    background-color: #212529;
+    padding: 20px;
+}
+
+.footer__formas-de-pago {
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer__formas-de-pago img {
+    height: 42px;
+    width: 84px;
+}
+
+.footer__lastsection {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__lastsection__navbar ul li {
+    list-style: none;
+}
+
+.footer__lastsection__navbar {
+    color: var( --C_Ice-Cream);
+    
+}
+
+.footer__lastsection__copyright{
+    text-align: center;
+    color: var( --C_Ice-Cream);
+}
