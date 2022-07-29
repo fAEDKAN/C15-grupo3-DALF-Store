@@ -163,6 +163,10 @@ h2 {
 
 /*  F O O T E R */
 
+footer__lastsection__navbar {
+    color: #dee2e6;
+}
+
 @media (min-width: 375px)
 /* Mobile */
 
