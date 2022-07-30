@@ -7,13 +7,14 @@
     <title>Carrito</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/21043c454e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/glider.css">
 </head>
 <body class="carrito">
     <header>
     </header> 
     <main class="carrito__main">
         <section class="carrito__main__section--productos">
-            <h2 class="carrito__main__section--pruductos-title">Datos de envio</h2>
+            <p class="carrito__main__section--pruductos-title">Datos de envio</p>
             <div class="linea"><hr></div>
             <form action="/cartAdress" method="POST">
 
@@ -56,24 +57,70 @@
             </div>
         </section>
         <section class="carrito__main__section--pruductos-recomendados">
-            <h2 class="carrito__main__section--pruductos-title">Productos que pueden interesarte</h2>
+            <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
             <div class="linea"><hr></div>
             <article class="productos-recomendados">
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <div class="glider-contain">
+                    <div class="glider">
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                    </div>
+                  
+                    <button aria-label="Previous" class="glider-prev">«</button>
+                    <button aria-label="Next" class="glider-next">»</button>
+                    <div role="tablist" class="dots"></div>
+                  </div>
+                
             </article>
         </section>
     </main>
     <footer>
 
     </footer>
+    <script src="/js/glider.js"></script>
+    <script>
+        window.addEventListener('load', function(){
+  new Glider(document.querySelector('.glider'), {
+    slidesToShow: 2,
+    slidesToScroll:1,
+    itemWith:150,
+    dots: '#dots',
+    arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+    },
+    responsive: [
+    {
+      // screens greater than >= 768px
+      breakpoint: 768,
+      settings: {
+        // Set to `auto` and provide item width to adjust to viewport
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    },{
+      // screens greater than >= 1024px
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    }
+  ]
+  })
+})
+    </script>
 </body>
 </html>
