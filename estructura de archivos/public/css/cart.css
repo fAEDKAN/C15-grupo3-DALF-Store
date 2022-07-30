@@ -196,15 +196,19 @@ body{
 }
 .productos-recomendados{
     width: 100%;
-    background-color: #0d6efd;
     margin: 0 auto;
 }
-
-/*.glider a img{
-    width: 100%;
-}*/
+.glider div{
+    padding-right: 5px;
+}
 /*****************footer*****************/
 /*media queries*/
+@media(min-width:425px){
+    .total{
+        width: 70%;
+        height: 400px;
+    }
+}
 @media(min-width:768px){
     .total{
         width: 60%;
