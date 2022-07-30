@@ -7,13 +7,33 @@
     <title>Carrito</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="https://kit.fontawesome.com/21043c454e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/css/glider.css">
 </head>
 <body class="carrito">
-    <header>
-    </header> 
+    <header id="top">
+        <div class="header__top--general">
+            <button id="burger"><i class="fa-solid fa-bars"></i></button>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Juegos</a></li>
+                    <li><a href="#">Tarjetas de Regalo</a></li>
+                    <li><a href="#">Xbox</a></li>
+                    <li><a href="#">Software</a></li>
+                    <li><a href="#">Español Latinoamericano | ARS</a></li>
+                </ul>
+            </nav>
+            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
+            <div class="header__top--general-navigation_button">
+                <button><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                <button><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
+                <button><a href="/login"><i class="fa-solid fa-user"></i></a></button>
+            </div>
+        </div>
+    </header>
     <main class="carrito__main">
         <section class="carrito__main__section--productos">
-            <h2 class="carrito__main__section--pruductos-title">Metodos de pago</h2>
+            <p class="carrito__main__section--pruductos-title">Metodos de pago</p>
             <div class="linea"><hr></div>
             <form action="/cartPay" method="POST">
 
@@ -46,24 +66,92 @@
             </div>
         </section>
         <section class="carrito__main__section--pruductos-recomendados">
-            <h2 class="carrito__main__section--pruductos-title">Productos que pueden interesarte</h2>
+            <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
             <div class="linea"><hr></div>
             <article class="productos-recomendados">
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                <div class="glider-contain">
+                    <div class="glider">
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                      <div><a href=""><img src="/images/xbox-key.jpeg" alt=""></a></div>
+                    </div>
+                  
+                    <button aria-label="Previous" class="glider-prev">«</button>
+                    <button aria-label="Next" class="glider-next">»</button>
+                    <div role="tablist" class="dots"></div>
+                  </div>
+                
             </article>
         </section>
     </main>
     <footer>
-
+        <div class="footer--logo">
+            <a href="/index"><img src="/images/logo2.png" alt="Logo"></a>
+        </div>
+        <section class="footer__formas-de-pago">
+            <a href="https://www.visa.com.ar"><img src="/images/Visa.png" alt="Visa"></a>
+            <a href="https://www.mastercard.com.ar/es-ar.html"><img src="/images/Mastercard.png" alt="Mastercard"></a>
+            <a href="https://www.americanexpress.com/es-ar/"><img src="/images/American express.png" alt="American Express"></a>
+            <a href="https://www.naranjax.com"><img src="/images/Naranja.png" alt="Naranja"></a>
+            <a href="https://www.mercadopago.com.ar/home"><img src="/images/mercadopago.jpg" alt="Mercadopago"></a>
+            <a href="https://www.nativanacion.com.ar"><img src="/images/Nativa.jpg" alt="Nativa"></a>
+            <a href="https://www.redlink.com.ar"><img src="/images/Red Link.png" alt="Red Link"></a>
+        </section>
+        <section class="footer__lastsection">
+            <nav class="footer__lastsection__navbar">
+                <ul>
+                    <li>Sobre nosotros</li>
+                    <li>Contactanos</li>
+                    <li>Politicas de privacidad</li>
+                    <li>Ayuda</li>
+                </ul>
+            </nav>
+            <p class="footer__lastsection__copyright">Copyright © 2022 DALF-STORE</p>
+        </section>
     </footer>
+    <script src="/js/glider.js"></script>
+    <script>
+        window.addEventListener('load', function(){
+  new Glider(document.querySelector('.glider'), {
+    slidesToShow: 2,
+    slidesToScroll:1,
+    itemWith:150,
+    dots: '#dots',
+    arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+    },
+    responsive: [
+    {
+      // screens greater than >= 768px
+      breakpoint: 768,
+      settings: {
+        // Set to `auto` and provide item width to adjust to viewport
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    },{
+      // screens greater than >= 1024px
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        itemWidth: 150,
+        duration: 0.25
+      }
+    }
+  ]
+  })
+})
+    </script>
 </body>
 </html>

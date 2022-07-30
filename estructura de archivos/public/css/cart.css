@@ -26,8 +26,9 @@ body{
 }
 .carrito__main__section--pruductos-title{
     width: 95%;
-    font-size: 18px;
+    font-size: 1rem;
     margin-bottom: 0;
+    font-weight: 600;
 }
 .linea{
     display: flex;
@@ -192,12 +193,17 @@ body{
 }
 /**productos recomedados**/
 .carrito__main__section--pruductos-recomendados{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
     width: 100%;
 }
 .productos-recomendados{
     width: 100%;
     margin: 0 auto;
 }
+
 .glider div{
     padding-right: 5px;
 }
