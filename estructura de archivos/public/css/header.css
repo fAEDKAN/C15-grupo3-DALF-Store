@@ -43,11 +43,21 @@ h1 {
 .navigation ul {
     padding: 0;
     margin: 0;
+    display: flex;
+    position: absolute;
+    top: 56px;
+    left: 171px;
+    align-items: center;
+    left: 141px
 }
 
 .navigation ul li {
     list-style: none;
     color: var(--C_Ice-Cream);
+    padding: 2px;
+    border: solid 1px var(--C_Ice-Cream);
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .navigation ul li a {
@@ -76,4 +86,40 @@ h1 {
 
 .header__top--general-navigation_button button a {
     color: #dee2e6;
+}
+
+@media (min-width: 1024px) {
+    /* Desktop */
+    .header__top--general {
+        margin-bottom: 33px;
+    }
+    .header--figure-logo {
+        padding-right: 815px;
+    }
+    .navigation {
+        display: flex;
+    }
+}
+
+@media (min-width: 1440px) {
+    .header--figure-logo {
+        padding-right: 1220px;
+    }
+    .navigation ul {
+        left: 360px;
+    }
+}
+
+@media (min-width: 1680px) {
+    /* H E D E R */
+    .header--figure-logo {
+        padding-right: 1430px;
+    }
+    .navigation ul {
+        left: 460px;
+    }
+    /* M A I N */
+    .main__section--product-favorite {
+        left: 240px;
+    }
 }
