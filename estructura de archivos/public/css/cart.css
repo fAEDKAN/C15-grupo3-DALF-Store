@@ -222,6 +222,17 @@ body{
     }
 }
 @media(min-width:1024px){
+    .carrito{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    .carrito__main{
+        width: 90vw;
+        display: flex;
+        justify-content: center;
+    }
     .carrito__main__section--productos{
         justify-content: space-around;
     }
