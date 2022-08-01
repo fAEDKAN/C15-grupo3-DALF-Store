@@ -10,51 +10,53 @@
     <title>LOGIN</title>
 </head>
 <body>
-    <header>
-        <div class="header__container">
-            <div class="header__container--login">
-                <div class="login">
+    <div class="body__container">
+        <header>
+            <div class="header__container">
+                <section class="header__container--login">
                     <h2>INICIAR SESIÓN</h2>
-                    <div class="header__container--registerPage">
-                        <div class="registerPage">
-                            <a href="/register"><h2>REGISTRARSE</h2></a>
-                        </div>
+                </section>
+                <section class="header__container--register">
+                    <a href="/register"><h2>REGISTRARSE</h2></a>
+                </section>
+            </div>
+        </header>
+        <main>
+            <div class="main__container">
+                <section class="main__container--data">
+                    <form action="">
+                        <article class="email">
+                            <i class="fa-solid fa-paper-plane"></i><label for="email">Email:</label>
+                            <input type="email" placeholder="Ingresá tu Email" id="email" name="email" required>
+                        </article>
+                        <article class="password">
+                            <i class="fa-solid fa-keyboard"></i><label for="password">Contraseña:</label>
+                            <input type="password" placeholder="Ingresá tu Contraseña" id="password" name="password" minlength="8" maxlength="25" required>
+                        </article>
+                        <article class="rememberMe">
+                            <label for="remember">Recordarme</label>
+                            <input type="checkbox" id="remember" name="remember">
+                        </article>
+                        <input type="submit" value="INGRESAR">
+                    </form>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="footer__container">
+                <section class="footer__container--form">
+                    <form action="">
+                        <input type="submit" value="¿Olvidaste tu contraseña?">
+                    </form>
+                </section>
+                <section class="footer__container--newAcc">
+                    <div class="newAcc">
+                        <p>¿Todavía no tenés una cuenta?</p>
+                        <a href="/register">¡Registrate!</a>
                     </div>
-                </div>
+                </section>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="main__container">
-            <div class="main__container--form">
-                <form action="">
-                    <i class="fas fa-user-astronaut"></i><input type="text" placeholder="Usuario o Email" class="userName-Email">
-                    <i class="fa-regular fa-keyboard"></i><input type="password" placeholder="Contraseña" class="pass">
-                    <div class="main__container__form--checkbox">
-                        <input type="checkbox" value="recordarme" class="checkbox">
-                        <p>Recordarme</p>
-                    </div>
-                    <input type="submit" value="ENTRAR" class="input--submit">
-                </form>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div class="footer__container">
-            <div class="footer__container--recoveryPass">
-                <form action="">
-                    <div class="footer__container__recoveryPass--form">
-                        <input type="submit" value="¿Olvidaste tu contraseña?" class="input--recoveryPass">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="footer__container--newAcc">
-            <div class="newAcc">
-                <p>¿Todavía no tenés una cuenta?</p>
-                <a href="/register"><input type="submit" value="¡REGISTRATE!" class="input--newAcc"></a>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>

@@ -28,12 +28,27 @@
         <div class="main__container">
             <section class="main__container--form">
                 <form action="">
-                    <i class="fas fa-file-signature"></i><input type="text" placeholder="Nombre Completo" class="name">
-                    <i class="fa-regular fa-envelope"></i><input type="text" placeholder="Email" class="email">
-                    <i class="fas fa-user-astronaut"></i><input type="text" placeholder="Nombre de Usuario" class="userName">
-                    <i class="fa-regular fa-keyboard"></i><input type="password" placeholder="Contraseña" class="pass">
-                    <i class="fas fa-unlock-alt"></i><input type="password" placeholder="Confirmar Contraseña" class="repass">
-                    <input type="submit" value="CREAR CUENTA" class="submit">
+                    <p>
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" name="name" id="name">
+                    </p>
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email">
+                    </p>
+                    <p>
+                        <label for="username">Nombre de Usuario:</label>
+                        <input type="text" name="username" id="username">
+                    </p>
+                    <p>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" name="password" id="password">
+                    </p>
+                    <p>
+                        <label for="repass">Confirmar Contraseña:</label>
+                        <input type="repass" name="repass" id="repass">
+                    </p>
+                    <input type="submit" value="CREAR CUENTA" class="input--createAcc">
                 </form>
             </section>
         </div>
