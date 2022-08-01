@@ -9,6 +9,7 @@ body{
 .carrito__main{
     display: flex;
     flex-wrap: wrap;
+    padding-top: 70px;
 }
 .articulos{
     display: flex;
