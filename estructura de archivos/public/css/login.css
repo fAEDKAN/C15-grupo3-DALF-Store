@@ -10,9 +10,10 @@
 
 * {
     box-sizing: border-box;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Open Sans';   
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans';
+    text-decoration: none;
 }
 
 
@@ -33,6 +34,7 @@ body {
 .body__container {
     position: relative;
     width: 90%;
+    margin: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     border: 1px solid var(--C_Lightblue_Logo);
@@ -46,11 +48,10 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 5%;
 }
 
 .header__container--login {
-    padding: 5%;
+    padding: 15px;
 }
 
 .header__container--login h2 {
@@ -195,12 +196,12 @@ body {
     background: linear-gradient(#36393f,#212529);
 }
 
-::placeholder {
+/* ::placeholder {
     color: var(--C_Light_Dark);
     font-size: 1rem;
     font-weight: 500;
     padding-left: 5px;
-}
+} */
 
 .main__container--data form i {
     color: var(--C_Lightblue_Logo);
@@ -248,7 +249,6 @@ body {
 
 .footer__container--newAcc {
     width: 100%;
-    padding: 5%;
 }
 
 .newAcc {
@@ -270,4 +270,23 @@ body {
     padding: 5px;
     margin-bottom: 20px;
     border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+
+
+
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+}
+
+
+
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+
 }
