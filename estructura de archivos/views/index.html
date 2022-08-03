@@ -19,12 +19,30 @@
             <button id="burger"><i class="fa-solid fa-bars"></i></button>
             <nav class="navigation">
                 <ul>
-                    <li><a href="#">Tienda</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Tarjetas de Regalo</a></li>
-                    <li><a href="#">Xbox</a></li>
+                    <li>
+                        <select name="juegos" id="juegos">
+                        <option value="">Juegos</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="Xbox" id="Xbox">
+                            <option value="">Xbox</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </li>
                     <li><a href="#">Software</a></li>
-                    <li><a href="#">Español Latinoamericano | ARS</a></li>
+                    <li><a href="#">Tarjetas de Regalo</a></li>
+                    <li><a href="#">Productos fisicos</a></li>
+                    <li>Español Latinoamericano | ARS</li>
                 </ul>
             </nav>
             <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
@@ -134,21 +152,21 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100" alt="">
+                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100 main--img-banner" alt="">
                     <div class="carousel-caption d-none d-md-block main--carousel-p-color">
                         <h5>Cliente+</h5>
                         <p>Beneficios increibles con Cliente+.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100" alt="">
+                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100 main--img-banner" alt="">
                     <div class="carousel-caption d-none d-md-block main--carousel-p-color">
                         <h5>Partnership</h5>
                         <p>Convierte en socio de DALF-Store.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100" alt="">
+                    <img src="/images/white-background-2-768x450.jpg" class="d-block w-100 main--img-banner" alt="">
                     <div class="carousel-caption d-none d-md-block main--carousel-p-color">
                         <h5>Merchandising</h5>
                         <p>Compra productos unicos de la pagina. <i class="fa-solid fa-heart"></i> </p>
@@ -273,22 +291,22 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/images/banner-accion.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/banner-accion.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/banner-aventuras.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/banner-aventuras.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/banner-rpg.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/banner-rpg.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/banner-indie.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/banner-indie.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/banner-fps-tps.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/banner-fps-tps.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/eric-nice.png" class="d-block w-100 main-article-carousel" alt="...">
+                    <img src="/images/eric-nice.png" class="d-block w-100 main-article-carousel main--img-banner main--img-banner-categoris" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -331,9 +349,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js " integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK " crossorigin="anonymous "></script>
     <script src="/js/glider.js"></script>
     <script>
-        const myCarouselElement = document.querySelector('#carouselExampleIndicators"')
+        const myCarouselElement = document.querySelector('#carouselExampleIndicators #carouselExampleControls')
         const carousel = new bootstrap.Carousel(myCarouselElement, {
-            interval: 5000,
+            interval: 999999,
         })
     </script>
 </body>
