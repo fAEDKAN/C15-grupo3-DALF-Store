@@ -1,5 +1,10 @@
 /* DETAIL PURCHASE BOX*/
 
+p,
+li {
+    color: var(--C_Ice-Cream);
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -7,7 +12,9 @@ body {
 }
 
 h3 {
-    color: var(--C_Ice-Cream)
+    color: var(--C_Ice-Cream);
+    text-align: center;
+    margin: 5px;
 }
 
 
@@ -30,9 +37,9 @@ h3 {
 /*  F O O T E R */
 
 .detail__purchase {
-    background-color: #3d47a0;
+    background-color: var(--C_Dark);
     padding: 10px;
-    border-top: solid 1px var(--C_Light_Dark);
+    border: solid 1px var(--C_Ice-Cream);
     margin-bottom: 20px;
 }
 
@@ -42,7 +49,6 @@ h3 {
     flex-wrap: wrap;
     text-align: center;
     padding: 5px;
-    background-color: #2b2d32;
     border: solid 1px #212529;
     border-radius: 5px;
 }
@@ -64,14 +70,12 @@ h3 {
 }
 
 .detail__purchase__product--price {
-    color: var( --C_Ice-Cream);
     display: inline-block;
     margin-left: 5px;
 }
 
 .detail__purchase__product--rebajas {
-    color: var( --C_Ice-Cream);
-    font-size: 13px;
+    font-size: 17px;
 }
 
 .detail__purchase__product--discount {
@@ -82,12 +86,11 @@ h3 {
 }
 
 .detail__product__envio {
-    color: var( --C_Ice-Cream);
     border: solid 1px #212529;
     padding: 5px;
     margin: 5px 0px;
     border-radius: 5px;
-    background-color: #2b2d32;
+    text-align: center;
 }
 
 .stock-input {
@@ -118,7 +121,7 @@ h3 {
 
 .detail__purchase__buttons button {
     width: 280px;
-    background-color: #606164;
+    background-color: var(--C_Light_Grey);
     color: var(--C_Ice-Cream);
     height: 30px;
     border: none;
@@ -133,24 +136,26 @@ h3 {
 .detail__product__images {
     display: flex;
     flex-wrap: wrap;
-    background-color: #2b2d32;
+    background-color: #fff;
     justify-content: center;
 }
 
 .detail__product__images img {
-    width: 18%;
-    padding: 10px;
+    width: 45%;
+    padding: 7px;
+    border: solid 1px #dbdbdb;
 }
 
 .detail__product__features {
-    background-color: var(--C_Discord);
-    border: solid 1px #212529;
+    background-color: var(--C_Dark);
+    border: solid 1px var(--C_Ice-Cream);
+    margin-bottom: 20px;
 }
 
 .detail__product__features h3 {
     text-align: center;
+    border: solid 1px var(--C_Ice-Cream);
     margin: 0;
-    border-bottom: solid 1px #212529;
 }
 
 .detail__product__features ul {
@@ -159,9 +164,99 @@ h3 {
 }
 
 .detail__product__features ul li {
-    list-style: none;
+    list-style: inside;
     color: var(--C_Ice-Cream);
-    padding: 5px 0px 5px 10px;
+    padding: 5px 0px 5px 5px;
+}
+
+.detail__product__store {
+    background-color: var(--C_Dark);
+    border: solid 1px var(--C_Ice-Cream);
+    color: var(--C_Ice-Cream);
+    margin-bottom: 20px;
+}
+
+.detail__product__store h3 {
+    border: solid 1px var(--C_Ice-Cream);
+    margin: 0;
+}
+
+.detail__product__ratings {
+    background-color: var(--C_Dark);
+    color: var(--C_Ice-Cream);
+    border: solid 1px var(--C_Ice-Cream);
+    margin-bottom: 20px;
+}
+
+.detail__product__ratings h3 {
+    background-color: var();
+    border: solid 1px var(--C_Ice-Cream);
+    margin: 0;
+}
+
+.detail__product__ratings-buttons {
+    text-align: center;
+}
+
+.detail__product__ratings-buttons button {
+    text-align: center;
+    color: var(--C_Ice-Cream);
+    border: solid 1px var(--C_Ice-Cream);
+    background-color: var(--C_Dark);
+    padding: 10px 41px 10px 40px;
+}
+
+.detail__product__ratings-comments {
+    padding: 10px;
+}
+
+.detail__product__ratings-comments p {
+    margin: 0px;
+}
+
+.detail__product__questions {
+    border: solid 1px var(--C_Ice-Cream);
+    background-color: var(--C_Dark);
+    margin-bottom: 10px;
+}
+
+.detail__product__questions h3 {
+    border: solid 1px var(--C_Ice-Cream);
+    margin: 0;
+}
+
+.detail__product__questions--failed {
+    display: flex;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.detail__product__questions--failed p {
+    width: 50%;
+    margin: 0;
+    font-size: 14px;
+}
+
+.detail__product__otherproducts {
+    background: var(--C_Dark);
+    border: solid 1px var(--C_Ice-Cream);
+}
+
+.detail__product__otherproducts h3 {
+    border: solid 1px var(--C_Ice-Cream);
+    margin: 0;
+}
+
+.detail__product__otherproducts--banner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detail__product__otherproducts--banner img {
+    width: 21%;
+    padding: 5px;
 }
 
 @media (min-width: 768px) {
