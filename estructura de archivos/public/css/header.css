@@ -48,7 +48,7 @@ h1 {
     top: 56px;
     left: 171px;
     align-items: center;
-    left: 141px
+    left: 56px;
 }
 
 .navigation ul li {
@@ -106,7 +106,7 @@ h1 {
         padding-right: 1220px;
     }
     .navigation ul {
-        left: 360px;
+        left: 300px;
     }
 }
 
@@ -116,7 +116,7 @@ h1 {
         padding-right: 1430px;
     }
     .navigation ul {
-        left: 460px;
+        left: 300px;
     }
     /* M A I N */
     .main__section--product-favorite {
