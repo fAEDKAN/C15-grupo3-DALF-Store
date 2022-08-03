@@ -1,0 +1,330 @@
+:root {
+    --C_Ice-Cream: #dee2e6;
+    --C_Grey_Dark: #36393f;
+    --C_Light_Dark: #212529;
+    --C_Blue: #0d6efd;
+    --C_Discord: #3d47a0;
+    --C_Pink_Logo: #e400ff;
+    --C_Lightblue_Logo: #00e4ff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans';
+    text-decoration: none;
+}
+
+
+/** BODY */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.body__container1 {
+    position: relative;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid var(--C_Lightblue_Logo);
+}
+
+
+/** HEADER */
+
+.header__container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.header__container--register1 h2 {
+    color: var(--C_Ice-Cream);
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.header__container--login1 a h2 {
+    color: var(--C_Lightblue_Logo);
+    font-size: 1.1rem;
+}
+
+.header__container--login1 a h2:hover {
+    transition: 0s;
+    border: 1px solid var(--C_Pink_Logo);
+    color: var(--C_Pink_Logo);
+}
+
+
+/** MAIN */
+
+.main__container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.fullName1 {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fullName1 label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.fullName1 input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.email1 {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.email1 label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.email1 input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.userName1 {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.userName1 label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.userName1 input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.password1 {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.password1 label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.password1 input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.rePass1 {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rePass1 label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.rePass1 input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.main__container--data1 form input:hover {
+    transition: 0.5s;
+    border: 1px solid var(--C_Lightblue_Logo);
+    color: var(--C_Lightblue_Logo);
+}
+
+.main__container--data1 form input[type="submit"] {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--C_Ice-Cream);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    outline: none;
+    font-size: 1.25rem;
+    border: 2px solid var(--C_Ice-Cream);
+}
+
+.main__container--data1 form input[type="submit"]:hover {
+    color: var(--C_Ice-Cream);
+    border: 2px solid var(--C_Pink_Logo);
+    background: linear-gradient(#36393f,#212529);
+}
+
+::placeholder {
+    color: var(--C_Light_Dark);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.main__container--data1 form i {
+    color: var(--C_Lightblue_Logo);
+    padding: 10px;
+}
+
+
+/** FOOTER */
+
+.footer__container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.loginPage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.footer__container1--loginPage div p {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+}
+
+.footer__container1--loginPage div a {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    padding: 5px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+
+
+
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .body__container1 {
+        width: 40%;
+    }
+
+}
+
+
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+    
+    .body__container1 {
+        width: 30%;
+    }
+
+}
