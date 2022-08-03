@@ -1,4 +1,4 @@
-body {
+#index {
     background-color: #36393f;
     font-family: 'Open Sans', sans-serif;
 }
@@ -17,7 +17,7 @@ body {
     padding-top: 62px;
 }
 
-.main h2,
+#mid h2,
 h2 {
     text-align: center;
     padding: 5px;
