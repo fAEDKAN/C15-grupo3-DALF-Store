@@ -1,0 +1,291 @@
+:root {
+    --C_Ice-Cream: #dee2e6;
+    --C_Grey_Dark: #36393f;
+    --C_Light_Dark: #212529;
+    --C_Blue: #0d6efd;
+    --C_Discord: #3d47a0;
+    --C_Pink_Logo: #e400ff;
+    --C_Lightblue_Logo: #00e4ff;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans';
+    text-decoration: none;
+}
+
+
+/** BODY */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.body__container {
+    position: relative;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid var(--C_Lightblue_Logo);
+}
+
+
+/** HEADER */
+
+.header__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.header__container--login h2 {
+    color: var(--C_Ice-Cream);
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.header__container--register a h2 {
+    color: var(--C_Lightblue_Logo);
+    font-size: 1.1rem;
+}
+
+.header__container--register a h2:hover {
+    transition: 0s;
+    border: 1px solid var(--C_Pink_Logo);
+    color: var(--C_Pink_Logo);
+}
+
+
+/** MAIN */
+
+.main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 12px;
+}
+
+.email {
+    margin: auto;
+    padding: 15px 0px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.email label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.email input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.password {
+    margin: auto;
+    padding: 15px 0px;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.password label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    margin: auto;
+    margin-left: 0px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+.password input {
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    outline: none;
+    padding-left: 10px;
+}
+
+.rememberMe {
+    width: 50%;
+    padding: 5px;
+    padding-top: 13px;
+    padding-bottom: 12px;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.rememberMe label {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+}
+
+.rememberMe input {
+    margin: auto;
+    width: 100%;
+    height: 20px;
+}
+
+.main__container--data form input:hover {
+    transition: 0.5s;
+    border: 1px solid var(--C_Lightblue_Logo);
+    color: var(--C_Lightblue_Logo);
+}
+
+.main__container--data form input[type="submit"] {
+    display: block;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--C_Ice-Cream);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    outline: none;
+    font-size: 1.25rem;
+    border: 2px solid var(--C_Ice-Cream);
+}
+
+.main__container--data form input[type="submit"]:hover {
+    transition: 0.5s;
+    color: var(--C_Ice-Cream);
+    border: 2px solid var(--C_Pink_Logo);
+    background: linear-gradient(#36393f,#212529);
+}
+
+/* ::placeholder {
+    color: var(--C_Light_Dark);
+    font-size: 0.9rem;
+    font-style: italic;
+} */
+
+.main__container--data form i {
+    color: var(--C_Lightblue_Logo);
+    padding: 10px;
+}
+
+
+/** FOOTER */
+
+.footer__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer__container--form {
+    width: 100%;
+}
+
+.footer__container--form form input[type="submit"] {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 49px;
+    width: 75%;
+    height: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: var(--C_Ice-Cream);
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    outline: none;
+    font-size: 0.83rem;
+    border: 2px solid var(--C_Ice-Cream);
+}
+
+.footer__container--form form input[type="submit"]:hover {
+    transition: 0s;
+    color: var(--C_Ice-Cream);
+    border: 2px solid var(--C_Pink_Logo);
+    background: linear-gradient(#36393f,#212529);
+}
+
+.newAcc {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.footer__container--newAcc div p {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+}
+
+.footer__container--newAcc div a {
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    padding: 5px;
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
+}
+
+
+
+
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+    .body__container {
+        width: 40%;
+    }
+
+}
+
+
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+    
+    .body__container {
+        width: 30%;
+    }
+
+}
