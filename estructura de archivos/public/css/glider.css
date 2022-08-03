@@ -39,7 +39,7 @@
   width: 100%;
 }
 .glider-slide img {
-  max-width: 100%;
+  max-width: 85%;
 }
 .glider::-webkit-scrollbar {
   opacity: 0;

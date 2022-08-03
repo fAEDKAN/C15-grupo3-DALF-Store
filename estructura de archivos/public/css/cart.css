@@ -208,6 +208,9 @@ body{
 .glider div{
     padding-right: 5px;
 }
+.glider-prev, .glider-next{
+    display:none
+}
 /*****************footer*****************/
 /*media queries*/
 @media(min-width:425px){
@@ -233,6 +236,7 @@ body{
         width: 90vw;
         display: flex;
         justify-content: center;
+        padding-top: 80px;
     }
     .carrito__main__section--productos{
         justify-content: space-around;
