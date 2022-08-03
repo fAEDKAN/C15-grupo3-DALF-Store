@@ -21,6 +21,7 @@
 
 body {
     width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,7 +35,6 @@ body {
 .body__container {
     position: relative;
     width: 90%;
-    margin: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     border: 1px solid var(--C_Lightblue_Logo);
@@ -48,21 +48,19 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.header__container--login {
-    padding: 15px;
+    width: 100%;
+    margin-top: 8px;
 }
 
 .header__container--login h2 {
     color: var(--C_Ice-Cream);
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .header__container--register a h2 {
     color: var(--C_Lightblue_Logo);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .header__container--register a h2:hover {
@@ -79,12 +77,12 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: auto;
+    margin-top: 12px;
 }
 
 .email {
-    padding: 10px 0px;
     margin: auto;
+    padding: 15px 0px;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -92,11 +90,11 @@ body {
 
 .email label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .email input {
@@ -109,14 +107,14 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 .password {
-    padding: 10px 0px;
     margin: auto;
+    padding: 15px 0px;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
@@ -124,11 +122,11 @@ body {
 
 .password label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .password input {
@@ -141,15 +139,16 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 .rememberMe {
     width: 50%;
     padding: 5px;
-    padding-top: 12px;
+    padding-top: 13px;
+    padding-bottom: 12px;
     margin: auto;
     display: flex;
     flex-wrap: nowrap;
@@ -158,7 +157,6 @@ body {
 .rememberMe label {
     color: var(--C_Ice-Cream);
     font-size: 1rem;
-    margin: auto;
 }
 
 .rememberMe input {
@@ -177,9 +175,9 @@ body {
     display: block;
     margin: auto;
     margin-top: 15px;
-    margin-bottom: 5px;
-    width: 65%;
-    height: 50px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 40px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     color: var(--C_Ice-Cream);
@@ -191,6 +189,7 @@ body {
 }
 
 .main__container--data form input[type="submit"]:hover {
+    transition: 0.5s;
     color: var(--C_Ice-Cream);
     border: 2px solid var(--C_Pink_Logo);
     background: linear-gradient(#36393f,#212529);
@@ -198,15 +197,13 @@ body {
 
 /* ::placeholder {
     color: var(--C_Light_Dark);
-    font-size: 1rem;
-    font-weight: 500;
-    padding-left: 5px;
+    font-size: 0.9rem;
+    font-style: italic;
 } */
 
 .main__container--data form i {
     color: var(--C_Lightblue_Logo);
     padding: 10px;
-    margin: 1px;
 }
 
 
@@ -226,8 +223,8 @@ body {
 .footer__container--form form input[type="submit"] {
     display: block;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 49px;
     width: 75%;
     height: 40px;
     border-bottom-left-radius: 10px;
@@ -247,28 +244,23 @@ body {
     background: linear-gradient(#36393f,#212529);
 }
 
-.footer__container--newAcc {
-    width: 100%;
-}
-
 .newAcc {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
 .footer__container--newAcc div p {
     color: var(--C_Ice-Cream);
-    padding: 0px 5px 10px 5px;
+    font-size: 1rem;
 }
 
 .footer__container--newAcc div a {
     color: var(--C_Ice-Cream);
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px;
-    margin-bottom: 20px;
     border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
@@ -280,13 +272,20 @@ body {
 
 @media (min-width: 768px) {
 
-}
+    .body__container {
+        width: 40%;
+    }
 
+}
 
 
 
 /* DESKTOP */
 
 @media (min-width: 1024px) {
+    
+    .body__container {
+        width: 30%;
+    }
 
 }

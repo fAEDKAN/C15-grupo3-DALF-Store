@@ -21,6 +21,7 @@
 
 body {
     width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,11 +35,11 @@ body {
 .body__container1 {
     position: relative;
     width: 90%;
-    margin: 10px;
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     border: 1px solid var(--C_Lightblue_Logo);
 }
+
 
 /** HEADER */
 
@@ -47,17 +48,19 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
 }
 
 .header__container--register1 h2 {
     color: var(--C_Ice-Cream);
-    font-size: 2rem;
+    font-size: 1.5rem;
     border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .header__container--login1 a h2 {
     color: var(--C_Lightblue_Logo);
-    font-size: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .header__container--login1 a h2:hover {
@@ -74,11 +77,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: auto;
 }
 
 .fullName1 {
-    padding: 0px 0px 5px 0px;
     margin: auto;
     width: 80%;
     display: flex;
@@ -87,11 +88,11 @@ body {
 
 .fullName1 label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .fullName1 input {
@@ -104,13 +105,12 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     padding-left: 10px;
 }
 
 .email1 {
-    padding: 0px 0px 5px 0px;
     margin: auto;
     width: 80%;
     display: flex;
@@ -119,11 +119,11 @@ body {
 
 .email1 label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .email1 input {
@@ -136,13 +136,12 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     padding-left: 10px;
 }
 
 .userName1 {
-    padding: 0px 0px 5px 0px;
     margin: auto;
     width: 80%;
     display: flex;
@@ -151,11 +150,11 @@ body {
 
 .userName1 label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .userName1 input {
@@ -168,13 +167,12 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     padding-left: 10px;
 }
 
 .password1 {
-    padding: 0px 0px 5px 0px;
     margin: auto;
     width: 80%;
     display: flex;
@@ -183,11 +181,11 @@ body {
 
 .password1 label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .password1 input {
@@ -200,13 +198,12 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     padding-left: 10px;
 }
 
 .rePass1 {
-    padding: 0px 0px 5px 0px;
     margin: auto;
     width: 80%;
     display: flex;
@@ -215,11 +212,11 @@ body {
 
 .rePass1 label {
     color: var(--C_Ice-Cream);
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: auto;
-    margin-left: 5px;
+    margin-left: 0px;
     margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo)
+    border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
 .rePass1 input {
@@ -232,18 +229,24 @@ body {
     background: rgba(255, 255, 255, 0.1940);
     border-top-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     outline: none;
     padding-left: 10px;
+}
+
+.main__container--data1 form input:hover {
+    transition: 0.5s;
+    border: 1px solid var(--C_Lightblue_Logo);
+    color: var(--C_Lightblue_Logo);
 }
 
 .main__container--data1 form input[type="submit"] {
     display: block;
     margin: auto;
     margin-top: 15px;
-    margin-bottom: 5px;
-    width: 65%;
-    height: 50px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 40px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     color: var(--C_Ice-Cream);
@@ -262,15 +265,15 @@ body {
 
 ::placeholder {
     color: var(--C_Light_Dark);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-style: italic;
 }
 
 .main__container--data1 form i {
     color: var(--C_Lightblue_Logo);
     padding: 10px;
-    margin: 1px;
 }
+
 
 /** FOOTER */
 
@@ -281,29 +284,22 @@ body {
     flex-wrap: wrap;
 }
 
-.footer__container1--loginPage {
-    width: 100%;
-
-}
-
 .loginPage {
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
 .footer__container1--loginPage div p {
     color: var(--C_Ice-Cream);
-    padding: 10px 5px 0px;
+    font-size: 1rem;
 }
 
 .footer__container1--loginPage div a {
     color: var(--C_Ice-Cream);
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px;
-    margin-bottom: 8px;
     border-bottom: 1px solid var(--C_Lightblue_Logo);
 }
 
@@ -315,15 +311,20 @@ body {
 
 @media (min-width: 768px) {
 
-    
+    .body__container1 {
+        width: 40%;
+    }
 
 }
-
 
 
 
 /* DESKTOP */
 
 @media (min-width: 1024px) {
+    
+    .body__container1 {
+        width: 30%;
+    }
 
 }
