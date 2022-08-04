@@ -36,8 +36,7 @@ footer {
     text-align: center;
 }
 .footer_nav-home ul, .footer_nav-aboutUs ul {
-    padding: 0;
->>>>>>> cart-axel
+    padding: 5px;
 }
 
 .footer__formas-de-pago {
