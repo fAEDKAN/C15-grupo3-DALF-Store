@@ -1,23 +1,56 @@
 footer {
     display: flex;
     box-sizing: border-box;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: #212529;
     margin-top: 15px;
+    width: 100%;
 }
 
 .footer--logo {
     margin: 20px 0px;
     text-align: center;
+    width: 100%;
 }
 
 .footer--logo img {
-    width: 40%;
+    height: 70px;
+    width: auto;
+}
+.footer_nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.footer_nav a{
+    text-decoration: none;
+    color: #dee2e6;
+}
+.footer_nav-home, .footer_nav-aboutUs, .footer_nav-app {
+    width: 70%;
+    padding: 5px;
+    text-align: center;
+}
+.footer_nav-home ul, .footer_nav-aboutUs ul {
+    padding: 5px;
 }
 
 .footer__formas-de-pago {
     flex-wrap: wrap;
     text-align: center;
+    display: none;
+}
+.footer_nav-app {
+    display: flex;
+    flex-direction: column;
+}
+.footer_nav-app img{
+    width: 150px;
+    height: 40px;
 }
 
 .footer__formas-de-pago img {
@@ -29,25 +62,26 @@ footer {
 .footer__lastsection {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
-
-.footer__lastsection__navbar ul li {
-    list-style: none;
-}
-
 .footer__lastsection__navbar {
-    color: #dee2e6;
+    width: 100%;
+    text-align: center;
+}
+.footer__lastsection__navbar i{
+    color: var(--C_Ice-Cream);
+}
+.footer__lastsection__navbar a{
+    padding: 5px;
 }
 
 .footer__lastsection__copyright {
     text-align: center;
     color: #dee2e6;
+    width: 100%;
 }
 
 @media (min-width: 768px) {
-    .footer--logo img {
-        width: 40%;
-    }
     .footer__formas-de-pago img {
         height: 57px;
         width: 90px;
@@ -59,16 +93,22 @@ footer {
         padding: 10px 0px 0px;
     }
     .footer__lastsection__navbar ul li {
-        display: inline-block;
+        /*display: inline-block;*/
         justify-content: space-between;
         padding: 0px 10px;
     }
 }
 
 @media (min-width: 1024px) {
-    .footer--logo img {
-        width: 30%;
+    .footer_nav {
+        flex-direction: row;
     }
+    .footer_nav-home, .footer_nav-aboutUs, .footer_nav-app {
+        width: 23%;
+        padding: 5px;
+        text-align: start;
+    }
+    
     .footer__formas-de-pago img {
         height: 64px;
         width: 105px;

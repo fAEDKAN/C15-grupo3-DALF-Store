@@ -91,7 +91,7 @@ h1 {
 @media (min-width: 1024px) {
     /* Desktop */
     .header__top--general {
-        margin-bottom: 33px;
+        margin-bottom: 14px;
     }
     .header--figure-logo {
         padding-right: 815px;
