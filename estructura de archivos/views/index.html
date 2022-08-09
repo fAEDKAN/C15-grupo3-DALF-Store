@@ -16,41 +16,55 @@
 <body id="index">
     <header id="top">
         <div class="header__top--general">
-            <button id="burger"><i class="fa-solid fa-bars"></i></button>
-            <nav class="navigation">
-                <ul>
-                    <li>
-                        <select name="juegos" id="juegos">
-                        <option value="">Juegos</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        </select>
-                    </li>
-                    <li>
-                        <select name="Xbox" id="Xbox">
-                            <option value="">Xbox</option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Tarjetas de Regalo</a></li>
-                    <li><a href="#">Productos fisicos</a></li>
-                    <li>Español Latinoamericano | ARS</li>
-                </ul>
+            <nav class="navbar navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span></button>
+                    <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
+                    <div class="header__top--general-navigation_button">
+                        <button><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
+                        <button><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
+                        <li class="nav-item dropdown header__top--login">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="/login">Login</a></li>
+                                <li><a class="dropdown-item" href="/register">Register</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div class="offcanvas offcanvas-end  offcanvas-end-edited text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                        <div class="offcanvas-header">
+                            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">TIENDA</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">JUEGOS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">TARJETAS DE REGALO</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">XBOX</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">SOWFTWARE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">LISTA DE DESEOS</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="#">Espñaol Latinoamerica | ARS</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </nav>
-            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
-            <div class="header__top--general-navigation_button">
-                <button><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-                <button><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                <button><a href="/login"><i class="fa-solid fa-user"></i></a></button>
-            </div>
         </div>
     </header>
     <main id="mid">
