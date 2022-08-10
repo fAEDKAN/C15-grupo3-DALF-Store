@@ -42,6 +42,7 @@ body{
 }
 .linea hr{
     width: 95%;
+    margin: 0.5rem;
 }
 .carrito__main__section--productos article{
     display: flex;
@@ -70,7 +71,7 @@ body{
     background-color:#0d6efd ;
     color: #dee2e6;
     border:none;
-    border-radius: 10%;
+    border-radius: 5px;
     padding: 3px;
 }
 .contador-resta, .contador-valor, .contador-suma {
@@ -189,7 +190,7 @@ body{
     width: 60%;
     height: 30px;
     background-color:#0d6efd ;
-    border-radius: 10%;
+    border-radius:5px;
     border:none;
 }
 /**productos recomedados**/
@@ -199,6 +200,7 @@ body{
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    padding:10px 0;
 }
 .productos-recomendados{
     width: 100%;

@@ -4,5 +4,8 @@ module.exports = {
     },
     register: (req, res) => {
         return res.render('register')
+    },
+    shopping: (req, res) => {
+        return res.render('shopping')
     }
 }

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head',{ title:'home', }) %>
+<body class="carrito">
+    <%- include('./partials/header',{ title:'home', }) %>
+    <main class="carrito__main">
+        <section class="main__section--product ">
+            <article class="main__section--product-article ">
+                <img src="/images/gift-card-playstation.jpeg " alt="xbox-key ">
+                <div class="main__section--product-content_offers ">
+                    <div class="main-section-global-region ">
+                        <p class="main__section--product-region ">Estados Unidos</p>
+                        <p class="main__section--product-ubication ">Desde</p>
+                    </div>
+                    <div class="main-section-price-ofert ">
+                        <p class="main__section--product-price ">$ 9999</p>
+                        <p class="main__section--product-discount ">5% OFF</p>
+                    </div>
+                    <p class="main__section--product-description ">PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos</p>
+                </div>
+            </article>
+            <article class="main__section--product-article">
+                <img src="/images/RE2-card.jpeg" alt="xbox-key ">
+                <div class="main__section--product-content_offers ">
+                    <div class="main-section-global-region ">
+                        <p class="main__section--product-region ">Argentina</p>
+                        <p class="main__section--product-ubication ">Desde</p>
+                    </div>
+                    <div class="main-section-price-ofert">
+                        <p class="main__section--product-price ">$ 9999</p>
+                        <p class="main__section--product-discount ">5% OFF</p>
+                    </div>
+                    <p class="main__section--product-description ">Resident Evil 2 Remake XBOX LIVE Key Argentina</p>
+                </div>
+            </article>
+            <article class="main__section--product-article">
+                <img src="/images/gtav-card.jpeg" alt="xbox-key ">
+                <div class="main__section--product-content_offers ">
+                    <div class="main-section-global-region ">
+                        <p class="main__section--product-region ">Argentina</p>
+                        <p class="main__section--product-ubication ">Desde</p>
+                    </div>
+                    <div class="main-section-price-ofert">
+                        <p class="main__section--product-price ">$ 9999</p>
+                        <p class="main__section--product-discount ">5% OFF</p>
+                    </div>
+                    <p class="main__section--product-description ">Grand Theft Auto V: Premium Online Edition & Great White Shark Card Bundle XBOX LIVE Key Argentina</p>
+                </div>
+            </article>
+            <article class="main__section--product-article ">
+                <img src="/images/steam-card.jpeg" alt="xbox-key ">
+                <div class="main__section--product-content_offers ">
+                    <div class="main-section-global-region ">
+                        <p class="main__section--product-region ">Argentina</p>
+                        <p class="main__section--product-ubication ">Desde</p>
+                    </div>
+                    <div class="main-section-price-ofert ">
+                        <p class="main__section--product-price ">$ 9999</p>
+                        <p class="main__section--product-discount ">5% OFF</p>
+                    </div>
+                    <p class="main__section--product-description ">Tarjeta Regalo Steam 1000 ARS Clave Steam Argentina</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <%- include('./partials/footer',{ title:'home', }) %>
+    <script src="/javascripts/glider.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            new Glider(document.querySelector('.glider'), {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                itemWith: 150,
+                dots: '#dots',
+                arrows: {
+                    prev: '.glider-prev',
+                    next: '.glider-next'
+                },
+                responsive: [{
+                    // screens greater than >= 768px
+                    breakpoint: 768,
+                    settings: {
+                        // Set to `auto` and provide item width to adjust to viewport
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                }, {
+                    // screens greater than >= 1024px
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        itemWidth: 150,
+                        duration: 0.25
+                    }
+                }]
+            })
+        })
+    </script>
+</body>
+
+</html>

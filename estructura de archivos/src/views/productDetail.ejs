@@ -1,37 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheet/styles.css">
-    <script src="https://kit.fontawesome.com/b37740f339.js" crossorigin="anonymous"></script>
-    <title>DALF | DETALLE</title>
-</head>
+    <%- include('./partials/head',{ title:'home', }) %>
 
 <body>
-    <header id="top">
-        <div class="header__top--general">
-            <button id="burger"><i class="fa-solid fa-bars"></i></button>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#">Tienda</a></li>
-                    <li><a href="#">Juegos</a></li>
-                    <li><a href="#">Tarjetas de Regalo</a></li>
-                    <li><a href="#">Xbox</a></li>
-                    <li><a href="#">Software</a></li>
-                    <li><a href="#">Español Latinoamericano | ARS</a></li>
-                </ul>
-            </nav>
-            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
-            <div class="header__top--general-navigation_button">
-                <button><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></button>
-                <button><a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                <button><a href="/login"><i class="fa-solid fa-user"></i></a></button>
-            </div>
-        </div>
-    </header>
+
+    <%- include('./partials/header',{ title:'home', }) %>
+
     <main class="productdetail__main">
         <section class="detail__product__images">
             <img class="product-img" src="/images/producto-de-usuario.webp" alt="product">
@@ -155,59 +130,9 @@
             </div>
         </section>
     </main>
-    <footer>
-        <div class="footer--logo">
-            <a href="/index"><img src="/images/logo2.png" alt="Logo"></a>
-        </div>
-        <div class="footer_nav">
-            <nav class="footer_nav-home">
-                <p>Titulos</p>
-                <ul type="none">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Mi cuenta</a></li>
-                    <li><a href="">Contactanos</a></li>
-                    <li><a href="">Ayuda</a></li>
-                </ul>
-            </nav>
-            <nav class="footer_nav-aboutUs">
-                <p>
-                    Titulos
-                </p>
-                <ul type="none">
-                    <li><a href=""> Sobre nosotros</a></li>
-                    <li><a href="">Politica de privacidad</a></li>
-                    <li><a href="">Politica de cookies</a></li>
-                    <li><a href="">Aviso legal</a></li>
-                </ul>
-            </nav>
-            <nav class="footer_nav-aboutUs">
-                <p>
-                    Titulos
-                </p>
-                <ul type="none">
-                    <li><a href="">Titulos</a></li>
-                    <li><a href="">Titulos</a></li>
-                    <li><a href="">Titulos</a></li>
-                    <li><a href="">Titulos</a></li>
-                </ul>
-            </nav>
-            <div class="footer_nav-app">
-                <p>Descarga nuestra app</p>
-                <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.a7hkwxpVOiMzChf87GmGdwHaCM%26pid%3DApi&f=1" alt=""></a>
-                <a href=""><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dnPVcNejErfwIJacdXV27wHaCj%26pid%3DApi&f=1" alt=""></a>
-            </div>
-        </div>
-        <section class="footer__lastsection">
-            <nav class="footer__lastsection__navbar">
-                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-google-plus-g"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-discord"></i></a>
-            </nav>
-            <p class="footer__lastsection__copyright">Copyright © 2022 DALF-STORE</p>
-        </section>
-    </footer>
+
+    <%- include('./partials/footer',{ title:'home', }) %>
+
 </body>
 
 </html>
