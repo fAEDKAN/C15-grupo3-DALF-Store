@@ -9,6 +9,7 @@
     top: 0;
     right: 0;
     z-index: 3;
+    padding-bottom: 0;
 }
 
 .header h1,
@@ -27,6 +28,10 @@ h1 {
     color: #dee2e6;
     align-items: center;
     justify-content: space-around;
+}
+
+.header__top--general-navbar {
+    padding-bottom: 0;
 }
 
 .header__top--login {
@@ -120,10 +125,35 @@ h1 {
     display: none;
 }
 
+.header_div {
+    display: none;
+}
+
+.header_div {
+    width: 100%;
+    background-color: var(--C_Discord)
+}
+
+.header_div--navbar-desktop {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    text-align: center;
+    width: 90%;
+}
+
+.header_div--navbar-desktop li {
+    padding: 5px;
+    padding-left: 10px;
+}
+
 @media (min-width: 1024px) {
     /* Desktop */
     .header__top--general {
         margin-bottom: 14px;
+    }
+    .header_div {
+        display: block;
     }
     .navigation {
         display: flex;
@@ -157,29 +187,29 @@ h1 {
     .header__top--search:hover input {
         width: 629px;
     }
-}
-
-.header__top--search input:focus {
-    width: 629px;
-}
-
-.header__top--search-button {
-    position: relative;
-    top: -45px;
-    right: 4px;
-    background: var(--C_Light_Dark);
-    width: 50px;
-    line-height: 50px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.header__top--search-button i {
-    transition: all 0.5s ease;
-}
-
-.header__top--search-button i:hover {
-    transform: rotate(-360deg);
+    .header__top--search input:focus {
+        width: 629px;
+    }
+    .header__top--search-button {
+        position: relative;
+        top: -45px;
+        right: 4px;
+        background: var(--C_Light_Dark);
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .header__top--search-button i {
+        transition: all 0.5s ease;
+    }
+    .header__top--search-button i:hover {
+        transform: rotate(-360deg);
+    }
+    /* M A I N */
+    #mid {
+        padding-top: 110px;
+    }
 }
 
 @media (min-width: 1440px) {
