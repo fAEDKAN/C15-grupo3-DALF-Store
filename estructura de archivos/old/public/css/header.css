@@ -155,56 +155,68 @@ h1 {
         text-align: center;
     }
     .header__top--search:hover input {
-        width: 710px;
-    }
-    .header__top--search input:focus {
-        width: 710px;
-    }
-    .header__top--search-button {
-        position: relative;
-        top: -45px;
-        right: 4px;
-        background: var(--C_Light_Dark);
-        width: 50px;
-        line-height: 50px;
-        text-align: center;
-        cursor: pointer;
-    }
-    .header__top--search-button i {
-        transition: all 0.5s ease;
-    }
-    .header__top--search-button i:hover {
-        transform: rotate(-360deg);
+        width: 629px;
     }
 }
 
+.header__top--search input:focus {
+    width: 629px;
+}
+
+.header__top--search-button {
+    position: relative;
+    top: -45px;
+    right: 4px;
+    background: var(--C_Light_Dark);
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.header__top--search-button i {
+    transition: all 0.5s ease;
+}
+
+.header__top--search-button i:hover {
+    transform: rotate(-360deg);
+}
+
+
+}
 @media (min-width: 1440px) {
     .header--figure-logo {
         padding-right: 1220px;
     }
+    
     .navigation ul {
         left: 300px;
     }
+    
     .header__top--search:hover input {
         width: 1050px;
     }
+    
     .header__top--search input:focus {
         width: 1050px;
     }
 }
-
 @media (min-width: 1680px) {
     /* H E D E R */
+    
     .navigation ul {
         left: 300px;
     }
+    
     .header__top--search:hover input {
         width: 1283px;
     }
+    
     .header__top--search input:focus {
         width: 1283px;
     }
     /* M A I N */
+    
     .main__section--product-favorite {
         left: 240px;
     }
