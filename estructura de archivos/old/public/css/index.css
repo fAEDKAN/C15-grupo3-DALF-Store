@@ -225,9 +225,6 @@ footer__lastsection__navbar {
 /* Desktop */
 
 {
-    #burger {
-        display: none;
-    }
     /* MAIN */
     .main__section--product-article {
         width: 20%

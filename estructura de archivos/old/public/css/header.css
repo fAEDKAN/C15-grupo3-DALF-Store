@@ -33,6 +33,14 @@ h1 {
     padding-left: 10px;
 }
 
+.header__top--login a i {
+    transition: all 0.5s ease;
+}
+
+.header__top--login a i:hover {
+    transform: rotate(360deg);
+}
+
 .offcanvas.offcanvas-end {
     top: 0;
     left: 0;
@@ -108,16 +116,65 @@ h1 {
     color: #dee2e6;
 }
 
+.header__top--search {
+    display: none;
+}
+
 @media (min-width: 1024px) {
     /* Desktop */
     .header__top--general {
         margin-bottom: 14px;
     }
-    .header--figure-logo {
-        padding-right: 815px;
-    }
     .navigation {
         display: flex;
+    }
+    #burger {
+        display: none;
+    }
+    .navbar-toggler {
+        display: none;
+    }
+    .header__top--search {
+        position: absolute;
+        left: 192px;
+        top: 7px;
+        padding: 5px;
+        display: block;
+    }
+    .header__top--search input {
+        width: 0px;
+        height: 40px;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #000;
+        font-weight: bold;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 30px;
+        transition: all 0.5s ease;
+        text-align: center;
+    }
+    .header__top--search:hover input {
+        width: 710px;
+    }
+    .header__top--search input:focus {
+        width: 710px;
+    }
+    .header__top--search-button {
+        position: relative;
+        top: -45px;
+        right: 4px;
+        background: var(--C_Light_Dark);
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .header__top--search-button i {
+        transition: all 0.5s ease;
+    }
+    .header__top--search-button i:hover {
+        transform: rotate(-360deg);
     }
 }
 
@@ -128,15 +185,24 @@ h1 {
     .navigation ul {
         left: 300px;
     }
+    .header__top--search:hover input {
+        width: 1050px;
+    }
+    .header__top--search input:focus {
+        width: 1050px;
+    }
 }
 
 @media (min-width: 1680px) {
     /* H E D E R */
-    .header--figure-logo {
-        padding-right: 1430px;
-    }
     .navigation ul {
         left: 300px;
+    }
+    .header__top--search:hover input {
+        width: 1283px;
+    }
+    .header__top--search input:focus {
+        width: 1283px;
     }
     /* M A I N */
     .main__section--product-favorite {
