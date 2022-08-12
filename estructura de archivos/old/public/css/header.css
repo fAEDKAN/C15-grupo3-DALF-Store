@@ -213,9 +213,6 @@ h1 {
 }
 
 @media (min-width: 1440px) {
-    .header--figure-logo {
-        padding-right: 1220px;
-    }
     .navigation ul {
         left: 300px;
     }
