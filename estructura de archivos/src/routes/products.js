@@ -6,6 +6,6 @@ const { productDetail, productsLoad } = require('../controllers/productsControll
 /* /products */
 
 router.get('/productDetail', productDetail)
-router.get('/products', productsLoad)
+router.get('/productsLoad', productsLoad)
 
 module.exports = router;
