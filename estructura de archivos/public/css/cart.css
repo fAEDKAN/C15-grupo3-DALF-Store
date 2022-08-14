@@ -27,7 +27,7 @@ body{
 }
 .carrito__main__section--pruductos-title{
     width: 95%;
-    font-size: 1rem;
+    font-size: 1.3rem;
     margin-bottom: 0;
     font-weight: 600;
 }
@@ -102,41 +102,47 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 95%;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
     margin: 10px 0;
 }
-.carrito__main__section--productos form input{
-    height: 10px; 
-    border-radius: 10px;
-    border:none;
-    padding: 3px;
-}
-#chico{
-    width: 30%;
-}
-#medio{
-    width: 45%;
-}
-#entero{
-    width: 100%;
-}
-/*cart pay*/
-.expira{
+.products-caja2 {
+    width:420px ;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
-.expira p{
+.products-caja2 select {
+    display: block;
+    margin: auto;
     width: 100%;
+    height: 40px;
+    border: 1px solid var(--C_Ice-Cream);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1940);
+    color: var(--C_Ice-Cream);
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 0.9rem;
+    padding-left: 10px;
+    outline: none;
+}
+
+.products-caja2 select:hover {
+    transition: 0.5s;
+    border: 1px solid var(--C_Lightblue_Logo);
+    color: var(--C_Lightblue_Logo);
+}
+
+.products-caja2 select option {
+    background: var(--C_Grey_Dark);
+}
+
+/*cart pay*/
+#expira{
+    width: 80%;
     font-size: 12px;
 }
-#bitsecured{
-    width: 30%;
-    text-align: center;
-    margin: 0;
-}
+
 /**total**/
 .total{
     width: 80%;
@@ -148,8 +154,9 @@ body{
     gap: 13px;
     padding-top: 10px;
     margin-top: 10px;
-    background-color: #212529;
-    border:solid 1px #2b2d32;
+    border-radius: 15px;
+    background: #2b2d32;
+    border:solid 1px #6c757d;
 }
 .total div{
     display: flex;
@@ -215,15 +222,8 @@ body{
 }
 /*****************footer*****************/
 /*media queries*/
-@media(min-width:425px){
-    .total{
-        width: 70%;
-        height: 400px;
-    }
-}
 @media(min-width:768px){
     .total{
-        width: 60%;
         height: 400px;
     }
 }
@@ -232,7 +232,6 @@ body{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
     }
     .carrito__main{
         width: 90vw;
@@ -245,7 +244,8 @@ body{
     }
     .carrito__main__section--productos form{
         width: 60%;
-        align-content: flex-start;
+        justify-content: flex-start;
+        align-content: center;
     }
     .carrito__main__section--productos article{
         height: 150px;
@@ -262,7 +262,8 @@ body{
         width: 60%;
     }
     .total{
-        width: 30%;
+        margin-top: 40px;
+        width: 35%;
         height: 350px;
     }
     .carrito__main__section--pruductos-recomendados{
@@ -277,9 +278,22 @@ body{
         flex-direction: row;
         justify-content:center;
         width: 95%;
-        
+    }
+    .products-caja2{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
     }
     .productos-recomendados a {
         width: 20%;
+    }
+    
+    #medio{
+        width: 49%;
+    }
+    #entero{
+        width: 100%;
     }
 }

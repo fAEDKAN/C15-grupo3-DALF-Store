@@ -1,140 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head',{ title:'home', }) %>
+<%- include('./partials/head',{ title:'home', }) %>
 
-<body class="carrito">
-    <%- include('./partials/header',{ title:'home', }) %>
-    <main class="carrito__main">
-        <section class="carrito__main__section--productos">
-            <p class="carrito__main__section--pruductos-title">Datos de envio</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <form action="/cartAdress" method="POST">
+    <body class="carrito">
+        <%- include('./partials/header',{ title:'home', }) %>
+            <main class="carrito__main">
+                <section class="carrito__main__section--productos">
 
-                <input type="text" name="nombre" id="medio" placeholder="Nombre">
-                <input type="text" name="apellido" id="medio" placeholder="Apellido">
-                <input type="tel" name="codigoarea" id="medio" placeholder="Codigo de area">
-                <input type="tel" name="telefono" id="medio" placeholder="Telefono">
-                <input type="email" name="email" id="entero" placeholder="Email">
-                <input type="text" name="calle" id="entero" placeholder="Calle">
-                <input type="text" name="barrio" id="entero" placeholder="Barrio">
-                <input type="text" name="ciudad" id="medio" placeholder="Ciudad">
-                <input type="text" name="provincia" id="medio" placeholder="Provincia">
-                <input type="number" name="codigopostal" id="medio" placeholder="Codigo postal">
+                    <div class="products-caja2">
+                        <p class="carrito__main__section--pruductos-title">Datos de envio</p>
+                        <div class="linea">
+                            <hr>
+                        </div>
+                        <form action="/cartAdress" method="POST">
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Nombre</label>
+                                <input class="form__input" type="text" name="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Apellido</label>
+                                <input class="form__input" type="text" name="apellido" placeholder="Apellido">
+                            </div>
+                            <div class="form-box" id="entero">
+                                <label class="form__label" for="">Email</label>
+                                <input class="form__input" type="email" name="email" placeholder="Email">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Telefono</label>
+                                <input class="form__input" type="tel" name="telefono" placeholder="Telefono">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Codigo de area</label>
+                                <input class="form__input" type="tel" name="codigoarea" placeholder="Codigo de area">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Ciudad</label>
+                                <input class="form__input" type="text" name="ciudad" placeholder="Ciudad">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Provincia</label>
+                                <input class="form__input" type="text" name="provincia" placeholder="Provincia">
+                            </div>
+                            <div class="form-box" id="entero">
+                                <label class="form__label" for="">Barrio</label>
+                                <input class="form__input" type="text" name="barrio" placeholder="Barrio">
+                            </div>
+                            <div class="form-box" id="entero">
+                                <label class="form__label" for="">Calle</label>
+                                <input class="form__input" type="text" name="calle" placeholder="Calle">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Codigo postal</label>
+                                <input class="form__input" type="number" name="codigopostal" placeholder="Codigo postal">
+                            </div>
+                            <div class="form-box" id="medio">
+                                <label class="form__label" for="">Pais</label>
+                                <select name="pais">
+                                    <option value="argentina">Argentina</option>
+                                    <option value="brasil">Brasil</option>
+                                    <option value="chile">Chile</option>
+                                    <option value="paraguay">Paraguay</option>
+                                    <option value="uruguay">Uruguay</option>
+                                </select>
+                            </div>
+                        </form>
 
-                <select name="pais" id="medio">
-                    <option value="argentina">Argentina</option>
-                    <option value="brasil">Brasil</option>
-                    <option value="chile">Chile</option>
-                    <option value="paraguay">Paraguay</option>
-                    <option value="uruguay">Uruguay</option>
-                </select>
-            </form>
-            <div class="total">
-                <div>
-                    <p class="total-productos">Productos</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-envio">Envio</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-total">Total</p>
-                    <p class="total-total-cantidad">$0</p>
-                </div>
-                <img src="/images/medios-de-pago-1723294542" alt="">
-                <div class="total-comprar">
-                    <button><a href="/cartPay">Continuar</a></button>
-                </div>
-            </div>
-        </section>
-        <section class="carrito__main__section--pruductos-recomendados">
-            <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <article class="productos-recomendados">
-                <div class="glider-contain">
-                    <div class="glider">
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                        <div class="total">
+                            <div>
+                                <p class="total-productos">Productos</p>
+                                <p class="total-cantidad">$0</p>
+                            </div>
+                            <div>
+                                <p class="total-envio">Envio</p>
+                                <p class="total-cantidad">$0</p>
+                            </div>
+                            <div>
+                                <p class="total-total">Total</p>
+                                <p class="total-total-cantidad">$0</p>
+                            </div>
+                            <img src="/images/medios-de-pago-1723294542" alt="">
+                            <div class="total-comprar">
+                                <button><a href="/cartPay">Continuar</a></button>
+                            </div>
                         </div>
                     </div>
+                </section>
+                <section class="carrito__main__section--pruductos-recomendados">
+                    <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
+                    <div class="linea">
+                        <hr>
+                    </div>
+                    <article class="productos-recomendados">
+                        <div class="glider-contain">
+                            <div class="glider">
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                            </div>
 
-                    <button aria-label="Previous" class="glider-prev">«</button>
-                    <button aria-label="Next" class="glider-next">»</button>
-                    <div role="tablist" class="dots"></div>
-                </div>
+                            <button aria-label="Previous" class="glider-prev">«</button>
+                            <button aria-label="Next" class="glider-next">»</button>
+                            <div role="tablist" class="dots"></div>
+                        </div>
 
-            </article>
-        </section>
-    </main>
-    <%- include('./partials/footer',{ title:'home', }) %>
-    <script src="/javascripts/glider.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            new Glider(document.querySelector('.glider'), {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                itemWith: 150,
-                dots: '#dots',
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
-                },
-                responsive: [{
-                    // screens greater than >= 768px
-                    breakpoint: 768,
-                    settings: {
-                        // Set to `auto` and provide item width to adjust to viewport
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }, {
-                    // screens greater than >= 1024px
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }]
-            })
-        })
-    </script>
-</body>
+                    </article>
+                </section>
+            </main>
+            <%- include('./partials/footer',{ title:'home', }) %>
+                <script src="/javascripts/glider.js"></script>
+                <script>
+                    window.addEventListener('load', function () {
+                        new Glider(document.querySelector('.glider'), {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            itemWith: 150,
+                            dots: '#dots',
+                            arrows: {
+                                prev: '.glider-prev',
+                                next: '.glider-next'
+                            },
+                            responsive: [{
+                                // screens greater than >= 768px
+                                breakpoint: 768,
+                                settings: {
+                                    // Set to `auto` and provide item width to adjust to viewport
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                    itemWidth: 150,
+                                    duration: 0.25
+                                }
+                            }, {
+                                // screens greater than >= 1024px
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 5,
+                                    slidesToScroll: 1,
+                                    itemWidth: 150,
+                                    duration: 0.25
+                                }
+                            }]
+                        })
+                    })
+                </script>
+    </body>
 
 </html>
