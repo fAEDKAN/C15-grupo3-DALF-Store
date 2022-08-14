@@ -23,3 +23,32 @@
 ## Hacer menos.
 -Descomunicarse
 -Desaprovechar el tiempo hablando temas aparte
+
+# Retrospectiva estrella de mar Sprint 2.
+
+## Seguir haciendo.
+-Cumplir con las dailys
+-Continuar con trello actualizado
+-Apoyarnos mutuamente
+-Sostener la cordinación grupal
+-Mantener la comunicacion y compromiso por mantener y mejorar el sitio
+
+## Hacer mas.
+-Dedicar más tiempo al Proyecto
+-Avisar por inconvenientes o retrasos
+-Se puede mejorar la comunicacion
+-Mejorar planificacion individual
+
+## Empezar a hacer.
+-Organizar mejor los horarios
+-Definir fecha y hora de las dailys o weeklys
+-Ensayar las presentaciones en grupo
+-Participar más de las presentaciones grupales
+
+## Dejar de hacer.
+-Dejar pasar la fecha de entrega de los sprints
+-Flojear
+-Subestimar el tiempo que puede llevar una tarea
+
+## Hacer menos.
+-Procastinar
