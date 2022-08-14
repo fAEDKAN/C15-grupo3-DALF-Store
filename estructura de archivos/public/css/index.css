@@ -13,12 +13,7 @@
 
 /* M A I N */
 
-#mid {
-    padding-top: 62px;
-}
-
-#mid h2,
-h2 {
+.main__content h2 {
     text-align: center;
     padding: 5px;
     margin: 0;
@@ -27,6 +22,10 @@ h2 {
     border-bottom: solid 1px #2b2d32;
     border-radius: 10px 10px 0 0;
     color: #dee2e6;
+}
+
+#mid {
+    padding-top: 62px;
 }
 
 .main--img-banner {

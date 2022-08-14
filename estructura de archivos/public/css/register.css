@@ -264,9 +264,9 @@
 }
 
 ::placeholder {
-    color: var(--C_Light_Dark);
+    color: var(--C_Ice-Cream);
     font-size: 0.9rem;
-    font-style: italic;
+    font-style: normal;
 }
 
 .main__container--data1 form i {
