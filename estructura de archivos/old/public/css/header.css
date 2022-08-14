@@ -12,6 +12,15 @@
     padding-bottom: 0;
 }
 
+a {
+    color: #00e4ff;
+}
+
+a:hover {
+    transition: all 0.5s ease;
+    color: #00e4ff;
+}
+
 .header h1,
 h1 {
     text-align: center;
@@ -44,6 +53,7 @@ h1 {
 
 .header__top--login a i:hover {
     transform: rotate(360deg);
+    color: var(--C_Lightblue_Logo);
 }
 
 .offcanvas.offcanvas-end {
@@ -55,6 +65,10 @@ h1 {
 
 .dropdown-menu[data-bs-popper] {
     left: -138px;
+}
+
+.header__top--arrow::after {
+    display: none;
 }
 
 .nav-item {
@@ -134,21 +148,19 @@ h1 {
     background-color: var(--C_Discord)
 }
 
-.header_div--navbar-desktop {
-    display: flex;
-    flex-direction: row;
-    font-size: 16px;
-    text-align: center;
-    width: 90%;
-}
-
-.header_div--navbar-desktop li {
-    padding: 5px;
-    padding-left: 10px;
-}
-
 @media (min-width: 1024px) {
     /* Desktop */
+    .header_div--navbar-desktop {
+        display: flex;
+        flex-direction: row;
+        font-size: 16px;
+        text-align: center;
+        width: 863px;
+    }
+    .header_div--navbar-desktop li {
+        padding: 5px;
+        padding-left: 10px;
+    }
     .header__top--general {
         margin-bottom: 14px;
     }
@@ -170,6 +182,7 @@ h1 {
         top: 7px;
         padding: 5px;
         display: block;
+        height: 40px;
     }
     .header__top--search input {
         width: 0px;
@@ -186,6 +199,7 @@ h1 {
     }
     .header__top--search:hover input {
         width: 629px;
+        border: 2px solid var(--C_Lightblue_Logo);
     }
     .header__top--search input:focus {
         width: 629px;
@@ -205,14 +219,17 @@ h1 {
     }
     .header__top--search-button i:hover {
         transform: rotate(-360deg);
-    }
-    /* M A I N */
-    #mid {
-        padding-top: 110px;
+        border: 2px solid var(--C_Lightblue_Logo);
+        border-radius: 50%;
+        padding: 10px;
+        color: var(--C_Lightblue_Logo);
     }
 }
 
 @media (min-width: 1440px) {
+    .header_div--navbar-desktop {
+        width: 1071px;
+    }
     .navigation ul {
         left: 300px;
     }
@@ -225,7 +242,9 @@ h1 {
 }
 
 @media (min-width: 1680px) {
-    /* H E D E R */
+    .header_div--navbar-desktop {
+        width: 1193px;
+    }
     .navigation ul {
         left: 300px;
     }
