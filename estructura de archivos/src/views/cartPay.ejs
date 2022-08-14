@@ -1,130 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head',{ title:'home', }) %>
+<%- include('./partials/head',{ title:'home', }) %>
 
-<body class="carrito">
-    <%- include('./partials/header',{ title:'home', }) %>
-    <main class="carrito__main">
-        <section class="carrito__main__section--productos">
-            <p class="carrito__main__section--pruductos-title">Metodos de pago</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <form action="/cartPay" method="POST">
+    <body class="carrito">
+        <%- include('./partials/header',{ title:'home', }) %>
+            <main class="carrito__main">
+                <section class="carrito__main__section--productos">
+                    <div class="products-caja2">
 
-                <input type="text" name="nameSurname" id="entero" placeholder="Nombre y apellido">
-                <input type="number" name="numberCard" id="entero" placeholder="Numero de tarjeta">
-                <div class="expira">
-                    <p>Expira</p>
-                    <input type="date" name="fecha" id="chico" value="DD/MM/AAAA">
-                    <input type="password" name="clave" id="chico" placeholder="CVC">
-                    <p id="bitsecured"><i class="fa-solid fa-lock"></i>128-bit secured</p>
-                </div>
-            </form>
-            <div class="total">
-                <div>
-                    <p class="total-productos">Productos</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-envio">Envio</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-total">Total</p>
-                    <p class="total-total-cantidad">$0</p>
-                </div>
-                <img src="/images/medios-de-pago-1723294542" alt="">
-                <div class="total-comprar">
-                    <button><a href="/cartPay">Comprar</a></button>
-                </div>
-            </div>
-        </section>
-        <section class="carrito__main__section--pruductos-recomendados">
-            <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <article class="productos-recomendados">
-                <div class="glider-contain">
-                    <div class="glider">
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                        <p class="carrito__main__section--pruductos-title">Metodos de pago</p>
+                        <div class="linea">
+                            <hr>
                         </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                        <form action="/cartPay" method="POST">
+                            <div class="form-box">
+                                <label class="form__label" for="">Nombre</label>
+                                <input type="text" name="nameSurname" id="entero" placeholder="Nombre y apellido">
+                            </div>
+                            <div class="form-box">
+                                <label class="form__label" for="">Nro de tarjeta</label>
+                                <input type="number" name="numberCard" id="entero" placeholder="Numero de tarjeta">
+                            </div>
+                            <p id="expira">Expira</p>
+                            <div class="form-box">
+                                <label class="form__label" for="">Vencimiento</label>
+                                <input type="date" name="fecha" id="entero" value="DD/MM/AAAA">
+                            </div>
+                            <div class="form-box">
+                                <label class="form__label" for="">CVC</label>
+                                <input type="password" name="clave" id="entero" placeholder="CVC">
+                            </div>
+
+                        </form>
+                        <div class="total">
+                            <div>
+                                <p class="total-productos">Productos</p>
+                                <p class="total-cantidad">$0</p>
+                            </div>
+                            <div>
+                                <p class="total-envio">Envio</p>
+                                <p class="total-cantidad">$0</p>
+                            </div>
+                            <div>
+                                <p class="total-total">Total</p>
+                                <p class="total-total-cantidad">$0</p>
+                            </div>
+                            <img src="/images/medios-de-pago-1723294542" alt="">
+                            <div class="total-comprar">
+                                <button><a href="/cartPay">Comprar</a></button>
+                            </div>
                         </div>
                     </div>
 
-                    <button aria-label="Previous" class="glider-prev">«</button>
-                    <button aria-label="Next" class="glider-next">»</button>
-                    <div role="tablist" class="dots"></div>
-                </div>
+                </section>
+                <section class="carrito__main__section--pruductos-recomendados">
+                    <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
+                    <div class="linea">
+                        <hr>
+                    </div>
+                    <article class="productos-recomendados">
+                        <div class="glider-contain">
+                            <div class="glider">
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                                <div>
+                                    <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
+                                </div>
+                            </div>
 
-            </article>
-        </section>
-    </main>
-    <%- include('./partials/footer',{ title:'home', }) %>
-    <script src="/javascripts/glider.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            new Glider(document.querySelector('.glider'), {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                itemWith: 150,
-                dots: '#dots',
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
-                },
-                responsive: [{
-                    // screens greater than >= 768px
-                    breakpoint: 768,
-                    settings: {
-                        // Set to `auto` and provide item width to adjust to viewport
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }, {
-                    // screens greater than >= 1024px
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }]
-            })
-        })
-    </script>
-</body>
+                            <button aria-label="Previous" class="glider-prev">«</button>
+                            <button aria-label="Next" class="glider-next">»</button>
+                            <div role="tablist" class="dots"></div>
+                        </div>
+
+                    </article>
+                </section>
+            </main>
+            <%- include('./partials/footer',{ title:'home', }) %>
+                <script src="/javascripts/glider.js"></script>
+                <script>
+                    window.addEventListener('load', function () {
+                        new Glider(document.querySelector('.glider'), {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            itemWith: 150,
+                            dots: '#dots',
+                            arrows: {
+                                prev: '.glider-prev',
+                                next: '.glider-next'
+                            },
+                            responsive: [{
+                                // screens greater than >= 768px
+                                breakpoint: 768,
+                                settings: {
+                                    // Set to `auto` and provide item width to adjust to viewport
+                                    slidesToShow: 3,
+                                    slidesToScroll: 1,
+                                    itemWidth: 150,
+                                    duration: 0.25
+                                }
+                            }, {
+                                // screens greater than >= 1024px
+                                breakpoint: 1024,
+                                settings: {
+                                    slidesToShow: 5,
+                                    slidesToScroll: 1,
+                                    itemWidth: 150,
+                                    duration: 0.25
+                                }
+                            }]
+                        })
+                    })
+                </script>
+    </body>
 
 </html>
