@@ -133,12 +133,15 @@
     color: var(--C_Ice-Cream);
     border-radius: 5px;
     border: none;
+    padding: 7px;
 }
 
 .buttons button:hover {
-    transition: 0.5s;
-    border: 1px solid var(--C_Pink_Logo);
-    color: var(--C_Pink_Logo);
+    cursor: pointer;
+    transition: 0s;
+    color: var(--C_Ice-Cream);
+    border: 2px solid var(--C_Lightblue_Logo);
+    background: linear-gradient(#36393f,#212529);
 }
 
 @media (min-width: 425px) {
