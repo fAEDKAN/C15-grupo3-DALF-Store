@@ -118,6 +118,7 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin: 0;
+    padding-bottom: 10px;
 }
 
 .detail__purchase__buttons button {
@@ -128,6 +129,7 @@ h3 {
     border: none;
     border-radius: 5px;
     border: solid 1px #212529;
+    margin: 5px;
 }
 
 .detail__purchase__buttons--cart {

@@ -1,8 +1,11 @@
-module.exports ={
+module.exports = {
     productDetail: (req, res) => {
         return res.render('productDetail')
     },
-    productsLoad:(req,res)=> {
+    productsLoad: (req, res) => {
         return res.render('productsLoad')
+    },
+    productEdit: (req, res) => {
+        return res.render('productEdit')
     }
 }
