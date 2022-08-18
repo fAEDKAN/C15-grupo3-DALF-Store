@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head',{ title:'home', }) %>
+<%- include('../partials/head',{ title:'home', }) %>
 
     <body class="products">
-        <%- include('./partials/header',{ title:'home', }) %>
+        <%- include('../partials/header',{ title:'home', }) %>
             <main id="products__main">
                 <div class="products-caja">
                     <div class="">
-                        <h3 class="products-titulo">Cargar nuevo producto</h3>
+                        <h3 class="products-titulo">Editar producto</h3>
                     </div>
                     <form action="">
                         <div class="form-box">
@@ -66,12 +66,12 @@
                         </div>
                         <div class="form-box buttons">
                             <button class="total-comprar" type="reset">Cancelar</button>
-                            <button class="total-comprar" type="submit">Agregar</button>
+                            <button class="total-comprar" type="submit">Confirmar Edición</button>
                         </div>
                     </form>
                 </div>
             </main>
-            <%- include('./partials/footer',{ title:'home', }) %>
+            <%- include('../partials/footer',{ title:'home', }) %>
     </body>
 
 </html>
