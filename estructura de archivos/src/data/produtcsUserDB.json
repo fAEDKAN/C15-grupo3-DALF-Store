@@ -9,4 +9,34 @@
         "description":,
         "image": 
     }
+    {
+        "id": 2,
+        "name":,
+        "price":,
+        "category":,
+        "discount":,
+        "color":,
+        "description":,
+        "image": 
+    }
+    {
+        "id": 3,
+        "name":,
+        "price":,
+        "category":,
+        "discount":,
+        "color":,
+        "description":,
+        "image": 
+    }
+    {
+        "id": 4,
+        "name":,
+        "price":,
+        "category":,
+        "discount":,
+        "color":,
+        "description":,
+        "image": 
+    }
 ]

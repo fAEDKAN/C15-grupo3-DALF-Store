@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- H E A D -->
 <%- include('../partials/head',{ title:'home', }) %>
+    <!-- / H E A D -->
 
-    <body class="products">
-        <%- include('../partials/header',{ title:'home', }) %>
-            <main id="products__main">
+<body class="products">
+    <!-- H E A D E R -->
+    <%- include('../partials/header',{ title:'home', }) %>
+    <!-- M A I N -->
+    <main id="products__main">
                 <div class="products-caja">
                     <div class="">
                         <h3 class="products-titulo">Editar producto</h3>
@@ -70,8 +74,11 @@
                         </div>
                     </form>
                 </div>
-            </main>
-            <%- include('../partials/footer',{ title:'home', }) %>
-    </body>
+    </main>
+    <!-- / M A I N -->
+    <!-- F O O T E R -->
+    <%- include('../partials/footer',{ title:'home', }) %>
+    <!-- / F O O T E R -->
+</body>
 
 </html>
