@@ -1,0 +1,30 @@
+[
+    {
+        "id" : 1,
+        "fullName" : "Federico Somma",
+        "email" : "fsomma94@hotmail.com",
+        "userName" : "fSomma",
+        "password" : "aiudajavascript"
+    },
+    {
+        "id" : 2,
+        "fullName" : "Diego Montes",
+        "email" : "dmontes2013@gmail.com",
+        "userName" : "diego capo",
+        "password" : "noentiendolalogicadejslol"
+    },
+    {
+        "id" : 3,
+        "fullName" : "Axel Bustos",
+        "email" : "abustos@outlook.com",
+        "userName" : "axel the crack",
+        "password" : "javaking123"
+    },
+    {
+        "id" : 4,
+        "fullName" : "Luca Kumric",
+        "email" : "lkumric@yahoo.com",
+        "userName" : "luca el groso",
+        "password" : "masterjs789"
+    }
+]
