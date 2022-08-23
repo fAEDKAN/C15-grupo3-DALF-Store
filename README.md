@@ -69,11 +69,11 @@
 
 **************************************************************************************************************************************
 
-#### Nombre: Federico Somma - Edad: 27 años - Ciudad: Cutral-Có, Neuquén, Argentina.
+#### Nombre: Federico Somma - Edad: 28 años - Ciudad: Cutral-Có, Neuquén, Argentina.
 
 #### Estoy estudiando programación porque me gusta buscar y encontrar solución a los problemas. Soy un amante del mundo de los videojuegos y la tecnología, me parece increíble cómo avanza día a día. Me divierte y entretiene aprender cosas nuevas, soy bastante curioso. Además, disfruto de la lectura, sobre todo si es algo relacionado a la ciencia, o poesía. También me gusta la astronomía, cocinar, escuchar música (puntualmente rap) y dibujar.
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## Tablero de trabajo (trello)##
-https://trello.com/b/KOk1hQey/dalf-store 
+## Tablero de trabajo (Trello)
+https://trello.com/b/KOk1hQey/dalf-store
