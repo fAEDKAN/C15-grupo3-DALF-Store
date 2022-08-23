@@ -152,7 +152,7 @@
 
 @media (min-width: 1024px) {
     #products__main {
-        padding-top: 10%;
+        padding-top: 15%;
     }
     .products-caja {
         flex-direction: row;
