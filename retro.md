@@ -39,7 +39,7 @@
 -Dedicar más tiempo al Proyecto.
 -Avisar por inconvenientes o retrasos.
 -Se puede mejorar la comunicación.
--Mejorar planificación individual.
+-Mejorar la planificación individual.
 
 ## Empezar a hacer:
 -Organizar mejor los horarios.
@@ -58,3 +58,31 @@
 ************************************************************************************
 
 # Retrospectiva con dinámica "Estrella de Mar" Sprint 3:
+
+## Seguir haciendo:
+-Dedicar más tiempo al Proyecto.
+-Mejorar la comunicación.
+-Planificación individual.
+-Ser una especie de soporte para el resto de los compañeros.
+-Fortalecer la comunicación con el resto de los integrantes.
+-Trello actualizado.
+-Comprometerse a ayudar a cualquier compañero que lo necesite.
+-Entregar las tareas a tiempo.
+-Cumplir con las dailys.
+
+## Hacer más:
+-Definir fecha y hora de las dailys o weeklys.
+-Organizar mejor los horarios.
+-Participar más de las presentaciones grupales.
+
+## Empezar a hacer:
+-Ensayar las presentaciones en grupo.
+
+## Dejar de hacer:
+-Flojear.
+-Subestimar el tiempo que puede llevar determinada tarea.
+-Dejar pasar las fechas de entrega.
+
+## Hacer menos:
+
+-
