@@ -9,6 +9,16 @@
     top: 0;
     right: 0;
     z-index: 3;
+    padding-bottom: 0;
+}
+
+a {
+    color: #00e4ff;
+}
+
+a:hover {
+    transition: all 0.5s ease;
+    color: #00e4ff;
 }
 
 .header h1,
@@ -29,8 +39,21 @@ h1 {
     justify-content: space-around;
 }
 
+.header__top--general-navbar {
+    padding-bottom: 0;
+}
+
 .header__top--login {
     padding-left: 10px;
+}
+
+.header__top--login a i {
+    transition: all 0.5s ease;
+}
+
+.header__top--login a i:hover {
+    transform: rotate(360deg);
+    color: var(--C_Lightblue_Logo);
 }
 
 .offcanvas.offcanvas-end {
@@ -42,6 +65,10 @@ h1 {
 
 .dropdown-menu[data-bs-popper] {
     left: -138px;
+}
+
+.header__top--arrow::after {
+    display: none;
 }
 
 .nav-item {
@@ -108,35 +135,124 @@ h1 {
     color: #dee2e6;
 }
 
+.header__top--search {
+    display: none;
+}
+
+.header_div {
+    display: none;
+}
+
+.header_div {
+    width: 100%;
+    background-color: var(--C_Discord)
+}
+
 @media (min-width: 1024px) {
     /* Desktop */
+    .header_div--navbar-desktop {
+        display: flex;
+        flex-direction: row;
+        font-size: 16px;
+        text-align: center;
+        width: 863px;
+    }
+    .header_div--navbar-desktop li {
+        padding: 5px;
+        padding-left: 10px;
+    }
     .header__top--general {
         margin-bottom: 14px;
     }
-    .header--figure-logo {
-        padding-right: 815px;
+    .header_div {
+        display: block;
     }
     .navigation {
         display: flex;
     }
+    #burger {
+        display: none;
+    }
+    .navbar-toggler {
+        display: none;
+    }
+    .header__top--search {
+        position: absolute;
+        left: 192px;
+        top: 7px;
+        padding: 5px;
+        display: block;
+        height: 40px;
+    }
+    .header__top--search input {
+        width: 0px;
+        height: 40px;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #000;
+        font-weight: bold;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 30px;
+        transition: all 0.5s ease;
+        text-align: center;
+    }
+    .header__top--search:hover input {
+        width: 629px;
+        border: 2px solid var(--C_Lightblue_Logo);
+    }
+    .header__top--search input:focus {
+        width: 629px;
+    }
+    .header__top--search-button {
+        position: relative;
+        top: -45px;
+        right: 4px;
+        background: var(--C_Light_Dark);
+        width: 50px;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .header__top--search-button i {
+        transition: all 0.5s ease;
+    }
+    .header__top--search-button i:hover {
+        transform: rotate(-360deg);
+        border: 2px solid var(--C_Lightblue_Logo);
+        border-radius: 50%;
+        padding: 10px;
+        color: var(--C_Lightblue_Logo);
+    }
 }
 
 @media (min-width: 1440px) {
-    .header--figure-logo {
-        padding-right: 1220px;
+    .header_div--navbar-desktop {
+        width: 1071px;
     }
     .navigation ul {
         left: 300px;
+    }
+    .header__top--search:hover input {
+        width: 1050px;
+    }
+    .header__top--search input:focus {
+        width: 1050px;
     }
 }
 
 @media (min-width: 1680px) {
-    /* H E D E R */
-    .header--figure-logo {
-        padding-right: 1430px;
+    .header_div--navbar-desktop {
+        width: 1193px;
     }
     .navigation ul {
         left: 300px;
+    }
+    .header__top--search:hover input {
+        width: 1283px;
+    }
+    .header__top--search input:focus {
+        width: 1283px;
     }
     /* M A I N */
     .main__section--product-favorite {

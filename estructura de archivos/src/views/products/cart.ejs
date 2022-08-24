@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head',{ title:'home', }) %>
+    <%- include('../partials/head',{ title:'home', }) %>
 <body class="carrito">
-    <%- include('./partials/header',{ title:'home', }) %>
+    <%- include('../partials/header',{ title:'home', }) %>
     <main class="carrito__main">
         <section class="carrito__main__section--productos">
             <p class="carrito__main__section--pruductos-title">Tu carrito</p>
@@ -64,7 +64,7 @@
                 </div>
                 <img src="/images/medios-de-pago-1723294542" alt="">
                 <div class="total-comprar">
-                    <button><a href="/cartAdress">Comprar</a></button>
+                    <button><a href="/products/cartAdress">Comprar</a></button>
                 </div>
             </div>
         </section>
@@ -116,7 +116,7 @@
             </article>
         </section>
     </main>
-    <%- include('./partials/footer',{ title:'home', }) %>
+    <%- include('../partials/footer',{ title:'home', }) %>
     <script src="/javascripts/glider.js"></script>
     <script>
         window.addEventListener('load', function() {

@@ -14,7 +14,7 @@
 /* M A I N */
 
 #mid {
-    padding-top: 68px;
+    padding-top: 58px;
 }
 
 #mid h2,
@@ -201,6 +201,9 @@ footer__lastsection__navbar {
 {
     /* HEADER */
     /* MAIN */
+    #mid {
+        padding-top: 58px;
+    }
     .main--img-banner {
         height: 35vh;
     }
@@ -225,9 +228,6 @@ footer__lastsection__navbar {
 /* Desktop */
 
 {
-    #burger {
-        display: none;
-    }
     /* MAIN */
     .main__section--product-article {
         width: 20%
