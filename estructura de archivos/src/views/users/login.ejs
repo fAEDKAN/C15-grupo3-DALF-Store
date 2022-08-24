@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <script src="https://kit.fontawesome.com/ae7c764a16.js" crossorigin="anonymous"></script>
-
-    <title>LOGIN</title>
-</head>
+    <%- include('../partials/head',{ title:'home', }) %>
 
 <body id="login">
     <div class="body__container">
@@ -19,7 +10,7 @@
                     <h2>INICIAR SESIÓN</h2>
                 </section>
                 <section class="header__container--register">
-                    <a href="/register">
+                    <a href="/users/register">
                         <h2>REGISTRARSE</h2>
                     </a>
                 </section>
@@ -56,7 +47,7 @@
                 <section class="footer__container--newAcc">
                     <div class="newAcc">
                         <p>¿Todavía no tenés una cuenta?</p>
-                        <a href="/register">¡Registrate!</a>
+                        <a href="/users/register">¡Registrate!</a>
                     </div>
                 </section>
             </div>

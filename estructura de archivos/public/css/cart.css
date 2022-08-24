@@ -237,7 +237,7 @@ body{
         width: 90vw;
         display: flex;
         justify-content: center;
-        padding-top: 80px;
+        padding-top: 120px;
     }
     .carrito__main__section--productos{
         justify-content: space-around;

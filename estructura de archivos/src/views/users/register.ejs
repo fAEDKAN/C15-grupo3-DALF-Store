@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
-    <script src="https://kit.fontawesome.com/ae7c764a16.js" crossorigin="anonymous"></script>
-
-    <title>REGISTER</title>
-</head>
+    <%- include('../partials/head',{ title:'home', }) %>
 
 <body id="register">
     <div class="body__container1">
@@ -19,7 +10,7 @@
                     <h2>REGISTRARSE</h2>
                 </section>
                 <section class="header__container--login1">
-                    <a href="/login">
+                    <a href="/users/login">
                         <h2>INICIAR SESIÓN</h2>
                     </a>
                 </section>
@@ -59,7 +50,7 @@
                 <section class="footer__container1--loginPage">
                     <div class="loginPage">
                         <p>¿Ya tenés una cuenta?</p>
-                        <a href="/login">¡Iniciá sesión!</a>
+                        <a href="/users/login">¡Iniciá sesión!</a>
                     </div>
                 </section>
             </div>

@@ -1,11 +1,11 @@
 module.exports = {
     login: (req, res) => {
-        return res.render('login')
+        return res.render('users/login')
     },
     register: (req, res) => {
-        return res.render('register')
+        return res.render('users/register')
     },
     shopping: (req, res) => {
-        return res.render('shopping')
+        return res.render('users/shopping')
     }
 }
