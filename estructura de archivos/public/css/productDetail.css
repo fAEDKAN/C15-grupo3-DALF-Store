@@ -24,7 +24,7 @@ h3 {
 /* M A I N */
 
 .productdetail__main {
-    padding-top: 78px;
+    padding-top: 11px;
 }
 
 .main__product__images {
@@ -275,6 +275,12 @@ h3 {
 
 @media (min-width: 768px) {
     .detail__purchase {
-        width: 280px;
+        width: 300px;
     }
 }
+
+@media (min-width: 1024px) {
+    .productdetail__main{
+        padding-top: 56px;
+    }
+}   

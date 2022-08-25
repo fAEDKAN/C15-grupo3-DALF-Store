@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- H E A D -->
 <%- include('../partials/head',{ title:'home', }) %>
-
+<!-- / H E A D -->
     <body class="carrito">
+        <!-- H E A D E R -->
         <%- include('../partials/header',{ title:'home', }) %>
+        <!-- / H E A D E R -->
+        <!-- M A I N -->
             <main class="carrito__main">
                 <section class="carrito__main__section--productos">
 
@@ -134,9 +137,12 @@
                     </article>
                 </section>
             </main>
+        <!-- / M A I N -->
+        <!-- F O O T E R -->
             <%- include('../partials/footer',{ title:'home', }) %>
-                <script src="/javascripts/glider.js"></script>
-                <script>
+        <!-- F O O T E R -->
+        <script src="/javascripts/glider.js"></script>
+        <script>
                     window.addEventListener('load', function () {
                         new Glider(document.querySelector('.glider'), {
                             slidesToShow: 2,
@@ -169,7 +175,7 @@
                             }]
                         })
                     })
-                </script>
+            </script>
     </body>
 
 </html>

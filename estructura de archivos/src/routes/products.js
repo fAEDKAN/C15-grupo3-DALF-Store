@@ -6,7 +6,12 @@ const {productDetail, productsLoad, productEdit, cart, cartAdress, cartPay, prod
 /* /products */
 
 router.get('/productDetail', productDetail)
+
+/*carga de productos */
 router.get('/productsLoad', productsLoad)
+router.post('/productsLoad', store)
+
+/*edicion de productos */
 router.get('/productEdit', productEdit)
 router.get('/cart', cart)
 /* rutas temporales*/ 

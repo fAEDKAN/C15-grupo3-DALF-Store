@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- H E A D -->
 <%- include('../partials/head',{ title:'home', }) %>
+<!-- / H E A D -->
 
-    <body class="products">
-        <%- include('../partials/header',{ title:'home', }) %>
-            <main id="products__main">
+
+<body class="products">
+    <!-- H E A D E R -->
+    <%- include('../partials/header',{ title:'home', }) %>
+    <!-- / H E A D E R -->
+    <!-- M A I N -->
+    <main id="products__main">
                 <div class="products-caja">
                     <div class="">
                         <h3 class="products-titulo">Cargar nuevo producto</h3>
                     </div>
-                    <form action="">
+                    <form action="" method="post">
                         <div class="form-box">
-                            <label class="form__label" for="nombre">Título:</label>
-                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="firstName" placeholder="Título del producto">
+                            <label class="form__label" for="name">Título:</label>
+                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto">
                             <!-- <small class="form__text--error">El nombre es obligatorio</small> -->
                         </div>
                         <div class="form-box">
@@ -34,15 +40,15 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="precio">Precio:</label>
-                            <input class="form__input" type="number" id="" name="precio" placeholder="Precio del producto">
+                            <label class="form__label" for="price">Precio:</label>
+                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto">
                             <!-- <small class="form__text--error">Solo se aceptan numeros en este campo</small> -->
 
                         </div>
 
                         <div class="form-box">
                             <label class="form__label">Descuento:</label>
-                            <select name="descuento" id="">
+                            <select name="discount" id="">
                         <option value="" hidden selected>Seleccionar descuento...</option>
                         <option value="5">5%</option>
                         <option value="10">10%</option>
@@ -54,11 +60,20 @@
                         </div>
                         <div class="form-box">
                             <label class="form__label" for="descripcion">Descripción:</label>
-                            <textarea name="descripcion" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
-
+                            <textarea name="description" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
                         </div>
                         <div class="form-box">
 
+                        <label class="form__label">Compañía:</label>
+                        <select name="company" id="">
+                        <option value="" hidden selected>Seleccionar...</option>
+                        <option value="5">Xbox</option>
+                        <option value="">Microsoft</option>
+                        <option value="">Steam</option>
+                        <option value="8">PSN</option>
+                        <option value="">Ubisoft</option>
+                        <option value="">Battle.net</option>
+                        <option value="">Otro</option>
                         </div>
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
@@ -70,8 +85,9 @@
                         </div>
                     </form>
                 </div>
-            </main>
-            <%- include('../partials/footer',{ title:'home', }) %>
-    </body>
+    </main>
+    <!-- / M A I N -->
+    <%- include('../partials/footer',{ title:'home', }) %>
+</body>
 
 </html>

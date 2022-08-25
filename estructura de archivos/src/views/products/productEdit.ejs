@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!-- H E A D -->
 <%- include('../partials/head',{ title:'home', }) %>
+    <!-- / H E A D -->
 
-    <body class="products">
-        <%- include('../partials/header',{ title:'home', }) %>
-            <main id="products__main">
+<body class="products">
+    <!-- H E A D E R -->
+    <%- include('../partials/header',{ title:'home', }) %>
+    <!-- M A I N -->
+    <main id="products__main">
                 <div class="products-caja">
                     <div class="">
                         <h3 class="products-titulo">Editar producto</h3>
@@ -55,9 +59,20 @@
                         <div class="form-box">
                             <label class="form__label" for="descripcion">Descripción:</label>
                             <textarea name="descripcion" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
-
                         </div>
+                        
                         <div class="form-box">
+                        <label class="form__label">Compañía:</label>
+                        <select name="descuento" id="">
+                        <option value="1" hidden selected>Seleccionar...</option>
+                        <option value="2">Xbox</option>
+                        <option value="3">Microsoft</option>
+                        <option value="5">Steam</option>
+                        <option value="8">PSN</option>
+                        <option value="6">Ubisoft</option>
+                        <option value="7">Battle.net</option>
+                        <option value="">Otro</option>
+                        </div>
 
                         </div>
                         <div class="form-box load-image">
@@ -70,8 +85,11 @@
                         </div>
                     </form>
                 </div>
-            </main>
-            <%- include('../partials/footer',{ title:'home', }) %>
-    </body>
+    </main>
+    <!-- / M A I N -->
+    <!-- F O O T E R -->
+    <%- include('../partials/footer',{ title:'home', }) %>
+    <!-- / F O O T E R -->
+</body>
 
 </html>
