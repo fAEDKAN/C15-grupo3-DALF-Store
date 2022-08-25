@@ -1,18 +1,18 @@
 [
     {
         "id": 1,
-        "name":"PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos",
+        "name": "PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos",
         "price": 11165,
         "category": "Otro",
         "discount":15,
         "company":"PSN",
         "description": "Funciona en: PlayStation 3,  PlayStation 4 PlayStation 5",
-        "image":"gift-card-playstation.jpeg"
+        "image": "gift-card-playstation.jpeg"
     },
     {
         "id": 2,
         "name": "Resident Evil 2 Remake XBOX LIVE Key Argentina",
-        "price":906,
+        "price": 906,
         "discount": 5,
         "category": "accion",
         "company": "PSN",
@@ -96,8 +96,7 @@
         "discount": 0,
         "category": "Otro",
         "color": "White",
-        "description":,
-        "image": 
+        "description": 0
     },
     {
         "id": 11,
@@ -118,5 +117,6 @@
         "color": "Black",
         "description": "Samsung está fielmente comprometida en brindar productos de calidad y que contribuyan a crear un mejor futuro para las personas. Como empresa líder en la industria tecnológica uno de sus objetivos principales es desarrollar avanzadas e innovadoras soluciones. Es por ello que con este monitor tendrás y disfrutarás de una gran experiencia visual en todo momento.",
         "image": "producto-de-usuario3.webp"
-    },
+    }
+    
 ]
