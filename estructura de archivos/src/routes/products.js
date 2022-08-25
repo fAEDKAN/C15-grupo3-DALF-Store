@@ -5,7 +5,7 @@ const { productDetail, productsLoad, productEdit, cart, cartAdress, cartPay, sto
 
 /* /products */
 
-router.get('/productDetail', productDetail)
+router.get('/productDetail/:id', productDetail)
 
 /*carga de productos */
 router.get('/productsLoad', productsLoad)

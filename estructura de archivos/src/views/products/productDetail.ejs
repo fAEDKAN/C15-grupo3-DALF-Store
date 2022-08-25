@@ -4,8 +4,10 @@
 <%- include('../partials/head',{ title:'home', }) %>
 
     <body>
+            <!-- Header -->
+        <%- include('../partials/header')%>
+            <!-- /Header -->
 
-        <%- include('../partials/header',{ title:'home', }) %>
             <div class="">
                 <h3 class="products-titulo">Editar producto</h3>
             </div>
@@ -19,13 +21,10 @@
                 </section>
                 <section class="detail__purchase">
                     <article class="detail__purchase__product">
-                        <h1 class="detail__purchase__product--title">Producto</h1>
+                        <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
                         <div class="detail__purchase__product--box">
-                            <p class="detail__purchase__product--price">$ 1 :o</p>
-                            <p class="detail__purchase__product--discount">100% OFF</p>
-                        </div>
-                        <div>
-                            <p class="detail__purchase__product--rebajas">En 12 cuotas sin interes</p>
+                            <p class="detail__purchase__product--price">$ <%= product.price %> </p>
+                            <p class="detail__purchase__product--discount"><%= product.discount %>  OFF</p>
                         </div>
                     </article>
                     <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>
@@ -43,7 +42,7 @@
                             <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar favoritos</button>
                         </div>
                         <div class="edit__product">
-                            <a href="/products/productEdit"><button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Editar producto</button></a>
+                            <a href="/products/productEdit/"><button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Editar producto</button></a>
                         </div>
                     </article>
                 </section>
