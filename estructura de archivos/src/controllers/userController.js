@@ -7,5 +7,8 @@ module.exports = {
     },
     shopping: (req, res) => {
         return res.render('users/shopping')
+    },
+    profile: (req, res) => {
+        return res.render('users/userProfile')
     }
 }

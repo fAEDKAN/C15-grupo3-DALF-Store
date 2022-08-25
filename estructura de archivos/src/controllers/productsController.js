@@ -17,5 +17,8 @@ module.exports = {
     },
     cartPay: (req, res) => {
         return res.render('products/cartPay')
+    },
+    productDelete: (req, res) => {
+        return res.render('products/productDelete')
     }
 }
