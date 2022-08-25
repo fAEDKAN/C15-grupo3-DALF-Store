@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {productDetail, productsLoad, productEdit, cart, cartAdress, cartPay, productDelete} = require('../controllers/productsController')
+const {productDetail, productsLoad, store, productEdit, cart, cartAdress, cartPay, productDelete} = require('../controllers/productsController')
 
 /* /products */
 

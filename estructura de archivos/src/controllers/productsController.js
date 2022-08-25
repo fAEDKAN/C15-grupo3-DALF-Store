@@ -44,7 +44,11 @@ module.exports = {
     cartPay: (req, res) => {
         return res.render('products/cartPay')
     },
-    productDelete: (req, res) => {
-        return res.render('products/productDelete')
-    }
+    productDelete : (req, res) => {
+		// Do the magic
+		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
+        
+		storeProducts(productsModify);
+		return res.redirect('/products/')
+	}
 }
