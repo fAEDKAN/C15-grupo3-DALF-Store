@@ -3,9 +3,9 @@
         "id": 1,
         "name": "PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos",
         "price": 11165,
-        "category": 0,
-        "discount": 15,
-        "company": "PSN",
+        "category": "Otro",
+        "discount":15,
+        "company":"PSN",
         "description": "Funciona en: PlayStation 3,  PlayStation 4 PlayStation 5",
         "image": "gift-card-playstation.jpeg"
     },
@@ -34,7 +34,7 @@
         "name": "Tarjeta Regalo Steam 1000 ARS Clave Steam Argentina",
         "price": 2577,
         "discount": 10,
-        "category": 0,
+        "category": "Otro",
         "company": "Steam",
         "description": "Este codigo solo es activable por Steam.",
         "image": "steam-card.jpeg"

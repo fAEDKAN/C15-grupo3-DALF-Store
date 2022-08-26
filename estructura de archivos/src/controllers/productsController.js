@@ -1,8 +1,13 @@
+const { render } = require("ejs");
 const {loadProducts, storeProducts, loadUsers}=require('../data/dbModule')
 
 module.exports = {
     productDetail: (req, res) => {
-        return res.render('products/productDetail')
+        let products = loadProducts();
+        let product = products.find(product => product.id === +req.params.id);
+        return res.render("products/productDetail",{
+            product
+        })
     },
     /**CARGA DE PRODUCTOS **/
     productsLoad: (req, res) => {
@@ -28,15 +33,32 @@ module.exports = {
     },
     /**EDICION DE PRODUCTOS **/
     productEdit: (req, res) => {
-        return res.render('products/productEdit')
+        let productToEdit = loadProducts().find(product => product.id === parseInt(Id))
+        return res.render('products/productEdit',{
+            productToEdit
+        })
     },
+    update: (req, res) => {
+        const {name,price,discount} = req.body;
+        let productsModify = loadProducts().map(product =>{
+            if(product.id === parseInt(Id)){
+                return {
+                    id : product.id,
+                    ...req.body,
+                    name: name.trim(),
+                    price : +price,
+                    discount : +discount,
+                }
+            }
+            return products;
+        })
+        storeProducts(productsModify);
+    },
+
+    
     cart: (req, res) => {
         return res.render('products/cart')
     },
-    
-
-
-    
     /*ruta temporal*/ 
     cartAdress: (req, res) => {
         return res.render('products/cartAdress')
