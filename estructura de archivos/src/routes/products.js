@@ -12,7 +12,7 @@ router.get('/productsLoad', productsLoad)
 router.post('/productsLoad', store)
 
 /*edicion de productos */
-router.get('/productEdit', productEdit)
+router.get('/productEdit/:id', productEdit)
 router.get('/cart', cart)
 /* rutas temporales*/ 
 router.get('/cartAdress', cartAdress)

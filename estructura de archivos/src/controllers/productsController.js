@@ -23,7 +23,7 @@ module.exports = {
             ...req.body,
             name: name.trim(),
             price : +price,
-            discount : +discount,
+            discount : +discount
         }
         const productsNew = [...products,newProduct];
 
@@ -33,7 +33,7 @@ module.exports = {
     },
     /**EDICION DE PRODUCTOS **/
     productEdit: (req, res) => {
-        let productToEdit = loadProducts().find(product => product.id === parseInt(Id))
+        let productToEdit = loadProducts().find(product => product.id === +req.params.id)
         return res.render('products/productEdit',{
             productToEdit
         })
