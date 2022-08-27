@@ -16,11 +16,7 @@
                         <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST">
                             <div class="form-box">
                                 <label class="form__label" for="name">Título:</label>
-                                <input class="form__input" type="text"
-                                    id="name" autocomplete="off"
-                                    name="name" placeholder="Título del
-                                    producto" value="<%= productToEdit.name %>">
-                                <!-- <small class="form__text--error">El nombre es obligatorio</small> -->
+                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= productToEdit.name %>">
                             </div>
 
                             <div class="form-box">
@@ -29,7 +25,7 @@
                                     <option  value="accion"<%= productToEdit.category === 'accion' && 'selected' %>>Acción</option>
                                     <option  value="aventura"<%= productToEdit.category === 'aventura' && 'selected' %>>Aventura</option>
                                     <option  value="fps/tps"<%= productToEdit.category === 'fps/tps' && 'selected' %>>FTP/TPS</option>
-                                    <option  value="rpg"<%= productToEdit.category === 'rpg' && 'selected' %>">RPG</option>
+                                    <option  value="rpg"<%= productToEdit.category === 'rpg' && 'selected' %>>RPG</option>
                                     <option  value="simulacion"<%= productToEdit.category === 'simulacion' && 'selected' %>>Simulación</option>
                                     <option  value="carreras"<%= productToEdit.category === 'carreras' && 'selected' %>>Carreras</option>
                                     <option  value="lucha"<%= productToEdit.category === 'lucha' && 'selected' %>>Lucha</option>
@@ -41,10 +37,7 @@
 
                             <div class="form-box">
                                 <label class="form__label" for="price">Precio:</label>
-                                <input class="form__input" type="number" id="price"
-                                    name="price" placeholder="Precio del
-                                    producto" value="<%= productToEdit.price %>">
-                                <!-- <small class="form__text--error">Solo se aceptan numeros en este campo</small> -->
+                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= productToEdit.price %>">
                             </div>
 
                             <div class="form-box">
@@ -59,24 +52,19 @@
 
                             <div class="form-box">
                                 <label class="form__label">Companía:</label>
-                                <select name="descuento" id="">
-                                    <option value="" hidden selected>Seleccionar...</option>
-                                    <option value="xbox">Xbox</option>
-                                    <option value="microsoft">Microsoft</option>
-                                    <option value="steam">Steam</option>
-                                    <option value="psn">PSN</option>
-                                    <option value="ubisoft">Ubisoft</option>
-                                    <option value="battle.net">Battle.net</option>
-                                    <option value="otro">Otro</option>
-                                </div>
-
+                                <select name="company" id="company">
+                                    <option value="xbox"<%= productToEdit.category === 'xbox' && 'selected' %>>Xbox</option>
+                                    <option value="microsoft"<%= productToEdit.category === 'microsoft' && 'selected' %>>Microsoft</option>
+                                    <option value="steam"<%= productToEdit.category === 'steam' && 'selected' %>>Steam</option>
+                                    <option value="psn"<%= productToEdit.category === 'psn' && 'selected' %>>PSN</option>
+                                    <option value="ubisoft"<%= productToEdit.category === 'ubisoft' && 'selected' %>>Ubisoft</option>
+                                    <option value="battle.net"<%= productToEdit.category === 'battle.net' && 'selected' %>>Battle.net</option>
+                                    <option value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
                             </div>
 
                             <div class="form-box load-image">
-                                <label class="form__label" for="imagen">Añadir
-                                    Imágenes:</label>
-                                <input type="file" name="imagen" accept=".jpg"
-                                    multiple>
+                                <label class="form__label" for="imagen">Añadir Imágenes:</label>
+                                <input type="file" name="imagen" accept=".jpg" multiple>
                             </div>
 
                             <div class="form-box buttons">
