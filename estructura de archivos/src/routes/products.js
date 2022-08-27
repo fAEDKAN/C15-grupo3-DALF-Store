@@ -17,6 +17,6 @@ router.get('/cart', cart)
 /* rutas temporales*/ 
 router.get('/cartAdress', cartAdress)
 router.get('/cartPay', cartPay)
-router.delete('/productDelete', productDelete)
+router.delete('/productDelete/:id', productDelete)
 
 module.exports = router;

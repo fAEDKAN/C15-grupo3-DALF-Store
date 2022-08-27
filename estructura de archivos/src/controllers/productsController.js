@@ -67,7 +67,7 @@ module.exports = {
         return res.render('products/cartPay')
     },
     productDelete : (req, res) => {
-		// Do the magic
+        
 		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
         
 		storeProducts(productsModify);
