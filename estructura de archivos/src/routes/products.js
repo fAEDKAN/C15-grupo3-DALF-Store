@@ -1,21 +1,26 @@
 var express = require('express');
 var router = express.Router();
 
-const { productDetail, productsLoad, productEdit, cart, cartAdress, cartPay, store} = require('../controllers/productsController')
+const { productDetail, productsLoad, productEdit, cart, cartAdress, cartPay, create} = require('../controllers/productsController')
 
 /* /products */
 
 router.get('/productDetail/:id', productDetail)
 
-/*carga de productos */
+/* preparado para la correción */
 router.get('/productsLoad', productsLoad)
-router.post('/productsLoad', store)
+router.post('/productsLoad', create)
+
+/* preparado para la correción */
+router.get('/productEdit/:id', productEdit)
 
 /*edicion de productos */
-router.get('/productEdit/:id', productEdit)
 router.get('/cart', cart)
+
 /* rutas temporales*/ 
 router.get('/cartAdress', cartAdress)
 router.get('/cartPay', cartPay)
+
+
 
 module.exports = router;

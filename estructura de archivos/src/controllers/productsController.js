@@ -13,7 +13,7 @@ module.exports = {
     productsLoad: (req, res) => {
         return res.render('products/productsLoad')
     },
-    store : (req,res) => {
+    create : (req,res) => {
         const products = loadProducts();
         const {name,price,discount} = req.body;
         const id = products[products.length - 1].id;
@@ -53,9 +53,12 @@ module.exports = {
             return products;
         })
         storeProducts(productsModify);
+        return res.redirect("/products/detail/" + req.params.id)
     },
-
+    delete: (req, res) => {},
     
+
+
     cart: (req, res) => {
         return res.render('products/cart')
     },
