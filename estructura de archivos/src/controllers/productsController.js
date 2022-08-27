@@ -13,7 +13,7 @@ module.exports = {
     productsLoad: (req, res) => {
         return res.render('products/productsLoad')
     },
-    store : (req,res) => {
+    create : (req,res) => {
         const products = loadProducts();
         const {name,price,discount} = req.body;
         const id = products[products.length - 1].id;
@@ -23,7 +23,7 @@ module.exports = {
             ...req.body,
             name: name.trim(),
             price : +price,
-            discount : +discount,
+            discount : +discount
         }
         const productsNew = [...products,newProduct];
 
@@ -33,7 +33,7 @@ module.exports = {
     },
     /**EDICION DE PRODUCTOS **/
     productEdit: (req, res) => {
-        let productToEdit = loadProducts().find(product => product.id === parseInt(Id))
+        let productToEdit = loadProducts().find(product => product.id === +req.params.id)
         return res.render('products/productEdit',{
             productToEdit
         })
@@ -53,9 +53,12 @@ module.exports = {
             return products;
         })
         storeProducts(productsModify);
+        return res.redirect("/products/detail/" + req.params.id)
     },
-
+    delete: (req, res) => {},
     
+
+
     cart: (req, res) => {
         return res.render('products/cart')
     },

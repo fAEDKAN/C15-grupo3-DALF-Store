@@ -1,95 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
     <!-- H E A D -->
-<%- include('../partials/head',{ title:'home', }) %>
-    <!-- / H E A D -->
+    <%- include('../partials/head',{ title:'home', }) %>
+        <!-- / H E A D -->
 
-<body class="products">
-    <!-- H E A D E R -->
-    <%- include('../partials/header',{ title:'home', }) %>
-    <!-- M A I N -->
-    <main id="products__main">
-                <div class="products-caja">
-                    <div class="">
-                        <h3 class="products-titulo">Editar producto</h3>
+        <body class="products">
+            <!-- H E A D E R -->
+            <%- include('../partials/header',{ title:'home', }) %>
+                <!-- M A I N -->
+                <main id="products__main">
+                    <div class="products-caja">
+                        <div class="">
+                            <h3 class="products-titulo">Editar producto</h3>
+                        </div>
+                        <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST">
+                            <div class="form-box">
+                                <label class="form__label" for="name">Título:</label>
+                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= productToEdit.name %>">
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form__label">Categorías:</label>
+                                <select name="category" id="category">
+                                    <option  value="accion"<%= productToEdit.category === 'accion' && 'selected' %>>Acción</option>
+                                    <option  value="aventura"<%= productToEdit.category === 'aventura' && 'selected' %>>Aventura</option>
+                                    <option  value="fps/tps"<%= productToEdit.category === 'fps/tps' && 'selected' %>>FTP/TPS</option>
+                                    <option  value="rpg"<%= productToEdit.category === 'rpg' && 'selected' %>>RPG</option>
+                                    <option  value="simulacion"<%= productToEdit.category === 'simulacion' && 'selected' %>>Simulación</option>
+                                    <option  value="carreras"<%= productToEdit.category === 'carreras' && 'selected' %>>Carreras</option>
+                                    <option  value="lucha"<%= productToEdit.category === 'lucha' && 'selected' %>>Lucha</option>
+                                    <option  value="mmo"<%= productToEdit.category === 'mmo' && 'selected' %>>MMO</option>
+                                    <option  value="arcade"<%= productToEdit.category === 'arcade' && 'selected' %>>Arcade</option>
+                                    <option  value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form__label" for="price">Precio:</label>
+                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= productToEdit.price %>">
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form__label">Descuento:</label>
+                                <input type="text" id="discount" placeholder="Ej: 5" value="<%= productToEdit.discount %>">
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form__label" for="description">Descripción:</label>
+                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%= productToEdit.description %></textarea>
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form__label">Companía:</label>
+                                <select name="company" id="company">
+                                    <option value="xbox"<%= productToEdit.category === 'xbox' && 'selected' %>>Xbox</option>
+                                    <option value="microsoft"<%= productToEdit.category === 'microsoft' && 'selected' %>>Microsoft</option>
+                                    <option value="steam"<%= productToEdit.category === 'steam' && 'selected' %>>Steam</option>
+                                    <option value="psn"<%= productToEdit.category === 'psn' && 'selected' %>>PSN</option>
+                                    <option value="ubisoft"<%= productToEdit.category === 'ubisoft' && 'selected' %>>Ubisoft</option>
+                                    <option value="battle.net"<%= productToEdit.category === 'battle.net' && 'selected' %>>Battle.net</option>
+                                    <option value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-box load-image">
+                                <label class="form__label" for="imagen">Añadir Imágenes:</label>
+                                <input type="file" name="imagen" accept=".jpg" multiple>
+                            </div>
+
+                            <div class="form-box buttons">
+                                <button class="total-comprar" type="reset">Cancelar</button>
+                                <button class="total-comprar" type="submit">Confirmar</button>
+                            </div>
+
+                        </form>
                     </div>
-                    <form action="">
-                        <div class="form-box">
-                            <label class="form__label" for="nombre">Título:</label>
-                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="firstName" placeholder="Título del producto">
-                            <!-- <small class="form__text--error">El nombre es obligatorio</small> -->
-                        </div>
-                        <div class="form-box">
-                            <label class="form__label">Categorías:</label>
-                            <select name="categoria" id="">
-                        <option value="accion" hidden selected>Seleccionar categoría...</option>
-                        <option value="accion">Acción</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="ftp/tps">FTP/TPS</option>
-                        <option value="rpg">RPG</option>
-                        <option value="simulacion">Simulación</option>
-                        <option value="carreras">Carreras</option>
-                        <option value="lucha">Lucha</option>
-                        <option value="mmo">MMO</option>
-                        <option value="arcade">Arcade</option>
-                        <option value="otro">Otro</option>
-                    </select>
+                </main>
+                <!-- / M A I N -->
+                <!-- F O O T E R -->
+                <%- include('../partials/footer',{ title:'home', }) %>
+                    <!-- / F O O T E R -->
+                </body>
 
-                        </div>
-
-                        <div class="form-box">
-                            <label class="form__label" for="precio">Precio:</label>
-                            <input class="form__input" type="number" id="" name="precio" placeholder="Precio del producto">
-                            <!-- <small class="form__text--error">Solo se aceptan numeros en este campo</small> -->
-
-                        </div>
-
-                        <div class="form-box">
-                            <label class="form__label">Descuento:</label>
-                            <select name="descuento" id="">
-                        <option value="" hidden selected>Seleccionar descuento...</option>
-                        <option value="5">5%</option>
-                        <option value="10">10%</option>
-                        <option value="15">15%</option>
-                        <option value="20">20%</option>
-                        <option value="30">30%</option>
-                    </select>
-
-                        </div>
-                        <div class="form-box">
-                            <label class="form__label" for="descripcion">Descripción:</label>
-                            <textarea name="descripcion" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
-                        </div>
-                        
-                        <div class="form-box">
-                        <label class="form__label">Compañía:</label>
-                        <select name="descuento" id="">
-                        <option value="1" hidden selected>Seleccionar...</option>
-                        <option value="2">Xbox</option>
-                        <option value="3">Microsoft</option>
-                        <option value="5">Steam</option>
-                        <option value="8">PSN</option>
-                        <option value="6">Ubisoft</option>
-                        <option value="7">Battle.net</option>
-                        <option value="">Otro</option>
-                        </div>
-
-                        </div>
-                        <div class="form-box load-image">
-                            <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <input type="file" name="imagen" accept=".jpg" multiple>
-                        </div>
-                        <div class="form-box buttons">
-                            <button class="total-comprar" type="reset">Cancelar</button>
-                            <button class="total-comprar" type="submit">Confirmar Edición</button>
-                        </div>
-                    </form>
-                </div>
-    </main>
-    <!-- / M A I N -->
-    <!-- F O O T E R -->
-    <%- include('../partials/footer',{ title:'home', }) %>
-    <!-- / F O O T E R -->
-</body>
-
-</html>
+            </html>
