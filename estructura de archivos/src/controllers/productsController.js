@@ -55,10 +55,14 @@ module.exports = {
         storeProducts(productsModify);
         return res.redirect("/products/detail/" + req.params.id)
     },
-    delete: (req, res) => {},
-    
 
-
+    destroy : (req, res) => {
+        
+		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
+        
+		storeProducts(productsModify);
+		return res.redirect('/')
+	},
     cart: (req, res) => {
         return res.render('products/cart')
     },
@@ -69,11 +73,5 @@ module.exports = {
     cartPay: (req, res) => {
         return res.render('products/cartPay')
     },
-    productDelete : (req, res) => {
-        
-		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
-        
-		storeProducts(productsModify);
-		return res.redirect('/products/')
-	}
+    
 }
