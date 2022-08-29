@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head',{ title:'home', }) %>
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header') %>
+            <!-- /Header -->
+            <!-- todos los productos -->
+            <div class="main__result">
+                <div >
+                        <h2>Resultados de la búsqueda:  <%= keywords %></h2>
+                    </div>
+                <div class="main__result-all">
+                    
+                    <% if (result.length> 0) { %>
+                    
+                    <% result.forEach(({id, name, price, image, discount})=> { %>
+                        <section class="main__result-products">
+                            <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
+                        </section>
+                    
+                    
+                    <% }) %>
+                    
+                    <% } else { %>
+                    
+                    <div >
+                    <h2 class="" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <!-- /todos los productos -->
+
+            <!-- footer -->
+            <%- include('./partials/footer') %>
+                <!-- /footer -->
+    </body>
+
+</html>

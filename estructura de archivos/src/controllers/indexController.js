@@ -16,7 +16,17 @@ const controller  = {
             productsOfUsers,
             toThousand
         })
-    }
-}
+    },
+    search: (req, res) => {
+        let { keywords } = req.query;
+        let products = loadProducts();
+        let result = products.filter(product => product.name.toLowerCase().includes(keywords.toLowerCase()));
+        return res.render("results", {
+            result,
+            toThousand,
+            keywords
+        })
+    },
+};
 
 module.exports = controller;
