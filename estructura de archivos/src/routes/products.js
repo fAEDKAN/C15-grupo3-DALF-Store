@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {productDetail, productsLoad, create, productEdit, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController')
+const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController')
 
 
 
@@ -9,15 +9,18 @@ const {productDetail, productsLoad, create, productEdit, cart, cartAdress, cartP
 
 router.get('/productDetail/:id', productDetail)
 
-/* preparado para la correción */
+/* Products load */
 router.get('/productsLoad', productsLoad)
 router.post('/productsLoad', create)
 
-/* preparado para la correción */
+/* Product edit */
 router.get('/productEdit/:id', productEdit)
+router.put('/update/:id', update)
 
-/*edicion de productos */
+
+/*x */
 router.get('/cart', cart)
+
 
 /* rutas temporales*/ 
 router.get('/cartAdress', cartAdress)

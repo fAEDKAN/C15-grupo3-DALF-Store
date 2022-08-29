@@ -10,7 +10,9 @@
             </div>
             <div class="main-section-price-ofert ">
                 <p class="main__section--product-price ">$ <%= price %> </p>
+                <% if (discount> 0) { %>
                 <p class="main__section--product-discount "><%= discount %>% OFF</p>
+                <% } %>
             </div>
             <p class="main__section--product-description "><%= name %></p>
         </div>

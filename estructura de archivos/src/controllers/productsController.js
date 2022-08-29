@@ -48,9 +48,10 @@ module.exports = {
         })
     },
     update: (req, res) => {
+        const {id}= req.params;
         const {name,price,discount} = req.body;
         let productsModify = loadProducts().map(product =>{
-            if(product.id === parseInt(Id)){
+            if(product.id === +req.params.id){
                 return {
                     id : product.id,
                     ...req.body,
@@ -59,10 +60,10 @@ module.exports = {
                     discount : +discount,
                 }
             }
-            return products;
+            return product;
         })
         storeProducts(productsModify);
-        return res.redirect("/products/detail/" + req.params.id)
+        return res.redirect("/products/productDetail/" + req.params.id)
     },
 
     destroy : (req, res) => {

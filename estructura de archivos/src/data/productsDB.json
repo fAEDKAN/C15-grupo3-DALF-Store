@@ -3,9 +3,9 @@
         "id": 1,
         "name": "PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos",
         "price": 11165,
-        "discount":15,
-        "category":"otro",
-        "company":"psn",
+        "discount": 15,
+        "category": "otro",
+        "company": "psn",
         "description": "Funciona en: PlayStation 3,  PlayStation 4 PlayStation 5",
         "image": "gift-card-playstation.jpeg",
         "section": "in-sale"
@@ -131,5 +131,4 @@
         "image": "producto-de-usuario3.webp",
         "section": "of-users"
     }
-    
 ]
