@@ -1,14 +1,16 @@
 const { loadProducts } = require("../data/dbModule")
 
-module.exports = {
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+const controller  = {
     
     index: (req, res) => {
-        const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         let products = loadProducts();
-        let productsInSale = products.filter(product => product.category === "in-sale");
-        let productsRecomended = products.filter(product => product.category === "recomended");
-        let productsOfUsers = products.filter(product => product.category === "of-users");
+        let productsInSale = products.filter(product => product.section === "in-sale");
+        let productsRecomended = products.filter(product => product.section === "recomended");
+        let productsOfUsers = products.filter(product => product.section === "of-users");
         return res.render('index',{
+            products,
             productsInSale,
             productsRecomended,
             productsOfUsers,
@@ -16,3 +18,5 @@ module.exports = {
         })
     }
 }
+
+module.exports = controller;

@@ -206,7 +206,7 @@ h1 {
         flex-direction: row;
         font-size: 16px;
         text-align: center;
-        width: 863px;
+        width: 970px;
     }
     .header_div--navbar-desktop li {
         padding: 5px;
@@ -279,7 +279,7 @@ h1 {
 
 @media (min-width: 1440px) {
     .header_div--navbar-desktop {
-        width: 1071px;
+        width: 1178px;
     }
     .navigation ul {
         left: 300px;
@@ -294,7 +294,7 @@ h1 {
 
 @media (min-width: 1680px) {
     .header_div--navbar-desktop {
-        width: 1193px;
+        width: 1300px;
     }
     .navigation ul {
         left: 300px;

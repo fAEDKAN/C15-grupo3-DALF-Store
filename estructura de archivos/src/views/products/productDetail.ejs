@@ -39,10 +39,10 @@
                             <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
                         </div>
                         <div class="detail__purchase__buttons--fav">
-                            <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar favoritos</button>
+                            <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar a favoritos</button>
                         </div>
                         <div class="edit__product">
-                            <a href="/products/productEdit/<%= product.id %>"><button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Editar producto</button></a>
+                            <a href="/products/productEdit/<%= product.id %>"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
                         </div>
                         <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                             <button type="submit" class="action-button delete">ELIMINAR</button>

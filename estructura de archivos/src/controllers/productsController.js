@@ -2,6 +2,15 @@ const { render } = require("ejs");
 const {loadProducts, storeProducts, loadUsers}=require('../data/dbModule')
 
 module.exports = {
+    index: (req, res) => {
+        // Do the magic
+        let products = loadProducts();
+        return res.render("products", {
+            products,
+            toThousand
+        })
+    },
+
     productDetail: (req, res) => {
         let products = loadProducts();
         let product = products.find(product => product.id === +req.params.id);

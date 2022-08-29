@@ -15,106 +15,7 @@
 <!-- / H E A D -->
 <body id="index">
     <!-- H E A D E R -->
-    <header id="top">
-        <div class="header__top--general">
-            <nav class="navbar navbar-dark bg-dark fixed-top header__top--general-navbar">
-                <div class="container-fluid">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                    <span class="navbar-toggler-icon"></span></button>
-                    <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt=""></a>
-                    <div class="header__top--general-navigation_button">
-                        <div class="header__top--search">
-                            <input type="text" placeholder="Buscar" required>
-                            <div class="header__top--search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
-                        </div>
-                        <button><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
-                        <li class="nav-item dropdown header__top--login">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="/users/login">Login</a></li>
-                                <li><a class="dropdown-item" href="/users/register">Register</a></li>
-                            </ul>
-                        </li>
-                    </div>
-                    <div class="offcanvas offcanvas-end  offcanvas-end-edited text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                        <div class="offcanvas-header">
-                            <a class="header--figure-logo" href="/index"><img src="/images/logo2.png" alt=""></a>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="padding-top: 25px;">
-                                <div class="header__navbar-nav-searchbar">
-                                    <input type="text" placeholder="Buscar" required>
-                                    <div class="header__navbar-nav-search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
-                                </div>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">TIENDA</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">JUEGOS</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">TARJETAS DE REGALO</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">XBOX</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">SOWFTWARE</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">LISTA DE DESEOS</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="#">CREAR NUEVO PRODUCTO </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="/products/productsLoad">Español Latinoamerica | ARS</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="header_div">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Tienda</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Juegos</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tarjeta de regalo</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Xbox</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Software</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Espñaol Latinoamerica | ARS</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <%- include('./partials/header',{ title:'home', }) %>
     <!-- / H E A D E R -->
     <!-- M A I N -->
     <main class="main__content">
@@ -146,66 +47,9 @@
         </div>
         <h2>Oferta del Día</h2>
         <section class="main__section--product ">
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/gift-card-playstation.jpeg " alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content_offers ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Estados Unidos</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <div class="main-section-price-ofert ">
-                        <p class="main__section--product-price ">$ 9999</p>
-                        <p class="main__section--product-discount ">5% OFF</p>
-                    </div>
-                    <p class="main__section--product-description ">PlayStation Network Card 75 USD (USA) PSN Key Estados Unidos</p>
-                </div>
-            </article>
-            <article class="main__section--product-article">
-                <img class="main__section--product-img-key" src="/images/RE2-card.jpeg" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content_offers ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <div class="main-section-price-ofert">
-                        <p class="main__section--product-price ">$ 9999</p>
-                        <p class="main__section--product-discount ">5% OFF</p>
-                    </div>
-                    <p class="main__section--product-description ">Resident Evil 2 Remake XBOX LIVE Key Argentina</p>
-                </div>
-            </article>
-            <article class="main__section--product-article">
-                <img class="main__section--product-img-key" src="/images/gtav-card.jpeg" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content_offers ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <div class="main-section-price-ofert">
-                        <p class="main__section--product-price ">$ 9999</p>
-                        <p class="main__section--product-discount ">5% OFF</p>
-                    </div>
-                    <p class="main__section--product-description ">Grand Theft Auto V: Premium Online Edition & Great White Shark Card Bundle XBOX LIVE Key Argentina</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/steam-card.jpeg" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content_offers ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <div class="main-section-price-ofert ">
-                        <p class="main__section--product-price ">$ 9999</p>
-                        <p class="main__section--product-discount ">5% OFF</p>
-                    </div>
-                    <p class="main__section--product-description ">Tarjeta Regalo Steam 1000 ARS Clave Steam Argentina</p>
-                </div>
-            </article>
+            <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
+                <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
+                <% }) %>
         </section>
         <div class="main-content-buttom "><button class="main-display-button ">Ver más</button></div>
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -248,107 +92,17 @@
         </div>
         <h2>Juegos Recomendados (Digitales)</h2>
         <section class="main__section--product ">
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/eldenring-card.webp" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Elden Ring Código de XBOX LIVE Argentina</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/minecraftjava-bedrockedition-card.webp" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Minecraft: Java & Bedrock Edition Official website Key Argentina</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/megaman11-card.jpeg " alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Mega Man 11 XBOX LIVE Key Argentina</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img-key" src="/images/re4-card.jpeg " alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Resident Evil 4 XBOX LIVE Key Argentina</p>
-                </div>
-            </article>
+            <% productsRecomended.forEach(({id, name, price, image, discount})=> { %>
+                <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
+                <% }) %>
         </section>
 
         <div class="main-content-buttom "><button class="main-display-button ">Ver más</button></div>
         <h2>Producto de nuestros usuarios</h2>
         <section class="main__section--product ">
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img" src="/images/producto-de-usuario.webp" width="600px" height="202.8px" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Oculus Quest 2 Advanced All In One Casco Vr 128gb</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img" src="/images/producto-de-usuario1.webp" alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Teclado gamer Redragon Kumara K552 QWERTY Outemu Blue español latinoamérica color blanco con luz RGB</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img" src="/images/producto-de-usuario2.webp " alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Puesto Trabajo Gerencial Mod Argeno Jmi</p>
-                </div>
-            </article>
-            <article class="main__section--product-article ">
-                <img class="main__section--product-img" src="/images/producto-de-usuario3.webp " alt="xbox-key ">
-                <div class="main__section--product-favorite "><i class="fa-regular fa-heart "></i></div>
-                <div class="main__section--product-content ">
-                    <div class="main-section-global-region ">
-                        <p class="main__section--product-region ">Argentina</p>
-                        <p class="main__section--product-ubication ">Desde</p>
-                    </div>
-                    <p class="main__section--product-price ">$ 9999</p>
-                    <p class="main__section--product-description ">Monitor gamer curvo Samsung F390 Series C24F390FH led 24 " black high glossy 100V/240V</p>
-                </div>
-            </article>
+            <% productsOfUsers.forEach(({id, name, price, image, discount})=> { %>
+                <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
+                <% }) %>
         </section>
         <div class="main-content-buttom "><button class="main-display-button ">Ver más</button></div>
         <h2>Categorías</h2>
