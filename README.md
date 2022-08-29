@@ -75,5 +75,5 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------
 
-## Tablero de trabajo (trello)##
-https://trello.com/b/KOk1hQey/dalf-store 
+## Tablero de trabajo (Trello):
+https://trello.com/b/KOk1hQey/dalf-store
