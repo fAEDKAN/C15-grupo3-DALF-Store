@@ -2,57 +2,48 @@
 <html lang="en">
     <%- include('../partials/head',{ title:'home', }) %>
 
-<body id="login">
-    <div class="body__container">
-        <header>
-            <div class="header__container">
-                <section class="header__container--login">
-                    <h2>INICIAR SESIÓN</h2>
-                </section>
-                <section class="header__container--register">
-                    <a href="/users/register">
-                        <h2>REGISTRARSE</h2>
-                    </a>
-                </section>
-            </div>
-        </header>
-        <main>
-            <div class="main__container">
-                <section class="main__container--data">
-                    <form action="">
-                        <article class="email">
-                            <i class="fa-solid fa-paper-plane"></i><label for="email">Email:</label>
-                            <input type="email" placeholder="Ingresá tu email" id="email" name="email" required>
-                        </article>
-                        <article class="password">
-                            <i class="fa-solid fa-keyboard"></i><label for="password">Contraseña:</label>
-                            <input type="password" placeholder="Ingresá tu contraseña" id="password" name="password" minlength="8" maxlength="25" required>
-                        </article>
-                        <article class="rememberMe">
+    <body id="b0dy__c0nt41n3r">
+        <div class="body--form">
+            <figure class="body__form__image--container">
+                <a href="/home">
+                    <img src="/images/DALF proyecto logo 3 LIMPIO.png" alt="logo">
+                </a>
+            </figure>
+            <div class="body__form--box">
+                <div class="body__form--title">
+                    <h2>Iniciar sesión</h2>
+                </div>
+                <form action="#">
+                    <div class="body__form--inputs">
+                        <div class="body__form__inputs--userData">
+                            <div class="body__form__inputs__userData--input">
+                                <label for="email">Email:</label>
+                                <input type="email" placeholder="E-mail" id="email" name="email" required>
+                            </div>
+                            <div class="body__form__inputs__userData--input">
+                                <label for="pass">Contraseña:</label>
+                            <input type="password" placeholder="Contraseña" id="pass" name="pass" minlength="8" maxlength="25" required>
+                            </div>
+                        </div>
+                        <div class="body__form__inputs--chckbx">
                             <label for="remember">Recordarme</label>
                             <input type="checkbox" id="remember" name="remember">
-                        </article>
-                        <input type="submit" value="INGRESAR">
-                    </form>
-                </section>
-            </div>
-        </main>
-        <footer>
-            <div class="footer__container">
-                <section class="footer__container--form">
-                    <form action="">
-                        <input type="submit" value="¿Olvidaste tu contraseña?">
-                    </form>
-                </section>
-                <section class="footer__container--newAcc">
-                    <div class="newAcc">
-                        <p>¿Todavía no tenés una cuenta?</p>
-                        <a href="/users/register">¡Registrate!</a>
+                        </div>
+                        <div class="body__form__button--btn">
+                            <button type="submit">INGRESAR</button>
+                        </div>
                     </div>
-                </section>
+                </form>
+                <div class="body__form__redirect">
+                    <div class="body__form__redirect--recoveryPass">
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="body__form__redirect--register">
+                        <a href="/users/register">¿Todavía no tenés una cuenta?</a>
+                    </div>
+                </div>
             </div>
-        </footer>
-    </div>
-</body>
+        </div>
+    </body>
 
 </html>

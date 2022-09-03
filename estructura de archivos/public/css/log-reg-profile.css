@@ -1,0 +1,248 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans';
+    text-decoration: none;
+}
+
+#b0dy__c0nt41n3r {
+    width: 100vw;
+    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.body--form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/** BODY | LOGO */
+
+.body__form__image--container {
+    width: 100%;
+}
+
+.body--form img {
+    width: 125px;
+    margin: 15px;
+}
+
+/** BODY | BOX */
+
+.body__form--box {
+    width: 90vw;
+    height: 70vh;
+    margin: 45px 0 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/** BODY | TITLE */
+
+.body__form--title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.body__form--title h2 {
+    color: var(--C_Lightblue_Logo);
+    text-transform: uppercase;
+    font-size: 1.85rem;
+    text-align: center;
+}
+
+/** BODY | INPUTS */
+
+.body__form--inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body__form__inputs--userData {
+    display: flex;
+    flex-direction: column;
+/*     align-items: center; */
+}
+
+.body__form--inputs label {
+    display: none;
+}
+
+.body__form--inputs input {
+    width: 225px;
+    height: 50px;
+    color: var(--C_Ice-Cream);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    padding-left: 5px;
+    padding-top: 15px;
+    transition: 1s all;
+}
+
+.body__form--inputs ::placeholder {
+    color: var(--C_Ice-Cream);
+    transition: 1s all;
+}
+
+.body__form--inputs input:hover {
+    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+}
+
+.body__form--inputs input:hover::placeholder {
+    color: var(--C_Pink_Logo);
+}
+
+.body__form--inputs input:focus::placeholder {
+    color: var(--C_Pink_Logo);
+}
+
+/** BODY | INPUTS | CHECKBOX */
+
+.body__form__inputs--chckbx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.body__form__inputs--chckbx label[for="remember"] {
+    display: inline-block;
+    color: var(--C_Soft_Gray);
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 1s all;
+}
+
+.body__form__inputs--chckbx label[for="remember"]:hover {
+    color: var(--C_Lightblue_Logo);
+    cursor: pointer;
+}
+
+.body__form__inputs--chckbx input {
+    width: 15px;
+    height: 15px;
+}
+
+/** BODY | INPUTS | RADIO */
+
+.body__form__inputs__userData__input--radiobtns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 23px 0 0 60px;
+}
+
+.body__form__inputs__userData__input--radiobtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.body__form__inputs__userData__input--radiobtn input {
+    width: 15px;
+    height: 15px;
+    gap: 6px;
+}
+
+.body__form__inputs__userData__input--radiobtn label {
+    display: inline-block;
+    color: var(--C_Soft_Gray);
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 1s all;
+}
+
+.body__form__inputs__userData__input--radiobtn label:hover {
+    color: var(--C_Lightblue_Logo);
+    cursor: pointer;
+}
+
+/** BODY | INPUTS | AVATAR */
+
+.body__form__inputs__userData__input--avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.body__form__inputs__userData__input__avatar--btn {
+    width: 100px;
+    height: 45px;
+    margin: 25px 0 2px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.050);
+    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    color: var(--C_Ice-Cream);
+    font-weight: bold;
+    transition: 1s all;
+}
+
+.body__form__inputs__userData__input--avatar input[type="file"] {
+/*     font-size: 100px; */
+    position: absolute;
+    left: 0;
+/*     top: 0; */
+    opacity: 0;
+}
+
+/** BODY | INPUTS | BUTTON */
+
+.body__form__button--btn button {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    margin: 25px 0 20px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.050);
+    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    color: var(--C_Ice-Cream);
+    font-weight: bold;
+    transition: 1s all;
+}
+
+.body__form__button--btn button:hover {
+    border-image: linear-gradient(to right, var(--C_Pink_Logo), var(--C_Lightblue_Logo)) 1;
+    color: var(--C_Pink_Logo);
+}
+
+/** BODY | FORMS | REDIRECT */
+
+.body__form__redirect {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center ;
+    gap: 10px;
+}
+
+.body__form__redirect a {
+    font-size: 0.8rem;
+    color: var(--C_Soft_Gray);
+    font-weight: bold;
+    transition: 0.75s;
+}
+
+.body__form__redirect a:hover {
+    color: var(--C_Lightblue_Logo);
+    font-size: 0.82rem;
+}
