@@ -1,5 +1,6 @@
 const { render } = require("ejs");
-const {loadProducts, storeProducts, loadUsers}=require('../data/dbModule')
+const { loadProducts, storeProducts, loadUsers } = require('../data/dbModule')
+const { validationResult } = require('express-validator');
 
 module.exports = {
     index: (req, res) => {
@@ -26,13 +27,16 @@ module.exports = {
         const products = loadProducts();
         const {name,price,discount} = req.body;
         const id = products[products.length - 1].id;
-
+        let images;
+		if (req.files.length > 0){ images = req.files.map(image => image.filename) }
+        
         const newProduct = {
             id : id + 1,
             ...req.body,
             name: name.trim(),
             price : +price,
-            discount : +discount
+            discount : +discount,
+            image: images ? images:['xxxxxxxxx']
         }
         const productsNew = [...products,newProduct];
 

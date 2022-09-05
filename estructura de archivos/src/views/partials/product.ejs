@@ -1,19 +1,19 @@
 
     <a href="/products/productDetail/<%= id %>" class="main__section--product-article">
     <article>
-        <img class="main__section--product-img-key" src="/images/<%= image %>  " alt="xbox-key ">
-        <div class="main__section--product-content_offers ">
-            <div class="main-section-global-region ">
-                <p class="main__section--product-region ">Argentina</p>
-                <p class="main__section--product-ubication ">Desde</p>
+        <img class="main__section--product-img-key" src="/images/products/<%= image %>  " alt="xbox-key ">
+        <div class="main__section--product-content_offers">
+            <div class="main-section-global-region">
+                <p class="main__section--product-region">Argentina</p>
+                <p class="main__section--product-ubication">Desde</p>
             </div>
-            <div class="main-section-price-ofert ">
-                <p class="main__section--product-price ">$ <%= price %> </p>
+            <div class="main-section-price-ofert">
+                <p class="main__section--product-price">$<%= price %></p>
                 <% if (discount> 0) { %>
-                <p class="main__section--product-discount "><%= discount %>% OFF</p>
+                <p class="main__section--product-discount"><%= discount %>% OFF</p>
                 <% } %>
             </div>
-            <p class="main__section--product-description "><%= name %></p>
+            <p class="main__section--product-description"><%= name %></p>
         </div>
     </article>    
     </a>

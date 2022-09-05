@@ -1,4 +1,6 @@
-const {loadUsers, storeUsers}=require('../data/dbModule')
+const { loadUsers, storeUsers }=require('../data/dbModule')
+const { validationResult } = require('express-validator');
+
 module.exports = {
     login: (req, res) => {
         return res.render('users/login')
