@@ -46,7 +46,7 @@
             </button>
         </div>
         <h2>Oferta del Día</h2>
-        <section class="main__section--product ">
+        <section class="main__section--product">
             <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
                 <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                 <% }) %>

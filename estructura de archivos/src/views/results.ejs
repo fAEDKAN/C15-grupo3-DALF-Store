@@ -7,30 +7,25 @@
         <%- include('./partials/header') %>
             <!-- /Header -->
             <!-- todos los productos -->
-            <div class="main__result">
-                <div >
-                        <h2>Resultados de la búsqueda:  <%= keywords %></h2>
-                    </div>
-                <div class="main__result-all">
+            <main class="main__result">
+                <div>
+                    <h2>Resultados de la búsqueda:  <%= keywords %></h2>
+                </div>
+                <section class="main__section--product main__section--product-result">
                     
                     <% if (result.length> 0) { %>
                     
                     <% result.forEach(({id, name, price, image, discount})=> { %>
-                        <section class="main__result-products">
-                            <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
-                        </section>
-                    
-                    
+                        <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                     <% }) %>
                     
                     <% } else { %>
-                    
                     <div >
                     <h2 class="" style="color: tomato;">No hay productos que coincidan con esa búsqueda</h2>
                     </div>
                     <% } %>
-                </div>
-            </div>
+                </section>
+            </main>
             <!-- /todos los productos -->
 
             <!-- footer -->
