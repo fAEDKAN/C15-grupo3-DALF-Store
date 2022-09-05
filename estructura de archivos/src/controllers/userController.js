@@ -1,4 +1,4 @@
-const {loadProducts, storeProducts, loadUsers, storeUsers}=require('../data/dbModule')
+const {loadUsers, storeUsers}=require('../data/dbModule')
 module.exports = {
     login: (req, res) => {
         return res.render('users/login')

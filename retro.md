@@ -1,3 +1,8 @@
+# El espacio de trabajo que utilizamos para realizar la retrospectiva es Jamboard, se encuentra en [éste link][ref1].
+[ref1]: https://jamboard.google.com/d/1tPSR0CX3VBCcswheuxwPOYk_hvBqmctEa9tqvRggXNk/viewer?f=0
+
+************************************************************************************
+
 # Retrospectiva con dinámica "Estrella de Mar" Sprint 1:
 
 ## Seguir haciendo:
