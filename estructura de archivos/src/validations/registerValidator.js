@@ -26,10 +26,14 @@ module.exports = [
 
     check('pass')
     .notEmpty().withMessage('Éste campo es obligatorio').bail()
-    . //! FALTA COMPLETAR
+    .isStrong({
+        minLength : 8,
+        maxLength : 30,
+        minLowercase : 1,
+        minUppercase : 1,
+        minNumbers : 1
+    }).withMessage('La contraseña debe contener entre 8 y 30 caracteres, al menos una mayúscula, una minúscula y un número'),
 
     check('repass')
     .notEmpty().withMessage('Éste campo es obligatorio').bail()
-    . //! FALTA COMPLETAR
-
 ]
