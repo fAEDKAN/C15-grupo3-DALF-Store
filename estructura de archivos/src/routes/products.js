@@ -8,7 +8,7 @@ const {productDetail, productsLoad, create, productEdit, update, cart, cartAdres
 const uploadProducts =require('../middlewares/uploadFilesProducts');
 
 //Validations
-const productValidator = require('../validations/registerValidator');
+const productValidator = require('../validations/productValidator')
 
 /* /products */
 

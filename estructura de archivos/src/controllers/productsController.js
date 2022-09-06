@@ -24,25 +24,33 @@ module.exports = {
         return res.render('products/productsLoad')
     },
     create : (req,res) => {
-        const products = loadProducts();
-        const {name,price,discount} = req.body;
-        const id = products[products.length - 1].id;
-        let images;
-		if (req.files.length > 0){ images = req.files.map(image => image.filename) }
-        
-        const newProduct = {
-            id : id + 1,
-            ...req.body,
-            name: name.trim(),
-            price : +price,
-            discount : +discount,
-            image: images ? images:['xxxxxxxxx']
+        const errors = validationResult(req)
+        if(errors.isEmpty()){
+            const products = loadProducts();
+            const {name,price,discount} = req.body;
+            const id = products[products.length - 1].id;
+            let images;
+            if (req.files.length > 0){ images = req.files.map(image => image.filename) }
+            
+            const newProduct = {
+                id : id + 1,
+                ...req.body,
+                name: name.trim(),
+                price : +price,
+                discount : +discount,
+                image: images ? images:['xxxxxxxxx']
+            }
+            const productsNew = [...products,newProduct];
+    
+            storeProducts(productsNew)
+    
+            return res.redirect('/')
+        }else{
+            return res.render('productsLoad', {
+                erros: errors.mapped(),
+                old: req.body
+            })
         }
-        const productsNew = [...products,newProduct];
-
-        storeProducts(productsNew)
-
-        return res.redirect('/')
     },
     /**EDICION DE PRODUCTOS **/
     productEdit: (req, res) => {

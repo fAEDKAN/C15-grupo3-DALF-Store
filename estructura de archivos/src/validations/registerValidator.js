@@ -25,11 +25,8 @@ module.exports = [
     .isDate(),
 
     check('pass')
-    .notEmpty().withMessage('Éste campo es obligatorio').bail()
-    . //! FALTA COMPLETAR
+    .notEmpty().withMessage('Éste campo es obligatorio').bail(),
 
     check('repass')
     .notEmpty().withMessage('Éste campo es obligatorio').bail()
-    . //! FALTA COMPLETAR
-
 ]

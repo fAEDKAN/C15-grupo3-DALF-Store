@@ -18,63 +18,60 @@
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="form-box">
                             <label class="form__label" for="name">Título:</label>
-                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto">
-                            <!-- <small class="form__text--error">El nombre es obligatorio</small> -->
+                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : null %>">
+                            <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                         </div>
                         <div class="form-box">
                             <label class="form__label">Categorías:</label>
-                            <select name="categoria" id="">
-                        <option value="accion" hidden selected>Seleccionar categoría...</option>
-                        <option value="accion">Acción</option>
-                        <option value="aventura">Aventura</option>
-                        <option value="ftp/tps">FTP/TPS</option>
-                        <option value="rpg">RPG</option>
-                        <option value="simulacion">Simulación</option>
-                        <option value="carreras">Carreras</option>
-                        <option value="lucha">Lucha</option>
-                        <option value="mmo">MMO</option>
-                        <option value="arcade">Arcade</option>
-                        <option value="otro">Otro</option>
-                    </select>
-
+                            <select name="category" id="" value="<%= locals.old && old.category ? old.category : null %>">
+                                <option value="accion" hidden selected>Seleccionar categoría...</option>
+                                <option value="accion">Acción</option>
+                                <option value="aventura">Aventura</option>
+                                <option value="ftp/tps">FTP/TPS</option>
+                                <option value="rpg">RPG</option>
+                                <option value="simulacion">Simulación</option>
+                                <option value="carreras">Carreras</option>
+                                <option value="lucha">Lucha</option>
+                                <option value="mmo">MMO</option>
+                                <option value="arcade">Arcade</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label" for="price">Precio:</label>
-                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto">
-                            <!-- <small class="form__text--error">Solo se aceptan numeros en este campo</small> -->
-
+                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : null %>">
+                            <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label">Descuento:</label>
-                            <select name="discount" id="">
-                        <option value="" hidden selected>Seleccionar descuento...</option>
-                        <option value="5">5%</option>
-                        <option value="10">10%</option>
-                        <option value="15">15%</option>
-                        <option value="20">20%</option>
-                        <option value="30">30%</option>
-                    </select>
-
+                            <input type="text" id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
+                            <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %> </small>
                         </div>
+
                         <div class="form-box">
                             <label class="form__label" for="descripcion">Descripción:</label>
                             <textarea name="description" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
                         </div>
-                        <div class="form-box">
 
-                        <label class="form__label">Companía:</label>
-                        <select name="company" id="company">
-                        <option value="" hidden selected>Seleccionar...</option>
-                        <option value="xbox">Xbox</option>
-                        <option value="microsoft">Microsoft</option>
-                        <option value="steam">Steam</option>
-                        <option value="psn">PSN</option>
-                        <option value="ubisoft">Ubisoft</option>
-                        <option value="battle.net">Battle.net</option>
-                        <option value="otro">Otro</option>
+                        <div class="form-box">
+                            <label class="form-label">Companía:</label>
+                            <select name="company" id="company" value="<%= locals.old && old.company ? old.company : null %>">
+                                <option value="" hidden selected>Seleccionar una compania...</option>
+                                <option value="xbox">Xbox</option>
+                                <option value="microsoft">Microsoft</option>
+                                <option value="steam">Steam</option>
+                                <option value="psn">PSN</option>
+                                <option value="ubisoft">Ubisoft</option>
+                                <option value="battle.net">Battle.net</option>
+                                <option value="otro">Otro</option>
+                            <div>
+                                <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %> </small>    
+                            </div>
                         </div>
+
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
                             <input type="file" name="imagen" accept=".jpg" multiple>

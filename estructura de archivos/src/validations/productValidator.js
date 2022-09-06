@@ -27,12 +27,12 @@ module.exports = [
         no_symbols: true,
     }).withMessage('Éste campo solo acepta numeros'),
 
-    check('category').withMessage('Es obligatorio establecer una categoría'),
+    check('category').notEmpty().withMessage('Es obligatorio establecer una categoría'),
 
-    check('company').withMessage('Es obligatorio establecer una compania'),
+    check('company').notEmpty().withMessage('Es obligatorio establecer una compania'),
 
     check('description')
-    .notEmpty.withMessage('Es obligatorio establecer una descripción').bail()
+    .notEmpty().withMessage('Es obligatorio establecer una descripción').bail()
     .isLength({
         min: 10,
         max: 250
