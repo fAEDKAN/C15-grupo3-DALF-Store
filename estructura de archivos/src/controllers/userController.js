@@ -20,7 +20,7 @@ module.exports = {
             name: name.trim()
         }
         
-        const usersNew = [...users,newUser];
+        const usersNew = [...users, newUser];
 
         storeUsers(usersNew)
 

@@ -23,6 +23,7 @@ module.exports = [
         min: 0,
         max: 100,
     }).withMessage('El descuento no puede ser mayor de 100')
+    .bail()
     .isNumeric({
         no_symbols: true,
     }).withMessage('Éste campo solo acepta numeros'),

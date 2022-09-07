@@ -1,5 +1,5 @@
 const { render } = require("ejs");
-const { loadProducts, storeProducts, loadUsers } = require('../data/dbModule')
+const { loadProducts, storeProducts } = require('../data/dbModule')
 const { validationResult } = require('express-validator');
 
 module.exports = {
@@ -46,8 +46,9 @@ module.exports = {
     
             return res.redirect('/')
         }else{
-            return res.render('productsLoad', {
-                erros: errors.mapped(),
+            return res.send(errors.mapped())
+            return res.render('products/productsLoad', {
+                errors: errors.mapped(),
                 old: req.body
             })
         }
@@ -97,3 +98,4 @@ module.exports = {
     },
     
 }
+

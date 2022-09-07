@@ -26,7 +26,7 @@ module.exports = [
 
     check('pass')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isStrong({
+        .isStrongPassword({
             minLength : 8,
             maxLength : 30,
             minLowercase : 1,
