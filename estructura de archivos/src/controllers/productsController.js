@@ -46,7 +46,6 @@ module.exports = {
     
             return res.redirect('/')
         }else{
-            return res.send(errors.mapped())
             return res.render('products/productsLoad', {
                 errors: errors.mapped(),
                 old: req.body
