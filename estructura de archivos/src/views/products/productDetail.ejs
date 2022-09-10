@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head',{ title:'home', }) %>
+<%- include('../partials/head',{ title:'Detail', }) %>
 
     <body>
             <!-- Header -->
@@ -14,52 +14,47 @@
             <main class="productdetail__main">
                 <section class="detail__product__images">
                     <img class="product-img" src="/images/products/<%= product.image %>" alt="product">
-                    <!--<img  src="/images/products/producto-de-usuario.webp" alt="">
-                    <img src="/images/products/producto-de-usuario (2).webp" alt="product1">
-                    <img src="/images/products/producto-de-usuario (3).webp" alt="product2">
-                    <img src="/images/products/producto-de-usuario (4).webp" alt="product3">
-                    <img src="/images/products/producto-de-usuario (5).webp" alt="product4">-->
-                </section>
-                <section class="detail__purchase">
-                    <article class="detail__purchase__product">
-                        <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
-                        <div class="detail__purchase__product--box">
-                            <p class="detail__purchase__product--price">$ <%= product.price %> </p>
-                            <p class="detail__purchase__product--discount"><%= product.discount %>  OFF</p>
-                        </div>
-                    </article>
-                    <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>
-                    <div class="bar-button-stock">
-                        <input type="text" class="stock-input" placeholder=" Stock disponible: 99">
-                        <button class="contador-resta">-</button>
-                        <button class="contador-valor">1</button>
-                        <button class="contador-suma">+</button>
-                    </div>
-                    <article class="detail__purchase__buttons">
-                        <div class="detail__purchase__buttons--cart">
-                            <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
-                        </div>
-                        <div class="detail__purchase__buttons--fav">
-                            <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar a favoritos</button>
-                        </div>
-                        <div class="edit__product">
-                            <a href="/products/productEdit/<%= product.id %>"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
-                        </div>
-                        <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
-                            <button type="submit" class="action-button delete">ELIMINAR</button>
-                        </form>
-                    </article>
+                    <section class="detail__purchase">
+                        <article class="detail__purchase__product">
+                            <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
+                            <div class="detail__purchase__product--box">
+                                <p class="detail__purchase__product--price">$ <%= product.price %> </p>
+                                <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
+                            </div>
+                        </article>
+                        <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>
+                        <div class="bar-button-stock">
+                            <input type="text" class="stock-input" placeholder=" Stock disponible: 99">
+                            <button class="contador-resta">-</button>
+                            <button class="contador-valor">1</button>
+                            <button class="contador-suma">+</button>
+                        </div>  
+                        <article class="detail__purchase__buttons">
+                            <div class="detail__purchase__buttons--cart">
+                                <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
+                            </div>
+                            <div class="detail__purchase__buttons--fav">
+                                <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar a favoritos</button>
+                            </div>
+                            <div class="edit__product">
+                                <a href="/products/productEdit/<%= product.id %>"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
+                            </div>
+                            <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+                                <button type="submit" class="action-button delete">ELIMINAR</button>
+                            </form>
+                        </article>
+                    </section>
                 </section>
                 <section class="detail__product__features">
                     <h3>Caracteristicas</h3>
                     <ul>
-                        <li>mini eric hace una funcion en la cual yo sea un genio</li>
-                        <li>jsjsjs estan leyendo esto</li>
-                        <li>hola profes, ¿Como andan?</li>
-                        <li>Esto es un lorem falso</li>
-                        <li>No se que poner</li>
-                        <li>Son las 2:50am tengo sueño~</li>
-                        <li>Estan re buenos los lentes, te lo rescomiendo</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur quia!</li>
                     </ul>
                 </section>
                 <section class="detail__product__store">
@@ -71,7 +66,7 @@
                     <article>
                         <div class="detail__product__ratings-buttons">
                             <button><i class="fa-regular fa-thumbs-up"></i> Positivas</button>
-                            <button><i class="fa-regular fa-thumbs-down"></i> Negativas</button>
+                            <button style="color: danger;"><i class="fa-regular fa-thumbs-down"></i> Negativas</button>
                         </div>
                         <div class="detail__product__ratings-comments">
                             <div>

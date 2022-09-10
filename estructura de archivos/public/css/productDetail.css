@@ -25,6 +25,7 @@ h3 {
 
 .productdetail__main {
     padding-top: 11px;
+    margin: 10px;
 }
 
 .main__product__images {
@@ -39,7 +40,7 @@ h3 {
 .detail__purchase {
     background-color: var(--C_Dark);
     padding: 10px;
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -71,8 +72,11 @@ h3 {
 }
 
 .detail__purchase__product--price {
-    display: inline-block;
-    margin-left: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+    font-size: 22px;
+    margin-top: 19px;
 }
 
 .detail__purchase__product--rebajas {
@@ -81,8 +85,8 @@ h3 {
 
 .detail__purchase__product--discount {
     color: #27a95d;
-    margin-left: 36px;
-    font-size: 13px;
+    margin-left: 20px;
+    font-size: 17px;
     margin-top: 19px;
 }
 
@@ -123,7 +127,7 @@ h3 {
 
 .detail__purchase__buttons button {
     width: 280px;
-    background-color: var(--C_Light_Grey);
+    background-color: var(--C_Blue);
     color: var(--C_Ice-Cream);
     height: 30px;
     border: none;
@@ -139,26 +143,26 @@ h3 {
 .detail__product__images {
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;
     justify-content: center;
+    text-align: center;
 }
 
 .detail__product__images img {
-    width: 45%;
-    padding: 7px;
-    border: solid 1px #dbdbdb;
+    width: 100%;
+    margin: 10px;
+    border: solid 1px var(--C_Light_Dark);
 }
 
 .detail__product__features {
     background-color: var(--C_Dark);
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
 .detail__product__features h3 {
     text-align: center;
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin: 0;
 }
@@ -176,14 +180,14 @@ h3 {
 
 .detail__product__store {
     background-color: var(--C_Dark);
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     color: var(--C_Ice-Cream);
     margin-bottom: 20px;
 }
 
 .detail__product__store h3 {
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin: 0;
 }
@@ -191,14 +195,14 @@ h3 {
 .detail__product__ratings {
     background-color: var(--C_Dark);
     color: var(--C_Ice-Cream);
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin-bottom: 20px;
 }
 
 .detail__product__ratings h3 {
-    background-color: var();
-    border: solid 1px var(--C_Ice-Cream);
+    background-color: var(--C_Dark);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin: 0;
 }
@@ -210,9 +214,9 @@ h3 {
 .detail__product__ratings-buttons button {
     text-align: center;
     color: var(--C_Ice-Cream);
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
-    background-color: var(--C_Dark);
+    background-color: var(--C_Blue);
     padding: 10px 41px 10px 40px;
 }
 
@@ -225,14 +229,14 @@ h3 {
 }
 
 .detail__product__questions {
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     background-color: var(--C_Dark);
     margin-bottom: 10px;
 }
 
 .detail__product__questions h3 {
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin: 0;
 }
@@ -253,12 +257,12 @@ h3 {
 
 .detail__product__otherproducts {
     background: var(--C_Dark);
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
 }
 
 .detail__product__otherproducts h3 {
-    border: solid 1px var(--C_Ice-Cream);
+    border: solid 1px var(--C_Light_Dark);
     border-radius: 5px;
     margin: 0;
 }
@@ -274,8 +278,28 @@ h3 {
 }
 
 @media (min-width: 768px) {
+    .detail__product__images{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .detail__product__images img {
+        width: 80%;
+    }
+    .detail__purchase__product--title{
+        font-size: 1.6rem;
+    }
     .detail__purchase {
-        width: 300px;
+        width: 100%;
+        text-align: center;
+    }
+    .detail__purchase__product--box{
+        font-size: 20px;
+    }
+    .detail__purchase__product--price{
+        margin-left: 20px;
+        font-size: 27px;
+        margin-top: 19px;
     }
 }
 
