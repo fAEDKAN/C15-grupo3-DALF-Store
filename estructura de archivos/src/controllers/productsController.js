@@ -60,9 +60,16 @@ module.exports = {
         })
     },
     update: (req, res) => {
+
+        const products = loadProducts();
         const {id}= req.params;
+        const errors = validationResult (req);
+
+        if (errors.isEmpty()) {
+
         const {name,price,discount} = req.body;
-        let productsModify = loadProducts().map(product =>{
+
+        let productsModify = products.map(product =>{
             if(product.id === +req.params.id){
                 return {
                     id : product.id,
@@ -76,6 +83,13 @@ module.exports = {
         })
         storeProducts(productsModify);
         return res.redirect("/products/productDetail/" + req.params.id)
+        }else{
+            return res.render('products/productEdit', {
+                errors: errors.mapped(),
+                productToEdit: loadProducts().find(product => product.id === +req.params.id),
+                old: req.body,
+            })
+        }
     },
 
     destroy : (req, res) => {

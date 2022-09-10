@@ -23,18 +23,6 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="price">Precio:</label>
-                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : null %>">
-                            <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
-                        </div>
-
-                        <div class="form-box">
-                            <label class="form__label" for="discount">Descuento:</label>
-                            <input type="text" name="discount" id="" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
-                            <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
-                        </div>
-
-                        <div class="form-box">
                             <label class="form__label">Categorías:</label>
                             <select name="category" id="" value="<%= locals.old && old.category ? old.category : null %>">
                                 <option value="" hidden selected>Seleccionar categoría...</option>
@@ -51,6 +39,19 @@
                             </select>
                             <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                         </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="price">Precio:</label>
+                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : null %>">
+                            <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="discount">Descuento:</label>
+                            <input type="text" name="discount" id="" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
+                            <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                        </div>
+
 
                         <div class="form-box">
                             <label class="form__label" for="descripcion">Descripción:</label>

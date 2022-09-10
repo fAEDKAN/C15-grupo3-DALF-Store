@@ -20,7 +20,7 @@ router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, c
 
 /* Product edit */
 router.get('/productEdit/:id', productEdit)
-router.put('/update/:id', update)
+router.put('/update/:id', productValidator, update)
 
 
 /*x */
