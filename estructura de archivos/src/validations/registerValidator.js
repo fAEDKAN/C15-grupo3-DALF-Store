@@ -6,12 +6,22 @@ module.exports = [
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
         .isLength({
             min : 10,
-            max : 25
-        }).withMessage('Sólo se acepta un máximo de 25 caracteres'),
+            max : 30
+        }).withMessage('Sólo se acepta un máximo de 30 caracteres').bail()
+        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos'),
 
     check('email')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido'),
+        .isEmail().withMessage('Ingrese un e-mail válido').bail()
+        .custom((value, {req}) => {
+            const user = loadUsers().find(user => user.email === value);
+
+            if(user){
+                return false
+            }else {
+                return true
+            }
+        }).withMessage('El email ya se encuentra registrado'),
 
     check('userName')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
