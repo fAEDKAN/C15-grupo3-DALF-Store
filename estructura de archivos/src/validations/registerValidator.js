@@ -1,18 +1,21 @@
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
+const { loadUsers } = require('../data/dbModule')
+
+
 
 module.exports = [
 
-    check('fullName')
-        .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isLength({
-            min : 10,
-            max : 30
-        }).withMessage('Sólo se acepta un máximo de 30 caracteres').bail()
-        .isAlpha('es-ES').withMessage('Solo caracteres alfabéticos'),
+    check('userName')
+    .notEmpty().withMessage('Éste campo es obligatorio').bail()
+    .isLength({
+        min : 3,
+        max : 30
+    }).withMessage('El nombre debe contener entre 3 y 30 caracteres').bail()
+    .isAlpha('es-ES').withMessage('Sólo caracteres alfabéticos'),
 
-    check('email')
+    body('email')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido').bail()
+        .isEmail().withMessage('Ingresá un e-mail válido').bail()
         .custom((value, {req}) => {
             const user = loadUsers().find(user => user.email === value);
 
@@ -21,29 +24,21 @@ module.exports = [
             }else {
                 return true
             }
-        }).withMessage('El email ya se encuentra registrado'),
-
-    check('userName')
-        .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isLength({
-            min : 5,
-            max : 15
-        }).withMessage('El nombre de usuario debe contener entre 5 y 15 caracteres'),
-
-    check('bday')
-        .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isDate(),
+        }).withMessage('El e-mail ya se encuentra registrado'),
 
     check('pass')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isStrongPassword({
-            minLength : 8,
-            maxLength : 30,
-            minLowercase : 1,
-            minUppercase : 1,
-            minNumbers : 1
-        }).withMessage('La contraseña debe contener entre 8 y 30 caracteres, al menos una mayúscula, una minúscula y un número'),
+        .isLength({
+            min : 8,
+            max : 25
+        }).withMessage('La contraseña debe contener entre 8 y 25 caracteres'),
 
-    check('repass')
+    body('repass')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
+        .custom((value,{req}) => {
+            if(value !== req.body.pass){
+                return false
+            }
+            return true
+        }).withMessage('Las contraseñas no coinciden')
 ]
