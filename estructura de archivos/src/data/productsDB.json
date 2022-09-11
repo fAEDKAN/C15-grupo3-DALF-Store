@@ -133,14 +133,12 @@
     },
     {
         "id": 13,
-        "name": "prueba multer",
-        "categoria": "accion",
-        "price": 23,
-        "discount": 5,
-        "description": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-        "company": "xbox",
-        "image": [
-            "products-1662418298294.jpg"
-        ]
+        "name": "Un completito",
+        "category": "otro",
+        "price": 10000,
+        "discount": 100,
+        "description": "Un completooo muy rico y completo",
+        "company": "otro",
+        "imagen": "completo-1.jpg"
     }
 ]

@@ -22,7 +22,7 @@ module.exports = {
             pass: bcryptjs.hashSync(pass.trim(),10),
         }
         
-        const usersNew = [...users,newUser];
+        const usersNew = [...users, newUser];
 
         storeUsers(usersNew)
 

@@ -21,10 +21,11 @@
                             <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : null %>">
                             <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                         </div>
+
                         <div class="form-box">
                             <label class="form__label">Categorías:</label>
                             <select name="category" id="" value="<%= locals.old && old.category ? old.category : null %>">
-                                <option value="accion" hidden selected>Seleccionar categoría...</option>
+                                <option value="" hidden selected>Seleccionar categoría...</option>
                                 <option value="accion">Acción</option>
                                 <option value="aventura">Aventura</option>
                                 <option value="ftp/tps">FTP/TPS</option>
@@ -46,10 +47,11 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label">Descuento:</label>
-                            <input type="text" id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
-                            <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %> </small>
+                            <label class="form__label" for="discount">Descuento:</label>
+                            <input type="text" name="discount" id="" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
+                            <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                         </div>
+
 
                         <div class="form-box">
                             <label class="form__label" for="descripcion">Descripción:</label>
@@ -67,15 +69,15 @@
                                 <option value="ubisoft">Ubisoft</option>
                                 <option value="battle.net">Battle.net</option>
                                 <option value="otro">Otro</option>
-                            <div>
-                                <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %> </small>    
-                            </div>
+                            </select>
+                            <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>    
                         </div>
 
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
                             <input type="file" name="imagen" accept=".jpg" multiple>
                         </div>
+
                         <div class="form-box buttons">
                             <button class="total-comprar" type="reset">Cancelar</button>
                             <button class="total-comprar" type="submit">Agregar</button>
