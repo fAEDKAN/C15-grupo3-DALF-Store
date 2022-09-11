@@ -51,42 +51,55 @@
     text-align: center;
     display: none;
 }
-
 .footer_nav-app {
     display: flex;
     flex-direction: column;
 }
-
 .footer_nav-app img {
     width: 150px;
     height: 40px;
 }
-
 .footer__formas-de-pago img {
     height: 60px;
     width: 80px;
     padding: 2px;
 }
-
 .footer__lastsection {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
-
 .footer__lastsection__navbar {
-    width: 100%;
+    display: flex;
+    justify-self: center;
     text-align: center;
+    justify-content: center;
 }
-
-.footer__lastsection__navbar i {
-    color: var(--C_Ice-Cream);
-}
-
 .footer__lastsection__navbar a {
     padding: 5px;
+    text-decoration: none;
+    font-weight: bold;
 }
-
+.footer__lastsection__navbar figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--C_Lightblue_Logo);
+}
+.footer__lastsection__navbar a:hover figure{
+    border: 1px solid var(--C_Pink_Logo)
+}
+.footer__lastsection__navbar a:hover i{
+    color: var(--C_Pink_Logo)
+}
+.footer__lastsection__navbar i {
+    color: var(--C_Lightblue_Logo);
+}
 .footer__lastsection__copyright {
     text-align: center;
     color: #dee2e6;
