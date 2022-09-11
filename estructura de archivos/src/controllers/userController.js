@@ -24,7 +24,8 @@ module.exports = {
                 id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
                 userName : userName.trim(),
                 email : email.trim(),
-                pass : bcryptjs.hashSync(pass.trim(),10)
+                pass : bcryptjs.hashSync(pass.trim(),10),
+                avatar : null
             }
             const usersModify = [...users, newUser];
 
@@ -113,7 +114,7 @@ module.exports = {
         };
 
         storeUsers(usersModify);
-        return res.redirect('users/profile');
+        return res.redirect('/');
     },
 
     logout: (req, res) => {

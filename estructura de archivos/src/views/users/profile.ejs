@@ -10,6 +10,11 @@
                 <div class="body__form--title">
                     <h2>Mi Perfil</h2>
                 </div>
+                <div class="body__form--profileImg">
+                    <figure class="body__form__profileImg--img">
+                        <img  src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-USER-IMAGE.png' %>" alt="avatar">
+                    </figure>
+                </div>
                 <form action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
                     <div class="body__form--inputs">
                         <div class="body__form__inputs--userData">
