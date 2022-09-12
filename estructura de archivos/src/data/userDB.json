@@ -150,5 +150,12 @@
       "userName": "swaldere",
       "birthDate": "7/2/1947",
       "password": "NQvRwItFJI"
+   },
+   {
+      "id": 20,
+      "userName": "florcita te amo",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$WYrdtPwDhXquiTawb45SxeTgfgaQH7.NNpA5B3YpeB1MuenWUCDJe",
+      "avatar": "avatar-1663004182213.jpg"
    }
 ]

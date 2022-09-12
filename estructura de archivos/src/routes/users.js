@@ -7,7 +7,7 @@ const { uploadUsers } = require('../middlewares/uploadFilesUsers');
 const userSessionCheck = require('../middlewares/userSessionCheck');
 
 //Controllers
-const { register, processRegister, login, processLogin, shopping, profile, update, logout } = require('../controllers/userController');
+const { register, processRegister, login, processLogin, /* shopping, */ profile, update, logout } = require('../controllers/userController');
 
 //Validations
 const loginValidator = require('../validations/loginValidator');
