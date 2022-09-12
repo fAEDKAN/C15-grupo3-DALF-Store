@@ -1,12 +1,19 @@
-const { check } = require('express-validator');
+const { check, body } = require('express-validator');
+const { loadUsers } = require('../data/dbModule');
+const bcryptjs = require('bcryptjs');
+
+
 
 module.exports = [
 
     check('email')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido'),
+        .isEmail().withMessage('Ingrese un e-mail válido').bail(),
 
-    check('pass')
+    body('pass')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
-
+        .custom((value, {req}) => {
+            let user = loadUsers().find(user => user.email === req.body.email && bcryptjs.compareSync(value, user.pass));
+            return user ? true : false
+        }).withMessage('El email o la contraseña no coinciden')
 ]

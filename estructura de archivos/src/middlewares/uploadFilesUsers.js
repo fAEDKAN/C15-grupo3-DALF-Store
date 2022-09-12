@@ -17,8 +17,17 @@ const storageUser = multer.diskStorage({
     },
 });
 
-    const uploadUser = multer({
-    storageUser
+const fileFilter = (req, file, cb) => {
+    if(!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
+        req.fileValidationError = "Sólo se permiten imágenes en formato .jpg, .jpeg y .png"
+        return cb(null, false, req.fileValidationError)
+    }
+    return cb(null, true)
+};
+
+    const uploadUsers = multer({
+        storage : storageUser,
+        fileFilter
     });
 
-    module.exports = uploadUser
+    module.exports = {uploadUsers}
