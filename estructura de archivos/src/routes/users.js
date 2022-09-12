@@ -21,8 +21,8 @@ router.get('/logout', logout);
 router.get('/profile', userSessionCheck, profile);
 router.put('/update/:id', uploadUsers.single('avatar'), update);
 
-//MY SHOPPING
-router.get('/shopping', shopping);
+/* //MY SHOPPING
+router.get('/shopping', shopping); */
 
 
 module.exports = router;
