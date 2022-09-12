@@ -1,37 +1,29 @@
 var express = require('express');
 var router = express.Router();
 
-//Controllers
-const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController')
-
-//Middlewares
+//REQUIRE CONTROLLERS - MIDDLEWARES - VALIDATIONS
+const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController');
 const uploadProducts =require('../middlewares/uploadFilesProducts');
+const productValidator = require('../validations/productValidator');
 
-//Validations
-const productValidator = require('../validations/productValidator')
+//PRODUCTS DETAIL
+router.get('/productDetail/:id', productDetail);
 
-/* /products */
-
-router.get('/productDetail/:id', productDetail)
-
-/* Products load */
+//PRODUCTS lOAD
 router.get('/productsLoad', productsLoad)
-router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create)
+router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
 
-/* Product edit */
-router.get('/productEdit/:id', productEdit)
-router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update)
+//PRODUCT EDIT
+router.get('/productEdit/:id', productEdit);
+router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update);
 
+//PRODUCT DELETE
+router.delete('/deleteProduct/:id', destroy);
 
-/*x */
-router.get('/cart', cart)
-
-
-/* rutas temporales*/ 
-router.get('/cartAdress', cartAdress)
-router.get('/cartPay', cartPay)
-router.delete('/deleteProduct/:id', destroy)
-
+//CART
+router.get('/cart', cart);
+router.get('/cartAdress', cartAdress);
+router.get('/cartPay', cartPay);
 
 
 module.exports = router;

@@ -1,9 +1,9 @@
-const { loadProducts } = require("../data/dbModule")
-
+//DATA BASE
+const { loadProducts } = require("../data/dbModule");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller  = {
-    
+    //HOME
     index: (req, res) => {
         let products = loadProducts();
         let productsInSale = products.filter(product => product.section === "in-sale");
@@ -15,8 +15,9 @@ const controller  = {
             productsRecomended,
             productsOfUsers,
             toThousand
-        })
+        });
     },
+    //SEARCH
     search: (req, res) => {
         let { keywords } = req.query;
         let products = loadProducts();
@@ -25,8 +26,8 @@ const controller  = {
             result,
             toThousand,
             keywords
-        })
-    },
+        });
+    }
 };
 
 module.exports = controller;

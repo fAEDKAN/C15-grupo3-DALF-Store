@@ -1,30 +1,32 @@
 const fs =require('fs');
-const path=require('path')
-const { loadProducts, storeProducts } = require('../data/dbModule')
+const path=require('path');
+//REQUIRE DATA BASE - VALIDATIONS 
+const { loadProducts, storeProducts } = require('../data/dbModule');
 const { validationResult } = require('express-validator');
 
 module.exports = {
+    //??????
     index: (req, res) => {
         let products = loadProducts();
         return res.render("products", {
             products,
             toThousand
-        })
+        });
     },
-
+    //PRODUCT DETAIL
     productDetail: (req, res) => {
         let products = loadProducts();
         let product = products.find(product => product.id === +req.params.id);
         return res.render("products/productDetail",{
             product
-        })
+        });
     },
-    /**CARGA DE PRODUCTOS **/
+    //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
-        return res.render('products/productsLoad')
+        return res.render('products/productsLoad');
     },
     create : (req,res) => {
-        let errors = validationResult(req)
+        let errors = validationResult(req);
         errors = errors.mapped();
         if(req.fileValidationError){
             errors = {
@@ -32,14 +34,14 @@ module.exports = {
                 images : {
                     msg : req.fileValidationError
                 }
-            }
-        }
+            };
+        };
         if(Object.entries(errors).length === 0){
             const products = loadProducts();
             const {name,price,discount} = req.body;
             const id = products[products.length - 1].id;
             let images;
-            if (req.files.length > 0){ images = req.files.map(image => image.filename) }
+            if (req.files.length > 0){ images = req.files.map(image => image.filename) };
             
             const newProduct = {
                 id : id + 1,
@@ -48,41 +50,38 @@ module.exports = {
                 price : +price,
                 discount : +discount,
                 image: images ? images:['default-product-image.jpg']
-            }
+            };
             const productsNew = [...products,newProduct];
     
-            storeProducts(productsNew)
+            storeProducts(productsNew);
     
-            return res.redirect('/')
+            return res.redirect('/');
         }else{
             if(req.files.length > 0){
                 req.files.forEach(({filename}) => {
-                    fs.existsSync(path.resolve(__dirname,'..','..','public','images','products',filename)) &&  fs.unlinkSync(path.resolve(__dirname,'..','..','public','images','products',filename))
+                    fs.existsSync(path.resolve(__dirname,'..','..','public','images','products',filename)) &&  fs.unlinkSync(path.resolve(__dirname,'..','..','public','images','products',filename));
                 })
-            }
+            };
             return res.render('products/productsLoad', {
                 errors,
                 old: req.body
-            })
+            });
         }
     },
-    /**EDICION DE PRODUCTOS **/
+    //EDICION DE PRODUCTOS 
     productEdit: (req, res) => {
-        let productToEdit = loadProducts().find(product => product.id === +req.params.id)
+        let productToEdit = loadProducts().find(product => product.id === +req.params.id);
         return res.render('products/productEdit',{
             productToEdit
-        })
+        });
     },
     update: (req, res) => {
-
         const products = loadProducts();
         const {id}= req.params;
         const errors = validationResult (req);
 
         if (errors.isEmpty()) {
-
         const {name,price,discount} = req.body;
-
         let productsModify = products.map(product =>{
             if(product.id === +req.params.id){
                 return {
@@ -91,37 +90,37 @@ module.exports = {
                     name: name.trim(),
                     price : +price,
                     discount : +discount,
-                }
-            }
+                };
+            };
             return product;
-        })
+        });
         storeProducts(productsModify);
-        return res.redirect("/products/productDetail/" + req.params.id)
+        return res.redirect("/products/productDetail/" + req.params.id);
         }else{
             return res.render('products/productEdit', {
                 errors: errors.mapped(),
                 productToEdit: loadProducts().find(product => product.id === +req.params.id),
                 old: req.body,
-            })
-        }
+            });
+        };
     },
-
+    //DELETE PRODUCTS
     destroy : (req, res) => {
         
 		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
 
 		storeProducts(productsModify);
-		return res.redirect('/')
+		return res.redirect('/');
 	},
+    //CART
     cart: (req, res) => {
-        return res.render('products/cart')
+        return res.render('products/cart');
     },
-    /*ruta temporal*/ 
     cartAdress: (req, res) => {
-        return res.render('products/cartAdress')
+        return res.render('products/cartAdress');
     },
     cartPay: (req, res) => {
-        return res.render('products/cartPay')
+        return res.render('products/cartPay');
     },
     
 }

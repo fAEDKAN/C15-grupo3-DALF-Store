@@ -1,6 +1,6 @@
 const { check } = require('express-validator');
 
-//productValidator export//
+//PRODUCT VALIDATIONS
 module.exports = [
 
     check('name')
@@ -38,4 +38,4 @@ module.exports = [
         min: 10,
         max: 250
     }).withMessage('La descripción tiene que tener entre 10 y 250 caracteres')
-]
+];
