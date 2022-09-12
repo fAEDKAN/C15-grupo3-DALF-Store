@@ -4,8 +4,6 @@ const bcryptjs = require('bcryptjs');
 const fs = require("fs");
 const path = require("path");
 
-
-
 module.exports = {
 
     /**REGISTRO DE USUARIOS**/

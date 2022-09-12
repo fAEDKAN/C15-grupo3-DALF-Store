@@ -1,4 +1,5 @@
-const { render } = require("ejs");
+const fs =require('fs');
+const path=require('path')
 const { loadProducts, storeProducts } = require('../data/dbModule')
 const { validationResult } = require('express-validator');
 
@@ -24,8 +25,17 @@ module.exports = {
         return res.render('products/productsLoad')
     },
     create : (req,res) => {
-        const errors = validationResult(req)
-        if(errors.isEmpty()){
+        let errors = validationResult(req)
+        errors = errors.mapped();
+        if(req.fileValidationError){
+            errors = {
+                ...errors,
+                images : {
+                    msg : req.fileValidationError
+                }
+            }
+        }
+        if(Object.entries(errors).length === 0){
             const products = loadProducts();
             const {name,price,discount} = req.body;
             const id = products[products.length - 1].id;
@@ -38,7 +48,7 @@ module.exports = {
                 name: name.trim(),
                 price : +price,
                 discount : +discount,
-                image: images ? images:['xxxxxxxxx']
+                image: images ? images:['default-product-image.jpg']
             }
             const productsNew = [...products,newProduct];
     
@@ -46,8 +56,13 @@ module.exports = {
     
             return res.redirect('/')
         }else{
+            if(req.files.length > 0){
+                req.files.forEach(({filename}) => {
+                    fs.existsSync(path.resolve(__dirname,'..','..','public','images','products',filename)) &&  fs.unlinkSync(path.resolve(__dirname,'..','..','public','images','products',filename))
+                })
+            }
             return res.render('products/productsLoad', {
-                errors: errors.mapped(),
+                errors,
                 old: req.body
             })
         }
