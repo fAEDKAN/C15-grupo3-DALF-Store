@@ -10,32 +10,28 @@
                 <div class="body__form--title">
                     <h2>Registrarse</h2>
                 </div>
-                <form action="" method="post">
+                <form action="" method="POST">
                     <div class="body__form--inputs">
                         <div class="body__form__inputs--userData">
                             <div class="body__form__inputs__userData--input">
-                                <label for="fullName">Nombre completo:</label>
-                                <input type="text" placeholder="Nombre completo" id="fullName" name="fullName">
+                                <label for="userName">Nombre de usuario:</label>
+                                <input type="text" placeholder="Nombre de usuario" id="userName" name="userName" value="<%= locals.old && old.userName ? old.userName : null %>">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.userName ? errors.userName.msg : null %></p>
                             </div>
                             <div class="body__form__inputs__userData--input">
                                 <label for="email">E-mail:</label>
-                                <input type="email" placeholder="E-mail" id="email" name="email">
-                            </div>
-                            <div class="body__form__inputs__userData--input">
-                                <label for="userName">Nombre de usuario:</label>
-                                <input type="text" placeholder="Nombre de usuario" id="userName" name="userName">
-                            </div>
-                            <div class="body__form__inputs__userData--input">
-                                <label for="bday">Fecha de nacimiento:</label>
-                                <input type="date" placeholder="Fecha de nacimiento" id="bday" name="bday">
+                                <input type="email" placeholder="E-mail" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
                             </div>
                             <div class="body__form__inputs__userData--input">
                                 <label for="pass">Contraseña:</label>
                                 <input type="password" placeholder="Contraseña" id="pass" name="pass">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.pass ? errors.pass.msg : null %></p>
                             </div>
                             <div class="body__form__inputs__userData--input">
                                 <label for="repass">Confirmar contraseña:</label>
                                 <input type="password" placeholder="Confirmar contraseña" id="repass" name="repass">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.repass ? errors.repass.msg : null %></p>
                             </div>
                         </div>
                         <div class="body__form__button--btn">
