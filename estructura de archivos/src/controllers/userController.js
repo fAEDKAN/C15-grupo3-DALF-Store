@@ -30,7 +30,7 @@ module.exports = {
             const usersModify = [...users, newUser];
 
             storeUsers(usersModify);
-            return res.redirect('users/login');
+            return res.redirect("login");
         } else {
             return res.render('users/register', {
                 errors : errors.mapped(),
