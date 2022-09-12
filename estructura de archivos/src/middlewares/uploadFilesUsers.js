@@ -1,17 +1,15 @@
- //Multer Usuarios//
-
+ //MULTER USERS
 const multer = require("multer");
 const path = require("path");
 
-
 const storageUser = multer.diskStorage({
 
-    //Destino
+    //DESTINY
     destination: (req, file, cb) => {
         cb(null, "./public/images/users");
     },
 
-    //Nombre
+    //NAME
     filename: (req, file, cb) => {
     cb(null, `avatar-${Date.now()}${path.extname(file.originalname)}`);
     },
@@ -20,8 +18,20 @@ const storageUser = multer.diskStorage({
 /* const fileFilter = (req, file, cb) => {
     if(!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
         req.fileValidationError = "Sólo se permiten imágenes en formato .jpg, .jpeg y .png"
-        return cb(null, false, req.fileValidationError)
+        return cb(null, false, req.fileValidationError);
     }
+    return cb(null, true);
+};
+
+    const uploadUsers = multer({
+        storage : storageUser,
+        fileFilter
+    });
+
+
+module.exports = {uploadUsers};
+
+<<<<<<< HEAD
     return cb(null, true)
 }; */
 
@@ -30,4 +40,5 @@ const storageUser = multer.diskStorage({
         /* fileFilter */
     });
 
-    module.exports = {uploadUsers}
+
+module.exports = {uploadUsers};

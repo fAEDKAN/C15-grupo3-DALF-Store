@@ -1,8 +1,7 @@
 const { check, body } = require('express-validator');
-const { loadUsers } = require('../data/dbModule')
+const { loadUsers } = require('../data/dbModule');
 
-
-
+//REGISTER VALIDATIONS
 module.exports = [
 
     check('userName')
@@ -41,4 +40,4 @@ module.exports = [
             }
             return true
         }).withMessage('Las contraseñas no coinciden')
-]
+];

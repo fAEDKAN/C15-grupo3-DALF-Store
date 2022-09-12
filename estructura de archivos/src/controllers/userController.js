@@ -1,16 +1,17 @@
-const { loadUsers, storeUsers }=require('../data/dbModule')
-const { validationResult } = require('express-validator');
-const bcryptjs = require('bcryptjs');
 const fs = require("fs");
 const path = require("path");
 
+//REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
+const { loadUsers, storeUsers }=require('../data/dbModule');
+const { validationResult } = require('express-validator');
+const bcryptjs = require('bcryptjs');
 
 
 module.exports = {
 
-    /**REGISTRO DE USUARIOS**/
+    //USERS REGISTER
     register : (req, res) => {
-        return res.render('users/register')
+        return res.render('users/register');
     },
 
     processRegister : (req,res) => {
@@ -26,7 +27,7 @@ module.exports = {
                 email : email.trim(),
                 pass : bcryptjs.hashSync(pass.trim(),10),
                 avatar : null
-            }
+            };
             const usersModify = [...users, newUser];
 
             storeUsers(usersModify);
@@ -35,13 +36,13 @@ module.exports = {
             return res.render('users/register', {
                 errors : errors.mapped(),
                 old : req.body
-            })
-        }
+            });
+        };
     },
 
-    /*INGRESO DE USUARIOS*/
+    //USERS LOGIN AND LOGOUT
     login : (req, res) => {
-        return res.render('users/login')
+        return res.render('users/login');
     },
 
     processLogin: (req, res) => {
@@ -60,21 +61,22 @@ module.exports = {
                 res.cookie('userDalfStore', req.session.userLogin, {
                     maxAge: 1000 * 60
                 });
-            }
+            };
 
-            return res.redirect('/')
+            return res.redirect('/');
         } else {
             return res.render('users/login', {
                 errors : errors.mapped()
             });
         }
     },
-        
-    /*EDITAR USUARIO */
-    shopping: (req, res) => {
-        return res.render('users/shopping')
+
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect('/');
     },
 
+    //USER PROFILE
     profile: (req, res) => {
         let user = loadUsers().find(
             (user) => user.id === req.session.userLogin.id
@@ -84,6 +86,7 @@ module.exports = {
         });
     },
 
+    //USER EDIT
     update: (req, res) => {
         const { userName } = req.body;
 
@@ -94,7 +97,7 @@ module.exports = {
                     ...req.body,
                     avatar: req.file ? req.file.filename : req.session.userLogin.avatar
                 };
-            }
+            };
             return user;
         });
 
@@ -104,8 +107,8 @@ module.exports = {
             ) {
                 console.log(">>>>>>", req.session.userLogin.avatar);
                 fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar));
-            }
-        }
+            };
+        };
 
         req.session.userLogin = {
             ...req.session.userLogin,
@@ -117,8 +120,8 @@ module.exports = {
         return res.redirect('/users/profile');
     },
 
-    logout: (req, res) => {
-        req.session.destroy();
-        return res.redirect('/');
-    }
+    //MY SHOPPING
+    shopping: (req, res) => {
+        return res.render('users/shopping');
+    },
 }

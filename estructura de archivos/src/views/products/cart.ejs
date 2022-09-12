@@ -68,55 +68,12 @@
                 </div>
             </div>
         </section>
-        <section class="carrito__main__section--pruductos-recomendados">
-            <p class="carrito__main__section--pruductos-title">Productos que pueden interesarte</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <article class="productos-recomendados">
-                <div class="glider-contain">
-                    <div class="glider">
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/eldenring-card.webp" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/RE2-card.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/megaman11-card.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/re4-card.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/gtav-card.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/minecraftjava-bedrockedition-card.webp" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/minecraftjava-card.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/robux-card-roblox.jpeg" alt=""></a>
-                        </div>
-                        <div>
-                            <a href=""><img src="/images/xbox-key.jpeg" alt=""></a>
-                        </div>
-                    </div>
 
-                    <button aria-label="Previous" class="glider-prev">«</button>
-                    <button aria-label="Next" class="glider-next">»</button>
-                    <div role="tablist" class="dots"></div>
-                </div>
-
-            </article>
-        </section>
+        <%- include('../partials/productsRecommended') %>
+        
     </main>
-    <%- include('../partials/footer',{ title:'home', }) %>
+    <%- include('../partials/footer',{ title:'home' }) %>
+
     <script src="/javascripts/glider.js"></script>
     <script>
         window.addEventListener('load', function() {

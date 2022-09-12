@@ -75,7 +75,8 @@
 
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <input type="file" name="imagen" accept=".jpg" multiple>
+                            <input type="file" name="imagen" accept="image/*" multiple>
+                            <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                         </div>
 
                         <div class="form-box buttons">
