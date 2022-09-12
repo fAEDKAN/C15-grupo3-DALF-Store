@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-
 //Middlewares
 const { uploadUsers } = require('../middlewares/uploadFilesUsers');
 const userSessionCheck = require('../middlewares/userSessionCheck');
