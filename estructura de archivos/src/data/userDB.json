@@ -150,5 +150,19 @@
       "userName": "swaldere",
       "birthDate": "7/2/1947",
       "password": "NQvRwItFJI"
+   },
+   {
+      "id": 20,
+      "userName": "axelitoaxelito",
+      "email": "axelitoaxelito@gmail.com",
+      "pass": "$2a$10$tXT1hdYhN1QkRCO6ewl7WOA8huchw11tEa440TSr3SmAnH0XOvga6",
+      "avatar": null
+   },
+   {
+      "id": 21,
+      "userName": "Ushio",
+      "email": "ushiovii@hotmail.com",
+      "pass": "$2a$10$8Od3mcr8QPGZ66io/LzHhupTH.NyZvL/6SajS/ImDUDcwRErmBr1q",
+      "avatar": null
    }
 ]
