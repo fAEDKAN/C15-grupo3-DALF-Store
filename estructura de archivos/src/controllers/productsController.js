@@ -5,7 +5,6 @@ const { validationResult } = require('express-validator');
 
 module.exports = {
     index: (req, res) => {
-        // Do the magic
         let products = loadProducts();
         return res.render("products", {
             products,
@@ -110,7 +109,7 @@ module.exports = {
     destroy : (req, res) => {
         
 		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
-        
+
 		storeProducts(productsModify);
 		return res.redirect('/')
 	},
