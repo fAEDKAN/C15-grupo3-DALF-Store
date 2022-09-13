@@ -27,4 +27,4 @@ const uploadUsers = multer({
     /* fileFilter */
 });
 
-module.exports = { uploadUsers };
+module.exports = {uploadUsers};
