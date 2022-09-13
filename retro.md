@@ -91,3 +91,28 @@
 ## Hacer menos:
 
 -
+# Retrospectiva con dinámica "Estrella de Mar" Sprint 4:
+## Seguir haciendo:
+-Apoyarnos mutuamente
+-Mantener trello actualizado
+-Mantener la comunicacion con los demas companeros
+-Entregar las tareas a tiempo
+-Comprometerse ayudar a cualquier compa que necesite ayuda
+
+## Hacer más:
+-Mejorar la comunicacion
+-Mejorar la planificacion individual
+-Dedicar mas tiempo al proyecto
+
+## Empezar a hacer:
+-Ensayar las presentaciones en grupo.
+-Definir fecha y hora de las dailys o weeklys.
+-Organizar mejor los horarios.
+-Participar más de las presentaciones grupales.
+## Dejar de hacer:
+-Subestimar el tiempo que puede llevar determinada tarea.
+-Procrastinar
+
+## Hacer menos:
+
+-
