@@ -105,19 +105,52 @@
                     <p>¿No está tu pregunta?</p>
                     <p>¡Contacta con la tienda!</p>
                 </div>
-                <section class="detail__product__otherproducts">
-                    <h3>Otros productos que te pueden interesar</h3>
-                    <div class="detail__product__otherproducts--banner">
-                        <img src="/images/producto-de-usuario1.webp" alt="">
-                        <img src="/images/producto-de-usuario2.webp" alt="">
-                        <img src="/images/producto-de-usuario3.webp" alt="">
-                        <img src="/images/producto-de-usuario.webp" alt="">
-                    </div>
-                </section>
+                <!-- ProductRecommended -->
+                    <%- include('../partials/productsRecommended',{ title:'Detail', }) %> 
+                <!-- /ProductRecommended -->
             </main>
 
+            <!-- footer -->
             <%- include('../partials/footer',{ title:'home', }) %>
+            <!-- /footer -->
 
+            <!-- script -->
+            <script src="/javascripts/glider.js"></script>
+            <script>
+                window.addEventListener('load', function() {
+                    new Glider(document.querySelector('.glider'), {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        itemWith: 150,
+                        dots: '#dots',
+                        arrows: {
+                            prev: '.glider-prev',
+                            next: '.glider-next'
+                        },
+                        responsive: [{
+                            // screens greater than >= 768px
+                            breakpoint: 768,
+                            settings: {
+                                // Set to `auto` and provide item width to adjust to viewport
+                                slidesToShow: 3,
+                                slidesToScroll: 1,
+                                itemWidth: 150,
+                                duration: 0.25
+                            }
+                        }, {
+                            // screens greater than >= 1024px
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 5,
+                                slidesToScroll: 1,
+                                itemWidth: 150,
+                                duration: 0.25
+                            }
+                        }]
+                    })
+                })
+            </script>
+            <!-- /script -->
     </body>
 
 </html>

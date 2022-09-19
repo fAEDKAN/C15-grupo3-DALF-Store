@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
-const { loadUsers, storeUsers }=require('../data/dbModule');
+const { loadUsers, storeUsers } = equire('../data/dbModule');
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 
