@@ -1,8 +1,3 @@
-
-const { loadUsers, storeUsers } = require('../data/dbModule')
-const { validationResult } = require('express-validator');
-const bcryptjs = require('bcryptjs');
-
 const fs = require("fs");
 const path = require("path");
 
