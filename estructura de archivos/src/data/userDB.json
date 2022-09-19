@@ -150,15 +150,5 @@
       "userName": "swaldere",
       "birthDate": "7/2/1947",
       "password": "NQvRwItFJI"
-   },
-   {
-      "id": 20,
-      "userName": "faedkan",
-      "email": "sfdk.94@hotmail.com",
-      "pass": "$2a$10$Gwz0.ahq6qUc31BY7sg2RepYUEQXbDBY4b5N9GhoNLSw1hUFTzlHa",
-      "avatar": "avatar-1663628562482.png",
-      "firstName": "Federico",
-      "lastName": "Somma",
-      "bday": "1994-08-08"
    }
 ]

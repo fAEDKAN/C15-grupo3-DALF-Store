@@ -40,7 +40,7 @@ module.exports = {
         };
     },
 
-    //USERS LOGIN AND LOGOUT
+    //USERS LOGIN
     login : (req, res) => {
         return res.render('users/login');
     },
@@ -69,11 +69,6 @@ module.exports = {
                 errors : errors.mapped()
             });
         }
-    },
-
-    logout: (req, res) => {
-        req.session.destroy();
-        return res.redirect('/');
     },
 
     //USER PROFILE
@@ -122,4 +117,14 @@ module.exports = {
     shopping: (req, res) => {
         return res.render('users/shopping');
     },
+
+    //LOGOUT
+    logout: (req, res) => {
+        req.session.destroy();
+        res.cookie('userDalfStore', null, {
+            maxAge : -1
+        })
+        return res.redirect('/');
+    }
+
 }
