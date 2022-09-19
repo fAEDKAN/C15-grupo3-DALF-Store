@@ -307,4 +307,28 @@ h3 {
     .productdetail__main{
         padding-top: 56px;
     }
+    .detail__product__images{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .detail__product__images img {
+        width: 30%;
+        margin-right: 166px;
+        height: 446px;
+    }
+    .detail__purchase{
+        width: 30%;
+    }
+    .detail__product__features{
+        width: 45%;
+    }
+    .detail__product__store{
+        width: 45%;
+    }
+    .product_and_features{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
 }   
