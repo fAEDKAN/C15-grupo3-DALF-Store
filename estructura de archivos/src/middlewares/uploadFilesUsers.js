@@ -37,8 +37,8 @@ module.exports = {uploadUsers};
 
     const uploadUsers = multer({
         storage : storageUser,
-        /* fileFilter */
+/*         fileFilter */
     });
 
-
 module.exports = {uploadUsers};
+

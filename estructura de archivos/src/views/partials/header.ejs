@@ -19,8 +19,13 @@
                     <li class="nav-item dropdown header__top--login">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                         <ul class="dropdown-menu dropdown-menu-dark">
+                            <% if (locals.userLogin) { %>
+                                <li><a class="dropdown-item" href="/users/profile"><%= userLogin.userName %></a></li>
+                                <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
+                            <% } else { %>
                             <li><a class="dropdown-item" href="/users/login">Login</a></li>
                             <li><a class="dropdown-item" href="/users/register">Register</a></li>
+                            <% } %>
                         </ul>
                     </li>
                 </div>
