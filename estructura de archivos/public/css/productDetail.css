@@ -310,7 +310,6 @@ h3 {
     .detail__product__images{
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
     }
     .detail__product__images img {
         width: 30%;
