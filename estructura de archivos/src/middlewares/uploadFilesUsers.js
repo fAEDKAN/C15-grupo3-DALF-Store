@@ -22,9 +22,9 @@ const storageUser = multer.diskStorage({
     return cb(null, true)
  }; */
 
-const uploadUsers = multer({
-    storage: storageUser
-    /* fileFilter */
-});
+    const uploadUsers = multer({
+        storage : storageUser,
+/*         fileFilter */
+    });
 
 module.exports = {uploadUsers};

@@ -40,7 +40,7 @@ module.exports = {
         };
     },
 
-    //USERS LOGIN AND LOGOUT
+    //USERS LOGIN
     login : (req, res) => {
         return res.render('users/login');
     },
@@ -71,15 +71,9 @@ module.exports = {
         }
     },
 
-    logout: (req, res) => {
-        req.session.destroy();
-        return res.redirect('/');
-    },
-
     //USER PROFILE
     profile: (req, res) => {
-        let user = loadUsers().find(
-            (user) => user.id === req.session.userLogin.id
+        let user = loadUsers().find((user) => user.id === req.session.userLogin.id
         );
         return res.render('users/profile', {
             user
@@ -105,7 +99,6 @@ module.exports = {
             if (
                 fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar))
             ) {
-                console.log(">>>>>>", req.session.userLogin.avatar);
                 fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar));
             };
         };
@@ -124,4 +117,14 @@ module.exports = {
     shopping: (req, res) => {
         return res.render('users/shopping');
     },
+
+    //LOGOUT
+    logout: (req, res) => {
+        req.session.destroy();
+        res.cookie('userDalfStore', null, {
+            maxAge : -1
+        })
+        return res.redirect('/');
+    }
+
 }
