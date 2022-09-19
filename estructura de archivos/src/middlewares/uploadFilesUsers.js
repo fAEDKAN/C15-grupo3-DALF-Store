@@ -27,7 +27,7 @@ const storageUser = multer.diskStorage({
 
     const uploadUsers = multer({
         storage : storageUser,
-        /* fileFilter */
+/*         fileFilter */
     });
 
     module.exports = {uploadUsers}

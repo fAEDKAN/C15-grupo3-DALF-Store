@@ -1,4 +1,4 @@
-const { loadUsers, storeUsers }=require('../data/dbModule')
+const { loadUsers, storeUsers } = require('../data/dbModule')
 const { validationResult } = require('express-validator');
 const bcryptjs = require('bcryptjs');
 const fs = require("fs");
@@ -76,8 +76,7 @@ module.exports = {
     },
 
     profile: (req, res) => {
-        let user = loadUsers().find(
-            (user) => user.id === req.session.userLogin.id
+        let user = loadUsers().find((user) => user.id === req.session.userLogin.id
         );
         return res.render('users/profile', {
             user
@@ -102,7 +101,6 @@ module.exports = {
             if (
                 fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar))
             ) {
-                console.log(">>>>>>", req.session.userLogin.avatar);
                 fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar));
             }
         }
