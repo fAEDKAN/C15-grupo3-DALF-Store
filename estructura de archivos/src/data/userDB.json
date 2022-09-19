@@ -164,5 +164,12 @@
       "email": "ushiovii@hotmail.com",
       "pass": "$2a$10$8Od3mcr8QPGZ66io/LzHhupTH.NyZvL/6SajS/ImDUDcwRErmBr1q",
       "avatar": null
+   },
+   {
+      "id": 22,
+      "userName": "axel",
+      "email": "axell.bustos@gmail.com",
+      "pass": "$2a$10$B5qLSfGIopENadnjRRUw6.istK8SoUWo4dncYQ9X1hGS9Uqm/NVV6",
+      "avatar": null
    }
 ]
