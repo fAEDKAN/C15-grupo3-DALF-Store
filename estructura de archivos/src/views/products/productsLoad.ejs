@@ -16,6 +16,7 @@
                         <h3 class="products-titulo">Cargar nuevo producto</h3>
                     </div>
                     <form action="" method="post" enctype="multipart/form-data">
+
                         <div class="form-box">
                             <label class="form__label" for="name">Título:</label>
                             <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : null %>">
@@ -75,7 +76,8 @@
 
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <input type="file" name="imagen" accept=".jpg" multiple>
+                            <input type="file" name="imagen" accept="image/*" multiple>
+                            <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                         </div>
 
                         <div class="form-box buttons">

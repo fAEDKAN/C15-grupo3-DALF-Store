@@ -1,19 +1,16 @@
- //Multer Usuarios//
-
+ //MULTER USERS
 const multer = require("multer");
 const path = require("path");
 
-
 const storageUser = multer.diskStorage({
-
-    //Destino
+    //DESTINY
     destination: (req, file, cb) => {
         cb(null, "./public/images/users");
     },
 
-    //Nombre
+    //NAME
     filename: (req, file, cb) => {
-    cb(null, `avatar-${Date.now()}${path.extname(file.originalname)}`);
+        cb(null, `avatar-${Date.now()}${path.extname(file.originalname)}`);
     },
 });
 
@@ -23,11 +20,11 @@ const storageUser = multer.diskStorage({
         return cb(null, false, req.fileValidationError)
     }
     return cb(null, true)
-}; */
+ }; */
 
     const uploadUsers = multer({
         storage : storageUser,
 /*         fileFilter */
     });
 
-    module.exports = {uploadUsers}
+module.exports = {uploadUsers};

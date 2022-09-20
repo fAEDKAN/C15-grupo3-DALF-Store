@@ -130,15 +130,5 @@
         "description": "Samsung está fielmente comprometida en brindar productos de calidad y que contribuyan a crear un mejor futuro para las personas. Como empresa líder en la industria tecnológica uno de sus objetivos principales es desarrollar avanzadas e innovadoras soluciones. Es por ello que con este monitor tendrás y disfrutarás de una gran experiencia visual en todo momento.",
         "image": "producto-de-usuario3.webp",
         "section": "of-users"
-    },
-    {
-        "id": 13,
-        "name": "Un completito",
-        "category": "otro",
-        "price": 10000,
-        "discount": 100,
-        "description": "Un completooo muy rico y completo",
-        "company": "otro",
-        "imagen": "completo-1.jpg"
     }
 ]
