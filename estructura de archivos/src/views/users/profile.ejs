@@ -39,12 +39,11 @@
                             </div>
 
                             <div class="body__form__inputs__userData--input">
-                                <select name="city" id="city">
-                                    <option value="buenos aires">Buenos Aires</option>
-                                    <option value="cordoba">Córdoba</option>
-                                    <option value="chaco">Chaco</option>
-                                    <option value="formosa">Formosa</option>
-                                    <option value="neuquen">Neuquén</option>
+                                <select name="province" id="province">
+                                    <option value="" hidden selected>Seleccione su provincia...</option>
+                                    <% provinces.forEach(province => { %>
+                                        <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
+                                    <% }) %>
                                 </select>
                             </div>
 

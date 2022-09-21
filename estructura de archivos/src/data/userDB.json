@@ -150,5 +150,16 @@
       "userName": "swaldere",
       "birthDate": "7/2/1947",
       "password": "NQvRwItFJI"
+   },
+   {
+      "id": 20,
+      "userName": "faedkan",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$lxQ5mdOfW9NA1FG9JQ7fj.0Fvf.33V62zwLXVbH.SjfZyJJ159GWy",
+      "avatar": "avatar-1663716148798.jpg",
+      "firstName": "federico",
+      "lastName": "somma",
+      "bday": "1994-08-08",
+      "province": "Neuquén"
    }
 ]

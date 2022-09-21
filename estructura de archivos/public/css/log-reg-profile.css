@@ -38,7 +38,7 @@
 
 .body__form--box {
     width: 90vw;
-    height: 70vh;
+/*     height: 70vh; */
     margin: 45px 0 0;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
@@ -73,7 +73,7 @@
 .body__form__inputs--userData {
     display: flex;
     flex-direction: column;
-/*     align-items: center; */
+    align-items: center;
 }
 
 .body__form--inputs label {
@@ -139,39 +139,10 @@
     height: 15px;
 }
 
-/** BODY | INPUTS | RADIO */
+/** BODY | INPUTS | SELECT */
 
-.body__form__inputs__userData__input--radiobtns {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 23px 0 0 60px;
-}
-
-.body__form__inputs__userData__input--radiobtn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 15px;
-}
-
-.body__form__inputs__userData__input--radiobtn input {
-    width: 15px;
-    height: 15px;
-    gap: 6px;
-}
-
-.body__form__inputs__userData__input--radiobtn label {
-    display: inline-block;
-    color: var(--C_Soft_Gray);
-    font-size: 0.9rem;
-    font-weight: bold;
-    transition: 1s all;
-}
-
-.body__form__inputs__userData__input--radiobtn label:hover {
-    color: var(--C_Lightblue_Logo);
-    cursor: pointer;
+.body__form__inputs__userData--input select {
+    width: 250px;
 }
 
 /** BODY | INPUTS | AVATAR */
