@@ -1,0 +1,1 @@
+module.exports = (req, res, next) => req.session.userLogin === undefined ? next() : res.redirect('/users/profile');
