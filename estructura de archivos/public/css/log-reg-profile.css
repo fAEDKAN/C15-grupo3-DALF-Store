@@ -62,6 +62,14 @@
     text-align: center;
 }
 
+/** BODY | PROFILE IMAGE */
+
+.body__form__profileImg--img img{
+    border-radius: 50%;
+    width: 125px;
+    height: 125px;
+}
+
 /** BODY | INPUTS */
 
 .body__form--inputs {
@@ -153,12 +161,17 @@
     padding-left: 5px;
     padding-top: 15px;
     transition: 1s all;
-    appearance: none;
+    cursor: pointer;
+    appearance: none; /* eliminar flecha del select */
 }
 
-.body__form__inputs__userData__input--select select:focus {
-    color: black;
-    background-color: transparent;
+.body__form__inputs__userData__input--select select:hover {
+    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+}
+
+.body__form__inputs__userData__input--select select option {
+    background: var(--C_Dark);
+
 }
 
 /** BODY | INPUTS | AVATAR */
@@ -185,11 +198,10 @@
 }
 
 .body__form__inputs__userData__input--avatar input[type="file"] {
-/*     font-size: 100px; */
     position: absolute;
     left: 0;
-/*     top: 0; */
     opacity: 0;
+    width: 100px;
 }
 
 /** BODY | INPUTS | BUTTON */
