@@ -10,13 +10,16 @@
                 <div class="body__form--title">
                     <h2>Mi Perfil</h2>
                 </div>
-                <div class="body__form--profileImg">
-                    <figure class="body__form__profileImg--img">
-                        <img  src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-USER-IMAGE.png' %>" alt="avatar">
-                    </figure>
-                </div>
+
                 <form action="/users/update/<%= user.id %>?_method=PUT" enctype="multipart/form-data" method="POST">
                     <div class="body__form--inputs">
+
+                        <div class="body__form--profileImg">
+                            <img src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-USER-IMAGE.png' %>" id="avatar" alt="avatar">
+                                <input type="file" id="file" name="avatarFile">
+                                <label for="file" id="uploadBtn">Elegir Avatar</label>
+                        </div>
+
                         <div class="body__form__inputs--userData">
                             <div class="body__form__inputs__userData--input">
                                 <label for="userName">Nombre de usuario:</label>
@@ -47,11 +50,6 @@
                                 </select>
                             </div>
 
-                            <div class="body__form__inputs__userData__input--avatar">
-                                <button class="body__form__inputs__userData__input__avatar--btn">Elegir Avatar</button>
-                                <input type="file" id="avatar" name="avatar">
-                            </div>
-
                         </div>
                         <div class="body__form__button--btn">
                             <button type="submit">GUARDAR CAMBIOS</button>
@@ -68,3 +66,6 @@
     </body>
 
 </html>
+
+<!-- scripts user profile iamge -->
+<script src="/javascripts/profileImage.js"></script>

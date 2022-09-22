@@ -7,7 +7,8 @@
 }
 
 #b0dy__c0nt41n3r {
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
     background-image: url(../images/DALF\ BACKGROUND5blur.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,10 +19,10 @@
 .body--form {
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 
 /** BODY | LOGO */
 
@@ -30,7 +31,7 @@
 }
 
 .body--form img {
-    width: 125px;
+    width: 150px;
     margin: 15px;
 }
 
@@ -38,8 +39,7 @@
 
 .body__form--box {
     width: 90vw;
-/*     height: 70vh; */
-    margin: 45px 0 0;
+/*     margin: 45px 0 0; */
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
@@ -52,7 +52,7 @@
 
 .body__form--title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .body__form--title h2 {
@@ -62,12 +62,43 @@
     text-align: center;
 }
 
-/** BODY | PROFILE IMAGE */
+/** BODY | AVATAR */
 
-.body__form__profileImg--img img{
-    border-radius: 50%;
-    width: 125px;
+.body__form--profileImg {
     height: 125px;
+    width: 125px;
+    position: relative;
+    top: 50%;
+    left: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid var(--C_Ice-Cream);
+}
+
+#avatar {
+    height: 125px;
+    width: 125px;
+    margin: 0;
+}
+
+#file {
+    display: none;
+}
+
+#uploadBtn {
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--C_Ice-Cream);
+    line-height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
 }
 
 /** BODY | INPUTS */
@@ -172,36 +203,6 @@
 .body__form__inputs__userData__input--select select option {
     background: var(--C_Dark);
 
-}
-
-/** BODY | INPUTS | AVATAR */
-
-.body__form__inputs__userData__input--avatar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.body__form__inputs__userData__input__avatar--btn {
-    width: 100px;
-    height: 45px;
-    margin: 25px 0 2px;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.050);
-    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
-    color: var(--C_Ice-Cream);
-    font-weight: bold;
-    transition: 1s all;
-}
-
-.body__form__inputs__userData__input--avatar input[type="file"] {
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    width: 100px;
 }
 
 /** BODY | INPUTS | BUTTON */
