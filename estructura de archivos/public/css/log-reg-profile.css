@@ -15,13 +15,14 @@
     background: var(--C_Lightblue_Logo);
 }
 
-/* input:-webkit-autofill,
+input:-webkit-autofill,
 input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus {
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
     -webkit-text-fill-color: var(--C_Ice-Cream);
-    box-shadow: 0 0 0px 1000px black inset;
+    box-shadow: 0 0 0px 1000px rgb(75, 75, 75) inset;
     transition: background-color 5000s ease-in-out 0s;
-} */
+}
 
 #b0dy__c0nt41n3r {
     width: 100%;
@@ -122,6 +123,13 @@ input:-webkit-autofill:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.body__form__inputs__userData--input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
 .body__form--inputs label {
@@ -293,4 +301,14 @@ input:-webkit-autofill:focus {
 .body__form__redirect a:hover {
     color: var(--C_Lightblue_Logo);
     font-size: 0.82rem;
+}
+
+/** BODY | FORM | PASSWORD TOGGLER */
+
+.body__form__inputs__userData--input i {
+    cursor: pointer;
+    color: var(--C_Ice-Cream);
+    position: absolute;
+    top: 25px;
+    right: 5px;
 }
