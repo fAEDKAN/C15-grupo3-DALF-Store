@@ -26,7 +26,9 @@ module.exports = {
                 userName : userName.trim(),
                 email : email.trim(),
                 pass : bcryptjs.hashSync(pass.trim(),10),
-                avatar : null
+                province : null,
+                avatar : null,
+                aboutMe : null
             };
             const usersModify = [...users, newUser];
 
@@ -76,7 +78,8 @@ module.exports = {
         let user = loadUsers().find((user) => user.id === req.session.userLogin.id
         );
         return res.render('users/profile', {
-            user
+            user,
+            provinces : require('../data/provinces')
         });
     },
 
