@@ -27,7 +27,8 @@ module.exports = {
                 email : email.trim(),
                 pass : bcryptjs.hashSync(pass.trim(),10),
                 province : null,
-                avatar : null
+                avatar : null,
+                aboutMe : null
             };
             const usersModify = [...users, newUser];
 

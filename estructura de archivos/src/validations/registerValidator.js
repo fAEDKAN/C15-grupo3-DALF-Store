@@ -14,7 +14,7 @@ module.exports = [
 
     body('email')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
-        .isEmail().withMessage('Ingresá un e-mail válido').bail()
+        .isEmail().withMessage('Ingresá un email válido').bail()
         .custom((value, {req}) => {
             const user = loadUsers().find(user => user.email === value);
 
@@ -23,7 +23,7 @@ module.exports = [
             }else {
                 return true
             }
-        }).withMessage('El e-mail ya se encuentra registrado'),
+        }).withMessage('El email ya se encuentra registrado'),
 
     check('pass')
         .notEmpty().withMessage('Éste campo es obligatorio').bail()
