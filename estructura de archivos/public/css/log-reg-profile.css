@@ -35,6 +35,12 @@ input:-webkit-autofill:active {
     position: relative;
 }
 
+.inputs__text__warnings {
+    color: var(--C_Ice-Cream);
+    font-size: 0.75rem;
+    text-align: center;
+}
+
 /** BODY | LOGO */
 
 .body__form__image--container {
@@ -123,6 +129,7 @@ input:-webkit-autofill:active {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
 }
 
 .body__form__inputs__userData--input {
