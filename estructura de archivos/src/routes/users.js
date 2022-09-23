@@ -20,7 +20,7 @@ router.get('/logout', logout);
 
 //USER PROFILE
 router.get('/profile', userSessionCheck, profile);
-router.put('/update/:id', uploadUsers.single('avatar'), update);
+router.put('/update/:id', uploadUsers.single('avatarFile'), update);
 
 /* //MY SHOPPING
 router.get('/shopping', shopping); */

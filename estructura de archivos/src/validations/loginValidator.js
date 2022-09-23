@@ -8,7 +8,7 @@ module.exports = [
 
     check('email')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
-        .isEmail().withMessage('Ingrese un e-mail válido').bail(),
+        .isEmail().withMessage('Ingresá un email válido').bail(),
 
     body('pass')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
