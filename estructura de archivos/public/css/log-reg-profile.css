@@ -14,15 +14,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    position: relative;
 }
-
-.body--form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
 
 /** BODY | LOGO */
 
@@ -38,14 +31,13 @@
 /** BODY | BOX */
 
 .body__form--box {
-    width: 90vw;
-/*     margin: 45px 0 0; */
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 75vw;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /** BODY | TITLE */
@@ -93,7 +85,7 @@
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     color: var(--C_Ice-Cream);
     line-height: 30px;
     font-size: 15px;
@@ -202,7 +194,15 @@
 
 .body__form__inputs__userData__input--select select option {
     background: var(--C_Dark);
+}
 
+::-webkit-scrollbar {
+    width: 8px;
+    background: var(--C_Light_Dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--C_Lightblue_Logo);
 }
 
 /** BODY | INPUTS | BUTTON */
