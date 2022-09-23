@@ -160,5 +160,17 @@
       "firstName": "Diego",
       "lastName": "Montes",
       "bday": "2002-06-24"
+   },
+   {
+      "id": 21,
+      "userName": "faedkan",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$19TGZ04onCVOaYOxVAFK8e0/Ap4h1LICLPiOqZV7Nx8YItS2W9nT2",
+      "province": "Neuquén",
+      "avatar": "avatar-1663970142008.png",
+      "aboutMe": "me gustan los jueguitos",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]
