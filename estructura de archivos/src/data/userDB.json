@@ -166,10 +166,15 @@
       "avatar": null
    },
    {
-      "id": 22,
-      "userName": "axel",
-      "email": "axell.bustos@gmail.com",
-      "pass": "$2a$10$B5qLSfGIopENadnjRRUw6.istK8SoUWo4dncYQ9X1hGS9Uqm/NVV6",
-      "avatar": null
+      "id": 20,
+      "userName": "faedkan",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$dAEFxfgvU09aqtmHcCfO1eGqxye2L9xOGRitq/zzkKVdKopnqehOG",
+      "province": "Neuquén",
+      "avatar": "avatar-1663968962616.png",
+      "aboutMe": "me gustan los jueguitos",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]

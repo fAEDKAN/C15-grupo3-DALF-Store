@@ -21,6 +21,7 @@
                             <div class="body__form__inputs__userData--input">
                                 <label for="pass">Contraseña:</label>
                                 <input type="password" placeholder="Contraseña" id="pass" name="pass">
+                                <i class="fa-regular fa-eye-slash" id="togglePass"></i>
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.pass ? errors.pass.msg : null %></p>
                             </div>
                         </div>
@@ -29,7 +30,7 @@
                             <input type="checkbox" id="remember" name="remember">
                         </div>
                         <div class="body__form__button--btn">
-                            <button type="submit">INGRESAR</button>
+                            <button type="submit" id="submit">INGRESAR</button>
                         </div>
                     </div>
                 </form>
@@ -46,3 +47,6 @@
     </body>
 
 </html>
+
+<!-- scripts user profile image -->
+<script src="/javascripts/togglePass.js"></script>

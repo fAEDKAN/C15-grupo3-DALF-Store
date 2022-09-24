@@ -89,20 +89,23 @@
 -Dejar pasar las fechas de entrega.
 
 ## Hacer menos:
-
 -
+
+************************************************************************************
+
 # Retrospectiva con dinámica "Estrella de Mar" Sprint 4:
+
 ## Seguir haciendo:
--Apoyarnos mutuamente
--Mantener trello actualizado
--Mantener la comunicacion con los demas companeros
--Entregar las tareas a tiempo
--Comprometerse ayudar a cualquier compa que necesite ayuda
+-Apoyarnos mutuamente.
+-Mantener trello actualizado.
+-Mantener la comunicacion con los demas companeros.
+-Entregar las tareas a tiempo.
+-Comprometerse ayudar a cualquier compa que necesite ayuda.
 
 ## Hacer más:
--Mejorar la comunicacion
--Mejorar la planificacion individual
--Dedicar mas tiempo al proyecto
+-Mejorar la comunicacion.
+-Mejorar la planificacion individual.
+-Dedicar mas tiempo al proyecto.
 
 ## Empezar a hacer:
 -Ensayar las presentaciones en grupo.
@@ -111,8 +114,7 @@
 -Participar más de las presentaciones grupales.
 ## Dejar de hacer:
 -Subestimar el tiempo que puede llevar determinada tarea.
--Procrastinar
+-Procrastinar.
 
 ## Hacer menos:
-
 -
