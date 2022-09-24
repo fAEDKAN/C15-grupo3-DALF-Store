@@ -176,5 +176,14 @@
       "firstName": "Federico",
       "lastName": "Somma",
       "bday": "1994-08-08"
+   },
+   {
+      "id": 21,
+      "userName": "axel",
+      "email": "axel@gmail.com",
+      "pass": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
+      "province": null,
+      "avatar": null,
+      "aboutMe": null
    }
 ]
