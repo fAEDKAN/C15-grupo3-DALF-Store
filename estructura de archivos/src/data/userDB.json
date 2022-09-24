@@ -153,12 +153,14 @@
    },
    {
       "id": 20,
-      "userName": "Ushio",
-      "email": "ushiovii@hotmail.com",
-      "pass": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
-      "avatar": "avatar-1663631442728.png",
-      "firstName": "Diego",
-      "lastName": "Montes",
-      "bday": "2002-06-24"
+      "userName": "faedkan",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$dAEFxfgvU09aqtmHcCfO1eGqxye2L9xOGRitq/zzkKVdKopnqehOG",
+      "province": "Neuquén",
+      "avatar": "avatar-1663968962616.png",
+      "aboutMe": "me gustan los jueguitos",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]
