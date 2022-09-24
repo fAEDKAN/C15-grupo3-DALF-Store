@@ -1,114 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head',{ title:'home', }) %>
-<body class="carrito">
-    <%- include('../partials/header',{ title:'home', }) %>
-    <main class="carrito__main">
-        <section class="carrito__main__section--productos">
-            <p class="carrito__main__section--pruductos-title">Tu carrito</p>
-            <div class="linea">
-                <hr>
-            </div>
-            <div class="articulos">
-                <article>
-                    <img src="/images/products/xbox-key.jpeg" alt="auriculares">
-                    <div>
-                        <h3>Mortal combat II</h3>
-                        <p>
-                            Descripcion
-                        </p>
-                        <button class="contador-resta">-</button>
-                        <button class="contador-valor">1</button>
-                        <button class="contador-suma">+</button>
-                        <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
-                        <button class="precio">$2000</button>
-                    </div>
-                </article>
-                <article>
-                    <img src="/images/products/eldenring-card.webp" alt="silla">
-                    <div>
-                        <h3>Elden ring</h3>
-                        <p>Descripcion</p>
-                        <button class="contador-resta">-</button>
-                        <button class="contador-valor">1</button>
-                        <button class="contador-suma">+</button>
-                        <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
-                        <button class="precio">$2000</button>
-                    </div>
-                </article>
-                <article>
-                    <img src="/images/products/gtav-card.jpeg" alt="placagrafica">
-                    <div>
-                        <h3>Grand theft auto V</h3>
-                        <p>Descripcion</p>
-                        <button class="contador-resta">-</button>
-                        <button class="contador-valor">1</button>
-                        <button class="contador-suma">+</button>
-                        <button class="delete-product"><i class="fa-solid fa-trash-can"></i></button>
-                        <button class="precio">$2000</button>
-                    </div>
-                </article>
-            </div>
-            <div class="total">
-                <div>
-                    <p class="total-productos">Productos</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-envio">Envio</p>
-                    <p class="total-cantidad">$0</p>
-                </div>
-                <div>
-                    <p class="total-total">Total</p>
-                    <p class="total-total-cantidad">$0</p>
-                </div>
-                <img src="/images/medios-de-pago-1723294542" alt="">
-                <div class="total-comprar">
-                    <button><a href="/products/cartAdress">Comprar</a></button>
-                </div>
-            </div>
-        </section>
+<%- include('../partials/head',{ title:'home', }) %>
 
-        <%- include('../partials/productsRecommended') %>
-        
-    </main>
-    <%- include('../partials/footer',{ title:'home' }) %>
+    <body class="carrito">
+        <%- include('../partials/header',{ title:'home', }) %>
+            <main class="carrito__main">
+                <section class="carrito__main__section--productos">
+                    <p class="carrito__main__section--pruductos-title">Tu carrito</p>
+                    <div class="linea">
+                        <hr />
+                    </div>
+                    <div class="articulos">
+                        <article>
+                            <img src="/images/products/xbox-key.jpeg" alt="auriculares" />
+                            <div>
+                                <h3>Mortal combat II</h3>
+                                <p>Descripcion</p>
+                                <button class="contador-resta">-</button>
+                                <button class="contador-valor">1</button>
+                                <button class="contador-suma">+</button>
+                                <button class="delete-product">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <button class="precio">$2000</button>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="/images/products/eldenring-card.webp" alt="silla" />
+                            <div>
+                                <h3>Elden ring</h3>
+                                <p>Descripcion</p>
+                                <button class="contador-resta">-</button>
+                                <button class="contador-valor">1</button>
+                                <button class="contador-suma">+</button>
+                                <button class="delete-product">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <button class="precio">$2000</button>
+                            </div>
+                        </article>
+                        <article>
+                            <img src="/images/products/gtav-card.jpeg" alt="placagrafica" />
+                            <div>
+                                <h3>Grand theft auto V</h3>
+                                <p>Descripcion</p>
+                                <button class="contador-resta">-</button>
+                                <button class="contador-valor">1</button>
+                                <button class="contador-suma">+</button>
+                                <button class="delete-product">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                                <button class="precio">$2000</button>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="total">
+                        <div>
+                            <p class="total-productos">Productos</p>
+                            <p class="total-cantidad">$0</p>
+                        </div>
+                        <div>
+                            <p class="total-envio">Envio</p>
+                            <p class="total-cantidad">$0</p>
+                        </div>
+                        <div>
+                            <p class="total-total">Total</p>
+                            <p class="total-total-cantidad">$0</p>
+                        </div>
+                        <div class="payment-method">
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png"
+                                class="method-payment-logo" alt="visa" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png"
+                                class="method-payment-logo" alt="mastercard" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png"
+                                class="method-payment-logo" alt="amex" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/ar/banelco@2x.png"
+                                class="method-payment-logo" alt="banelco" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mercadopago@2x.png"
+                                class="method-payment-logo" alt="mercadopago" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagofacil@2x.png"
+                                class="method-payment-logo" alt="pagofacil" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/rapipago@2x.png"
+                                class="method-payment-logo" alt="rapipago" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/nativa@2x.png"
+                                class="method-payment-logo" alt="nativa" />
+                            <img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/ar/tarjeta-naranja@2x.png"
+                                class="method-payment-logo" alt="tarjeta-naranja" />
+                        </div>
+                        <!--   <img src="/images/medios-de-pago-1723294542" alt="">       -->
+                        <div class="total-comprar">
+                            <button><a href="/products/cartAdress">Comprar</a></button>
+                        </div>
+                    </div>
+                </section>
 
-    <script src="/javascripts/glider.js"></script>
-    <script>
-        window.addEventListener('load', function() {
-            new Glider(document.querySelector('.glider'), {
-                slidesToShow: 2,
-                slidesToScroll: 1,
-                itemWith: 150,
-                dots: '#dots',
-                arrows: {
-                    prev: '.glider-prev',
-                    next: '.glider-next'
-                },
-                responsive: [{
-                    // screens greater than >= 768px
-                    breakpoint: 768,
-                    settings: {
-                        // Set to `auto` and provide item width to adjust to viewport
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }, {
-                    // screens greater than >= 1024px
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        itemWidth: 150,
-                        duration: 0.25
-                    }
-                }]
-            })
-        })
-    </script>
-</body>
+                <%- include('../partials/productsRecommended') %>
+            </main>
+            <%- include('../partials/footer',{ title:'home' }) %>
+
+                <script src="/javascripts/glider.js"></script>
+                <script>
+                    window.addEventListener("load", function () {
+                        new Glider(document.querySelector(".glider"), {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            itemWith: 150,
+                            dots: "#dots",
+                            arrows: {
+                                prev: ".glider-prev",
+                                next: ".glider-next",
+                            },
+                            responsive: [
+                                {
+                                    // screens greater than >= 768px
+                                    breakpoint: 768,
+                                    settings: {
+                                        // Set to `auto` and provide item width to adjust to viewport
+                                        slidesToShow: 3,
+                                        slidesToScroll: 1,
+                                        itemWidth: 150,
+                                        duration: 0.25,
+                                    },
+                                },
+                                {
+                                    // screens greater than >= 1024px
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 5,
+                                        slidesToScroll: 1,
+                                        itemWidth: 150,
+                                        duration: 0.25,
+                                    },
+                                },
+                            ],
+                        });
+                    });
+                </script>
+    </body>
 
 </html>

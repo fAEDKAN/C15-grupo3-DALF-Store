@@ -180,10 +180,6 @@ body{
     text-align: center;
     margin-top: 30px;
 }
-.total img{
-    height: 30%;
-    width: 80%;
-}
 .total-comprar{
     display: flex;
     justify-content: center;
