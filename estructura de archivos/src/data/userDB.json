@@ -162,5 +162,14 @@
       "firstName": "Federico",
       "lastName": "Somma",
       "bday": "1994-08-08"
+   },
+   {
+      "id": 21,
+      "userName": "Ushio",
+      "email": "ushiovii@hotmail.com",
+      "pass": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
+      "province": null,
+      "avatar": null,
+      "aboutMe": null
    }
 ]
