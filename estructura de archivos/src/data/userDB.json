@@ -153,6 +153,20 @@
    },
    {
       "id": 20,
+      "userName": "axelitoaxelito",
+      "email": "axelitoaxelito@gmail.com",
+      "pass": "$2a$10$tXT1hdYhN1QkRCO6ewl7WOA8huchw11tEa440TSr3SmAnH0XOvga6",
+      "avatar": null
+   },
+   {
+      "id": 21,
+      "userName": "Ushio",
+      "email": "ushiovii@hotmail.com",
+      "pass": "$2a$10$8Od3mcr8QPGZ66io/LzHhupTH.NyZvL/6SajS/ImDUDcwRErmBr1q",
+      "avatar": null
+   },
+   {
+      "id": 20,
       "userName": "faedkan",
       "email": "sfdk.94@hotmail.com",
       "pass": "$2a$10$dAEFxfgvU09aqtmHcCfO1eGqxye2L9xOGRitq/zzkKVdKopnqehOG",
@@ -168,6 +182,15 @@
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
       "pass": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
+      "province": null,
+      "avatar": null,
+      "aboutMe": null
+   }
+   {
+      "id": 22,
+      "userName": "axel",
+      "email": "axel@gmail.com",
+      "pass": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
       "province": null,
       "avatar": null,
       "aboutMe": null
