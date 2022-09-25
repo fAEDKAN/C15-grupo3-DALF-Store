@@ -50,8 +50,20 @@
                             </div>
 
                             <div class="form-box">
-                                <label class="form__label" for="description">Descripción:</label>
-                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%= productToEdit.description %></textarea>
+                                <label class="form__label" for="stock">Stock disponible:</label>
+                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= productToEdit.stock %>">
+                                <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
+                            </div>
+
+                            <div class="form-box">
+                                <label class="form-label">Sección:</label>
+                                <select name="section" id="section">
+                                    <option value="" hidden selected>Seleccionar una section...</option>
+                                    <option value="recommended"<%= productToEdit.section === 'recommended' && 'selected' %>>Recomendados</option>
+                                    <option value="in-sale"<%= productToEdit.section === 'in-sale' && 'selected' %>>Ofertas</option>
+                                    <option value="of-users"<%= productToEdit.section === 'of-users' && 'selected' %>>Productos de Usuarios</option>
+                                </select>
+                                <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
                             </div>
 
                             <div class="form-box">
@@ -67,6 +79,12 @@
                                 </select>
                                 <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>
                             </div>
+
+                            <div class="form-box">
+                                <label class="form__label" for="description">Descripción:</label>
+                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%= productToEdit.description %></textarea>
+                            </div>
+
 
                             <div class="form-box load-image">
                                 <label class="form__label" for="imagen">Añadir Imágenes:</label>
