@@ -4,7 +4,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: var(--C_Dark);
-    margin-top: 15px;
     width: 100%;
 }
 
