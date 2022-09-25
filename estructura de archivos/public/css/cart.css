@@ -145,7 +145,7 @@ body{
 
 /**total**/
 .total{
-    width: 80%;
+    width: 18.45rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -157,6 +157,7 @@ body{
     border-radius: 15px;
     background: #2b2d32;
     border:solid 1px #6c757d;
+    font-size: 17px;
 }
 .total div{
     display: flex;
@@ -220,6 +221,7 @@ body{
 /*media queries*/
 @media(min-width:768px){
     .total{
+        width: 24.45rem;
         height: 400px;
     }
 }
