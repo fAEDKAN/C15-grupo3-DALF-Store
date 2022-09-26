@@ -8,7 +8,7 @@ module.exports = [
     .bail()
     .isLength({
         min: 5,
-        max: 38
+        max: 50
     }).withMessage('El minimo es de 5 caracteres'),
 
     check('price')
