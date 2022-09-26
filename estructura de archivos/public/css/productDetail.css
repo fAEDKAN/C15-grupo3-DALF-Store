@@ -184,6 +184,12 @@ h3 {
     border-radius: 5px;
     color: var(--C_Ice-Cream);
     margin-bottom: 20px;
+    text-align: center;
+    padding: 10px
+}
+
+.detail__product__store p{
+    padding: 10px;
 }
 
 .detail__product__store h3 {
@@ -322,12 +328,90 @@ h3 {
     .detail__product__features{
         width: 45%;
     }
+    .content_detail_product_rating{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
     .detail__product__store{
         width: 45%;
+        text-align: center;
+    }
+    .detail__product__store p{
+        padding-top: 10px;
     }
     .product_and_features{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
-}   
+    .content_detail_product_questions{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .detail__product__questions{
+        width: 90%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .detail__product__images img{
+        width: 25%;
+        margin-right: 235px;
+        height: 403px;
+    }
+    .detail__product__questions {
+        width: 63%;
+    }
+    .content_detail_product_images{
+        display: flex;
+        justify-content: center;
+    }
+
+    .detail__product__ratings {
+        width: 95%;
+    }
+
+    .detail__product__questions {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1680px){
+
+    .detail__product__questions--failed {
+        display: flex;
+        text-align: center;
+        margin: 0;
+        width: 60%;
+        margin-bottom: 20px;
+        margin-left: 330px;
+    }
+
+    .detail__product__images img{
+        width: 25%;
+        margin-right: 235px;
+        height: 403px;
+    }
+
+    .content_detail_product_questions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .content_detail_product_images{
+        display: flex;
+        justify-content: center;
+    }
+
+    .detail__product__ratings {
+        width: 95%;
+    }
+
+    .detail__product__questions {
+        width: 95%;
+    }
+
+}
