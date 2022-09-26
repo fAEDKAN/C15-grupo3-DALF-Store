@@ -15,9 +15,9 @@
                     <div class="body__form--inputs">
 
                         <div class="body__form--profileImg">
-                            <img src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-USER-IMAGE.png' %>" id="avatar" alt="avatar">
-                                <input type="file" id="file" name="avatarFile">
-                                <label for="file" id="uploadBtn">Elegir Avatar</label>
+                            <img src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-IMAGE.jpg' %>" id="avatar" alt="avatar">
+                            <input type="file" id="file" name="avatarFile">
+                            <label for="file" id="uploadBtn">Elegir Avatar</label>
                         </div>
 
                         <div class="body__form__inputs--userData">
@@ -61,9 +61,14 @@
                         </div>
                     </div>
                 </form>
+
                 <div class="body__form__redirect">
-                    <div class="body__form__redirect--login">
+                    <div class="body__form__redirect--unsave">
                         <a href="/">No quiero guardar los cambios</a>
+                    </div>
+
+                    <div class="body__form__redirect--deleteAcc">
+                        <a href="/users/deleteAcc">Eliminar Cuenta</a>
                     </div>
                 </div>
             </div>
@@ -72,5 +77,5 @@
 
 </html>
 
-<!-- scripts user profile image -->
+<!-- script user profile image -->
 <script src="/javascripts/profileImage.js"></script>
