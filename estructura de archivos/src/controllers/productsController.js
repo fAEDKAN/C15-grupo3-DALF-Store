@@ -90,6 +90,7 @@ module.exports = {
                     name: name.trim(),
                     price : +price,
                     discount : +discount,
+                    image: product.image
                 };
             };
             return product;
@@ -121,7 +122,7 @@ module.exports = {
     },
     cartPay: (req, res) => {
         return res.render('products/cartPay');
-    },
+    }
     
 }
 

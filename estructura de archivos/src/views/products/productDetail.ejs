@@ -12,36 +12,36 @@
                 <h3 class="products-titulo">Editar producto</h3>
             </div>
             <main class="productdetail__main">
-                <div class="content_detail_product_images">
-                    <section class="detail__product__images">
-                        <img class="product-img" src="/images/products/<%= product.image %>" alt="product">
-                        <section class="detail__purchase">
-                            <article class="detail__purchase__product">
-                                <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
-                                <div class="detail__purchase__product--box">
-                                    <p class="detail__purchase__product--price">$ <%= product.price %> </p>
-                                    <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
-                                </div>
-                            </article>
-                            <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>
-                            <div class="bar-button-stock">
-                                <input style="text-align: center; pointer-events: none;" type="text" class="stock-input" placeholder=" Stock disponible: <%= product.stock %>">
-                            </div>  
-                            <article class="detail__purchase__buttons">
-                                <div class="detail__purchase__buttons--cart">
-                                    <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
-                                </div>
-                                <div class="detail__purchase__buttons--fav">
-                                    <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar a favoritos</button>
-                                </div>
+                <section class="detail__product__images">
+                    <img class="product-img" src="/images/products/<%= product.image %>" alt="product">
+                    <section class="detail__purchase">
+                        <article class="detail__purchase__product">
+                            <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
+                            <div class="detail__purchase__product--box">
+                                <p class="detail__purchase__product--price">$ <%= product.price %> </p>
+                                <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
+                            </div>
+                        </article>
+                        <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>
+                        <div class="bar-button-stock">
+                            <input style="text-align: center; pointer-events: none;" type="text" class="stock-input" placeholder=" Stock disponible: <%= product.stock %>">
+                        </div>  
+                        <article class="detail__purchase__buttons">
+                            <div class="detail__purchase__buttons--cart">
+                                <button type="submit" name="cart"><i class="fa-solid fa-cart-shopping"></i> Agregar al carrito</button>
+                            </div>
+                            <div class="detail__purchase__buttons--fav">
+                                <button type="submit" name="favorites"><i class="fa-solid fa-heart"></i> Agregar a favoritos</button>
+                            </div>
+                            <% if (locals.userLogin && userLogin.rol === "admin") { %>
                                 <div class="edit__product">
                                     <a href="/products/productEdit/<%= product.id %>"><button type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
                                 </div>
                                 <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                                     <button type="submit" class="action-button delete">ELIMINAR</button>
                                 </form>
-                            </article>
-                        </section>
+                            <% } %>
+                        </article>
                     </section>
                 </div>
                 <div class="product_and_features">

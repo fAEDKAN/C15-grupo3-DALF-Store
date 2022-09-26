@@ -51,12 +51,13 @@ module.exports = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            let { id, userName, avatar } = loadUsers().find((user) => user.email === req.body.email);
+            let { id, userName, avatar,rol } = loadUsers().find((user) => user.email === req.body.email);
 
             req.session.userLogin = {
                 id,
                 userName,
-                avatar
+                avatar,
+                rol
             };
 
             if(req.body.remember) {
