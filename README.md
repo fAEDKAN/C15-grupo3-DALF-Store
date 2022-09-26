@@ -57,12 +57,6 @@
 
 **************************************************************************************************************************************
 
-#### Nombre: Luca Kumric - Edad: 23 años - Ciudad: Cutral-Có, Neuquén, Argentina.
-
-#### Me interesan los videojuegos y me gusta analizar cine. También me apasiona todo lo que tenga que ver con contar historias y plasmar una narrativa, generando emociones y sensaciones en los espectadores. Estoy adentrándome en la programación para crear páginas web que ayuden y satisfagan las necesidades del cliente.
-
-**************************************************************************************************************************************
-
 #### Nombre: Axel Bustos - Edad: 25 años - Ciudad: Cutral-Có, Neuquén, Argentina.
 
 #### Mi formación está orientada a la programación y las telecomunicaciones. Estoy interesado en el mundo IT en general, en mi tiempo libre disfruto leer libros, principalmente novelas, y me gusta la música en general.
