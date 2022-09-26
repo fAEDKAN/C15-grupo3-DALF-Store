@@ -166,18 +166,6 @@
       "avatar": null
    },
    {
-      "id": 20,
-      "userName": "faedkan",
-      "email": "sfdk.94@hotmail.com",
-      "pass": "$2a$10$dAEFxfgvU09aqtmHcCfO1eGqxye2L9xOGRitq/zzkKVdKopnqehOG",
-      "province": "Neuquén",
-      "avatar": "avatar-1663968962616.png",
-      "aboutMe": "me gustan los jueguitos",
-      "firstName": "Federico",
-      "lastName": "Somma",
-      "bday": "1994-08-08"
-   },
-   {
       "id": 21,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
@@ -185,7 +173,7 @@
       "province": null,
       "avatar": null,
       "aboutMe": null
-   }
+   },
    {
       "id": 22,
       "userName": "axel",
@@ -194,5 +182,17 @@
       "province": null,
       "avatar": null,
       "aboutMe": null
+   },
+   {
+      "id": 23,
+      "userName": "faedkan",
+      "email": "sfdk.94@hotmail.com",
+      "pass": "$2a$10$4rMHTPqDKGdYu8PvmqQ2zuJ7LC3soHuua7VOU7HtoJNtj4.Njdjjq",
+      "province": "Neuquén",
+      "avatar": "avatar-1664205942603.jpg",
+      "aboutMe": "me gussssta el arte, todo tipo de arrrrte",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]

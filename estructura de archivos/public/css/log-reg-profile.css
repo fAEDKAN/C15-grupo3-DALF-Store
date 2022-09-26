@@ -27,7 +27,7 @@ input:-webkit-autofill:active {
 #b0dy__c0nt41n3r {
     width: 100%;
     height: 100vh;
-    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-image: url(../images/DALF-LOGO-BACKGROUND5blur.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -59,7 +59,7 @@ input:-webkit-autofill:active {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -81,8 +81,8 @@ input:-webkit-autofill:active {
 /** BODY | AVATAR */
 
 .body__form--profileImg {
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     position: relative;
     top: 50%;
     left: 0;
@@ -92,8 +92,8 @@ input:-webkit-autofill:active {
 }
 
 #avatar {
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     margin: 0;
 }
 
