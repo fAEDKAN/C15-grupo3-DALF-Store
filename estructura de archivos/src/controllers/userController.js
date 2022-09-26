@@ -51,17 +51,18 @@ module.exports = {
         let errors = validationResult(req);
 
         if(errors.isEmpty()){
-            let { id, userName, avatar } = loadUsers().find((user) => user.email === req.body.email);
+            let { id, userName, avatar,rol } = loadUsers().find((user) => user.email === req.body.email);
 
             req.session.userLogin = {
                 id,
                 userName,
-                avatar
+                avatar,
+                rol
             };
 
             if(req.body.remember) {
                 res.cookie('userDalfStore', req.session.userLogin, {
-                    maxAge: 1000 * 60
+                    maxAge: 10000 * 60
                 });
             };
 
@@ -127,6 +128,26 @@ module.exports = {
         res.cookie('userDalfStore', null, {
             maxAge : -1
         })
+        return res.redirect('/');
+    },
+
+    //DELETE ACCOUNT
+    deleteAcc : (req, res) => {
+        const user = loadUsers().find((user) => user.id === req.session.userLogin.id
+        );
+        return res.render('users/deleteAcc', {
+            user
+        });
+    },
+
+    remove : (req, res) => {
+        const users = loadUsers();
+        const usersModify = users.filter(user => user.id !== +req.params.id);
+        storeUsers(usersModify);
+        req.session.destroy();
+        res.cookie('userDalfStore', null, {
+            maxAge : -1
+        });
         return res.redirect('/');
     }
 

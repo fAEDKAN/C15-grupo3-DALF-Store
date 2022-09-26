@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head',{ title:'Eliminar cuenta', }) %>
+
+    <body id="b0dy__c0nt41n3r">
+        <div class="body--form">
+            <%- include('../partials/logoForms') %>
+            
+            <div class="body__form--warningBox">
+                <div class="body__form--title">
+                    <h2>Eliminar cuenta</h2>
+                </div>
+
+                <div class="body__form--warningText">
+                    <p>¿Estás seguro que querés continuar con ésta acción?</p>
+                    <p>Si aceptás, tu cuenta se eliminará para siempre.</p>
+                </div>
+                <div class="body__form--negative">
+                    <a href="/users/profile">No quiero eliminar mi cuenta</a>
+                </div>
+                <div class="body__form--affirmative">
+                    <form action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+                        <button type="submit">Sí quiero eliminar mi cuenta</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </body>
+
+</html>

@@ -152,6 +152,7 @@
       "password": "NQvRwItFJI"
    },
    {
+
       "id": 20,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
@@ -163,14 +164,21 @@
    },
    {
       "id": 21,
-      "userName": "faedkan",
-      "email": "sfdk.94@hotmail.com",
-      "pass": "$2a$10$19TGZ04onCVOaYOxVAFK8e0/Ap4h1LICLPiOqZV7Nx8YItS2W9nT2",
-      "province": "Neuquén",
-      "avatar": "avatar-1663970142008.png",
-      "aboutMe": "me gustan los jueguitos",
-      "firstName": "Federico",
-      "lastName": "Somma",
-      "bday": "1994-08-08"
+      "userName": "Ushio",
+      "email": "ushiovii@hotmail.com",
+      "pass": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
+      "province": null,
+      "avatar": null,
+      "aboutMe": null
+   },
+   {
+      "id": 22,
+      "userName": "axel",
+      "email": "axel@gmail.com",
+      "pass": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
+      "province": null,
+      "avatar": null,
+      "aboutMe": null,
+      "rol":"user"
    }
 ]

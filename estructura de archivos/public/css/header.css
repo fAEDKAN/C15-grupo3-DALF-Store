@@ -1,3 +1,10 @@
+/* Bootstrap */
+
+.menu_dropdown.show{
+    display: flex;
+    background-color: #343a40;
+}
+
 /*  HEADER  GENREAL*/
 
 #top {
@@ -38,6 +45,7 @@ h1 {
     align-items: center;
     justify-content: space-around;
 }
+
 
 .header__top--general-navbar {
     padding-bottom: 0;
@@ -201,6 +209,39 @@ h1 {
 
 @media (min-width: 1024px) {
     /* Desktop */
+
+
+
+    .navbar-nav .dropdown-menu{
+        position: absolute;
+    }
+
+    .title__nav_item{
+        color: var(--C_Ice-Cream);
+        pointer-events: none;
+        font-size: 17px
+    }
+
+    .cointeiner__links_nav_item{
+        background-color: #343a40;
+    }
+
+    .cointeiner__links_nav_item[data-bs-popper]{
+        left: -57px;
+    }
+
+    .cointeiner__links_nav_item li a{
+        color: var(--C_Ice-Cream);
+    }
+
+    .tarjetaDeRegalo__move[data-bs-popper]{
+        background-color: #343a40;
+    }
+
+    .tarjetaDeRegalo__move[data-bs-popper]{
+        left: -24px;
+    }
+
     .header_div--navbar-desktop {
         display: flex;
         flex-direction: row;

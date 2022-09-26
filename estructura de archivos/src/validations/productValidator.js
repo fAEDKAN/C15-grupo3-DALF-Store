@@ -8,7 +8,7 @@ module.exports = [
     .bail()
     .isLength({
         min: 5,
-        max: 25
+        max: 50
     }).withMessage('El minimo es de 5 caracteres'),
 
     check('price')
@@ -27,6 +27,20 @@ module.exports = [
     .isNumeric({
         no_symbols: true,
     }).withMessage('Éste campo solo acepta numeros'),
+
+    check('stock')
+    .notEmpty().withMessage('El total no puede ser 0')
+    .bail()
+    .isNumeric({
+        no_symbols: true,
+    }).withMessage('Éste campo solo acepta numeros')
+    .bail()
+    .isInt({
+        min: 1,
+        max: 1000,
+    }).withMessage('Sólo se aceptan entre 1 y 1000 productos'),
+
+    check('section').notEmpty().withMessage('Es obligatorio establecer una sección'),
 
     check('category').notEmpty().withMessage('Es obligatorio establecer una categoría'),
 

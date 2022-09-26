@@ -4,7 +4,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: var(--C_Dark);
-    margin-top: 15px;
     width: 100%;
 }
 
@@ -46,24 +45,41 @@
     padding: 5px;
 }
 
-.footer__formas-de-pago {
-    flex-wrap: wrap;
-    text-align: center;
-    display: none;
-}
 .footer_nav-app {
     display: flex;
     flex-direction: column;
 }
+
 .footer_nav-app img {
     width: 150px;
-    height: 40px;
 }
-.footer__formas-de-pago img {
-    height: 60px;
-    width: 80px;
-    padding: 2px;
+
+.payment-method-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
+
+.payment-method {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.payment-method-title, 
+.footer_social_networks-title{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding: 5px;
+}
+.method-payment-logo {
+    width:50px;
+    height:35px;
+    padding: 3px;
+}
+
 .footer__lastsection {
     width: 100%;
     display: flex;
@@ -71,17 +87,20 @@
     align-items: center;
     justify-content: center;
 }
+
 .footer__lastsection__navbar {
     display: flex;
     justify-self: center;
     text-align: center;
     justify-content: center;
 }
+
 .footer__lastsection__navbar a {
     padding: 5px;
     text-decoration: none;
     font-weight: bold;
 }
+
 .footer__lastsection__navbar figure {
     display: flex;
     align-items: center;
@@ -91,15 +110,19 @@
     border-radius: 50%;
     border: 1px solid var(--C_Lightblue_Logo);
 }
-.footer__lastsection__navbar a:hover figure{
+
+.footer__lastsection__navbar a:hover figure {
     border: 1px solid var(--C_Pink_Logo)
 }
-.footer__lastsection__navbar a:hover i{
+
+.footer__lastsection__navbar a:hover i {
     color: var(--C_Pink_Logo)
 }
+
 .footer__lastsection__navbar i {
     color: var(--C_Lightblue_Logo);
 }
+
 .footer__lastsection__copyright {
     text-align: center;
     color: #dee2e6;
@@ -111,12 +134,14 @@
         height: 57px;
         width: 90px;
     }
+
     .footer__lastsection__navbar {
         color: #dee2e6;
         display: flex;
         justify-content: center;
         padding: 10px 0px 0px;
     }
+
     .footer__lastsection__navbar ul li {
         /*display: inline-block;*/
         justify-content: space-between;
@@ -128,6 +153,7 @@
     .footer_nav {
         flex-direction: row;
     }
+
     .footer_nav-home,
     .footer_nav-aboutUs,
     .footer_nav-app {
@@ -135,10 +161,12 @@
         padding: 5px;
         text-align: start;
     }
+
     .footer__formas-de-pago img {
         height: 64px;
         width: 105px;
     }
+
     .footer__lastsection {
         font-size: 20px;
     }

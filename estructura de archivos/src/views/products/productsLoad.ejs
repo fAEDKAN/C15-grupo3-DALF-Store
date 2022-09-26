@@ -53,10 +53,21 @@
                             <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                         </div>
 
+                        <div class="form-box">
+                            <label class="form__label" for="stock">Stock disponible:</label>
+                            <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : null %>">
+                            <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
+                        </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="descripcion">Descripción:</label>
-                            <textarea name="description" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
+                            <label class="form-label">Sección:</label>
+                            <select name="section" id="section" value="<%= locals.old && old.section? old.section : null %>">
+                                <option value="" hidden selected>Seleccionar una section...</option>
+                                <option value="recommended">Recomendados</option>
+                                <option value="in-sale">Ofertas</option>
+                                <option value="of-users">Productos de Usuarios</option>
+                            </select>
+                            <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
                         </div>
 
                         <div class="form-box">
@@ -72,6 +83,11 @@
                                 <option value="otro">Otro</option>
                             </select>
                             <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>    
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="descripcion">Descripción:</label>
+                            <textarea name="description" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
                         </div>
 
                         <div class="form-box load-image">

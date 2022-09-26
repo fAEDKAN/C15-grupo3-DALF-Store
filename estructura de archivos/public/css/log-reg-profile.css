@@ -27,7 +27,7 @@ input:-webkit-autofill:active {
 #b0dy__c0nt41n3r {
     width: 100%;
     height: 100vh;
-    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-image: url(../images/DALF-LOGO-BACKGROUND5blur.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -55,11 +55,10 @@ input:-webkit-autofill:active {
 /** BODY | BOX */
 
 .body__form--box {
-    width: 75vw;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -81,19 +80,18 @@ input:-webkit-autofill:active {
 /** BODY | AVATAR */
 
 .body__form--profileImg {
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     position: relative;
     top: 50%;
     left: 0;
     overflow: hidden;
     border-radius: 50%;
-    border: 2px solid var(--C_Ice-Cream);
 }
 
 #avatar {
-    height: 125px;
-    width: 125px;
+    height: 150px;
+    width: 150px;
     margin: 0;
 }
 
@@ -292,22 +290,88 @@ input:-webkit-autofill:active {
 
 .body__form__redirect {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center ;
-    gap: 10px;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
 }
 
 .body__form__redirect a {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--C_Soft_Gray);
     font-weight: bold;
     transition: 0.75s;
 }
-
 .body__form__redirect a:hover {
     color: var(--C_Lightblue_Logo);
-    font-size: 0.82rem;
+    font-size: 0.80rem;
+}
+
+/** BODY | FORMS | DELETE ACC */
+
+.body__form__redirect--deleteAcc {
+    background-color: rgba(12, 12, 12, 0.25)
+}
+
+.body__form__redirect--deleteAcc a {
+    color: var(--C_Light_Grey);
+}
+
+/** BODY | FORMS | WARNING TEXT  */
+
+.body__form--warningBox {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(12, 12, 12, 0.25);
+    padding: 20px;
+    width: 350px
+}
+
+.body__form--warningText {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.body__form--negative {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.body__form--negative a {
+    font-size: 0.95rem;
+    color: var(--C_Lightblue_Logo);
+    font-weight: normal;
+    transition: 0.75s;
+}
+
+.body__form--negative a:hover {
+    color: var(--C_Pink_Logo);
+    font-size: 0.80rem;
+}
+
+.body__form--affirmative {
+    text-align: center;
+}
+
+.body__form--affirmative button {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 0.95rem;
+    color: var(--C_Pink_Logo);
+    font-weight: normal;
+    transition: 0.75s;
+}
+
+.body__form--affirmative button:hover {
+    color: var(--C_Lightblue_Logo);
+    font-size: 0.80rem;
 }
 
 /** BODY | FORM | PASSWORD TOGGLER */
