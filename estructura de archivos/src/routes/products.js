@@ -4,6 +4,7 @@ var router = express.Router();
 //REQUIRE CONTROLLERS - MIDDLEWARES - VALIDATIONS
 const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController');
 const uploadProducts =require('../middlewares/uploadFilesProducts');
+const adminCheck =require('../middlewares/adminCheck');
 const productValidator = require('../validations/productValidator');
 
 //PRODUCTS DETAIL
@@ -14,7 +15,7 @@ router.get('/productsLoad', productsLoad)
 router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
 
 //PRODUCT EDIT
-router.get('/productEdit/:id', productEdit);
+router.get('/productEdit/:id', adminCheck, productEdit);
 router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update);
 
 //PRODUCT DELETE

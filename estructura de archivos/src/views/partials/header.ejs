@@ -6,10 +6,6 @@
                 <span class="navbar-toggler-icon"></span></button>
                 <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt=""></a>
                 <div class="header__top--general-navigation_button">
-                    <!-- <div class="header__top--search">
-                        <input type="text" placeholder="Buscar" required>
-                        <div class="header__top--search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
-                    </div>-->
                     <form action="/search" class="header__top--search">
                         <input type="text" name="keywords" placeholder="Buscar" required>
                         <div class="header__top--search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
@@ -70,9 +66,11 @@
             </div>
             <div class="header_div">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
-                    <li class="nav-item"> <!--  Creación de producto -->
+                    <% if (locals.userLogin) { %>
+                       <li class="nav-item"> <!--  Creación de producto -->
                         <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i class="fa-solid fa-plus"></i> Crear nuevo producto </a>
                     </li>
+                <% } %>
                     <li class="nav-item"> <!-- Tienda -->
                         <a class="nav-link active" aria-current="page" href="#">Tienda</a>
                     </li>
