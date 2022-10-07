@@ -152,7 +152,6 @@
       "password": "NQvRwItFJI"
    },
    {
-
       "id": 20,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
@@ -180,5 +179,17 @@
       "avatar": null,
       "aboutMe": null,
       "rol":"user"
+   },
+   {
+      "id": 23,
+      "userName": "useruno",
+      "email": "user1@gmail.com",
+      "pass": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
+      "province": "Neuquén",
+      "avatar": "avatar-1665159477529.png",
+      "aboutMe": "me gusta el arrrrte",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]
