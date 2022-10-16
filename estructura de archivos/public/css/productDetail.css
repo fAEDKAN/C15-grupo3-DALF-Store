@@ -63,6 +63,7 @@ h3 {
     width: 100%;
     text-align: center;
     color: var( --C_Ice-Cream);
+    padding-bottom: 10px;
 }
 
 .detail__purchase__product--box {
@@ -85,7 +86,7 @@ h3 {
 
 .detail__purchase__product--discount {
     color: #27a95d;
-    margin-left: 20px;
+    margin-left: 15px;
     font-size: 17px;
     margin-top: 19px;
 }
@@ -305,6 +306,11 @@ h3 {
     .detail__purchase__product--price{
         margin-left: 20px;
         font-size: 27px;
+        margin-top: 19px;
+    }
+    .detail__purchase__product--true-price{
+        margin-left: 10px;
+        font-size: 17px;
         margin-top: 19px;
     }
 }
