@@ -152,6 +152,16 @@
       "password": "NQvRwItFJI"
    },
    {
+      "id": 20,
+      "userName": "Ushio",
+      "email": "ushiovii@hotmail.com",
+      "pass": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
+      "avatar": "avatar-1663631442728.png",
+      "firstName": "Diego",
+      "lastName": "Montes",
+      "bday": "2002-06-24"
+   },
+   {
       "id": 21,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
@@ -168,6 +178,18 @@
       "province": null,
       "avatar": null,
       "aboutMe": null,
-      "rol":"admin"
+      "rol":"user"
+   },
+   {
+      "id": 23,
+      "userName": "useruno",
+      "email": "user1@gmail.com",
+      "pass": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
+      "province": "Neuquén",
+      "avatar": "avatar-1665159477529.png",
+      "aboutMe": "me gusta el arrrrte",
+      "firstName": "Federico",
+      "lastName": "Somma",
+      "bday": "1994-08-08"
    }
 ]
