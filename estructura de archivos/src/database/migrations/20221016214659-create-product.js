@@ -24,6 +24,10 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.TEXT,
             },
+            stock: {
+                allowNull: false,
+                type: Sequelize.INTEGER,
+            },
             rating: {
                 type: Sequelize.DECIMAL,
             },
