@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "name":"otro"
+    },
+    {
+        "id":2,
+        "name":"microsoft"
+    },
+    {
+        "id":3,
+        "name":"steam"
+    },
+    {
+        "id":4,
+        "name":"psn"
+    },
+    {
+        "id":5,
+        "name":"ubisoft"
+    },
+    {
+        "id":6,
+        "name":"battle.net"
+    },
+    {
+        "id":7,
+        "name":"xbox"
+    }
+]
