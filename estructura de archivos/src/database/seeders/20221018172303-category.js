@@ -3,7 +3,7 @@ const categorias = require('../../data/categories.json');
 const categories= categorias.map(({name,createdAt})=>{
   return {
     name,
-    createdAt
+    createdAt: new Date()
   }
 })
 module.exports = {

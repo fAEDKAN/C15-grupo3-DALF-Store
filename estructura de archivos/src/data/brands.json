@@ -1,37 +1,30 @@
 [
     {
         "id":1,
-        "name":"otro",
-        "createdAt":"2022-9-18"
+        "name":"otro"
     },
     {
         "id":2,
-        "name":"microsoft",
-        "createdAt":"2022-9-18"
+        "name":"microsoft"
     },
     {
         "id":3,
-        "name":"steam",
-        "createdAt":"2022-9-18"
+        "name":"steam"
     },
     {
         "id":4,
-        "name":"psn",
-        "createdAt":"2022-9-18"
+        "name":"psn"
     },
     {
         "id":5,
-        "name":"ubisoft",
-        "createdAt":"2022-9-18"
+        "name":"ubisoft"
     },
     {
         "id":6,
-        "name":"battle.net",
-        "createdAt":"2022-9-18"
+        "name":"battle.net"
     },
     {
         "id":7,
-        "name":"xbox",
-        "createdAt":"2022-9-18"
+        "name":"xbox"
     }
 ]

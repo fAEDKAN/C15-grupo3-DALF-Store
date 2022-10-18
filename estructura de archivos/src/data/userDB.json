@@ -1,11 +1,12 @@
-[
+[ 
    {
       "id": 1,
       "fullName": "Federico Somma",
       "email": "fsomma94@hotmail.com",
       "userName": "fSomma",
       "birthDate": "8/8/1994",
-      "password": "aiudajavascript"
+      "password": "aiudajavascript",
+      "rolId":1
    },
    {
       "id": 2,
@@ -13,7 +14,8 @@
       "email": "dmontes2013@gmail.com",
       "userName": "diego capo",
       "birthDate": "2/25/1950",
-      "password": "noentiendolalogicadejslol"
+      "password": "noentiendolalogicadejslol",
+      "rolId":1
    },
    {
       "id": 3,
@@ -21,7 +23,8 @@
       "email": "abustos@outlook.com",
       "userName": "axel the crack",
       "birthDate": "5/7/1973",
-      "password": "javaking123"
+      "password": "javaking123",
+      "rolId":1
    },
    {
       "id": 4,
@@ -29,7 +32,8 @@
       "email": "lkumric@yahoo.com",
       "userName": "luca el groso",
       "birthDate": "9/11/1989",
-      "password": "masterjs789"
+      "password": "masterjs789",
+      "rolId":1
    },
    {
       "id": 5,
@@ -37,7 +41,8 @@
       "email": "aroyson0@alexa.com",
       "userName": "aroyson0",
       "birthDate": "9/18/1948",
-      "password": "DEFTfo9iU3Px"
+      "password": "DEFTfo9iU3Px",
+      "rolId":2
    },
    {
       "id": 6,
@@ -45,7 +50,8 @@
       "email": "ffines1@amazon.de",
       "userName": "ffines1",
       "birthDate": "9/19/1995",
-      "password": "mU7Jk5CUKc4"
+      "password": "mU7Jk5CUKc4",
+      "rolId":2
    },
    {
       "id": 7,
@@ -53,7 +59,8 @@
       "email": "eschustl2@mozilla.org",
       "userName": "eschustl2",
       "birthDate": "7/9/2022",
-      "password": "9eSR0lA4aB"
+      "password": "9eSR0lA4aB",
+      "rolId":2
    },
    {
       "id": 8,
@@ -61,7 +68,8 @@
       "email": "tpuddan3@msn.com",
       "userName": "tpuddan3",
       "birthDate": "7/24/1961",
-      "password": "4mZSxO"
+      "password": "4mZSxO",
+      "rolId":2
    },
    {
       "id": 9,
@@ -69,7 +77,8 @@
       "email": "shutchens4@blogtalkradio.com",
       "userName": "shutchens4",
       "birthDate": "2/9/1930",
-      "password": "ijVDUCqJ"
+      "password": "ijVDUCqJ",
+      "rolId":2
    },
    {
       "id": 10,
@@ -77,7 +86,8 @@
       "email": "dtampion5@slideshare.net",
       "userName": "dtampion5",
       "birthDate": "3/5/1956",
-      "password": "dQHlH0yh5n"
+      "password": "dQHlH0yh5n",
+      "rolId":2
    },
    {
       "id": 11,
@@ -85,7 +95,8 @@
       "email": "ehambers6@icq.com",
       "userName": "ehambers6",
       "birthDate": "2/8/1944",
-      "password": "jiXfBGz885zQ"
+      "password": "jiXfBGz885zQ",
+      "rolId":2
    },
    {
       "id": 12,
@@ -93,7 +104,8 @@
       "email": "kghidotti7@columbia.edu",
       "userName": "kghidotti7",
       "birthDate": "3/5/1935",
-      "password": "ZqL94jQAEot"
+      "password": "ZqL94jQAEot",
+      "rolId":2
    },
    {
       "id": 13,
@@ -101,7 +113,8 @@
       "email": "fchastelain8@angelfire.com",
       "userName": "fchastelain8",
       "birthDate": "12/8/1992",
-      "password": "29CfWcY3UgBK"
+      "password": "29CfWcY3UgBK",
+      "rolId":2
    },
    {
       "id": 14,
@@ -109,7 +122,8 @@
       "email": "icleminson9@miitbeian.gov.cn",
       "userName": "icleminson9",
       "birthDate": "7/27/2020",
-      "password": "dTQfM22i2"
+      "password": "dTQfM22i2",
+      "rolId":2
    },
    {
       "id": 15,
@@ -117,7 +131,8 @@
       "email": "skuhla@nature.com",
       "userName": "skuhla",
       "birthDate": "10/19/1943",
-      "password": "KLxA9joA2G"
+      "password": "KLxA9joA2G",
+      "rolId":2
    },
    {
       "id": 16,
@@ -125,7 +140,8 @@
       "email": "sgartellb@rambler.ru",
       "userName": "sgartellb",
       "birthDate": "5/25/1940",
-      "password": "LYFFgOpL3W"
+      "password": "LYFFgOpL3W",
+      "rolId":2
    },
    {
       "id": 17,
@@ -133,7 +149,8 @@
       "email": "aricardonc@squarespace.com",
       "userName": "aricardonc",
       "birthDate": "7/31/1945",
-      "password": "dVfnIiU"
+      "password": "dVfnIiU",
+      "rolId":2
    },
    {
       "id": 18,
@@ -141,7 +158,8 @@
       "email": "kspeared@loc.gov",
       "userName": "kspeared",
       "birthDate": "3/1/2017",
-      "password": "0Y0X7UN9"
+      "password": "0Y0X7UN9",
+      "rolId":2
    },
    {
       "id": 19,
@@ -149,47 +167,51 @@
       "email": "swaldere@cpanel.net",
       "userName": "swaldere",
       "birthDate": "7/2/1947",
-      "password": "NQvRwItFJI"
+      "password": "NQvRwItFJI",
+      "rolId":2
    },
    {
       "id": 20,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
-      "pass": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
+      "password": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
       "avatar": "avatar-1663631442728.png",
       "firstName": "Diego",
       "lastName": "Montes",
-      "bday": "2002-06-24"
+      "bday": "2002-06-24",
+      "rolId":2
    },
    {
       "id": 21,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
-      "pass": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
+      "password": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
       "province": null,
       "avatar": null,
-      "aboutMe": null
+      "aboutMe": null,
+      "rolId":2
    },
    {
       "id": 22,
       "userName": "axel",
       "email": "axel@gmail.com",
-      "pass": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
+      "password": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
       "province": null,
       "avatar": null,
       "aboutMe": null,
-      "rol":"user"
+      "rolId":1
    },
    {
       "id": 23,
       "userName": "useruno",
       "email": "user1@gmail.com",
-      "pass": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
+      "password": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
       "province": "Neuquén",
       "avatar": "avatar-1665159477529.png",
       "aboutMe": "me gusta el arrrrte",
       "firstName": "Federico",
       "lastName": "Somma",
-      "bday": "1994-08-08"
+      "bday": "1994-08-08",
+      "rolId":2
    }
 ]

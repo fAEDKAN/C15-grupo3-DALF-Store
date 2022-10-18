@@ -3,7 +3,7 @@ const marcas = require('../../data/brands.json');
 const brands= marcas.map(({name,createdAt})=>{
   return {
     name,
-    createdAt
+    createdAt: new Date()
   }
 })
 module.exports = {
