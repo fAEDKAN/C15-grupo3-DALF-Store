@@ -1,42 +1,52 @@
 [
     {
         "id":1,
-        "name":"otro"
+        "name":"otro",
+        "createdAt":"2022-9-18"
     },
     {
         "id":2,
-        "name":"accion"
+        "name":"accion",
+        "createdAt":"2022-9-18"
     },
     {
         "id":3,
-        "name":"aventura"
+        "name":"aventura",
+        "createdAt":"2022-9-18"
     },
     {
         "id":4,
-        "name":"ftp/tps"
+        "name":"ftp/tps",
+        "createdAt":"2022-9-18"
     },
     {
         "id":5,
-        "name":"rpg"
+        "name":"rpg",
+        "createdAt":"2022-9-18"
     },
     {
         "id":6,
-        "name":"simulacion"
+        "name":"simulacion",
+        "createdAt":"2022-9-18"
     },
     {
         "id":7,
-        "name":"carreras"
+        "name":"carreras",
+        "createdAt":"2022-9-18"
     },
     {
         "id":8,
-        "name":"lucha"
+        "name":"lucha",
+        "createdAt":"2022-9-18"
     },
     {
         "id":9,
-        "name":"mmo"
+        "name":"mmo",
+        "createdAt":"2022-9-18"
     },
     {
         "id":10,
-        "name":"arcade"
+        "name":"arcade",
+        "createdAt":"2022-9-18"
     }
 ]
