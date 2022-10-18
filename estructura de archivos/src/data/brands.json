@@ -1,0 +1,37 @@
+[
+    {
+        "id":1,
+        "name":"otro",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":2,
+        "name":"microsoft",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":3,
+        "name":"steam",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":4,
+        "name":"psn",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":5,
+        "name":"ubisoft",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":6,
+        "name":"battle.net",
+        "createdAt":"2022-9-18"
+    },
+    {
+        "id":7,
+        "name":"xbox",
+        "createdAt":"2022-9-18"
+    }
+]
