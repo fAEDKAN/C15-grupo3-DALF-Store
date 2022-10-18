@@ -1,6 +1,6 @@
 'use strict';
 
-const productos = require('../../data/productsDB.json');
+const productos = require('../../data/productsDB-migration.json');
 const products= productos.map(({name,price,discount,description,categoryId,brandId,sectionId,stock,rating})=>{
   return {
     name,

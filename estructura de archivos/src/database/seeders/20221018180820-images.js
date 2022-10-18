@@ -1,5 +1,5 @@
 'use strict';
-const productos = require('../../data/productsDB.json');
+const productos = require('../../data/productsDB-migration.json');
 const images= productos.map(({image, id})=>{
   return {
     file: image,

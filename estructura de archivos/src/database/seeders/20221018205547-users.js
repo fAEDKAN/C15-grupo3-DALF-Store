@@ -1,6 +1,6 @@
 'use strict';
 const{hashSync}=require('bcryptjs')
-const usuarios = require('../../data/userDB.json');
+const usuarios = require('../../data/userDB-migration.json');
 const users= usuarios.map(({userName,firstName,lastName,email,password,birthDay,aboutMe,rolId})=>{
   return {
     userName,

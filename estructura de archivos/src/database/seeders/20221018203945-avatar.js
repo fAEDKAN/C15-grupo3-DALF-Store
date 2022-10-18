@@ -1,5 +1,5 @@
 'use strict';
-const usuarios = require('../../data/userDB.json');
+const usuarios = require('../../data/userDB-migration.json');
 const avatar= usuarios.map(({avatar})=>{
   return {
     file: avatar,
