@@ -1,9 +1,8 @@
 'use strict';
 const usuarios = require('../../data/userDB.json');
-const avatar= usuarios.map(({avatar, id})=>{
+const avatar= usuarios.map(({avatar})=>{
   return {
     file: avatar,
-    //userId: id,
     createdAt : new Date()
   }
 })
