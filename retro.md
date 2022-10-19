@@ -15,7 +15,7 @@
 -Ayudarnos aún más entre los integrantes del grupo.
 -Escuchar.
 -Avisar por inconvenientes.
--Estar atentos a mis compañeros.
+-Estar atentos al resto de los compañeros.
 
 ## Empezar a hacer:
 -Buscar más información respecto a todas las herramientas que tenemos disponibles.
@@ -26,8 +26,8 @@
 -Faltar a las dailys.
 
 ## Hacer menos:
--Descomunicarse.
--Desaprovechar el tiempo hablando temas aparte.
+-Incomunicarse.
+-Desaprovechar el tiempo de las reuniones hablando de otros temas.
 
 ************************************************************************************
 
@@ -97,15 +97,15 @@
 
 ## Seguir haciendo:
 -Apoyarnos mutuamente.
--Mantener trello actualizado.
--Mantener la comunicacion con los demas companeros.
+-Mantener Trello actualizado.
+-Mantener la comunicación con los demás compañeros.
 -Entregar las tareas a tiempo.
--Comprometerse ayudar a cualquier compa que necesite ayuda.
+-Comprometerse en ayudar a cualquier compañero que necesite una mano.
 
 ## Hacer más:
--Mejorar la comunicacion.
--Mejorar la planificacion individual.
--Dedicar mas tiempo al proyecto.
+-Mejorar la comunicación.
+-Mejorar la planificación individual.
+-Dedicar más tiempo al proyecto.
 
 ## Empezar a hacer:
 -Ensayar las presentaciones en grupo.
@@ -114,6 +114,35 @@
 -Participar más de las presentaciones grupales.
 ## Dejar de hacer:
 -Subestimar el tiempo que puede llevar determinada tarea.
+-Procrastinar.
+
+## Hacer menos:
+-
+
+************************************************************************************
+
+# Retrospectiva con dinámica "Estrella de Mar" Sprint 5:
+
+## Seguir haciendo:
+-Crear una rutina que nos permita dedicarle tiempo a las tareas del Sprint/TPs/PlayGround.
+-Apoyarnos mutuamente.
+-La comunicación con el resto de los compañeros.
+-Mantener Trello actualizado.
+-Comprometerse con cualquier compañero que necesite ayuda.
+-Entregar Dailys a tiempo.
+-Definir fecha y hora de las dailys o weeklys.
+
+## Hacer más:
+-Mejorar la comunicación.
+-Organización individual.
+-Dedicar tiempo al proyecto.
+-Organizar mejor los horarios.
+
+## Empezar a hacer:
+-Ensayar las presentaciones en grupo.
+-Participar más de las presentaciones grupales.
+
+## Dejar de hacer:
 -Procrastinar.
 
 ## Hacer menos:

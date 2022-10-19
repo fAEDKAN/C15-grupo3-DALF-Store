@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
+        "dev": "nodemon ./src/bin/www",
         "start": "node ./src/bin/www"
     },
     "nodemonConfig": {
