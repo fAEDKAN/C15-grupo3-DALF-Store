@@ -1,86 +1,83 @@
+const db = require("../database/models");
 const fs = require("fs");
 const path = require("path");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
-const { loadUsers, storeUsers } = require('../data/dbModule');
-const { validationResult } = require('express-validator');
-const bcryptjs = require('bcryptjs');
-
+const { loadUsers, storeUsers } = require("../data/dbModule");
+const { validationResult } = require("express-validator");
+const bcryptjs = require("bcryptjs");
 
 module.exports = {
-
     //USERS REGISTER
-    register : (req, res) => {
-        return res.render('users/register');
+    register: (req, res) => {
+        return res.render("users/register");
     },
 
-    processRegister : (req,res) => {
+    processRegister: (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty()){
-            const { userName, email, pass } = req.body;
-            const users = loadUsers();
-
-            const newUser = {
-                id: users[users.length - 1] ? users[users.length - 1].id + 1 : 1,
-                userName : userName.trim(),
-                email : email.trim(),
-                pass : bcryptjs.hashSync(pass.trim(),10),
-                province : null,
-                avatar : null,
-                aboutMe : null
-            };
-            const usersModify = [...users, newUser];
-
-            storeUsers(usersModify);
-            return res.redirect("login");
+        if (errors.isEmpty()) {
+            const { userName, email, password } = req.body;
+            db.User.create({
+                userName: userName.trim(),
+                email: email.trim(),
+                password: bcryptjs.hashSync(password.trim(), 10),
+            })
+                .then((user) => {
+                    console.log(user);
+                    return res.redirect("login");
+                })
+                .catch((error) => console.log(error));
         } else {
-            return res.render('users/register', {
-                errors : errors.mapped(),
-                old : req.body
+            return res.render("users/register", {
+                errors: errors.mapped(),
+                old: req.body,
             });
-        };
+        }
     },
 
     //USERS LOGIN
-    login : (req, res) => {
-        return res.render('users/login');
+    login: (req, res) => {
+        return res.render("users/login");
     },
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
 
-        if(errors.isEmpty()){
-            let { id, userName, avatar,rol } = loadUsers().find((user) => user.email === req.body.email);
+        if (errors.isEmpty()) {
+            let { id, userName, avatar, rol } = loadUsers().find(
+                (user) => user.email === req.body.email
+            );
 
             req.session.userLogin = {
                 id,
                 userName,
                 avatar,
-                rol
+                rol,
             };
 
-            if(req.body.remember) {
-                res.cookie('userDalfStore', req.session.userLogin, {
-                    maxAge: 10000 * 60
+            if (req.body.remember) {
+                res.cookie("userDalfStore", req.session.userLogin, {
+                    maxAge: 10000 * 60,
                 });
-            };
+            }
 
-            return res.redirect('/');
+            return res.redirect("/");
         } else {
-            return res.render('users/login', {
-                errors : errors.mapped()
+            return res.render("users/login", {
+                errors: errors.mapped(),
             });
         }
     },
 
     //USER PROFILE
     profile: (req, res) => {
-        let user = loadUsers().find((user) => user.id === req.session.userLogin.id
+        let user = loadUsers().find(
+            (user) => user.id === req.session.userLogin.id
         );
-        return res.render('users/profile', {
+        return res.render("users/profile", {
             user,
-            provinces : require('../data/provinces')
+            provinces: require("../data/provinces"),
         });
     },
 
@@ -89,66 +86,86 @@ module.exports = {
         const { userName } = req.body;
 
         let usersModify = loadUsers().map((user) => {
-            if(user.id === +req.params.id) {
+            if (user.id === +req.params.id) {
                 return {
                     ...user,
                     ...req.body,
-                    avatar: req.file ? req.file.filename : req.session.userLogin.avatar
+                    avatar: req.file
+                        ? req.file.filename
+                        : req.session.userLogin.avatar,
                 };
-            };
+            }
             return user;
         });
 
-        if(req.file && req.session.userLogin.avatar) {
+        if (req.file && req.session.userLogin.avatar) {
             if (
-                fs.existsSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar))
+                fs.existsSync(
+                    path.resolve(
+                        __dirname,
+                        "..",
+                        "public",
+                        "images",
+                        "users",
+                        req.session.userLogin.avatar
+                    )
+                )
             ) {
-                fs.unlinkSync(path.resolve(__dirname, '..', 'public', 'images', 'users', req.session.userLogin.avatar));
-            };
-        };
+                fs.unlinkSync(
+                    path.resolve(
+                        __dirname,
+                        "..",
+                        "public",
+                        "images",
+                        "users",
+                        req.session.userLogin.avatar
+                    )
+                );
+            }
+        }
 
         req.session.userLogin = {
             ...req.session.userLogin,
             userName,
-            avatar: req.file ? req.file.filename : req.session.userLogin.avatar
+            avatar: req.file ? req.file.filename : req.session.userLogin.avatar,
         };
 
         storeUsers(usersModify);
-        return res.redirect('/users/profile');
+        return res.redirect("/users/profile");
     },
 
     //MY SHOPPING
     shopping: (req, res) => {
-        return res.render('users/shopping');
+        return res.render("users/shopping");
     },
 
     //LOGOUT
     logout: (req, res) => {
         req.session.destroy();
-        res.cookie('userDalfStore', null, {
-            maxAge : -1
-        })
-        return res.redirect('/');
+        res.cookie("userDalfStore", null, {
+            maxAge: -1,
+        });
+        return res.redirect("/");
     },
 
     //DELETE ACCOUNT
-    deleteAcc : (req, res) => {
-        const user = loadUsers().find((user) => user.id === req.session.userLogin.id
+    deleteAcc: (req, res) => {
+        const user = loadUsers().find(
+            (user) => user.id === req.session.userLogin.id
         );
-        return res.render('users/deleteAcc', {
-            user
+        return res.render("users/deleteAcc", {
+            user,
         });
     },
 
-    remove : (req, res) => {
+    remove: (req, res) => {
         const users = loadUsers();
-        const usersModify = users.filter(user => user.id !== +req.params.id);
+        const usersModify = users.filter((user) => user.id !== +req.params.id);
         storeUsers(usersModify);
         req.session.destroy();
-        res.cookie('userDalfStore', null, {
-            maxAge : -1
+        res.cookie("userDalfStore", null, {
+            maxAge: -1,
         });
-        return res.redirect('/');
-    }
-
-}
+        return res.redirect("/");
+    },
+};

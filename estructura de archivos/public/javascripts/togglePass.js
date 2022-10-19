@@ -1,7 +1,7 @@
 //* Declaración de elementos HTML */
 const togglePass = document.querySelector('#togglePass');
 
-const pass = document.querySelector('#pass');
+const pass = document.querySelector('#password');
 
 
 //* Acción al hacer click en el icono */
