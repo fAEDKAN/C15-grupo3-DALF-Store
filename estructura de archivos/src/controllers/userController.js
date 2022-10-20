@@ -62,7 +62,7 @@ module.exports = {
 
             if(req.body.remember) {
                 res.cookie('userDalfStore', req.session.userLogin, {
-                    maxAge: 10000 * 60
+                    maxAge: 100000 * 60
                 });
             };
 

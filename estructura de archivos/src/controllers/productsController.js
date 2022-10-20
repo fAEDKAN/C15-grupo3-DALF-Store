@@ -37,13 +37,13 @@ module.exports = {
     },
     //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
-        let category = db.Category.findAll();
-        let section = db.Section.findAll();
-        // let company = db.Brand.findAll({include: [name]});
+        const categories = db.Category.findAll({attributes:['id','name']});
+        const sections = db.Section.findAll({attributes:['id','name']});
+        const brands = db.Brand.findAll({attributes:['id','name']});
 
-        Promise.all([category, section/*, company*/])
-            .then(([category, section/*, company*/]) => {
-                return res.render('products/productsLoad', { category, section/*, company*/ })
+        Promise.all([categories, sections, brands])
+            .then(([categories, sections, brands]) => {
+                return res.render('products/productsLoad', { categories, sections, brands })
             })
             .catch(error => res.send(error))
     },
@@ -95,10 +95,21 @@ module.exports = {
                     fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename));
                 })
             };
-            return res.render('products/productsLoad', {
-                errors,
-                old: req.body
-            });
+        
+        const categories = db.Category.findAll({attributes:['id','name']});
+        const sections = db.Section.findAll({attributes:['id','name']});
+        const brands = db.Brand.findAll({attributes:['id','name']});
+
+        Promise.all([categories, sections, brands])
+            .then(([categories, sections, brands]) => {
+                return res.render('products/productsLoad', { 
+                    categories,
+                     sections,
+                     brands,
+                     errors,
+                     old: req.body })
+            })
+            .catch(error => res.send(error))
         }
     },
     //EDICION DE PRODUCTOS 
