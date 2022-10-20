@@ -16,7 +16,7 @@
                         <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST">
                             <div class="form-box">
                                 <label class="form__label" for="name">Título:</label>
-                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= productToEdit.name %>">
+                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : productToEdit.name %>">
                                 <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
 
@@ -39,19 +39,19 @@
 
                             <div class="form-box">
                                 <label class="form__label" for="price">Precio:</label>
-                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= productToEdit.price %>">
+                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : productToEdit.price %>">
                                 <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label">Descuento:</label>
-                                <input type="text" name="discount"  id="discount" placeholder="Ej: 5" value="<%= productToEdit.discount %>">
+                                <input type="text" name="discount"  id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : productToEdit.discount %>">
                                 <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label" for="stock">Stock disponible:</label>
-                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= productToEdit.stock %>">
+                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : productToEdit.stock %>">
                                 <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
                             </div>
 
@@ -82,7 +82,7 @@
 
                             <div class="form-box">
                                 <label class="form__label" for="description">Descripción:</label>
-                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%= productToEdit.description %></textarea>
+                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%=locals.old && old.description ? old.description : productToEdit.description %></textarea>
                             </div>
 
 

@@ -159,7 +159,7 @@ module.exports = {
             return res.render('products/productEdit', {
                 errors: errors.mapped(),
                 productToEdit:  db.Product.findByPk(req.params.id),
-                old: req.body,
+                old: req.body
             });
         };
     },
