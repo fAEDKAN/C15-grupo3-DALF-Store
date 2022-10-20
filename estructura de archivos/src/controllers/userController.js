@@ -1,4 +1,3 @@
-const db = require("../database/models");
 const fs = require("fs");
 const path = require("path");
 
@@ -6,6 +5,7 @@ const path = require("path");
 const { loadUsers, storeUsers } = require("../data/dbModule");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const db = require("../database/models");
 
 module.exports = {
     //USERS REGISTER
@@ -43,31 +43,34 @@ module.exports = {
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            let { id, userName, avatar, rol } = loadUsers().find(
-                (user) => user.email === req.body.email
-            );
-
-            req.session.userLogin = {
-                id,
-                userName,
-                avatar,
-                rol,
-            };
-
-            if (req.body.remember) {
-                res.cookie("userDalfStore", req.session.userLogin, {
-                    maxAge: 10000 * 60,
+        db.User.findOne({
+            where: {
+                email: req.body.email,
+            },
+        }).then((user) => {
+            if (
+                !user ||
+                !bcryptjs.compareSync(req.body.password, user.password)
+            ) {
+                // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
+                return res.render("users/login", {
+                    errors: errors.mapped(),
                 });
+            } else {
+                // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
+                req.session.userLogin = {
+                    id: user.id,
+                    userName: user.userName,
+                };
+                if (req.body.remember) {
+                    res.cookie("userDalfStore", req.session.userLogin, {
+                        maxAge: 1000 * 60,
+                    });
+                }
+                // Redirigimos al usuario a la página principal
+                return res.redirect("/");
             }
-
-            return res.redirect("/");
-        } else {
-            return res.render("users/login", {
-                errors: errors.mapped(),
-            });
-        }
+        });
     },
 
     //USER PROFILE

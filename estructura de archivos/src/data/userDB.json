@@ -179,35 +179,5 @@
       "avatar": null,
       "aboutMe": null,
       "rol": "user"
-   },
-   {
-      "id": 23,
-      "userName": "useruno",
-      "email": "user1@gmail.com",
-      "pass": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
-      "province": "Neuquén",
-      "avatar": "avatar-1665159477529.png",
-      "aboutMe": "me gusta el arrrrte",
-      "firstName": "Federico",
-      "lastName": "Somma",
-      "bday": "1994-08-08"
-   },
-   {
-      "id": 24,
-      "userName": "usertres",
-      "email": "user3@hotmail.com",
-      "password": "$2a$10$22s16wB3JLiZpKxVbnUbm.l.802wCsVO8TzqXm7KVQLnXU10Aw.yq",
-      "province": null,
-      "avatar": null,
-      "aboutMe": null
-   },
-   {
-      "id": 25,
-      "userName": "usersiete",
-      "email": "user7@hotmail.com",
-      "password": "$2a$10$jAUKtYNUWx110btxXrUyAevZBFeF/XQhpNlTKHX5qMO0q.67vdT32",
-      "province": null,
-      "avatar": null,
-      "aboutMe": null
    }
 ]
