@@ -1,8 +1,10 @@
-const fs =require('fs');
-const path=require('path');
+const fs = require('fs');
+const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
 const { loadProducts, storeProducts } = require('../data/dbModule');
 const { validationResult } = require('express-validator');
+const db = require('../database/models');
+const { Association } = require('sequelize');
 
 module.exports = {
     //??????
@@ -15,30 +17,61 @@ module.exports = {
     },
     //PRODUCT DETAIL
     productDetail: (req, res) => {
-        let products = loadProducts();
+        db.Product.findByPk(req.params.id, {
+            include: [
+                {
+                    association: 'image'
+                }
+            ]
+        })
+            .then(product => {
+                res.render("products/productDetail", { product })
+            })
+            .catch(error => res.send(error))
+
+        /*let products = loadProducts();
         let product = products.find(product => product.id === +req.params.id);
         return res.render("products/productDetail",{
             product
-        });
+        });*/
     },
     //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
-        return res.render('products/productsLoad');
+        let category = db.Category.findAll();
+        let section = db.Section.findAll();
+        // let company = db.Brand.findAll({include: [name]});
+
+        Promise.all([category, section/*, company*/])
+            .then(([category, section/*, company*/]) => {
+                return res.render('products/productsLoad', { category, section/*, company*/ })
+            })
+            .catch(error => res.send(error))
     },
-    create : (req,res) => {
+    create: (req, res) => {
         let errors = validationResult(req);
         errors = errors.mapped();
-        if(req.fileValidationError){
+        if (req.fileValidationError) {
             errors = {
                 ...errors,
-                images : {
-                    msg : req.fileValidationError
+                images: {
+                    msg: req.fileValidationError
                 }
             };
         };
-        if(Object.entries(errors).length === 0){
-            const products = loadProducts();
-            const {name,price,discount} = req.body;
+        if (Object.entries(errors).length === 0) {
+            /*const products = loadProducts();*/
+            const { name, price, discount } = req.body;
+            db.Product.create({
+                ...req.body,
+                name: name.trim(),
+                price: +price,
+                discount: +discount
+            })
+                .then(() => {
+                    return res.redirect('/')
+                })
+                .catch(error => res.send(error))
+            /*const {name,price,discount} = req.body;
             const id = products[products.length - 1].id;
             let images;
             if (req.files.length > 0){ images = req.files.map(image => image.filename) };
@@ -55,11 +88,11 @@ module.exports = {
     
             storeProducts(productsNew);
     
-            return res.redirect('/');
-        }else{
-            if(req.files.length > 0){
-                req.files.forEach(({filename}) => {
-                    fs.existsSync(path.resolve(__dirname,'..','..','public','images','products',filename)) &&  fs.unlinkSync(path.resolve(__dirname,'..','..','public','images','products',filename));
+            return res.redirect('/');*/
+        } else {
+            if (req.files.length > 0) {
+                req.files.forEach(({ filename }) => {
+                    fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename));
                 })
             };
             return res.render('products/productsLoad', {
@@ -70,49 +103,80 @@ module.exports = {
     },
     //EDICION DE PRODUCTOS 
     productEdit: (req, res) => {
-        let productToEdit = loadProducts().find(product => product.id === +req.params.id);
+        let productToEdit = db.Product.findByPk(req.params.id);
+        let category = db.Category.findAll();
+        let section = db.Section.findAll();
+        // let company = db.Brand.findAll({include: [name]});
+
+        Promise.all([productToEdit, category, section/*, company*/])
+            .then(([productToEdit, category, section/*, company*/]) => {
+                return res.render('products/productEdit', { productToEdit, category, section/*, company*/ })
+            })
+            .catch(error => res.send(error))
+        /*let productToEdit = loadProducts().find(product => product.id === +req.params.id);
         return res.render('products/productEdit',{
             productToEdit
-        });
+        });*/
     },
     update: (req, res) => {
-        const products = loadProducts();
-        const {id}= req.params;
-        const errors = validationResult (req);
+        /* const products = loadProducts();
+         const {id}= req.params;*/
+        const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-        const {name,price,discount} = req.body;
-        let productsModify = products.map(product =>{
-            if(product.id === +req.params.id){
-                return {
-                    id : product.id,
+            const { name, price, discount } = req.body;
+            db.Product.update(
+                {
                     ...req.body,
                     name: name.trim(),
-                    price : +price,
-                    discount : +discount,
-                    image: product.image
-                };
-            };
-            return product;
-        });
-        storeProducts(productsModify);
-        return res.redirect("/products/productDetail/" + req.params.id);
-        }else{
+                    price: +price,
+                    discount: +discount,
+                },
+                {
+                    where: { id: req.params.id }
+                })
+                .then(() => {
+                    return res.redirect("/products/productDetail/" + req.params.id)
+                })
+                .catch(error => res.send(error))
+            /* const {name,price,discount} = req.body;
+             let productsModify = products.map(product =>{
+                 if(product.id === +req.params.id){
+                     return {
+                         id : product.id,
+                         ...req.body,
+                         name: name.trim(),
+                         price : +price,
+                         discount : +discount,
+                         image: product.image
+                     };
+                 };
+                 return product;
+             });
+             storeProducts(productsModify);
+             return res.redirect("/products/productDetail/" + req.params.id);*/
+        } else {
             return res.render('products/productEdit', {
                 errors: errors.mapped(),
-                productToEdit: loadProducts().find(product => product.id === +req.params.id),
+                productToEdit:  db.Product.findByPk(req.params.id),
                 old: req.body,
             });
         };
     },
     //DELETE PRODUCTS
-    destroy : (req, res) => {
-        
-		let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
+    destroy: (req, res) => {
+        db.Product.destroy(
+            {
+                where: {id: req.params.id}
+        }) 
+        .then(()=>{
+            return res.redirect('/')})
+        .catch(error => res.send(error))
+        /*let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
 
-		storeProducts(productsModify);
-		return res.redirect('/');
-	},
+        storeProducts(productsModify);
+        return res.redirect('/');*/
+    },
     //CART
     cart: (req, res) => {
         return res.render('products/cart');
@@ -123,6 +187,6 @@ module.exports = {
     cartPay: (req, res) => {
         return res.render('products/cartPay');
     }
-    
+
 }
 
