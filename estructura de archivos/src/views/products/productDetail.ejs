@@ -23,10 +23,10 @@
                                     <p class="detail__purchase__product--price">$<%= (product.price) - (product.price * product.discount / 100) %></p>
                                     <p class="text-decoration-line-through text-danger detail__purchase__product--true-price">$<%= product.price %></p>
                                     <% }else{ %>
-                                        <p>$</p><h3><%= product.price %></h3>
+                                    <h3>$<%= product.price %></h3>
                                     <% } %>
                                     <% if (product.discount > 0) { %>
-                                    <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
+                                        <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
                                     <% } %>
                                 </div>
                             </article>

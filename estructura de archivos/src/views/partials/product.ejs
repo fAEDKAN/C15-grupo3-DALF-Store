@@ -1,7 +1,7 @@
 
     <a href="/products/productDetail/<%= id %>" class="main__section--product-article">
     <article>
-        <img class="main__section--product-img-key" src="/images/products/<%= image %>  " alt="xbox-key ">
+        <img class="main__section--product-img-key" src="/images/products/<%= image[0] ? image[0].file : 'default-product-image.jpg' %>" alt="xbox-key ">
         <div class="main__section--product-content_offers">
             <div class="main-section-global-region">
                 <p class="main__section--product-region">Argentina</p>

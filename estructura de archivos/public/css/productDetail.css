@@ -302,6 +302,9 @@ h3 {
     }
     .detail__purchase__product--box{
         font-size: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
     }
     .detail__purchase__product--price{
         margin-left: 20px;
