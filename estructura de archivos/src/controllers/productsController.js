@@ -37,9 +37,9 @@ module.exports = {
     },
     //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
-        const categories = db.Category.findAll({attributes:['id','name']});
-        const sections = db.Section.findAll({attributes:['id','name']});
-        const brands = db.Brand.findAll({attributes:['id','name']});
+        const categories = db.Category.findAll({ attributes: ['id', 'name'] });
+        const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+        const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
 
         Promise.all([categories, sections, brands])
             .then(([categories, sections, brands]) => {
@@ -60,7 +60,7 @@ module.exports = {
         };
         if (Object.entries(errors).length === 0) {
             /*const products = loadProducts();*/
-            const { name, price, discount } = req.body;
+            const { name, price, discount, } = req.body;
             db.Product.create({
                 ...req.body,
                 name: name.trim(),
@@ -95,33 +95,35 @@ module.exports = {
                     fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename));
                 })
             };
-        
-        const categories = db.Category.findAll({attributes:['id','name']});
-        const sections = db.Section.findAll({attributes:['id','name']});
-        const brands = db.Brand.findAll({attributes:['id','name']});
 
-        Promise.all([categories, sections, brands])
-            .then(([categories, sections, brands]) => {
-                return res.render('products/productsLoad', { 
-                    categories,
-                     sections,
-                     brands,
-                     errors,
-                     old: req.body })
-            })
-            .catch(error => res.send(error))
+            const categories = db.Category.findAll({ attributes: ['id', 'name'] });
+            const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+            const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+
+            Promise.all([categories, sections, brands])
+                .then(([categories, sections, brands]) => {
+                    return res.render('products/productsLoad', {
+                        categories,
+                        sections,
+                        brands,
+                        errors,
+                        old: req.body
+                    })
+                })
+                .catch(error => res.send(error))
         }
     },
     //EDICION DE PRODUCTOS 
     productEdit: (req, res) => {
         let productToEdit = db.Product.findByPk(req.params.id);
-        let category = db.Category.findAll();
-        let section = db.Section.findAll();
-        // let company = db.Brand.findAll({include: [name]});
+        let categories = db.Category.findAll({ attributes: ['id', 'name'] });
+        let sections = db.Section.findAll({ attributes: ['id', 'name'] });
+        let brands = db.Brand.findAll({ attributes: ['id', 'name'] });
 
-        Promise.all([productToEdit, category, section/*, company*/])
-            .then(([productToEdit, category, section/*, company*/]) => {
-                return res.render('products/productEdit', { productToEdit, category, section/*, company*/ })
+        Promise.all([productToEdit, categories, sections, brands])
+            .then(([productToEdit, categories, sections, brands]) => {
+                //return res.send(productToEdit)
+                return res.render('products/productEdit', { productToEdit, categories, sections, brands })
             })
             .catch(error => res.send(error))
         /*let productToEdit = loadProducts().find(product => product.id === +req.params.id);
@@ -135,13 +137,14 @@ module.exports = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const { name, price, discount } = req.body;
+            const { name, price, discount, category } = req.body;
             db.Product.update(
                 {
                     ...req.body,
                     name: name.trim(),
                     price: +price,
                     discount: +discount,
+                    categoryId: category
                 },
                 {
                     where: { id: req.params.id }
@@ -167,22 +170,32 @@ module.exports = {
              storeProducts(productsModify);
              return res.redirect("/products/productDetail/" + req.params.id);*/
         } else {
-            return res.render('products/productEdit', {
-                errors: errors.mapped(),
-                productToEdit:  db.Product.findByPk(req.params.id),
-                old: req.body
-            });
-        };
-    },
+            const categories = db.Category.findAll({ attributes: ['id', 'name'] });
+            const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+            const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+
+            Promise.all([categories, sections, brands])
+                .then(([categories, sections, brands]) => {
+                    return res.render('products/productEdit', {
+                        categories,
+                        sections,
+                        brands,
+                        errors,
+                        old: req.body
+                    })
+                })
+                .catch(error => res.send(error))
+    }},
     //DELETE PRODUCTS
     destroy: (req, res) => {
         db.Product.destroy(
             {
-                where: {id: req.params.id}
-        }) 
-        .then(()=>{
-            return res.redirect('/')})
-        .catch(error => res.send(error))
+                where: { id: req.params.id }
+            })
+            .then(() => {
+                return res.redirect('/')
+            })
+            .catch(error => res.send(error))
         /*let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
 
         storeProducts(productsModify);
