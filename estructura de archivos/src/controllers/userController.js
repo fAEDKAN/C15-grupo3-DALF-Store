@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const moment = require("moment");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
 const { loadUsers, storeUsers } = require("../data/dbModule");
@@ -22,10 +23,14 @@ module.exports = {
                 userName: userName.trim(),
                 email: email.trim(),
                 password: bcryptjs.hashSync(password.trim(), 10),
+                rolId: 2,
             })
                 .then((user) => {
-                    console.log(user);
-                    return res.redirect("login");
+                    db.Address.create({
+                        userId: user.id,
+                    }).then(() => {
+                        return res.redirect("login");
+                    });
                 })
                 .catch((error) => console.log(error));
         } else {
@@ -43,9 +48,10 @@ module.exports = {
 
     processLogin: (req, res) => {
         let errors = validationResult(req);
+        const { email } = req.body;
         db.User.findOne({
             where: {
-                email: req.body.email,
+                email: email,
             },
         }).then((user) => {
             if (
@@ -75,66 +81,48 @@ module.exports = {
 
     //USER PROFILE
     profile: (req, res) => {
-        let user = loadUsers().find(
-            (user) => user.id === req.session.userLogin.id
-        );
-        return res.render("users/profile", {
-            user,
-            provinces: require("../data/provinces"),
-        });
+        db.User.findByPk(req.session.userLogin.id, {
+            attributes: {
+                exclude: ["createdAt", "updatedAt", "deletedAt"],
+            },
+        })
+            .then((user) => {
+                res.render("users/profile", {
+                    user,
+                    provinces: require("../data/provinces"),
+                    moment,
+                });
+            })
+            .catch((error) => console.log(error));
+
+        /*         db.Avatar.findByPk({
+            where : id === avatar
+        }) */
+        /* .then((user) => {
+                return res.render("users/profile", {
+                    user,
+                    provinces: require("../data/provinces"),
+                });
+            }) */
     },
 
     //USER EDIT
     update: (req, res) => {
-        const { userName } = req.body;
-
-        let usersModify = loadUsers().map((user) => {
-            if (user.id === +req.params.id) {
-                return {
-                    ...user,
-                    ...req.body,
-                    avatar: req.file
-                        ? req.file.filename
-                        : req.session.userLogin.avatar,
-                };
-            }
-            return user;
+        let user = db.User.findByPk(req.params.id, {
+            include: ["avatar"],
         });
-
-        if (req.file && req.session.userLogin.avatar) {
-            if (
-                fs.existsSync(
-                    path.resolve(
-                        __dirname,
-                        "..",
-                        "public",
-                        "images",
-                        "users",
-                        req.session.userLogin.avatar
-                    )
+        let userAvatar;
+        Promise.all([user]).then(([userUpdate]) => {
+            userAvatar = db.Avatar.findAll();
+            Promise.all([userAvatar])
+                .then(([updatedUser]) =>
+                    res.render("/users/profile", {
+                        userUpdate,
+                        updatedUser,
+                    })
                 )
-            ) {
-                fs.unlinkSync(
-                    path.resolve(
-                        __dirname,
-                        "..",
-                        "public",
-                        "images",
-                        "users",
-                        req.session.userLogin.avatar
-                    )
-                );
-            }
-        }
-
-        req.session.userLogin = {
-            ...req.session.userLogin,
-            userName,
-            avatar: req.file ? req.file.filename : req.session.userLogin.avatar,
-        };
-
-        storeUsers(usersModify);
-        return res.redirect("/users/profile");
+                .catch((error) => console.log(error));
+        });
     },
 
     //MY SHOPPING

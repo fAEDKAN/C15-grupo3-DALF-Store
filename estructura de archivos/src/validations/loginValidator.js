@@ -12,7 +12,14 @@ module.exports = [
         .bail()
         .isEmail()
         .withMessage("Ingresá un email válido")
-        .bail(),
+        .bail()
+        .custom((value, { req }) => {
+            let user = db.User.findAll({ email }).then(
+                (user) => user.email !== value || req.body.email
+            );
+            return user ? false : true;
+        })
+        .withMessage("El email no está registrado"),
 
     body("password")
         .notEmpty()
@@ -35,5 +42,5 @@ module.exports = [
             );
             return user ? true : false;
         })
-        .withMessage("El email o la contraseña no coinciden"),
+        .withMessage("El email o la contraseña no coinciden")
 ];
