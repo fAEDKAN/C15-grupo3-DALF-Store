@@ -6,11 +6,13 @@ const moment = require("moment");
 const { loadUsers, storeUsers } = require("../data/dbModule");
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
+const provinces = require("../data/provinces");
 const db = require("../database/models");
 
 module.exports = {
     //USERS REGISTER
     register: (req, res) => {
+        // Se renderiza la vista del form de registro
         return res.render("users/register");
     },
 
@@ -19,6 +21,7 @@ module.exports = {
 
         if (errors.isEmpty()) {
             const { userName, email, password } = req.body;
+            // Creamos usuario cuyos datos completados en el form coinciden con los de los campos requeridos por la DB
             db.User.create({
                 userName: userName.trim(),
                 email: email.trim(),
@@ -26,9 +29,10 @@ module.exports = {
                 rolId: 2,
             })
                 .then((user) => {
+                    // Creando el objeto en la tabla Address ya se le asigna un ID cuyo valor coincide con la relación con User
                     db.Address.create({
                         userId: user.id,
-                    }).then(() => {
+                    }).then((user) => {
                         return res.redirect("login");
                     });
                 })
@@ -49,6 +53,7 @@ module.exports = {
     processLogin: (req, res) => {
         let errors = validationResult(req);
         const { email } = req.body;
+        // Buscamos usuario cuyo email coincida con el que viene desde el formulario
         db.User.findOne({
             where: {
                 email: email,
@@ -81,48 +86,48 @@ module.exports = {
 
     //USER PROFILE
     profile: (req, res) => {
+        // Traemos el usuario guardado en session
         db.User.findByPk(req.session.userLogin.id, {
             attributes: {
                 exclude: ["createdAt", "updatedAt", "deletedAt"],
             },
         })
+            // Renderizamos la vista del perfil
             .then((user) => {
                 res.render("users/profile", {
                     user,
-                    provinces: require("../data/provinces"),
+                    provinces,
                     moment,
                 });
             })
             .catch((error) => console.log(error));
-
-        /*         db.Avatar.findByPk({
-            where : id === avatar
-        }) */
-        /* .then((user) => {
-                return res.render("users/profile", {
-                    user,
-                    provinces: require("../data/provinces"),
-                });
-            }) */
     },
 
     //USER EDIT
     update: (req, res) => {
-        let user = db.User.findByPk(req.params.id, {
-            include: ["avatar"],
-        });
-        let userAvatar;
-        Promise.all([user]).then(([userUpdate]) => {
-            userAvatar = db.Avatar.findAll();
-            Promise.all([userAvatar])
-                .then(([updatedUser]) =>
-                    res.render("/users/profile", {
-                        userUpdate,
-                        updatedUser,
-                    })
+        const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+        db.User.findByPk(req.session.userLogin.id)
+            .then(user => {
+                db.User.update(
+                    {
+                        userName,
+                        firstName,
+                        lastName,
+                        birthday,
+                        aboutMe,
+                        avatar: req.file ? req.file.filename : user.avatar
+                    },
+                    {
+                        where : {
+                            id : req.session.userLogin.id
+                        }
+                    }
                 )
-                .catch((error) => console.log(error));
-        });
+                .then(() => {
+                    return res.redirect('/users/profile')
+                })
+            })
+            .catch(error => console.log(error))
     },
 
     //MY SHOPPING

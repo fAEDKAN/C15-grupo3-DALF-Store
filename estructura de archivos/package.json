@@ -4,7 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "nodemon ./src/bin/www",
-        "start": "node ./src/bin/www"
+        "start": "node ./src/bin/www",
+        "reset-db": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all & npm run dev"
     },
     "nodemonConfig": {
         "ignore": "*.json"
