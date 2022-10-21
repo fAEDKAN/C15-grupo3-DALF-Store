@@ -52,10 +52,9 @@
                             <div class="form-box">
                                 <label class="form-label">Sección:</label>
                                 <select name="section" id="section">
-                                    <option value="" hidden selected>Seleccionar una section...</option>
-                                    <option value="recommended"<%= productToEdit.section === 'recommended' && 'selected' %>>Recomendados</option>
-                                    <option value="in-sale"<%= productToEdit.section === 'in-sale' && 'selected' %>>Ofertas</option>
-                                    <option value="of-users"<%= productToEdit.section === 'of-users' && 'selected' %>>Productos de Usuarios</option>
+                                    <% sections.forEach(section => { %>
+                                        <option <%= productToEdit.sectionId == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
+                                        <% }); %>
                                 </select>
                                 <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
                             </div>
@@ -63,13 +62,9 @@
                             <div class="form-box">
                                 <label class="form__label">Companía:</label>
                                 <select name="company" id="company">
-                                    <option value="xbox"<%= productToEdit.category === 'xbox' && 'selected' %>>Xbox</option>
-                                    <option value="microsoft"<%= productToEdit.category === 'microsoft' && 'selected' %>>Microsoft</option>
-                                    <option value="steam"<%= productToEdit.category === 'steam' && 'selected' %>>Steam</option>
-                                    <option value="psn"<%= productToEdit.category === 'psn' && 'selected' %>>PSN</option>
-                                    <option value="ubisoft"<%= productToEdit.category === 'ubisoft' && 'selected' %>>Ubisoft</option>
-                                    <option value="battle.net"<%= productToEdit.category === 'battle.net' && 'selected' %>>Battle.net</option>
-                                    <option value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
+                                    <% brands.forEach(company => { %>
+                                        <option <%= productToEdit.brandId == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
+                                        <% }); %>
                                 </select>
                                 <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>
                             </div>

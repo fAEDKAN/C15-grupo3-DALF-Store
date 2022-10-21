@@ -137,14 +137,16 @@ module.exports = {
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
-            const { name, price, discount, category } = req.body;
+            const { name, price, discount, category, section, company } = req.body;
             db.Product.update(
                 {
                     ...req.body,
                     name: name.trim(),
                     price: +price,
                     discount: +discount,
-                    categoryId: category
+                    categoryId: category,
+                    sectionId: section,
+                    brandId: company
                 },
                 {
                     where: { id: req.params.id }
@@ -170,17 +172,19 @@ module.exports = {
              storeProducts(productsModify);
              return res.redirect("/products/productDetail/" + req.params.id);*/
         } else {
+            let productToEdit = db.Product.findByPk(req.params.id);
             const categories = db.Category.findAll({ attributes: ['id', 'name'] });
             const sections = db.Section.findAll({ attributes: ['id', 'name'] });
             const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
 
-            Promise.all([categories, sections, brands])
-                .then(([categories, sections, brands]) => {
+            Promise.all([categories, sections, brands,productToEdit])
+                .then(([categories, sections, brands, productToEdit]) => {
                     return res.render('products/productEdit', {
+                        productToEdit,
                         categories,
                         sections,
                         brands,
-                        errors,
+                        errors: errors.mapped(),
                         old: req.body
                     })
                 })
