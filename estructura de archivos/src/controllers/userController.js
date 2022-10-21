@@ -32,8 +32,13 @@ module.exports = {
                     // Creando el objeto en la tabla Address ya se le asigna un ID cuyo valor coincide con la relación con User
                     db.Address.create({
                         userId: user.id,
-                    }).then((user) => {
-                        return res.redirect("login");
+                    }).then(() => {
+                        // Lo mismo que el paso anterior pero con Avatar
+                        db.Avatar.create({
+                            userId: user.id,
+                        }).then(() => {
+                            return res.redirect("login");
+                        });
                     });
                 })
                 .catch((error) => console.log(error));
@@ -72,10 +77,11 @@ module.exports = {
                 req.session.userLogin = {
                     id: user.id,
                     userName: user.userName,
+                    rol: user.rolId
                 };
                 if (req.body.remember) {
                     res.cookie("userDalfStore", req.session.userLogin, {
-                        maxAge: 1000 * 60,
+                        maxAge: 10000 * 60,
                     });
                 }
                 // Redirigimos al usuario a la página principal
@@ -107,7 +113,7 @@ module.exports = {
     update: (req, res) => {
         const { userName, firstName, lastName, birthday, aboutMe } = req.body;
         db.User.findByPk(req.session.userLogin.id)
-            .then(user => {
+            .then(() => {
                 db.User.update(
                     {
                         userName,
@@ -115,19 +121,18 @@ module.exports = {
                         lastName,
                         birthday,
                         aboutMe,
-                        avatar: req.file ? req.file.filename : user.avatar
+                        avatar: req.file ? req.file.filename : req.session.userLogin.avatar
                     },
                     {
-                        where : {
-                            id : req.session.userLogin.id
-                        }
+                        where: {
+                            id: req.session.userLogin.id,
+                        },
                     }
-                )
-                .then(() => {
-                    return res.redirect('/users/profile')
-                })
+                ).then(() => {
+                    return res.redirect("/users/profile");
+                });
             })
-            .catch(error => console.log(error))
+            .catch((error) => console.log(error));
     },
 
     //MY SHOPPING

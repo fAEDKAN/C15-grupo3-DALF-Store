@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 
             User.hasOne(models.Avatar, {
                 as: "avatar",
-                foreignKey: "avatarId",
+                foreignKey: "userId",
             });
 
             User.hasMany(models.Address, {
@@ -40,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
             birthday: DataTypes.DATE,
             aboutMe: DataTypes.TEXT,
             rolId: DataTypes.INTEGER,
-            avatarId: DataTypes.INTEGER,
         },
         {
             sequelize,

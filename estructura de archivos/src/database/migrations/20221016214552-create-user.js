@@ -9,6 +9,7 @@ module.exports = {
                 type: Sequelize.INTEGER,
             },
             userName: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             firstName: {
@@ -36,15 +37,6 @@ module.exports = {
                 references: {
                     model: {
                         tableName: "Rols",
-                    },
-                    key: "id",
-                },
-            },
-            avatarId: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: {
-                        tableName: "Avatars",
                     },
                     key: "id",
                 },
