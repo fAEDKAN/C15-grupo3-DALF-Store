@@ -16,52 +16,45 @@
                         <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST">
                             <div class="form-box">
                                 <label class="form__label" for="name">Título:</label>
-                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= productToEdit.name %>">
+                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : productToEdit.name %>">
                                 <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label">Categorías:</label>
-                                <select name="category" id="category">
-                                    <option  value="accion"<%= productToEdit.category === 'accion' && 'selected' %>>Acción</option>
-                                    <option  value="aventura"<%= productToEdit.category === 'aventura' && 'selected' %>>Aventura</option>
-                                    <option  value="fps/tps"<%= productToEdit.category === 'fps/tps' && 'selected' %>>FTP/TPS</option>
-                                    <option  value="rpg"<%= productToEdit.category === 'rpg' && 'selected' %>>RPG</option>
-                                    <option  value="simulacion"<%= productToEdit.category === 'simulacion' && 'selected' %>>Simulación</option>
-                                    <option  value="carreras"<%= productToEdit.category === 'carreras' && 'selected' %>>Carreras</option>
-                                    <option  value="lucha"<%= productToEdit.category === 'lucha' && 'selected' %>>Lucha</option>
-                                    <option  value="mmo"<%= productToEdit.category === 'mmo' && 'selected' %>>MMO</option>
-                                    <option  value="arcade"<%= productToEdit.category === 'arcade' && 'selected' %>>Arcade</option>
-                                    <option  value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
+                                <select name="category" id="" >
+                                    <% categories.forEach(category => { %>
+                                    <option <%= productToEdit.categoryId == category.id ? "selected" : "" %> value="<%= category.id %>"><%= category.name %></option>
+                                    <% }); %>
                                 </select>
+                                
                                 <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label" for="price">Precio:</label>
-                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= productToEdit.price %>">
+                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : productToEdit.price %>">
                                 <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label">Descuento:</label>
-                                <input type="text" name="discount"  id="discount" placeholder="Ej: 5" value="<%= productToEdit.discount %>">
+                                <input type="text" name="discount"  id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : productToEdit.discount %>">
                                 <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label" for="stock">Stock disponible:</label>
-                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= productToEdit.stock %>">
+                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : productToEdit.stock %>">
                                 <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form-label">Sección:</label>
                                 <select name="section" id="section">
-                                    <option value="" hidden selected>Seleccionar una section...</option>
-                                    <option value="recommended"<%= productToEdit.section === 'recommended' && 'selected' %>>Recomendados</option>
-                                    <option value="in-sale"<%= productToEdit.section === 'in-sale' && 'selected' %>>Ofertas</option>
-                                    <option value="of-users"<%= productToEdit.section === 'of-users' && 'selected' %>>Productos de Usuarios</option>
+                                    <% sections.forEach(section => { %>
+                                        <option <%= productToEdit.sectionId == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
+                                        <% }); %>
                                 </select>
                                 <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
                             </div>
@@ -69,20 +62,16 @@
                             <div class="form-box">
                                 <label class="form__label">Companía:</label>
                                 <select name="company" id="company">
-                                    <option value="xbox"<%= productToEdit.category === 'xbox' && 'selected' %>>Xbox</option>
-                                    <option value="microsoft"<%= productToEdit.category === 'microsoft' && 'selected' %>>Microsoft</option>
-                                    <option value="steam"<%= productToEdit.category === 'steam' && 'selected' %>>Steam</option>
-                                    <option value="psn"<%= productToEdit.category === 'psn' && 'selected' %>>PSN</option>
-                                    <option value="ubisoft"<%= productToEdit.category === 'ubisoft' && 'selected' %>>Ubisoft</option>
-                                    <option value="battle.net"<%= productToEdit.category === 'battle.net' && 'selected' %>>Battle.net</option>
-                                    <option value="otro"<%= productToEdit.category === 'otro' && 'selected' %>>Otro</option>
+                                    <% brands.forEach(company => { %>
+                                        <option <%= productToEdit.brandId == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
+                                        <% }); %>
                                 </select>
                                 <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>
                             </div>
 
                             <div class="form-box">
                                 <label class="form__label" for="description">Descripción:</label>
-                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%= productToEdit.description %></textarea>
+                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%=locals.old && old.description ? old.description : productToEdit.description %></textarea>
                             </div>
 
 
