@@ -19,8 +19,15 @@
                             <article class="detail__purchase__product">
                                 <h1 class="detail__purchase__product--title"> <%= product.name %> </h1>
                                 <div class="detail__purchase__product--box">
-                                    <p class="detail__purchase__product--price">$ <%= product.price %> </p>
-                                    <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
+                                    <% if (product.discount > 0) { %>
+                                    <p class="detail__purchase__product--price">$<%= (product.price) - (product.price * product.discount / 100) %></p>
+                                    <p class="text-decoration-line-through text-danger detail__purchase__product--true-price">$<%= product.price %></p>
+                                    <% }else{ %>
+                                    <h3>$<%= product.price %></h3>
+                                    <% } %>
+                                    <% if (product.discount > 0) { %>
+                                        <p class="detail__purchase__product--discount"><%= product.discount %>% OFF</p>
+                                    <% } %>
                                 </div>
                             </article>
                             <p class="detail__product__envio"><i class="fa-solid fa-truck"></i> Envío gratis a todo el país</p>

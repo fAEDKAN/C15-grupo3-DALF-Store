@@ -251,7 +251,8 @@ h1 {
     }
     .header_div--navbar-desktop li {
         padding: 5px;
-        padding-left: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
     .header__top--general {
         margin-bottom: 14px;
