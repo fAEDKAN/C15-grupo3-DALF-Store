@@ -5,13 +5,14 @@ var router = express.Router();
 const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController');
 const uploadProducts =require('../middlewares/uploadFilesProducts');
 const adminCheck =require('../middlewares/adminCheck');
+const userSessionCheck=require('../middlewares/userSessionCheck')
 const productValidator = require('../validations/productValidator');
 
 //PRODUCTS DETAIL
 router.get('/productDetail/:id', productDetail);
 
 //PRODUCTS lOAD
-router.get('/productsLoad', productsLoad)
+router.get('/productsLoad',userSessionCheck, productsLoad);
 router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
 
 //PRODUCT EDIT
