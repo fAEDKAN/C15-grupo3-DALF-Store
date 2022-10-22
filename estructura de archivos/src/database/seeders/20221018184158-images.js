@@ -1,9 +1,9 @@
 'use strict';
 const productos = require('../../data/productsDB-migration.json');
-const images= productos.map(({image, id})=>{
+const images= productos.map(({id,image})=>{
   return {
+    productId: id,
     file: image,
-    //productId: id,
     createdAt : new Date()
   }
 })

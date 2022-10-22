@@ -1,11 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
-const { loadProducts, storeProducts } = require('../data/dbModule');
+const { loadProducts} = require('../data/dbModule');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
-const { Association } = require('sequelize');
-
 module.exports = {
     //??????
     index: (req, res) => {
@@ -20,7 +18,7 @@ module.exports = {
         db.Product.findByPk(req.params.id, {
             include: [
                 {
-                    association: 'image'
+                    association: 'image' 
                 }
             ]
         })
@@ -29,11 +27,6 @@ module.exports = {
             })
             .catch(error => res.send(error))
 
-        /*let products = loadProducts();
-        let product = products.find(product => product.id === +req.params.id);
-        return res.render("products/productDetail",{
-            product
-        });*/
     },
     //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
@@ -47,9 +40,11 @@ module.exports = {
             })
             .catch(error => res.send(error))
     },
-    create: (req, res) => {
+    create: async (req, res) => {
+        console.log(req);
         let errors = validationResult(req);
         errors = errors.mapped();
+        
         if (req.fileValidationError) {
             errors = {
                 ...errors,
@@ -59,36 +54,26 @@ module.exports = {
             };
         };
         if (Object.entries(errors).length === 0) {
-            /*const products = loadProducts();*/
-            const { name, price, discount, } = req.body;
-            db.Product.create({
+            const { name, price, discount,category , section, company} = req.body;
+            
+            const product = await db.Product.create({
                 ...req.body,
                 name: name.trim(),
                 price: +price,
-                discount: +discount
-            })
-                .then(() => {
-                    return res.redirect('/')
-                })
-                .catch(error => res.send(error))
-            /*const {name,price,discount} = req.body;
-            const id = products[products.length - 1].id;
-            let images;
-            if (req.files.length > 0){ images = req.files.map(image => image.filename) };
+                discount: +discount,
+                categoryId: category,
+                sectionId: section,
+                brandId: company
+            }).catch(error => console.log(error))
             
-            const newProduct = {
-                id : id + 1,
-                ...req.body,
-                name: name.trim(),
-                price : +price,
-                discount : +discount,
-                image: images ? images:['default-product-image.jpg']
-            };
-            const productsNew = [...products,newProduct];
-    
-            storeProducts(productsNew);
-    
-            return res.redirect('/');*/
+            req.files.forEach(async element => {
+                await db.Image.create({
+                        file:element.filename,
+                        productId:product.id
+                    })
+                })
+            
+            return res.redirect('/');
         } else {
             if (req.files.length > 0) {
                 req.files.forEach(({ filename }) => {
@@ -110,7 +95,7 @@ module.exports = {
                         old: req.body
                     })
                 })
-                .catch(error => res.send(error))
+                .catch(error => console.log(error))
         }
     },
     //EDICION DE PRODUCTOS 

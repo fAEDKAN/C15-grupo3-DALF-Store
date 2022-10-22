@@ -66,7 +66,7 @@
                         
                         <div class="form-box">
                             <label class="form-label">Companía:</label>
-                            <select name="company" id="" required>
+                            <select name="company" id="" >
                                 <option value="" hidden selected>Seleccionar una compania...</option>
                                 <% brands.forEach(company => { %>
                                     <option <%= locals.old && old.company && old.company == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
