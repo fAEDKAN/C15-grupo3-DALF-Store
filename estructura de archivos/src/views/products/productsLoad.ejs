@@ -25,19 +25,13 @@
 
                         <div class="form-box">
                             <label class="form__label">Categorías:</label>
-                            <select name="category" id="" value="<%= locals.old && old.category ? old.category : null %>">
+                            <select name="category" id="" >
                                 <option value="" hidden selected>Seleccionar categoría...</option>
-                                <option value="accion">Acción</option>
-                                <option value="aventura">Aventura</option>
-                                <option value="ftp/tps">FTP/TPS</option>
-                                <option value="rpg">RPG</option>
-                                <option value="simulacion">Simulación</option>
-                                <option value="carreras">Carreras</option>
-                                <option value="lucha">Lucha</option>
-                                <option value="mmo">MMO</option>
-                                <option value="arcade">Arcade</option>
-                                <option value="otro">Otro</option>
+                                <% categories.forEach(category => { %>
+                                <option <%= locals.old && old.category && old.category == category.id ? "selected" : "" %> value="<%= category.id %>"><%= category.name %></option>
+                                <% }); %>
                             </select>
+                        
                             <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
                         </div>
 
@@ -61,27 +55,24 @@
 
                         <div class="form-box">
                             <label class="form-label">Sección:</label>
-                            <select name="section" id="section" value="<%= locals.old && old.section? old.section : null %>">
-                                <option value="" hidden selected>Seleccionar una section...</option>
-                                <option value="recommended">Recomendados</option>
-                                <option value="in-sale">Ofertas</option>
-                                <option value="of-users">Productos de Usuarios</option>
+                            <select name="section" id="section" >
+                                <option value="" hidden selected>Seleccionar una seccion...</option>
+                                <% sections.forEach(section => { %>
+                                <option <%= locals.old && old.section && old.section == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
+                                <% }); %>
                             </select>
                             <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
                         </div>
-
+                        
                         <div class="form-box">
                             <label class="form-label">Companía:</label>
-                            <select name="company" id="company" value="<%= locals.old && old.company ? old.company : null %>">
+                            <select name="company" id="" >
                                 <option value="" hidden selected>Seleccionar una compania...</option>
-                                <option value="xbox">Xbox</option>
-                                <option value="microsoft">Microsoft</option>
-                                <option value="steam">Steam</option>
-                                <option value="psn">PSN</option>
-                                <option value="ubisoft">Ubisoft</option>
-                                <option value="battle.net">Battle.net</option>
-                                <option value="otro">Otro</option>
+                                <% brands.forEach(company => { %>
+                                    <option <%= locals.old && old.company && old.company == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
+                                <% }); %>
                             </select>
+                            
                             <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>    
                         </div>
 
