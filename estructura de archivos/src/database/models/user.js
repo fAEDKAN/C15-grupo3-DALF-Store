@@ -19,11 +19,6 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: "userId",
             });
 
-            User.hasMany(models.Address, {
-                as: "addresses",
-                foreignKey: "userId",
-            });
-
             User.hasMany(models.Order, {
                 as: "order",
                 foreignKey: "userId",
@@ -37,13 +32,14 @@ module.exports = (sequelize, DataTypes) => {
             lastName: DataTypes.STRING,
             email: DataTypes.STRING,
             password: DataTypes.STRING,
-            birthday: DataTypes.DATE,
+            birthday: DataTypes.DATEONLY,
             aboutMe: DataTypes.TEXT,
             rolId: DataTypes.INTEGER,
         },
         {
             sequelize,
             modelName: "User",
+            onDelete: 'cascade'
         }
     );
     return User;
