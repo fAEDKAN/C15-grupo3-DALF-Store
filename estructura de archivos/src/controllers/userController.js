@@ -59,47 +59,46 @@ module.exports = {
             where: {
                 email: email,
             },
-        }).then((user) => {
-            if (
-                !user ||
-                !bcryptjs.compareSync(req.body.password, user.password)
-            ) {
-                // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
-                return res.render("users/login", {
-                    errors: errors.mapped(),
-                });
-            } else {
-                // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
-                req.session.userLogin = {
-                    id: user.id,
-                    userName: user.userName,
-                    rol: user.rolId,
-                };
-                if (req.body.remember) {
-                    res.cookie("userDalfStore", req.session.userLogin, {
-                        maxAge: 10000 * 60,
+        })
+            .then((user) => {
+                if (
+                    !user ||
+                    !bcryptjs.compareSync(req.body.password, user.password)
+                ) {
+                    // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
+                    return res.render("users/login", {
+                        errors: errors.mapped(),
                     });
+                } else {
+                    // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
+                    req.session.userLogin = {
+                        id: user.id,
+                        userName: user.userName,
+                        avatar: user.avatarFile,
+                        rol: user.rolId,
+                    };
+                    if (req.body.remember) {
+                        res.cookie("userDalfStore", req.session.userLogin, {
+                            maxAge: 10000 * 60,
+                        });
+                    }
+                    // Redirigimos al usuario a la página principal
+                    return res.redirect("/");
                 }
-                // Redirigimos al usuario a la página principal
-                return res.redirect("/");
-            }
-        });
+            })
+            .catch((error) => console.log(error));
     },
 
     //USER PROFILE
     profile: (req, res) => {
         // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id, {
-            attributes: {
-                exclude: ["createdAt", "updatedAt", "deletedAt"],
-            },
-        })
+        db.User.findByPk(req.session.userLogin.id)
             // Renderizamos la vista del perfil
             .then((user) => {
                 return res.render("users/profile", {
                     user,
                     provinces,
-                    moment
+                    moment,
                 });
             })
             .catch((error) => console.log(error));
@@ -112,10 +111,11 @@ module.exports = {
             include: [{ association: "avatar" }],
         })
             .then((user) => {
-                user.avatar.update({
+                user.avatar
+                    .update({
                         file: req.file
                             ? req.file.filename
-                            : req.session.userLogin.avatar,
+                            : req.session.userLogin.avatarFile,
                     })
                     .catch((error) => console.log(error));
                 user.update({
@@ -124,6 +124,7 @@ module.exports = {
                     lastName,
                     birthday,
                     aboutMe,
+                    avatarFile: req.file ? req.file.filename : user.avatarFile
                 }).then(() => {
                     return res.redirect("/users/profile");
                 });
@@ -152,10 +153,10 @@ module.exports = {
             // Renderizamos la vista de advertencia
             .then((user) => {
                 return res.render("users/deleteAcc", {
-                    user
+                    user,
                 });
             })
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
     },
 
     remove: (req, res) => {
