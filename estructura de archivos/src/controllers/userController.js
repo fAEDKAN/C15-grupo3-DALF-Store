@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+/* const fs = require("fs");
+const path = require("path"); */
 const moment = require("moment");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
@@ -77,7 +77,7 @@ module.exports = {
                 req.session.userLogin = {
                     id: user.id,
                     userName: user.userName,
-                    rol: user.rolId
+                    rol: user.rolId,
                 };
                 if (req.body.remember) {
                     res.cookie("userDalfStore", req.session.userLogin, {
@@ -112,21 +112,21 @@ module.exports = {
     //USER EDIT
     update: (req, res) => {
         const { userName, firstName, lastName, birthday, aboutMe } = req.body;
-        db.User.findByPk(req.session.userLogin.id)
-            .then(() => {
-                db.User.update(
+        db.User.findByPk(
+            req.session.userLogin.id,{
+            include: [{ association: "avatar" }]}
+            )
+            .then((user) => {
+                user.avatar.update({
+                        file: req.file ? req.file.filename : req.session.userLogin.avatar
+                }).catch(error => console.log(error))
+                user.update(
                     {
                         userName,
                         firstName,
                         lastName,
                         birthday,
                         aboutMe,
-                        avatar: req.file ? req.file.filename : req.session.userLogin.avatar
-                    },
-                    {
-                        where: {
-                            id: req.session.userLogin.id,
-                        },
                     }
                 ).then(() => {
                     return res.redirect("/users/profile");

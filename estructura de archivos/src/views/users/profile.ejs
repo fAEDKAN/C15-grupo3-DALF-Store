@@ -15,7 +15,7 @@
                     <div class="body__form--inputs">
 
                         <div class="body__form--profileImg">
-                            <img src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
+                            <img src="/images/users/<%= user.avatar ? user.avatar.file : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
                             <input type="file" id="file" name="avatarFile">
                             <label for="file" id="uploadBtn">Elegir Avatar</label>
                         </div>
