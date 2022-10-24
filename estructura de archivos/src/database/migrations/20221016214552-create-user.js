@@ -9,6 +9,7 @@ module.exports = {
                 type: Sequelize.INTEGER,
             },
             userName: {
+                allowNull: false,
                 type: Sequelize.STRING,
             },
             firstName: {
@@ -26,7 +27,7 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             birthday: {
-                type: Sequelize.DATE,
+                type: Sequelize.DATEONLY,
             },
             aboutMe: {
                 type: Sequelize.TEXT,
@@ -39,15 +40,7 @@ module.exports = {
                     },
                     key: "id",
                 },
-            },
-            avatarId: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: {
-                        tableName: "Avatars",
-                    },
-                    key: "id",
-                },
+                onDelete: 'cascade'
             },
             createdAt: {
                 allowNull: false,
