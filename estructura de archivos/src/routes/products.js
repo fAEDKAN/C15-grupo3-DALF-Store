@@ -2,15 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 //REQUIRE CONTROLLERS - MIDDLEWARES - VALIDATIONS
-const {index, getProductsByCategory, productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController');
+const {productDetail, productsLoad, create, productEdit, update, cart, cartAdress, cartPay, destroy} = require('../controllers/productsController');
 const uploadProducts =require('../middlewares/uploadFilesProducts');
 const adminCheck =require('../middlewares/adminCheck');
 const productValidator = require('../validations/productValidator');
 
 
 //GET PRODUCT
-router.get('/', index);
-router.get('/category/:id', getProductsByCategory)
+
 //PRODUCTS DETAIL
 router.get('/productDetail/:id', productDetail);
 

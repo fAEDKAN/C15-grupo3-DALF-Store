@@ -7,41 +7,12 @@ const db = require('../database/models');
 module.exports = {
     //??????
     index: (req, res) => {
-        // Do the magic
-        let products = db.Product.findAll({
-            include: ['images', 'category']
-        })
-
-        let categories = db.Category.findAll()
-        Promise.all([products, categories])
-            .then(([products, categories]) => res.render('products', {
-                products,
-                categories,
-                toThousand
-            }))
-            .catch(error => console.log(error))
+        let products = loadProducts();
+        return res.render("products", {
+            products,
+            toThousand
+        });
     },
-    getProductsByCategory : (req,res) => {
-		let category = db.Category.findByPk(req.params.id,{
-			include : [
-				{
-					association : 'products',
-					include : ['images']
-				}
-			]
-		});
-
-		let categories = db.Category.findAll()
-		Promise.all([category, categories])
-			.then(([category, categories]) => {
-				res.render('products', {
-				products : category.products,
-				categories,
-				toThousand
-			})
-		})
-			.catch(error => console.log(error))
-	},
     //PRODUCT DETAIL
     productDetail: (req, res) => {
         db.Product.findByPk(req.params.id, {
