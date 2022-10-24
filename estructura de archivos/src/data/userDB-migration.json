@@ -206,12 +206,10 @@
       "userName": "useruno",
       "email": "user1@gmail.com",
       "password": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
-      "province": "Neuquén",
       "avatar": "avatar-1665159477529.png",
       "aboutMe": "me gusta el arrrrte",
       "firstName": "Federico",
       "lastName": "Somma",
-      "bday": "1994-08-08",
-      "rolId":2
+      "rolId":1
    }
 ]

@@ -15,7 +15,7 @@
                     <div class="body__form--inputs">
 
                         <div class="body__form--profileImg">
-                            <img src="/images/users/<%= user.avatar ? user.avatar : 'DEFAULT-IMAGE.jpg' %>" id="avatar" alt="avatar">
+                            <img src="/images/users/<%= user.avatar ? user.avatar.file : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
                             <input type="file" id="file" name="avatarFile">
                             <label for="file" id="uploadBtn">Elegir Avatar</label>
                         </div>
@@ -38,7 +38,7 @@
 
                             <div class="body__form__inputs__userData--input">
                                 <label for="birthday">Cumpleaños:</label>
-                                <input type="date" id="birthday" name="birthday" value="<%= user.birthday %>">
+                                <input type="date" id="birthday" name="birthday" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>">
                             </div>
 
                             <div class="body__form__inputs__userData__input--select">

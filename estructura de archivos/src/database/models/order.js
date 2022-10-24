@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             sequelize,
             modelName: "Order",
+            onDelete: "cascade",
         }
     );
     return Order;

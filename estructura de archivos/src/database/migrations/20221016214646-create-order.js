@@ -19,6 +19,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             stateId: {
                 type: Sequelize.INTEGER,
@@ -28,6 +29,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             payRoleId: {
                 type: Sequelize.INTEGER,
@@ -37,6 +39,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             createdAt: {
                 allowNull: false,
