@@ -28,6 +28,7 @@ module.exports = {
                 password: bcryptjs.hashSync(password.trim(), 10),
                 birthday: null,
                 rolId: 2,
+                birthday: null,
             })
                 .then((user) => {
                     // Creando el objeto en la tabla Avatar ya se le asigna un ID cuyo valor coincide con la relación con User
@@ -92,7 +93,9 @@ module.exports = {
     //USER PROFILE
     profile: (req, res) => {
         // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id)
+        db.User.findByPk(req.session.userLogin.id, {
+            include: [{ association: "avatar" }],
+        })
             // Renderizamos la vista del perfil
             .then((user) => {
                 return res.render("users/profile", {
@@ -124,7 +127,7 @@ module.exports = {
                     lastName,
                     birthday,
                     aboutMe,
-                    avatarFile: req.file ? req.file.filename : user.avatarFile
+                    avatarFile: req.file ? req.file.filename : user.avatarFile,
                 }).then(() => {
                     return res.redirect("/users/profile");
                 });
@@ -160,18 +163,34 @@ module.exports = {
     },
 
     remove: (req, res) => {
-        db.User.destroy({
-            where: {
-                id: req.params.id,
-            },
-        })
-            .then(() => {
-                req.session.destroy();
-                res.cookie("userDalfStore", null, {
-                    maxAge: -1,
-                });
-                return res.redirect("/");
-            })
-            .catch((error) => console.log(error));
+        db.User.findByPk(req.session.userLogin.id, {
+            include: [{ association: "avatar" }],
+        }).then((user) => {
+            user.avatar
+                .destroy({
+                    file: req.file
+                        ? req.file.filename
+                        : req.session.userLogin.avatarFile,
+                })
+                .catch((error) => console.log(error));
+            user.destroy(
+                {
+                    where: {
+                        id: req.params.id,
+                    },
+                },
+                {
+                    include: [{ association: "avatar" }],
+                }
+            )
+                .then(() => {
+                    req.session.destroy();
+                    res.cookie("userDalfStore", null, {
+                        maxAge: -1,
+                    });
+                    return res.redirect("/");
+                })
+                .catch((error) => console.log(error));
+        });
     },
 };

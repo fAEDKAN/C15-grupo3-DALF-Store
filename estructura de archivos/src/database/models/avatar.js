@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
         {
             sequelize,
             modelName: "Avatar",
-            onDelete: "cascade",
         }
     );
     return Avatar;
