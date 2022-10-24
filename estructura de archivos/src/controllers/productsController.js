@@ -1,24 +1,53 @@
 const fs = require('fs');
 const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
-const { loadProducts} = require('../data/dbModule');
+const { loadProducts } = require('../data/dbModule');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 module.exports = {
     //??????
     index: (req, res) => {
-        let products = loadProducts();
-        return res.render("products", {
-            products,
-            toThousand
-        });
+        // Do the magic
+        let products = db.Product.findAll({
+            include: ['images', 'category']
+        })
+
+        let categories = db.Category.findAll()
+        Promise.all([products, categories])
+            .then(([products, categories]) => res.render('products', {
+                products,
+                categories,
+                toThousand
+            }))
+            .catch(error => console.log(error))
     },
+    getProductsByCategory : (req,res) => {
+		let category = db.Category.findByPk(req.params.id,{
+			include : [
+				{
+					association : 'products',
+					include : ['images']
+				}
+			]
+		});
+
+		let categories = db.Category.findAll()
+		Promise.all([category, categories])
+			.then(([category, categories]) => {
+				res.render('products', {
+				products : category.products,
+				categories,
+				toThousand
+			})
+		})
+			.catch(error => console.log(error))
+	},
     //PRODUCT DETAIL
     productDetail: (req, res) => {
         db.Product.findByPk(req.params.id, {
             include: [
                 {
-                    association: 'image' 
+                    association: 'image'
                 }
             ]
         })
@@ -44,7 +73,7 @@ module.exports = {
         console.log(req);
         let errors = validationResult(req);
         errors = errors.mapped();
-        
+
         if (req.fileValidationError) {
             errors = {
                 ...errors,
@@ -54,8 +83,8 @@ module.exports = {
             };
         };
         if (Object.entries(errors).length === 0) {
-            const { name, price, discount,category , section, company} = req.body;
-            
+            const { name, price, discount, category, section, company } = req.body;
+
             const product = await db.Product.create({
                 ...req.body,
                 name: name.trim(),
@@ -65,14 +94,14 @@ module.exports = {
                 sectionId: section,
                 brandId: company
             }).catch(error => console.log(error))
-            
+
             req.files.forEach(async element => {
                 await db.Image.create({
-                        file:element.filename,
-                        productId:product.id
-                    })
+                    file: element.filename,
+                    productId: product.id
                 })
-            
+            })
+
             return res.redirect('/');
         } else {
             if (req.files.length > 0) {
@@ -162,7 +191,7 @@ module.exports = {
             const sections = db.Section.findAll({ attributes: ['id', 'name'] });
             const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
 
-            Promise.all([categories, sections, brands,productToEdit])
+            Promise.all([categories, sections, brands, productToEdit])
                 .then(([categories, sections, brands, productToEdit]) => {
                     return res.render('products/productEdit', {
                         productToEdit,
@@ -174,7 +203,8 @@ module.exports = {
                     })
                 })
                 .catch(error => res.send(error))
-    }},
+        }
+    },
     //DELETE PRODUCTS
     destroy: (req, res) => {
         db.Product.destroy(
