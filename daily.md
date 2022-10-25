@@ -21,4 +21,4 @@
 
 ## Resumen de tareas completadas, impedimentos encontrados y soluciones propuestas:
 
-#### tratando de recuperar punto git
+####
