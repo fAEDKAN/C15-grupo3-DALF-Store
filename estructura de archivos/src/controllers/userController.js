@@ -3,7 +3,7 @@ const path = require("path"); */
 const moment = require("moment");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
-const { loadUsers, storeUsers } = require("../data/dbModule");
+/* const { loadUsers, storeUsers } = require("../data/dbModule"); */
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const provinces = require("../data/provinces");
@@ -113,7 +113,6 @@ module.exports = {
         errors = errors.mapped();
         if (req.fileValidationError) {
             errors = {
-                ...errors,
                 avatarFile: { msg: req.fileValidationError },
             };
         }
