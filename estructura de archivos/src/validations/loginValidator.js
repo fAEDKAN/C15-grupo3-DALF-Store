@@ -1,6 +1,6 @@
 //REQUIRE DATA BASE - VALIDATOR - BCRYPTJS
 const { check, body } = require("express-validator");
-const { loadUsers } = require("../data/dbModule");
+/* const { loadUsers } = require("../data/dbModule"); */
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 
@@ -42,5 +42,5 @@ module.exports = [
             );
             return user ? true : false;
         })
-        .withMessage("El email o la contraseña no coinciden")
+        .withMessage("El email o la contraseña no coinciden"),
 ];
