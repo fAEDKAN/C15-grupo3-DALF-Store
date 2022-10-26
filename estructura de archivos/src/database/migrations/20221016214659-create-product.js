@@ -39,6 +39,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             sectionId: {
                 type: Sequelize.INTEGER,
@@ -48,6 +49,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             brandId: {
                 type: Sequelize.INTEGER,
@@ -57,6 +59,7 @@ module.exports = {
                     },
                     key: "id",
                 },
+                onDelete: 'cascade'
             },
             createdAt: {
                 allowNull: false,

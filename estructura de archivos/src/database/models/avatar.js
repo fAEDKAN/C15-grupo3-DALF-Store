@@ -10,14 +10,15 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Avatar.belongsTo(models.User, {
-                as: "user",
-                foreignKey: "avatarId",
+                as: "avatar",
+                foreignKey: "userId",
             });
         }
     }
     Avatar.init(
         {
             file: DataTypes.STRING,
+            userId: DataTypes.INTEGER,
         },
         {
             sequelize,

@@ -155,7 +155,7 @@
       "id": 20,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
-      "pass": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
+      "password": "$2a$10$F0.LkBvnO/XJ4Uf7buIwiO3z/pscKifeGaSWQMBhOPYS/9bUo/nqC",
       "avatar": "avatar-1663631442728.png",
       "firstName": "Diego",
       "lastName": "Montes",
@@ -165,7 +165,7 @@
       "id": 21,
       "userName": "Ushio",
       "email": "ushiovii@hotmail.com",
-      "pass": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
+      "password": "$2a$10$vGShs.X8zJTnIHs4EIJeNenkcxbnyfq3oB1k.fSWMlMvZx1TBZrkq",
       "province": null,
       "avatar": null,
       "aboutMe": null
@@ -174,22 +174,10 @@
       "id": 22,
       "userName": "axel",
       "email": "axel@gmail.com",
-      "pass": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
+      "password": "$2a$10$Ey1IPytg0SjF1UnchJqbYeTfoGtBzbwV5pBHt7FgCoEjrukDF4wk.",
       "province": null,
       "avatar": null,
       "aboutMe": null,
       "rol": "admin"
-   },
-   {
-      "id": 23,
-      "userName": "useruno",
-      "email": "user1@gmail.com",
-      "pass": "$2a$10$zUlKimuUDcg80ioFqRhqDO8S597N1nzrCYWjimTCOt9fl/3opMniq",
-      "province": "Neuquén",
-      "avatar": "avatar-1665159477529.png",
-      "aboutMe": "me gusta el arrrrte",
-      "firstName": "Federico",
-      "lastName": "Somma",
-      "bday": "1994-08-08"
    }
 ]
