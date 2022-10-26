@@ -107,23 +107,19 @@ module.exports = {
 
         Promise.all([productToEdit, categories, sections, brands])
             .then(([productToEdit, categories, sections, brands]) => {
-                //return res.send(productToEdit)
+               
                 return res.render('products/productEdit', { productToEdit, categories, sections, brands })
             })
             .catch(error => res.send(error))
-        /*let productToEdit = loadProducts().find(product => product.id === +req.params.id);
-        return res.render('products/productEdit',{
-            productToEdit
-        });*/
+        
     },
-    update: (req, res) => {
-        /* const products = loadProducts();
-         const {id}= req.params;*/
+    update: async (req, res) => {
+       
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
             const { name, price, discount, category, section, company } = req.body;
-            db.Product.update(
+            const product = await db.Product.update(
                 {
                     ...req.body,
                     name: name.trim(),
@@ -135,27 +131,18 @@ module.exports = {
                 },
                 {
                     where: { id: req.params.id }
-                })
+                }).catch(error => console.log(error))
+                
+                req.files.forEach(async element => {
+                    await db.Image.create({
+                            file:element.filename,
+                            productId:product.id
+                        })
+                    })
                 .then(() => {
                     return res.redirect("/products/productDetail/" + req.params.id)
                 })
                 .catch(error => res.send(error))
-            /* const {name,price,discount} = req.body;
-             let productsModify = products.map(product =>{
-                 if(product.id === +req.params.id){
-                     return {
-                         id : product.id,
-                         ...req.body,
-                         name: name.trim(),
-                         price : +price,
-                         discount : +discount,
-                         image: product.image
-                     };
-                 };
-                 return product;
-             });
-             storeProducts(productsModify);
-             return res.redirect("/products/productDetail/" + req.params.id);*/
         } else {
             let productToEdit = db.Product.findByPk(req.params.id);
             const categories = db.Category.findAll({ attributes: ['id', 'name'] });
@@ -185,10 +172,7 @@ module.exports = {
                 return res.redirect('/')
             })
             .catch(error => res.send(error))
-        /*let productsModify = loadProducts().filter(product => product.id !== +req.params.id);
-
-        storeProducts(productsModify);
-        return res.redirect('/');*/
+        
     },
     //CART
     cart: (req, res) => {
