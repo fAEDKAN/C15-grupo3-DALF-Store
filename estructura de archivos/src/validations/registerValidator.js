@@ -1,5 +1,5 @@
 const { check, body } = require("express-validator");
-const { loadUsers } = require("../data/dbModule");
+/* const { loadUsers } = require("../data/dbModule"); */
 const db = require("../database/models");
 
 //REGISTER VALIDATIONS
@@ -35,18 +35,17 @@ module.exports = [
         })
         .withMessage("El email ya se encuentra registrado"), */
 
-    body("email")
-        .custom(function (value) {
-            return db.User.findOne({
-                where: {
-                    email: value,
-                },
-            }).then((user) => {
-                if (user) {
-                    return Promise.reject("El email ya se encuentra registrado");
-                }
-            });
-        }),
+    body("email").custom(function (value) {
+        return db.User.findOne({
+            where: {
+                email: value,
+            },
+        }).then((user) => {
+            if (user) {
+                return Promise.reject("El email ya se encuentra registrado");
+            }
+        });
+    }),
 
     check("password")
         .notEmpty()
