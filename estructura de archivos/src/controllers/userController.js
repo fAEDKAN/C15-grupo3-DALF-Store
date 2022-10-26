@@ -109,6 +109,14 @@ module.exports = {
 
     //USER EDIT
     update: (req, res) => {
+        let errors = validationResult(req);
+        errors = errors.mapped();
+        if (req.fileValidationError) {
+            errors = {
+                ...errors,
+                avatarFile: { msg: req.fileValidationError },
+            };
+        }
         const { userName, firstName, lastName, birthday, aboutMe } = req.body;
         db.User.findByPk(req.session.userLogin.id, {
             include: [{ association: "avatar" }],

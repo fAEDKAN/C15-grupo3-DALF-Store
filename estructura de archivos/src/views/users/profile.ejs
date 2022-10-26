@@ -18,6 +18,7 @@
                             <img src="/images/users/<%= user.avatar ? user.avatar.file : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
                             <input type="file" id="file" name="avatarFile">
                             <label for="file" id="uploadBtn">Elegir Avatar</label>
+                            <p class="inputs__text__warnings"><%= locals.errors && errors.avatar ? errors.avatar.msg : null %></p>
                         </div>
 
                         <div class="body__form__inputs--userData">
