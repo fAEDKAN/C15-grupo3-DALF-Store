@@ -9,6 +9,9 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
     //HOME
     index: (req, res) => {
+		const categories = db.Category.findAll()
+		const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+		const sections = db.Section.findAll({ attributes: ['id', 'name'] });
 		let productsInSale = db.Product.findAll({
 			where: {
 				sectionId: {
@@ -75,12 +78,15 @@ const controller = {
 			],
 		});
 
-		Promise.all([productsInSale, productsRecommended, productsOfUsers])
-		.then(([productsInSale, productsRecommended, productsOfUsers]) => {
+		Promise.all([productsInSale, productsRecommended, productsOfUsers, categories, brands, sections])
+		.then(([productsInSale, productsRecommended, productsOfUsers, categories, brands, sections]) => {
 			return res.render("index", {
 				productsInSale,
 				productsRecommended,
 				productsOfUsers,
+				categories,
+				brands,
+				sections,
 				toThousand,
 			});
 		})

@@ -75,32 +75,14 @@
                         <a class="nav-link active" aria-current="page" href="#">Tienda</a>
                     </li>
                         <li class="nav-item dropdown"> <!-- Juegos -->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Juegos</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Network</a>
                         <ul class="dropdown-menu menu_dropdown">
                             <li>
-                            <small class="title__nav_item" style="margin-left: 1px;">Plataformas</small>
-                            <ul class="cointeiner__links_nav_item" style="list-style: none;">
-                                <li><a class="dropdown-item" href="#">Steam Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">Xbox Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">PSN Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">Origin Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">Ubisoft Connect Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">Epic Games Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">GOG Juegos</a></li>
-                                <li><a class="dropdown-item" href="#">Battle.net Juegos</a></li>
-                            </ul>
-                            </li>
-                            <li>
-                                <small class="title__nav_item" style="margin-left: -20px;">Descubrir por generos</small>
+                                <small class="title__nav_item" style="margin-left: 1px;">Plataformas</small>
                                 <ul class="cointeiner__links_nav_item" style="list-style: none;">
-                                    <li><a class="dropdown-item" href="#">Acción</a></li>
-                                    <li><a class="dropdown-item" href="#">Aventura</a></li>
-                                    <li><a class="dropdown-item" href="#">Lucha</a></li>
-                                    <li><a class="dropdown-item" href="#">FPS / TPS</a></li>
-                                    <li><a class="dropdown-item" href="#">Indie</a></li>
-                                    <li><a class="dropdown-item" href="#">MMO</a></li>
-                                    <li><a class="dropdown-item" href="#">RPG</a></li>
-                                    <li><a class="dropdown-item" href="#">Simulación</a></li>
+                                    <% brands.forEach(brand=> { %>
+                                        <li><a class="dropdown-item" href="/products/<%= brand.id %>"><%= brand.name %></a></li>
+                                    <% }) %>
                                 </ul>
                             </li>
                         </ul>
@@ -125,18 +107,25 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Xbox</a>
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Generos</a>
                         <ul class="dropdown-menu cointeiner__links_nav_item">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <small class="title__nav_item" style="margin-left: -20px;">Descubrir por generos</small>
+                            <% categories.forEach(category => { %>
+                                <li><a class="dropdown-item" href="/products/category/<%= category.id %>"><%= category.name %></a></li>
+                            <% }) %>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Secciones</a>
+                        <ul class="dropdown-menu cointeiner__links_nav_item">
+                            <small class="title__nav_item" style="margin-left: -20px;">Secciones</small>
+                            <% sections.forEach(section => { %>
+                                <li><a class="dropdown-item" href="/products/<%= section.id %>"><%= section.name %></a></li>
+                            <% }) %>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Software</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Español Latinoamerica | ARS</a>
+                        <a class="nav-link active" style="font-size: 14px;" aria-current="page" href="#">Español | ARS</a>
                     </li>
                 </ul>
             </div>

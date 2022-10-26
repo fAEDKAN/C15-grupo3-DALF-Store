@@ -5,9 +5,8 @@ const { loadProducts } = require('../data/dbModule');
 const { validationResult } = require('express-validator');
 const db = require('../database/models');
 module.exports = {
-    //??????
+    //Filter Products by id
     index: (req, res) => {
-        let products = loadProducts();
         return res.render("products", {
             products,
             toThousand
