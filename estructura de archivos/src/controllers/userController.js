@@ -28,7 +28,7 @@ module.exports = {
                 password: bcryptjs.hashSync(password.trim(), 10),
                 birthday: null,
                 rolId: 2,
-                birthday: null,
+                avatarFile: null
             })
                 .then((user) => {
                     // Creando el objeto en la tabla Avatar ya se le asigna un ID cuyo valor coincide con la relación con User
@@ -132,9 +132,9 @@ module.exports = {
                     userName,
                     firstName,
                     lastName,
-                    birthday,
+                    birthday: birthday ? birthday : user.birthday,
                     aboutMe,
-                    avatarFile: req.file ? req.file.filename : user.avatarFile,
+                    /* avatarFile: req.file ? req.file.filename : user.avatarFile, */
                 }).then(() => {
                     return res.redirect("/users/profile");
                 });
