@@ -4,19 +4,19 @@
 ### QUÉ HICE AYER?
 ### TUVE PROBLEMAS?
 ### QUÉ VOY A HACER HOY?
-#### #### --AXEL: Trello para el Sprint 6
-#### #### --DIEGO: Completar el Jamboard
-#### #### --FEDE: Mejorar un poco la parte de login y register
+#### --AXEL: Trello para el Sprint 6
+#### --DIEGO: Completar el Jamboard
+#### --FEDE: Mejorar un poco la parte de login y register
 ********************************************************************
 #### 07/10
 ### QUÉ HICE AYER?
-#### #### --AXEL: Actualicé Trello con las nuevas tareas del Sprint
-#### #### --DIEGO: Revisé Trello para verificar que no haya errores
-#### #### --FEDE: Trabajé en login y register
+#### --AXEL: Actualicé Trello con las nuevas tareas del Sprint
+#### --DIEGO: Revisé Trello para verificar que no haya errores
+#### --FEDE: Trabajé en login y register
 ### TUVE PROBLEMAS?
-#### #### --AXEL --DIEGO --FEDE: No
+#### --AXEL --DIEGO --FEDE: No
 ### QUÉ VOY A HACER HOY?
-#### #### --AXEL --DIEGO --FEDE: Asistir a la daily para repartirnos las tareas
+#### --AXEL --DIEGO --FEDE: Asistir a la daily para repartirnos las tareas
 ********************************************************************
 #### 13/10
 ### QUÉ HICE AYER?
@@ -27,7 +27,7 @@
 #### --AXEL: Me quedé un poco estancado en 'cookies'
 #### --DIEGO: Ninguno
 #### --FEDE: De momento no
-### ### QUÉ VOY A HACER HOY?
+### QUÉ VOY A HACER HOY?
 #### --AXEL: Reunión para retomar el Sprint y repaso de tareas
 #### --DIEGO: Repasar videos de MySQL y API
 #### --FEDE: Chequear que estén todos los TP's entregados correctamente
@@ -86,31 +86,31 @@
 ********************************************************************
 #### 19/10
 ### QUÉ HICE AYER?
-#### #### --AXEL: Seeders y JSON de categorías, secciones, marcas
-#### #### --DIEGO: Buscador y render de los productos del home
-#### #### --FEDE: Estuve trabajando en el CRUD de usuarios
+#### --AXEL: Seeders y JSON de categorías, secciones, marcas
+#### --DIEGO: Buscador y render de los productos del home
+#### --FEDE: Estuve trabajando en el CRUD de usuarios
 ### TUVE PROBLEMAS?
-#### #### --AXEL: No
-#### #### --DIEGO: Sí, pero junto con los compañeros pudimos solucionarlos
-#### #### --FEDE: Sí, me estanqué en el login del usuario
+#### --AXEL: No
+#### --DIEGO: Sí, pero junto con los compañeros pudimos solucionarlos
+#### --FEDE: Sí, me estanqué en el login del usuario
 ### QUÉ VOY A HACER HOY?
-#### #### --AXEL: CRUD de productos
-#### #### --DIEGO: Buscar problemas en imágenes de productos en la DB
-#### #### --FEDE: Tratar de solucionar el error del login
+#### --AXEL: CRUD de productos
+#### --DIEGO: Buscar problemas en imágenes de productos en la DB
+#### --FEDE: Tratar de solucionar el error del login
 ********************************************************************
 #### 20/10
 ### QUÉ HICE AYER?
-#### #### --AXEL: CRUD de productos
-#### #### --DIEGO: Dejé a un lado el error de imágenes
-#### #### --FEDE: Estuve trabajando en el login
+#### --AXEL: CRUD de productos
+#### --DIEGO: Dejé a un lado el error de imágenes
+#### --FEDE: Estuve trabajando en el login
 ### TUVE PROBLEMAS?
-#### #### --AXEL: Sí, con el seeder de imágenes al cargar productId
-#### #### --DIEGO: No pude encontrar el error, pero tenemos una pista de cuál puede ser el problema
-#### #### --FEDE: Sí, pero se pudo solucionar y funciona
+#### --AXEL: Sí, con el seeder de imágenes al cargar productId
+#### --DIEGO: No pude encontrar el error, pero tenemos una pista de cuál puede ser el problema
+#### --FEDE: Sí, pero se pudo solucionar y funciona
 ### QUÉ VOY A HACER HOY?
-#### #### --AXEL: Iterar los select de los formularios de productos, ordenar las iteraciones y solucionar los problemas de ayer
-#### #### --DIEGO: Planear qué tengo que agregar en el navbar para los CRUD secundarios
-#### #### --FEDE: Trabajar en el CRUD, en la parte de eliminar usuario
+#### --AXEL: Iterar los select de los formularios de productos, ordenar las iteraciones y solucionar los problemas de ayer
+#### --DIEGO: Planear qué tengo que agregar en el navbar para los CRUD secundarios
+#### --FEDE: Trabajar en el CRUD, en la parte de eliminar usuario
 ********************************************************************
 #### 21/10
 ### QUÉ HICE AYER?
