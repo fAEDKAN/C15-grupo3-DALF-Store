@@ -21,4 +21,6 @@
 
 ## Resumen de tareas completadas, impedimentos encontrados y soluciones propuestas:
 
-####
+#### Actualizamos archivo retro.md, dailysResume.md, tablero de Trello y creamos dailys.md.
+#### Nos pusimos al día con los TPs a entregar.
+#### Trabajamos en el Sprint 6, el cual nos dio muchísimos problemas, pero la gran mayoría fueron solucionados (y seguimos trabajando en ello).
