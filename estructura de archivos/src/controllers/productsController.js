@@ -23,6 +23,7 @@ module.exports = {
             ]
         })
             .then(product => {
+                //return res.send(product)
                 res.render("products/productDetail", { product })
             })
             .catch(error => res.send(error))
@@ -65,14 +66,15 @@ module.exports = {
                 sectionId: section,
                 brandId: company
             }).catch(error => console.log(error))
-            
+
+            if(req.files && req.files.length > 0){
             req.files.forEach(async element => {
                 await db.Image.create({
                         file:element.filename,
                         productId:product.id
                     })
                 })
-            
+            }
             return res.redirect('/');
         } else {
             if (req.files.length > 0) {
@@ -134,7 +136,7 @@ module.exports = {
                 }).catch(error => console.log(error))
                 
                 req.files.forEach(async element => {
-                    await db.Image.create({
+                    await db.Image.update({
                             file:element.filename,
                             productId:product.id
                         })
