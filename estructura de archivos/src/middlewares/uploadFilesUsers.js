@@ -22,10 +22,8 @@ const fileFilter = (req, file, cb) => {
     ) {
         cb(null, true);
     } else {
-        cb(null, false);
-        return cb(
-            new Error("Sólo se admiten imágenes en formato .jpg, .jpeg y .png")
-        );
+        req.fileValidationError = "Sólo se permiten imágenes en formato .jpg, .jpeg y .png"
+        return cb(null, false, req.fileValidationError);
     }
 };
 
