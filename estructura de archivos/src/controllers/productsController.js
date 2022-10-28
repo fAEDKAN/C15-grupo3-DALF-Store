@@ -121,7 +121,19 @@ module.exports = {
 
         if (errors.isEmpty()) {
             const { name, price, discount, category, section, company } = req.body;
-            const product = await db.Product.update(
+            /*if(req.files && req.files.length > 0){
+                let product = await db.Product.findAll(req.params.id)
+                req.files.forEach(async element => {
+                    await db.Image.destroy(
+                        { where: { productId: product.id }}
+                    );
+                    await db.Image.create({
+                            file:element.filename,
+                            productId: product.id
+                        })
+                    })
+                }*/
+            await db.Product.update(
                 {
                     ...req.body,
                     name: name.trim(),
@@ -133,14 +145,8 @@ module.exports = {
                 },
                 {
                     where: { id: req.params.id }
-                }).catch(error => console.log(error))
+                })
                 
-                req.files.forEach(async element => {
-                    await db.Image.update({
-                            file:element.filename,
-                            productId:product.id
-                        })
-                    })
                 .then(() => {
                     return res.redirect("/products/productDetail/" + req.params.id)
                 })
