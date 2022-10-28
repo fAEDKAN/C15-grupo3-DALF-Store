@@ -11,6 +11,7 @@ const { register, processRegister, login, processLogin, /* shopping, */ profile,
 
 const loginValidator = require('../validations/loginValidator');
 const registerValidator = require('../validations/registerValidator');
+const profileValidator = require('../validations/profileValidator');
 
 //USER REGISTER
 router.get('/register',guestCheck, register);
@@ -23,7 +24,7 @@ router.get('/logout', logout);
 
 //USER PROFILE
 router.get('/profile', userSessionCheck, profile);
-router.put('/update/:id', uploadUsers.single('avatarFile'), update);
+router.put('/update/:id', uploadUsers.single('avatarFile'), profileValidator, update);
 
 /* //MY SHOPPING
 router.get('/shopping', shopping); */
