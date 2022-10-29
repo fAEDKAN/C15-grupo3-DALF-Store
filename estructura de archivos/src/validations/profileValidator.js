@@ -35,20 +35,6 @@ module.exports = [
         .isAlpha("es-ES")
         .withMessage("Sólo caracteres alfabéticos"),
 
-    body("userName").custom(function (value) {
-        return db.User.findOne({
-            where: {
-                userName: value,
-            },
-        }).then((user) => {
-            if (user) {
-                return Promise.reject(
-                    "El nombre de usuario ya se encuentra registrado"
-                );
-            }
-        });
-    }),
-
     check("firstName")
         .isLength({
             min: 3,

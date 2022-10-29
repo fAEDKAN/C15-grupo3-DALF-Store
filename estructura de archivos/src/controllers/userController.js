@@ -107,6 +107,23 @@ module.exports = {
             .catch((error) => console.log(error));
     },
 
+    //USER UPDATE
+    profileUpdate: (req, res) => {
+        // Traemos el usuario guardado en session
+        db.User.findByPk(req.session.userLogin.id, {
+            include: [{ association: "avatar" }],
+        })
+            // Renderizamos la vista del perfil
+            .then((user) => {
+                return res.render("users/profileUpdate", {
+                    user,
+                    provinces,
+                    moment
+                });
+            })
+            .catch((error) => console.log(error));
+    },
+
     //USER EDIT
     update: (req, res) => {
 
@@ -138,7 +155,7 @@ module.exports = {
         } else {
             db.User.findByPk(req.params.id)
                 .then(user => {
-                    return res.render('users/profile', {
+                    return res.render('users/profileUpdate', {
                         errors: errors.mapped(),
                         old: req.body,
                         user,
