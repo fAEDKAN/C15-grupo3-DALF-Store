@@ -1,0 +1,97 @@
+/** TITLE */
+
+.body__profile--title h3 {
+    color: var(--C_Ice-Cream);
+}
+
+.body__profile--title span {
+    background-image: linear-gradient(60deg, #00e4ff, #ff00a2);
+    background-clip: text;
+    color: transparent;
+    font-weight: bolder;
+    font-size: 1.85rem;
+}
+
+/** USER DATA */
+
+.body__profile--avatarAndLocation {
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: column;
+}
+
+.body__profile--avatar {
+    height: 80px;
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 0;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#avatar {
+    height: 80px;
+    width: 80px;
+    margin: 0;
+}
+
+.body__profile--avatar p {
+
+}
+
+/** USER INFO */
+
+.body__profile--userInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.body__profile__userInfo--fullName {
+}
+
+.body__profile__userInfo--birthday {
+}
+
+/** USER CONTACT */
+
+.body__profile--contact {
+}
+
+.body__profile__contact--phone {
+}
+
+.body__profile__contact--email {
+}
+
+/** ABOUT ME */
+
+.body__profile--aboutMe {
+}
+
+.body__profile__aboutMe--text {
+}
+
+/** USER PRODUCTS */
+
+.body__profile--products {
+
+}
+
+.body__profile__product--productsForSale {
+
+}
+
+.body__profile__product--soldProducts {
+
+}
+
+.body__profile__product--favoriteProducts {
+
+}
+
+/** EDIT PROFILE */
+
+.body__profile--edit {
+
+}
