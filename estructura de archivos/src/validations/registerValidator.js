@@ -1,5 +1,5 @@
 const { check, body } = require("express-validator");
-const { loadUsers } = require("../data/dbModule");
+/* const { loadUsers } = require("../data/dbModule"); */
 const db = require("../database/models");
 
 //REGISTER VALIDATIONS
@@ -12,10 +12,26 @@ module.exports = [
             min: 3,
             max: 15,
         })
-        .withMessage("El nombre debe contener entre 3 y 15 caracteres")
+        .withMessage(
+            "El nombre de usuario debe contener entre 3 y 15 caracteres"
+        )
         .bail()
         .isAlpha("es-ES")
         .withMessage("Sólo caracteres alfabéticos"),
+
+    body("userName").custom(function (value) {
+        return db.User.findOne({
+            where: {
+                userName: value,
+            },
+        }).then((user) => {
+            if (user) {
+                return Promise.reject(
+                    "El nombre de usuario ya se encuentra registrado"
+                );
+            }
+        });
+    }),
 
     check("email")
         .notEmpty()
@@ -35,18 +51,17 @@ module.exports = [
         })
         .withMessage("El email ya se encuentra registrado"), */
 
-    body("email")
-        .custom(function (value) {
-            return db.User.findOne({
-                where: {
-                    email: value,
-                },
-            }).then((user) => {
-                if (user) {
-                    return Promise.reject("El email ya se encuentra registrado");
-                }
-            });
-        }),
+    body("email").custom(function (value) {
+        return db.User.findOne({
+            where: {
+                email: value,
+            },
+        }).then((user) => {
+            if (user) {
+                return Promise.reject("El email ya se encuentra registrado");
+            }
+        });
+    }),
 
     check("password")
         .notEmpty()

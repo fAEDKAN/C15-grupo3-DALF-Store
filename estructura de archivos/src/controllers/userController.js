@@ -3,7 +3,7 @@ const path = require("path"); */
 const moment = require("moment");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
-const { loadUsers, storeUsers } = require("../data/dbModule");
+/* const { loadUsers, storeUsers } = require("../data/dbModule"); */
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const provinces = require("../data/provinces");
@@ -28,7 +28,7 @@ module.exports = {
                 password: bcryptjs.hashSync(password.trim(), 10),
                 birthday: null,
                 rolId: 2,
-                birthday: null,
+                avatarFile: null,
             })
                 .then((user) => {
                     // Creando el objeto en la tabla Avatar ya se le asigna un ID cuyo valor coincide con la relación con User
@@ -75,7 +75,7 @@ module.exports = {
                     req.session.userLogin = {
                         id: user.id,
                         userName: user.userName,
-                        avatar: user.avatarFile,
+                        avatarFile: user.avatar ? user.avatar.filename : 'DEFAULT-IMAGE.jpg',
                         rol: user.rolId,
                     };
                     if (req.body.remember) {
@@ -101,7 +101,7 @@ module.exports = {
                 return res.render("users/profile", {
                     user,
                     provinces,
-                    moment,
+                    moment
                 });
             })
             .catch((error) => console.log(error));
@@ -109,7 +109,10 @@ module.exports = {
 
     //USER EDIT
     update: (req, res) => {
-        const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            const { userName, firstName, lastName, birthday, aboutMe } = req.body;
         db.User.findByPk(req.session.userLogin.id, {
             include: [{ association: "avatar" }],
         })
@@ -125,14 +128,25 @@ module.exports = {
                     userName,
                     firstName,
                     lastName,
-                    birthday,
+                    birthday: birthday ? birthday : user.birthday,
                     aboutMe,
-                    avatarFile: req.file ? req.file.filename : user.avatarFile,
                 }).then(() => {
                     return res.redirect("/users/profile");
                 });
             })
             .catch((error) => console.log(error));
+        } else {
+            db.User.findByPk(req.params.id)
+                .then(user => {
+                    return res.render('users/profile', {
+                        errors: errors.mapped(),
+                        old: req.body,
+                        user,
+                        moment,
+                        provinces
+                    })
+                })
+        }
     },
 
     //MY SHOPPING

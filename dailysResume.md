@@ -16,3 +16,11 @@
 #### Reunión para realizar en conjunto ciertas tareas del Sprint 5 y organizamos reunión para compartir información sobre TPs.
 #### Nos reunimos para ver en qué posición del Sprint 5 nos encontramos.
 #### Charlamos sobre el Sprint 5.
+
+# (>^-^)> **DAILYS SPRINT 6** Q(^.^Q)
+
+## Resumen de tareas completadas, impedimentos encontrados y soluciones propuestas:
+
+#### Actualizamos archivo retro.md, dailysResume.md, tablero de Trello y creamos dailys.md.
+#### Nos pusimos al día con los TPs a entregar.
+#### Trabajamos en el Sprint 6, el cual nos dio muchísimos problemas, pero la gran mayoría fueron solucionados (y seguimos trabajando en ello).
