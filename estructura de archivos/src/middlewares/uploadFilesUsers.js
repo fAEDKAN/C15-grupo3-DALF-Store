@@ -15,18 +15,22 @@ const storageUser = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-    if (!file.originalname.toLowerCase().match(/\.(jpg|jpeg|png)$/)) {
-        req.fileValidationError =
-            "Sólo se permiten imágenes en formato .jpg, .jpeg y .png";
+    if (
+        file.mimetype === "image/jpeg" ||
+        file.mimetype === "image/jpg" ||
+        file.mimetype === "image/png"
+    ) {
+        cb(null, true);
+    } else {
+        req.fileValidationError = "Sólo se permiten imágenes en formato .jpg, .jpeg y .png"
         return cb(null, false, req.fileValidationError);
     }
-    return cb(null, true);
 };
 
 const uploadUsers = multer({
     storage: storageUser,
     fileFilter,
-    limits: {fileSize : 2000000} // 1 millón de bytes = 1 MB - Se limita el tamaño del archivo
+    limits: { fileSize: 2000000 }, // 1 millón de bytes = 1 MB - Se limita el tamaño del archivo
 });
 
 module.exports = { uploadUsers };

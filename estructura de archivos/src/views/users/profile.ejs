@@ -16,25 +16,30 @@
 
                         <div class="body__form--profileImg">
                             <img src="/images/users/<%= user.avatar ? user.avatar.file : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
-                            <input type="file" id="file" name="avatarFile">
                             <label for="file" id="uploadBtn">Elegir Avatar</label>
-                            <p class="inputs__text__warnings"><%= locals.errors && errors.avatarFile ? errors.avatarFile.msg : null %></p>
+                            <input type="file" id="file" name="avatarFile">
                         </div>
+                        <p class="inputs__text__warnings"><%= locals.errors && errors.avatarFile ? errors.avatarFile.msg : null %></p>
 
                         <div class="body__form__inputs--userData">
                             <div class="body__form__inputs__userData--input">
                                 <label for="userName">Nombre de usuario:</label>
                                 <input type="text" placeholder="Nombre de usuario" id="userName" name="userName" value="<%= user.userName %>">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.userName ? errors.userName.msg : null %></p>
+
                             </div>
 
                             <div class="body__form__inputs__userData--input">
                                 <label for="firstName">Nombre:</label>
                                 <input type="text" placeholder="Nombre" id="firstName" name="firstName" value="<%= user.firstName %>">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.firstName ? errors.firstName.msg : null %></p>
                             </div>
 
                             <div class="body__form__inputs__userData--input">
                                 <label for="lastName">Apellido:</label>
                                 <input type="text" placeholder="Apellido" id="lastName" name="lastName" value="<%= user.lastName %>">
+                                <p class="inputs__text__warnings"><%= locals.errors && errors.lastName ? errors.lastName.msg : null %></p>
+
                             </div>
 
                             <div class="body__form__inputs__userData--input">
