@@ -8,7 +8,8 @@ const adminCheck =require('../../middlewares/adminCheck');
 const userSessionCheck =require('../../middlewares/userSessionCheck');
 const productValidator = require('../../validations/productValidator');
 
-router.get('/products', productsList);
+router.get('/', productsList);
+//router.get('/image/:img', image);
 router.get('/productDetail/:id', productDetail);
 router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
 router.put('/update/:id', uploadProducts.array('imagen'),productValidator, update);

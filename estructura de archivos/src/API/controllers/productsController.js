@@ -3,18 +3,43 @@ const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
 const { validationResult } = require('express-validator');
 const db = require('../../database/models');
+const { literal } = require('sequelize');
+
 module.exports = {
     productsList: async (req, res) => {
         try {
-            let products =await db.Product.findAll()
+            let options = {
+                attributes: {
+                    exclude: ["createdAt", "updatedAt"],
+                    include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/productDetail/', productId)`), 'productURL']]
+                },
+                include: [
+                    {
+                        association: 'image',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt"],
+                            include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/images/products/', file)`), 'imageURL']]
+                        }
+                    },
+                    {
+                        association: 'category',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt"]
+                        }
+                    }
+                ]
+            }
+
+            let { count, rows } = await db.Product.findAndCountAll(options)
 
             return res.status(200).json({
                 ok: true,
                 meta: {
                     status: 200,
+                    total: count
                 },
                 data: {
-                    products,
+                    products: rows
                 }
             })
         } catch (error) {
@@ -24,21 +49,34 @@ module.exports = {
                 msg: error.message,
             });
         }
-		
+
     },
-    productDetail: (req, res) => {
-        db.Product.findByPk(req.params.id, {
+    productDetail: async (req, res) => {
+        try {
+            let product= await db.Product.findByPk(req.params.id, {
             include: [
                 {
-                    association: 'image' 
+                    association: 'image'
                 }
             ]
         })
-            .then(product => {
-                //return res.send(product)
-                res.render("products/productDetail", { product })
+        return res.status(200).json({
+            ok:true,
+            meta:{
+                status: 200
+            },
+            data:{
+                product
+            }
+        })
+        } catch (error) {
+            console.log(error);
+            return res.status(error.status || 500).json({
+                ok:false,
+                msg: error.message
             })
-            .catch(error => res.send(error))
+        }
+
 
     },
     //CARGA DE PRODUCTOS 
@@ -57,7 +95,7 @@ module.exports = {
         console.log(req);
         let errors = validationResult(req);
         errors = errors.mapped();
-        
+
         if (req.fileValidationError) {
             errors = {
                 ...errors,
@@ -67,8 +105,8 @@ module.exports = {
             };
         };
         if (Object.entries(errors).length === 0) {
-            const { name, price, discount,category , section, company} = req.body;
-            
+            const { name, price, discount, category, section, company } = req.body;
+
             const product = await db.Product.create({
                 ...req.body,
                 name: name.trim(),
@@ -79,11 +117,11 @@ module.exports = {
                 brandId: company
             }).catch(error => console.log(error))
 
-            if(req.files && req.files.length > 0){
-            req.files.forEach(async element => {
-                await db.Image.create({
-                        file:element.filename,
-                        productId:product.id
+            if (req.files && req.files.length > 0) {
+                req.files.forEach(async element => {
+                    await db.Image.create({
+                        file: element.filename,
+                        productId: product.id
                     })
                 })
             }
@@ -121,14 +159,14 @@ module.exports = {
 
         Promise.all([productToEdit, categories, sections, brands])
             .then(([productToEdit, categories, sections, brands]) => {
-               
+
                 return res.render('products/productEdit', { productToEdit, categories, sections, brands })
             })
             .catch(error => res.send(error))
-        
+
     },
     update: async (req, res) => {
-       
+
         const errors = validationResult(req);
 
         if (errors.isEmpty()) {
@@ -158,7 +196,7 @@ module.exports = {
                 {
                     where: { id: req.params.id }
                 })
-                
+
                 .then(() => {
                     return res.redirect("/products/productDetail/" + req.params.id)
                 })
@@ -169,7 +207,7 @@ module.exports = {
             const sections = db.Section.findAll({ attributes: ['id', 'name'] });
             const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
 
-            Promise.all([categories, sections, brands,productToEdit])
+            Promise.all([categories, sections, brands, productToEdit])
                 .then(([categories, sections, brands, productToEdit]) => {
                     return res.render('products/productEdit', {
                         productToEdit,
@@ -181,7 +219,8 @@ module.exports = {
                     })
                 })
                 .catch(error => res.send(error))
-    }},
+        }
+    },
     //DELETE PRODUCTS
     destroy: (req, res) => {
         db.Product.destroy(
@@ -192,7 +231,7 @@ module.exports = {
                 return res.redirect('/')
             })
             .catch(error => res.send(error))
-        
+
     },
     //CART
     cart: (req, res) => {
