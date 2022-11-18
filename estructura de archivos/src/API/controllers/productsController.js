@@ -3,43 +3,67 @@ const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
 const { validationResult } = require('express-validator');
 const db = require('../../database/models');
-const { literal } = require('sequelize');
+const { literal, Op } = require('sequelize');
 
 module.exports = {
     productsList: async (req, res) => {
-        try {
-            let options = {
-                attributes: {
-                    exclude: ["createdAt", "updatedAt"],
-                    include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/productDetail/', productId)`), 'productURL']]
-                },
-                include: [
-                    {
-                        association: 'image',
-                        attributes: {
-                            exclude: ["createdAt", "updatedAt"],
-                            include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/images/products/', file)`), 'imageURL']]
-                        }
-                    },
-                    {
-                        association: 'category',
-                        attributes: {
-                            exclude: ["createdAt", "updatedAt"]
-                        }
+        let options = {
+            attributes: {
+                exclude: ["createdAt", "updatedAt"],
+                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
+            },
+            include: [
+                {
+                    association: 'image',
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt"],
+                        include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/image/', file)`), 'imageURL']]
                     }
-                ]
-            }
+                },
+                {
+                    association: 'category',
+                    attributes: {
+                        exclude: ["createdAt", "updatedAt"]
+                    }
+                }
+            ]
+        }
 
-            let { count, rows } = await db.Product.findAndCountAll(options)
+        try {
+            let { count: total, rows: products } = await db.Product.findAndCountAll(options);
+            let categories = await db.Category.findAll({
+                attributes: {
+                exclude: ["createdAt", "updatedAt","id"]
+                }})
+
+            let CountPByC =
+                categories.forEach(async category  => { 
+                let result= await db.Product.count({where: {[Op.or]: [{categoryId: {[Op.substring]: category.id //id de categoria
+                }}]}})
+                
+                
+            });
+            /*let productsCountByCategory = await db.Product.count({
+                where: {
+                    [Op.or]: [{
+                        categoryId: {
+                            [Op.substring]: 3 //id de categoria
+                        }
+                    }]
+                }
+            })*/
 
             return res.status(200).json({
                 ok: true,
                 meta: {
-                    status: 200,
-                    total: count
+                    status: 200.,
+                    //categories,
+                    //productsCountByCategory
+                    CountPByC
                 },
                 data: {
-                    products: rows
+                    total,
+                    products
                 }
             })
         } catch (error) {
@@ -52,33 +76,77 @@ module.exports = {
 
     },
     productDetail: async (req, res) => {
+        const { id } = req.params
         try {
-            let product= await db.Product.findByPk(req.params.id, {
-            include: [
-                {
-                    association: 'image'
-                }
-            ]
-        })
-        return res.status(200).json({
-            ok:true,
-            meta:{
-                status: 200
-            },
-            data:{
-                product
+            if (isNaN(id)) {
+                let error = new Error("El id debe ser un numero");
+                error.status = 400;
+                throw error;
             }
-        })
+
+            let options = {
+                attributes: {
+                    exclude: ["createdAt", "updatedAt", "categoryId", "sectionId", "brandId", "id"],
+                    include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
+                },
+                include: [
+                    {
+                        association: 'image',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt", "productId", "id"],
+                            include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/image/', file)`), 'imageURL']]
+                        }
+                    },
+                    {
+                        association: 'category',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt", "id"]
+                        }
+                    },
+                    {
+                        association: 'section',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt", "id"]
+                        }
+                    }/*, no funciona revisar
+                    {
+                        association: 'brand',
+                        attributes: {
+                            attributes: ['id', 'name'],
+                            exclude: ["createdAt", "updatedAt"]
+                        }
+                    }*/
+                ]
+            }
+            let product = await db.Product.findByPk(req.params.id, options)
+
+            if (!product) {
+                let error = new Error('No hay un producto con ese id');
+                error.status = 404;
+                throw error;
+            }
+
+            return res.status(200).json({
+                ok: true,
+                meta: {
+                    status: 200
+                },
+                data: {
+                    product
+                }
+            })
         } catch (error) {
             console.log(error);
             return res.status(error.status || 500).json({
-                ok:false,
+                ok: false,
                 msg: error.message
             })
         }
-
-
     },
+    image: async (req, res)=>{
+        console.log(req.params.image);
+        return res.sendFile(path.join(__dirname, '..','..','public','images','products', req.params.image ))
+    } ,
     //CARGA DE PRODUCTOS 
     productsLoad: (req, res) => {
         const categories = db.Category.findAll({ attributes: ['id', 'name'] });
