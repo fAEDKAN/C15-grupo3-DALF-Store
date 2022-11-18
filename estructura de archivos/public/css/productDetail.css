@@ -11,11 +11,11 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h3 {
+.title__h3 {
     color: var(--C_Ice-Cream);
     text-align: center;
     margin: 5px;
-}
+} 
 
 
 /*  H E A D E R */
