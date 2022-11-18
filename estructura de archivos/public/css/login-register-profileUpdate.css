@@ -80,8 +80,8 @@ input:-webkit-autofill:active {
 /** BODY | AVATAR */
 
 .body__form--profileImg {
-    height: 150px;
-    width: 150px;
+    height: 125px;
+    width: 125px;
     position: relative;
     top: 50%;
     left: 0;
@@ -89,13 +89,13 @@ input:-webkit-autofill:active {
     border-radius: 50%;
 }
 
-#avatar {
-    height: 150px;
-    width: 150px;
+.body__form--profileImg img {
+    height: 100%;
+    width: 100%;
     margin: 0;
 }
 
-#file {
+.body__form--profileImg input {
     display: none;
 }
 
@@ -198,32 +198,6 @@ input:-webkit-autofill:active {
 .body__form__inputs--chckbx input {
     width: 15px;
     height: 15px;
-}
-
-/** BODY | INPUTS | SELECT */
-
-.body__form__inputs__userData__input--select select {
-    width: 225px;
-    height: 50px;
-    color: var(--C_Ice-Cream);
-    background-color: transparent;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid;
-    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
-    padding-left: 5px;
-    padding-top: 15px;
-    transition: 1s all;
-    cursor: pointer;
-    appearance: none; /* eliminar flecha del select */
-}
-
-.body__form__inputs__userData__input--select select:hover {
-    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
-}
-
-.body__form__inputs__userData__input--select select option {
-    background: var(--C_Dark);
 }
 
 /** BODY | INPUTS | TEXTAREA */

@@ -16,8 +16,8 @@
 
                         <div class="body__form--profileImg">
                             <img src="/images/users/<%= user.avatar ? user.avatar.file : 'DEFAULT-IMAGE.jpg' %>" name ="avatar" id="avatar" alt="avatar">
-                            <label for="file" id="uploadBtn">Elegir Avatar</label>
                             <input type="file" id="file" name="avatarFile">
+                            <label for="file" id="uploadBtn">Elegir Avatar</label>
                         </div>
                         <p class="inputs__text__warnings"><%= locals.errors && errors.avatarFile ? errors.avatarFile.msg : null %></p>
 
@@ -45,15 +45,6 @@
                             <div class="body__form__inputs__userData--input">
                                 <label for="birthday">Cumpleaños:</label>
                                 <input type="date" id="birthday" name="birthday" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>">
-                            </div>
-
-                            <div class="body__form__inputs__userData__input--select">
-                                <select name="province" id="province">
-                                    <option value="" hidden selected>Seleccione su provincia...</option>
-                                    <% provinces.forEach(province => { %>
-                                        <option <%= province === user.province && 'selected' %> value="<%= province %>"><%= province %></option>
-                                    <% }) %>
-                                </select>
                             </div>
 
                             <div class="body__form__inputs__userData__input--textArea">

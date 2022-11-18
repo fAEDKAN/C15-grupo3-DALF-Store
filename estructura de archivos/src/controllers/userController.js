@@ -6,7 +6,6 @@ const moment = require("moment");
 /* const { loadUsers, storeUsers } = require("../data/dbModule"); */
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const provinces = require("../data/provinces");
 const db = require("../database/models");
 
 module.exports = {
@@ -16,34 +15,29 @@ module.exports = {
         return res.render("users/register");
     },
 
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            const { userName, email, password } = req.body;
-            // Creamos usuario cuyos datos completados en el form coinciden con los de los campos requeridos por la DB
-            db.User.create({
-                userName: userName.trim(),
-                email: email.trim(),
-                password: bcryptjs.hashSync(password.trim(), 10),
-                birthday: null,
-                rolId: 2,
-                avatarFile: null,
-            })
-                .then((user) => {
-                    // Creando el objeto en la tabla Avatar ya se le asigna un ID cuyo valor coincide con la relación con User
-                    db.Avatar.create({
-                        userId: user.id,
-                    }).then(() => {
-                        return res.redirect("login");
-                    });
-                })
-                .catch((error) => console.log(error));
-        } else {
+        if (!errors.isEmpty) {
             return res.render("users/register", {
                 errors: errors.mapped(),
-                old: req.body,
+                old: req.body
             });
+        } else { 
+            try {
+                const { userName, email, password } = req.body;
+                // Creamos usuario cuyos datos completados en el form coinciden con los de los campos requeridos por la DB
+                await db.User.create({
+                    userName: userName.trim(),
+                    email: email.trim(),
+                    password: bcryptjs.hashSync(password.trim(), 10),
+                    birthday: null,
+                    rolId: 2,
+                });
+                return res.redirect("login");
+            } catch (error) {
+                console.log(error);
+                res.send(error);
+            }
         }
     },
 
@@ -52,117 +46,122 @@ module.exports = {
         return res.render("users/login");
     },
 
-    processLogin: (req, res) => {
+    processLogin: async (req, res) => {
         let errors = validationResult(req);
-        const { email } = req.body;
-        // Buscamos usuario cuyo email coincida con el que viene desde el formulario
-        db.User.findOne({
-            where: {
-                email: email,
-            },
-        })
-            .then((user) => {
-                if (
-                    !user ||
-                    !bcryptjs.compareSync(req.body.password, user.password)
-                ) {
-                    // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
-                    return res.render("users/login", {
-                        errors: errors.mapped(),
-                    });
-                } else {
-                    // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
-                    req.session.userLogin = {
-                        id: user.id,
-                        userName: user.userName,
-                        avatarFile: user.avatar ? user.avatar.filename : 'DEFAULT-IMAGE.jpg',
-                        rol: user.rolId,
-                    };
-                    if (req.body.remember) {
-                        res.cookie("userDalfStore", req.session.userLogin, {
-                            maxAge: 10000 * 60,
-                        });
-                    }
-                    // Redirigimos al usuario a la página principal
-                    return res.redirect("/");
+        try {
+            const { email } = req.body;
+            // Buscamos un usuario cuyo email coincida con el que viene desde el form
+            const user = await db.User.findOne({
+                where: {
+                    email: email
                 }
-            })
-            .catch((error) => console.log(error));
+            });
+            if (!user || !bcryptjs.compareSync(req.body.password, user.password)) {
+                // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
+                return res.render("users/login", {
+                    errors: errors.mapped(),
+                });
+            } else {
+                // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
+                req.session.userLogin = {
+                    id: user.id,
+                    userName: user.userName,
+                    avatarFile: user.avatar ? user.avatar.filename : 'DEFAULT-IMAGE.jpg',
+                    rol: user.rolId,
+                };
+                if (req.body.remember) {
+                    res.cookie("userDalfStore", req.session.userLogin, {
+                        maxAge: 10000 * 60,
+                    });
+                }
+                // Redirigimos al usuario a la página principal
+                return res.redirect("/");
+            }
+        } catch (error) {
+            console.log(error);
+            res.send(error)
+        }
     },
 
     //USER PROFILE
-    profile: (req, res) => {
-        // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        })
-            // Renderizamos la vista del perfil
-            .then((user) => {
-                return res.render("users/profile", {
-                    user,
-                    provinces,
-                    moment
-                });
+    profile: async (req, res) => {
+        try {
+            // Traemos el usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id, {
+                include: [{ association: "avatar"}]
             })
-            .catch((error) => console.log(error));
-    },
-
-    //USER UPDATE
-    profileUpdate: (req, res) => {
-        // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        })
             // Renderizamos la vista del perfil
-            .then((user) => {
-                return res.render("users/profileUpdate", {
-                    user,
-                    provinces,
-                    moment
-                });
+            return res.render("users/profile", {
+                user,
+                moment
             })
-            .catch((error) => console.log(error));
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
     },
 
     //USER EDIT
-    update: (req, res) => {
-
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            const { userName, firstName, lastName, birthday, aboutMe } = req.body;
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        })
-            .then((user) => {
-                user.avatar
-                    .update({
-                        file: req.file
-                            ? req.file.filename
-                            : req.session.userLogin.avatarFile,
-                    })
-                    .catch((error) => console.log(error));
-                user.update({
-                    userName,
-                    firstName,
-                    lastName,
-                    birthday: birthday ? birthday : user.birthday,
-                    aboutMe,
-                }).then(() => {
-                    return res.redirect("/users/profile");
-                });
+    profileUpdate: async (req, res) => {
+        try {
+            // Traemos el usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id, {
+                include: [{ association: "avatar"}]
             })
-            .catch((error) => console.log(error));
-        } else {
-            db.User.findByPk(req.params.id)
-                .then(user => {
-                    return res.render('users/profileUpdate', {
-                        errors: errors.mapped(),
-                        old: req.body,
-                        user,
-                        moment,
-                        provinces
-                    })
+            // Renderizamos la vista de edición de perfil de usuario
+            return res.render("users/profileUpdate", {
+                user,
+                moment
+            })
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
+    },
+
+    //USER UPDATE
+    update: async (req, res) => {
+        let errors = validationResult(req);
+        if (!errors.isEmpty) {
+            return res.render("users/profileUpdate", {
+                errors: errors.mapped(),
+                old: req.body,
+            });
+        } else { 
+            try {
+                const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+                const user = await db.User.findByPk(req.session.userLogin.id, {
+                    include: [{ association: "avatar"}]
+                });
+                if (req.file) {
+                    const avatar = await db.Avatar.findOne({
+                        where: {
+                            userId: user.id
+                        }
+                    });
+                    if (avatar) {
+                        await avatar.update({
+                            file: req.file.filename
+                        })
+                    } else {
+                        await db.Avatar.create({
+                            file: req.file.filename,
+                            userId: user.id
+                        })
+                    }
+                }
+                await user.update({
+                    userName: userName.trim(),
+                    firstName: firstName.trim(),
+                    lastName: lastName.trim(),
+                    birthday: birthday ? birthday : user.birthday,
+                    aboutMe
                 })
+                return res.redirect("/users/profile");
+            } catch (error) {
+                console.log(error);
+                res.send(error);
+            }
         }
     },
 
