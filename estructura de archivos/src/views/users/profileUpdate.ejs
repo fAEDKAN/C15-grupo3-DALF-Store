@@ -26,7 +26,6 @@
                                 <label for="userName">Nombre de usuario:</label>
                                 <input type="text" placeholder="Nombre de usuario" id="userName" name="userName" value="<%= user.userName %>">
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.userName ? errors.userName.msg : null %></p>
-
                             </div>
 
                             <div class="body__form__inputs__userData--input">
@@ -39,7 +38,6 @@
                                 <label for="lastName">Apellido:</label>
                                 <input type="text" placeholder="Apellido" id="lastName" name="lastName" value="<%= user.lastName %>">
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.lastName ? errors.lastName.msg : null %></p>
-
                             </div>
 
                             <div class="body__form__inputs__userData--input">
@@ -47,15 +45,19 @@
                                 <input type="date" id="birthday" name="birthday" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>">
                             </div>
 
+                            
+
                             <div class="body__form__inputs__userData__input--textArea">
                                 <label for="aboutMe">Acerca de mí...</label>
                                 <textarea placeholder="Acerca de mí..." name="aboutMe" id="aboutMe"><%= user.aboutMe %></textarea>
                             </div>
 
                         </div>
+
                         <div class="body__form__button--btn">
                             <button type="submit">GUARDAR CAMBIOS</button>
                         </div>
+
                     </div>
                 </form>
 

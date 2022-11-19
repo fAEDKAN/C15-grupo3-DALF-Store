@@ -136,16 +136,9 @@ module.exports = {
     //USER UPDATE
     update: async (req, res) => {
         let errors = validationResult(req);
-        if (!errors.isEmpty) {
-            // Si hay errores los mostramos en la vista
-            return res.render("users/profileUpdate", {
-                errors: errors.mapped(),
-                old: req.body,
-            });
-        } else {
-            try {
-                const { userName, firstName, lastName, birthday, aboutMe } =
-                    req.body;
+        try {
+            if (errors.isEmpty()) {
+                const { userName, firstName, lastName, birthday, aboutMe } = req.body;
                 // Traemos al usuario guardado en session
                 const user = await db.User.findByPk(req.session.userLogin.id, {
                     include: [{ association: "avatar" }],
@@ -179,10 +172,21 @@ module.exports = {
                     aboutMe,
                 });
                 return res.redirect("/users/profile");
-            } catch (error) {
-                console.log(error);
-                res.send(error);
+            } else {
+                let user = await db.User.findByPk(req.session.userLogin.id, {
+                    include: [{ association: "avatar" }],
+                });
+                // Si hay errores los mostramos en la vista
+                return res.render("users/profileUpdate", {
+                    errors: errors.mapped(),
+                    old: req.body,
+                    user,
+                    moment
+                });
             }
+        } catch (error) {
+            console.log(error);
+            res.send(error);
         }
     },
 

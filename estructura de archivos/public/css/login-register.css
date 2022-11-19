@@ -77,44 +77,6 @@ input:-webkit-autofill:active {
     text-align: center;
 }
 
-/** BODY | AVATAR */
-
-.body__form--profileImg {
-    height: 125px;
-    width: 125px;
-    position: relative;
-    top: 50%;
-    left: 0;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.body__form--profileImg img {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-}
-
-.body__form--profileImg input {
-    display: none;
-}
-
-#uploadBtn {
-    height: 40px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.75);
-    color: var(--C_Ice-Cream);
-    line-height: 30px;
-    font-size: 15px;
-    cursor: pointer;
-    display: none;
-}
-
 /** BODY | INPUTS */
 
 .body__form--inputs {
@@ -200,45 +162,7 @@ input:-webkit-autofill:active {
     height: 15px;
 }
 
-/** BODY | INPUTS | TEXTAREA */
 
-.body__form__inputs__userData__input--textArea {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.body__form__inputs__userData__input--textArea textarea {
-    resize: none;
-    width: 250px;
-    height: 100px;
-    margin-top: 25px;
-    color: var(--C_Ice-Cream);
-    background-color: transparent;
-    outline: none;
-    border: 2px solid;
-    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
-    padding: 5px 0 0 5px;
-    transition: 1s all;
-}
-
-.body__form__inputs__userData__input--textArea textarea::placeholder {
-    color: var(--C_Ice-Cream);
-    transition: 1s all;
-}
-
-.body__form__inputs__userData__input--textArea textarea:hover {
-    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
-}
-
-.body__form__inputs__userData__input--textArea textarea:hover::placeholder {
-    color: var(--C_Pink_Logo);
-}
-
-.body__form__inputs__userData__input--textArea textarea:focus::placeholder {
-    color: var(--C_Pink_Logo);
-}
 
 /** BODY | INPUTS | BUTTON */
 
@@ -278,72 +202,6 @@ input:-webkit-autofill:active {
     transition: 0.75s;
 }
 .body__form__redirect a:hover {
-    color: var(--C_Lightblue_Logo);
-    font-size: 0.80rem;
-}
-
-/** BODY | FORMS | DELETE ACC */
-
-.body__form__redirect--deleteAcc {
-    background-color: rgba(12, 12, 12, 0.25)
-}
-
-.body__form__redirect--deleteAcc a {
-    color: var(--C_Light_Grey);
-}
-
-/** BODY | FORMS | WARNING TEXT  */
-
-.body__form--warningBox {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(12, 12, 12, 0.25);
-    padding: 20px;
-    width: 350px
-}
-
-.body__form--warningText {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.25rem;
-}
-
-.body__form--negative {
-    text-align: center;
-    margin: 25px 0;
-}
-
-.body__form--negative a {
-    font-size: 0.95rem;
-    color: var(--C_Lightblue_Logo);
-    font-weight: normal;
-    transition: 0.75s;
-}
-
-.body__form--negative a:hover {
-    color: var(--C_Pink_Logo);
-    font-size: 0.80rem;
-}
-
-.body__form--affirmative {
-    text-align: center;
-}
-
-.body__form--affirmative button {
-    border: none;
-    background: none;
-    outline: none;
-    font-size: 0.95rem;
-    color: var(--C_Pink_Logo);
-    font-weight: normal;
-    transition: 0.75s;
-}
-
-.body__form--affirmative button:hover {
     color: var(--C_Lightblue_Logo);
     font-size: 0.80rem;
 }

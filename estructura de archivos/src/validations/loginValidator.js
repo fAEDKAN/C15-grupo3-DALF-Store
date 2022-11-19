@@ -4,7 +4,7 @@ const { check, body } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 
-//VALIDATIONS
+// LOGIN VALIDATIONS
 module.exports = [
     check("email")
         .notEmpty()

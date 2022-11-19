@@ -1,8 +1,9 @@
+//REQUIRE DATA BASE - VALIDATOR
 const { check, body } = require("express-validator");
 /* const { loadUsers } = require("../data/dbModule"); */
 const db = require("../database/models");
 
-//REGISTER VALIDATIONS
+// REGISTER VALIDATIONS
 module.exports = [
     check("userName")
         .notEmpty()

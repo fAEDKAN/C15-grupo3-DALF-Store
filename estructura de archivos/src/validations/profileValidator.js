@@ -18,7 +18,7 @@ module.exports = [
                 return true;
             }
         })
-        .withMessage("Sólo se admiten formatos .jpg, .jpeg y .png"),
+        .withMessage("Sólo se admiten formatos png, jpg y jpeg"),
 
     check("userName")
         .notEmpty()
