@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
 const { validationResult } = require('express-validator');
+const {createError}= require('../helpers/index')
 const db = require('../../database/models');
 const { literal, Op } = require('sequelize');
 
