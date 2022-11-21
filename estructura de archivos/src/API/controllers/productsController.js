@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 //REQUIRE DATA BASE - VALIDATIONS 
 const { validationResult } = require('express-validator');
-const {createError}= require('../helpers/index')
+const { createError } = require('../helpers/index')
 const db = require('../../database/models');
-const { literal, Op } = require('sequelize');
+const { literal, Op, Sequelize } = require('sequelize');
 
 module.exports = {
     productsList: async (req, res) => {
@@ -34,25 +34,85 @@ module.exports = {
             let { count: total, rows: products } = await db.Product.findAndCountAll(options);
             let categories = await db.Category.findAll({
                 attributes: {
-                exclude: ["createdAt", "updatedAt","id"]
-                }})
+                    exclude: ["createdAt", "updatedAt", "id"]
+                }
+            })
+            ///////////////////////////////////////////////////////////////////
 
-            let CountPByC =
-                categories.forEach(async category  => { 
-                let result= await db.Product.count({where: {[Op.or]: [{categoryId: {[Op.substring]: category.id //id de categoria
-                }}]}})
-                
-                
-            });
-            /*let productsCountByCategory = await db.Product.count({
+            let productsByCategory = await db.Product.count({
+                include: [
+                    {
+                        association: 'category',
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt"]
+                        }
+                    }
+                ],
+                group: ["categoryId"]
+            })
+            
+
+            /* intento de juli
+            let CountPByC8 = await db.Product.findAll({
+                attributes: {
+                    include: [[Sequelize.fn("COUNT", Sequelize.col("category.id")), "categoryCount"]]
+                },
+                include: [{
+                    model: "Category", attributes: []
+                }],
+                group: ['category.id']
+            })
+
+            /*let CountPByC =
+                categories.forEach(async category => {
+                    let result = await db.Product.count({
+                        where: {
+                            [Op.or]: [{
+                                categoryId: {
+                                    [Op.substring]: category.id //id de categoria
+                                }
+                            }]
+                        }
+                    })
+
+
+                });  */
+            //intento funciona de manera individual probado en map
+            /*let productsCountByCategory = 
+            categories.map(async category => {
+                 let result= await db.Product.count({
                 where: {
                     [Op.or]: [{
                         categoryId: {
-                            [Op.substring]: 3 //id de categoria
+                            [Op.substring]: category.id //id de categoria
                         }
                     }]
                 }
-            })*/
+            })
+            return {
+                category: category.name,
+                count :result
+            }
+            });*/
+            /*let productsCountByCategory =async ()=>{
+                let categories= await db.Category.findAll()
+                await db.Product.count({
+                    include: [
+                        {
+                            association: 'category',
+                            attributes: {
+                                exclude: ["createdAt", "updatedAt"]
+                            }
+                        }
+                    ],
+                    group: ["categoryId"]
+                })
+                return {
+                    category: categories.name,
+                    count :result
+                }}*/
+           
+           
 
             return res.status(200).json({
                 ok: true,
@@ -60,7 +120,7 @@ module.exports = {
                     status: 200.,
                     //categories,
                     //productsCountByCategory
-                    CountPByC
+                    productsByCategory
                 },
                 data: {
                     total,
@@ -109,7 +169,8 @@ module.exports = {
                         attributes: {
                             exclude: ["createdAt", "updatedAt", "id"]
                         }
-                    }/*, no funciona revisar
+                    }
+                    /*, no funciona revisar
                     {
                         association: 'brand',
                         attributes: {
@@ -144,22 +205,11 @@ module.exports = {
             })
         }
     },
-    image: async (req, res)=>{
+    image: async (req, res) => {
         console.log(req.params.image);
-        return res.sendFile(path.join(__dirname, '..','..','public','images','products', req.params.image ))
-    } ,
-    //CARGA DE PRODUCTOS 
-    productsLoad: (req, res) => {
-        const categories = db.Category.findAll({ attributes: ['id', 'name'] });
-        const sections = db.Section.findAll({ attributes: ['id', 'name'] });
-        const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
-
-        Promise.all([categories, sections, brands])
-            .then(([categories, sections, brands]) => {
-                return res.render('products/productsLoad', { categories, sections, brands })
-            })
-            .catch(error => res.send(error))
+        return res.sendFile(path.join(__dirname, '..', '..','..', 'public', 'images', 'products', req.params.image))
     },
+    //CARGA DE PRODUCTOS 
     create: async (req, res) => {
         console.log(req);
         let errors = validationResult(req);
@@ -201,39 +251,10 @@ module.exports = {
                     fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename));
                 })
             };
-
-            const categories = db.Category.findAll({ attributes: ['id', 'name'] });
-            const sections = db.Section.findAll({ attributes: ['id', 'name'] });
-            const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
-
-            Promise.all([categories, sections, brands])
-                .then(([categories, sections, brands]) => {
-                    return res.render('products/productsLoad', {
-                        categories,
-                        sections,
-                        brands,
-                        errors,
-                        old: req.body
-                    })
-                })
-                .catch(error => console.log(error))
         }
     },
     //EDICION DE PRODUCTOS 
-    productEdit: (req, res) => {
-        let productToEdit = db.Product.findByPk(req.params.id);
-        let categories = db.Category.findAll({ attributes: ['id', 'name'] });
-        let sections = db.Section.findAll({ attributes: ['id', 'name'] });
-        let brands = db.Brand.findAll({ attributes: ['id', 'name'] });
-
-        Promise.all([productToEdit, categories, sections, brands])
-            .then(([productToEdit, categories, sections, brands]) => {
-
-                return res.render('products/productEdit', { productToEdit, categories, sections, brands })
-            })
-            .catch(error => res.send(error))
-
-    },
+    
     update: async (req, res) => {
 
         const errors = validationResult(req);
@@ -301,17 +322,6 @@ module.exports = {
             })
             .catch(error => res.send(error))
 
-    },
-    //CART
-    cart: (req, res) => {
-        return res.render('products/cart');
-    },
-    cartAdress: (req, res) => {
-        return res.render('products/cartAdress');
-    },
-    cartPay: (req, res) => {
-        return res.render('products/cartPay');
     }
-
 }
 
