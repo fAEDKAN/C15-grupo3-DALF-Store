@@ -21,7 +21,7 @@ module.exports = {
         let options = {
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
-                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', product.Id)`), 'productURL']]
+                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
             },
             include: [
                 {
