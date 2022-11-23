@@ -76,6 +76,7 @@ module.exports = {
             return res.status(200).json({
                 ok: true,
                 meta: {
+                    status: 200,
                     //categories,
                     total,
                     quantity : products.length,
