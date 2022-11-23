@@ -8,10 +8,20 @@ const { literal, Op } = require('sequelize');
 
 module.exports = {
     productsList: async (req, res) => {
+        try {
+        //Limite por default 10 en la pagina 1
+        let {limit = 10, page = 1} = req.query;
+        
+        //Limite maximo de productos de la pagina | Cual quier caso se puede cambiar el limite maximo, por si agregan mas productos
+        limit = limit > 100 ? 100: +limit;
+
+        //Limite por default inicio de la pagina es 0 
+        let offset = +limit * (+page - 1);
+
         let options = {
             attributes: {
                 exclude: ["createdAt", "updatedAt"],
-                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
+                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', product.Id)`), 'productURL']]
             },
             include: [
                 {
@@ -27,18 +37,27 @@ module.exports = {
                         exclude: ["createdAt", "updatedAt"]
                     }
                 }
-            ]
+            ],
+            limit,
+            offset
         }
 
-        try {
             let { count: total, rows: products } = await db.Product.findAndCountAll(options);
+
+            //Exit & Prev
+            const existPrev = page > 1;
+            const existNext = offset + limit < total;
+            //URL
+            const prev = existPrev ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page - 1}` : null;
+            const next = existNext ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page + 1}` : null;
+
+
             let categories = await db.Category.findAll({
                 attributes: {
                 exclude: ["createdAt", "updatedAt","id"]
                 }})
 
-            let CountPByC =
-                categories.forEach(async category  => { 
+            let CountPByC = categories.forEach(async category  => { 
                 let result= await db.Product.count({where: {[Op.or]: [{categoryId: {[Op.substring]: category.id //id de categoria
                 }}]}})
                 
@@ -57,13 +76,16 @@ module.exports = {
             return res.status(200).json({
                 ok: true,
                 meta: {
-                    status: 200.,
                     //categories,
+                    total,
+                    quantity : products.length,
+                    page,
+                    prev,
+                    next,
                     //productsCountByCategory
                     CountPByC
                 },
                 data: {
-                    total,
                     products
                 }
             })
