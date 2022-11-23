@@ -14,18 +14,22 @@ module.exports = {
     },
     //PRODUCT DETAIL
     productDetail: (req, res) => {
-        db.Product.findByPk(req.params.id, {
+        const categories = db.Category.findAll({ attributes: ['id', 'name'] });
+        const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+        const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+
+        let product = db.Product.findByPk(req.params.id, {
             include: [
                 {
                     association: 'image'
                 }
             ]
         })
-            .then(product => {
-                //return res.send(product)
-                res.render("products/productDetail", { product })
-            })
-            .catch(error => res.send(error))
+        Promise.all([product, categories, sections, brands,])
+        .then(([product, categories, sections, brands]) => {
+            return res.render('products/productDetail', { product, categories, sections, brands })
+        })
+        .catch(error => res.send(error))
 
     },
     //CARGA DE PRODUCTOS 
