@@ -1,12 +1,11 @@
-/* const fs = require("fs");
-const path = require("path"); */
+const fs = require("fs");
+const path = require("path");
 const moment = require("moment");
 
 //REQUIRE DATA BASE - VALIDATIONS - BCRYPTJS
 /* const { loadUsers, storeUsers } = require("../data/dbModule"); */
 const { validationResult } = require("express-validator");
 const bcryptjs = require("bcryptjs");
-const provinces = require("../data/provinces");
 const db = require("../database/models");
 
 module.exports = {
@@ -16,136 +15,178 @@ module.exports = {
         return res.render("users/register");
     },
 
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
         let errors = validationResult(req);
-
-        if (errors.isEmpty()) {
-            const { userName, email, password } = req.body;
-            // Creamos usuario cuyos datos completados en el form coinciden con los de los campos requeridos por la DB
-            db.User.create({
-                userName: userName.trim(),
-                email: email.trim(),
-                password: bcryptjs.hashSync(password.trim(), 10),
-                birthday: null,
-                rolId: 2,
-                avatarFile: null,
-            })
-                .then((user) => {
-                    // Creando el objeto en la tabla Avatar ya se le asigna un ID cuyo valor coincide con la relación con User
-                    db.Avatar.create({
-                        userId: user.id,
-                    }).then(() => {
-                        return res.redirect("login");
-                    });
-                })
-                .catch((error) => console.log(error));
-        } else {
-            return res.render("users/register", {
-                errors: errors.mapped(),
-                old: req.body,
-            });
+        try {
+            if (errors.isEmpty()) {
+                const { userName, email, password } = req.body;
+                // Si no hay errores creamos usuario y levantamos sesión
+                const user = await db.User.create({
+                    userName: userName.trim(),
+                    email: email.trim(),
+                    password: bcryptjs.hashSync(password.trim(), 10),
+                    birthday: null,
+                    rolId: 2,
+                });
+                req.session.userLogin = {
+                    id: user.id,
+                    userName: user.userName,
+                    avatarFile: user.avatar
+                        ? user.avatar.filename
+                        : "DEFAULT-IMAGE.jpg",
+                    rol: user.rolId,
+                };
+                return res.redirect("/");
+            } else {
+                return res.render("users/register", {
+                    errors: errors.mapped(),
+                    old: req.body,
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            res.send(error);
         }
     },
 
     //USERS LOGIN
     login: (req, res) => {
+        // Se renderiza la vista del form de login
         return res.render("users/login");
     },
 
-    processLogin: (req, res) => {
+    processLogin: async (req, res) => {
         let errors = validationResult(req);
-        const { email } = req.body;
-        // Buscamos usuario cuyo email coincida con el que viene desde el formulario
-        db.User.findOne({
-            where: {
-                email: email,
-            },
-        })
-            .then((user) => {
-                if (
-                    !user ||
-                    !bcryptjs.compareSync(req.body.password, user.password)
-                ) {
-                    // Si el usuario no existe o la contraseña no es correcta volvemos al login y mostramos los errores
-                    return res.render("users/login", {
-                        errors: errors.mapped(),
+        try {
+            const { email } = req.body;
+            // Buscamos un usuario cuyo email coincida con el que viene desde el form
+            const user = await db.User.findOne({
+                where: {
+                    email: email,
+                },
+            });
+            if (
+                !user ||
+                !bcryptjs.compareSync(req.body.password, user.password)
+            ) {
+                // Si el usuario no existe o la contraseña no es correcta, mostramos los errores en la vista
+                return res.render("users/login", {
+                    errors: errors.mapped(),
+                });
+            } else {
+                // Si todo está OK creamos sesión
+                req.session.userLogin = {
+                    id: user.id,
+                    userName: user.userName,
+                    avatarFile: user.avatar
+                        ? user.avatar.filename
+                        : "DEFAULT-IMAGE.jpg",
+                    rol: user.rolId,
+                };
+                if (req.body.remember) {
+                    // Si el usuario lo desea, guardamos sus datos en una cookie
+                    res.cookie("userDalfStore", req.session.userLogin, {
+                        maxAge: 10000 * 60,
                     });
-                } else {
-                    // Se crea una sesión para el usuario y si desea recordar sus datos los guardamos en una cookie
-                    req.session.userLogin = {
-                        id: user.id,
-                        userName: user.userName,
-                        avatarFile: user.avatar ? user.avatar.filename : 'DEFAULT-IMAGE.jpg',
-                        rol: user.rolId,
-                    };
-                    if (req.body.remember) {
-                        res.cookie("userDalfStore", req.session.userLogin, {
-                            maxAge: 10000 * 60,
-                        });
-                    }
-                    // Redirigimos al usuario a la página principal
-                    return res.redirect("/");
                 }
-            })
-            .catch((error) => console.log(error));
+                return res.redirect("/");
+            }
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
     },
 
     //USER PROFILE
-    profile: (req, res) => {
-        // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        })
+    profile: async (req, res) => {
+        try {
+            // Traemos al usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id, {
+                include: [{ association: "avatar" }],
+            });
             // Renderizamos la vista del perfil
-            .then((user) => {
-                return res.render("users/profile", {
-                    user,
-                    provinces,
-                    moment
-                });
-            })
-            .catch((error) => console.log(error));
+            return res.render("users/profile", {
+                user,
+                moment,
+            });
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
     },
 
     //USER EDIT
-    update: (req, res) => {
+    profileUpdate: async (req, res) => {
+        try {
+            // Traemos al usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id, {
+                include: [{ association: "avatar" }],
+            });
+            // Renderizamos la vista de edición de perfil de usuario
+            return res.render("users/profileUpdate", {
+                user,
+                moment,
+            });
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
+    },
 
+    //USER UPDATE
+    update: async (req, res) => {
         let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            const { userName, firstName, lastName, birthday, aboutMe } = req.body;
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        })
-            .then((user) => {
-                user.avatar
-                    .update({
-                        file: req.file
-                            ? req.file.filename
-                            : req.session.userLogin.avatarFile,
-                    })
-                    .catch((error) => console.log(error));
-                user.update({
-                    userName,
-                    firstName,
-                    lastName,
+        try {
+            if (errors.isEmpty()) {
+                const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+                // Traemos al usuario guardado en session
+                const user = await db.User.findByPk(req.session.userLogin.id, {
+                    include: [{ association: "avatar" }],
+                });
+                // Si existe una imagen cuyo userId coincide con el ID del usuario, la traemos
+                if (req.file) {
+                    const avatar = await db.Avatar.findOne({
+                        where: {
+                            userId: user.id,
+                        },
+                    });
+                    // Si existe la actualizamos
+                    if (avatar) {
+                        await avatar.update({
+                            file: req.file.filename,
+                        });
+                    } else {
+                        // Y sino creamos una nueva
+                        await db.Avatar.create({
+                            file: req.file.filename,
+                            userId: user.id,
+                        });
+                    }
+                }
+                // Actualizamos los datos del usuario
+                await user.update({
+                    userName: userName.trim(),
+                    firstName: firstName.trim(),
+                    lastName: lastName.trim(),
                     birthday: birthday ? birthday : user.birthday,
                     aboutMe,
-                }).then(() => {
-                    return res.redirect("/users/profile");
                 });
-            })
-            .catch((error) => console.log(error));
-        } else {
-            db.User.findByPk(req.params.id)
-                .then(user => {
-                    return res.render('users/profile', {
-                        errors: errors.mapped(),
-                        old: req.body,
-                        user,
-                        moment,
-                        provinces
-                    })
-                })
+                return res.redirect("/users/profile");
+            } else {
+                let user = await db.User.findByPk(req.session.userLogin.id, {
+                    include: [{ association: "avatar" }],
+                });
+                // Si hay errores los mostramos en la vista
+                return res.render("users/profileUpdate", {
+                    errors: errors.mapped(),
+                    old: req.body,
+                    user,
+                    moment
+                });
+            }
+        } catch (error) {
+            console.log(error);
+            res.send(error);
         }
     },
 
@@ -156,6 +197,7 @@ module.exports = {
 
     //LOGOUT
     logout: (req, res) => {
+        // Deslogueamos al usuario
         req.session.destroy();
         res.cookie("userDalfStore", null, {
             maxAge: -1,
@@ -164,29 +206,39 @@ module.exports = {
     },
 
     //DELETE ACCOUNT
-    deleteAcc: (req, res) => {
-        // Traemos el usuario guardado en session
-        db.User.findByPk(req.session.userLogin.id)
+    deleteAcc: async (req, res) => {
+        try {
+            // Traemos al usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id);
             // Renderizamos la vista de advertencia
-            .then((user) => {
-                return res.render("users/deleteAcc", {
-                    user,
-                });
-            })
-            .catch((error) => console.log(error));
+            return res.render("users/deleteAcc", {
+                user,
+            });
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
     },
 
-    remove: (req, res) => {
-        db.User.findByPk(req.session.userLogin.id, {
-            include: [{ association: "avatar" }],
-        }).then((user) => {
-            user.avatar
-                .destroy({
-                    file: req.file
-                        ? req.file.filename
-                        : req.session.userLogin.avatarFile,
-                })
-                .catch((error) => console.log(error));
+    remove: async (req, res) => {
+        try {
+            // Traemos al usuario guardado en session
+            const user = await db.User.findByPk(req.session.userLogin.id, {
+                include: [{ association: "avatar" }],
+            });
+            // Traemos el avatar cuyo userId coincida con el ID del usuario
+            const avatar = await db.Avatar.findOne({
+                where: {
+                    userId: user.id,
+                },
+            });
+            // Primero eliminamos el avatar, ya que sino dará error por la FK
+            avatar.destroy({
+                file: req.file
+                    ? req.file.filename
+                    : req.session.userLogin.avatarFile,
+            });
+            // Luego procedemos a eliminar el usuario cuyo ID coincida con el ID que viene por parámetro
             user.destroy(
                 {
                     where: {
@@ -196,15 +248,16 @@ module.exports = {
                 {
                     include: [{ association: "avatar" }],
                 }
-            )
-                .then(() => {
-                    req.session.destroy();
-                    res.cookie("userDalfStore", null, {
-                        maxAge: -1,
-                    });
-                    return res.redirect("/");
-                })
-                .catch((error) => console.log(error));
-        });
+            );
+            // Destruimos cookie y session
+            req.session.destroy();
+            res.cookie("userDalfStore", null, {
+                maxAge: -1,
+            });
+            return res.redirect("/");
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
     },
 };

@@ -7,7 +7,7 @@ const userSessionCheck = require('../middlewares/userSessionCheck');
 
 const guestCheck = require('../middlewares/guestCheck');
 
-const { register, processRegister, login, processLogin, /* shopping, */ profile, update, logout, deleteAcc, remove } = require('../controllers/userController');
+const { register, processRegister, login, processLogin, /* shopping, */ profile, profileUpdate, update, logout, deleteAcc, remove } = require('../controllers/userController');
 
 const loginValidator = require('../validations/loginValidator');
 const registerValidator = require('../validations/registerValidator');
@@ -24,6 +24,7 @@ router.get('/logout', logout);
 
 //USER PROFILE
 router.get('/profile', userSessionCheck, profile);
+router.get('/profileUpdate', userSessionCheck, profileUpdate);
 router.put('/update/:id', uploadUsers.single('avatarFile'), profileValidator, update);
 
 /* //MY SHOPPING

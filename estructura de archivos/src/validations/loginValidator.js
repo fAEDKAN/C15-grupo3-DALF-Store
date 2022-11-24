@@ -4,7 +4,7 @@ const { check, body } = require("express-validator");
 const bcryptjs = require("bcryptjs");
 const db = require("../database/models");
 
-//VALIDATIONS
+// LOGIN VALIDATIONS
 module.exports = [
     check("email")
         .notEmpty()
@@ -13,34 +13,24 @@ module.exports = [
         .isEmail()
         .withMessage("Ingresá un email válido")
         .bail()
-        .custom((value, { req }) => {
-            let user = db.User.findAll({ email }).then(
-                (user) => user.email !== value || req.body.email
-            );
+        .custom(async (value, { req }) => {
+            let user = await db.User.findAll({ email });
+            user.email !== value || req.body.email;
             return user ? false : true;
         })
-        .withMessage("El email no está registrado"),
+        .withMessage("El email no está registrado")
+        .bail(),
 
     body("password")
         .notEmpty()
         .withMessage("El campo no puede estar vacío")
         .bail()
-        /*.custom((value, { req }) => {
-            let user = loadUsers().find(
-                (user) =>
-                    user.email === req.body.email &&
-                    bcryptjs.compareSync(value, user.password)
-            );
+        .custom(async (value, { req }) => {
+            let user = await db.User.findOne({ email });
+            user.email === req.body.email &&
+                bcryptjs.compareSync(value, user.password);
             return user ? true : false;
         })
-        .withMessage("El email o la contraseña no coinciden"), */
-        .custom((value, { req }) => {
-            let user = db.User.findOne({ email }).then(
-                (user) =>
-                    user.email === req.body.email &&
-                    bcryptjs.compareSync(value, user.password)
-            );
-            return user ? true : false;
-        })
-        .withMessage("El email o la contraseña no coinciden"),
+        .withMessage("El email o la contraseña no coinciden")
+        .bail(),
 ];

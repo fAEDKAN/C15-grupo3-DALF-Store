@@ -18,7 +18,7 @@ module.exports = [
                 return true;
             }
         })
-        .withMessage("Sólo se admiten formatos .jpg, .jpeg y .png"),
+        .withMessage("Sólo se admiten formatos png, jpg y jpeg"),
 
     check("userName")
         .notEmpty()
@@ -34,20 +34,6 @@ module.exports = [
         .bail()
         .isAlpha("es-ES")
         .withMessage("Sólo caracteres alfabéticos"),
-
-    body("userName").custom(function (value) {
-        return db.User.findOne({
-            where: {
-                userName: value,
-            },
-        }).then((user) => {
-            if (user) {
-                return Promise.reject(
-                    "El nombre de usuario ya se encuentra registrado"
-                );
-            }
-        });
-    }),
 
     check("firstName")
         .isLength({
