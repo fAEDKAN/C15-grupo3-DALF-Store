@@ -41,16 +41,21 @@
                             </div>
 
                             <div class="body__form__inputs__userData--input">
+                                <label for="phone">Teléfono:</label>
+                                <input type="text" placeholder="Teléfono" id="phone" name="phone" value="<%= user.phone %>">
+                            </div>
+
+                            <div class="body__form__inputs__userData--input">
                                 <label for="birthday">Cumpleaños:</label>
                                 <input type="date" id="birthday" name="birthday" value="<%= user.birthday %>">
                             </div>
 
-                            <div>
+                            <div class="body__form__inputs__userData--input">
                                 <label for="street">Domicilio:</label>
                                 <input type="text" placeholder="Calle y altura" name="street" id="street" value="<%= user.address.street %> ">
                             </div>
 
-                            <div>
+                            <div class="body__form__selects__userData--select">
                                 <label for="city-select">Ciudad:</label>
                                 <select name="city" id="city-select">
                                     <option value="<%= user.address.city %>">
@@ -59,7 +64,7 @@
                                 </select>
                             </div>
 
-                            <div>
+                            <div class="body__form__selects__userData--select">
                                 <label for="province-select">Provincia:</label>
                                 <input type="text" id="province" value="<%= user.address.province %>" hidden>
                                 <select name="province" id="province-select"></select>
@@ -91,8 +96,8 @@
             </div>
         </div>
     </body>
-
 </html>
 
 <!-- script user profile image -->
 <script src="/javascripts/profileImage.js"></script>
+<script src="/javascripts/userProfile.js"></script>

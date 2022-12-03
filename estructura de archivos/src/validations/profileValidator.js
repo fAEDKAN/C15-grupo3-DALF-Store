@@ -1,5 +1,6 @@
 const { body, check } = require("express-validator");
 const path = require("path");
+const fs = require("fs");
 const db = require("../database/models");
 
 //PROFILE VALIDATIONS
@@ -18,7 +19,7 @@ module.exports = [
             }
         })
         .withMessage("Sólo se admiten formatos png, jpg y jpeg"),
-
+    
     check("userName")
         .notEmpty()
         .withMessage("Éste campo es obligatorio")

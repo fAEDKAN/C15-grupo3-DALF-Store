@@ -161,6 +161,7 @@ module.exports = {
                     userName,
                     firstName,
                     lastName,
+                    phone,
                     birthday,
                     street,
                     city,
@@ -213,6 +214,7 @@ module.exports = {
                     userName: userName.trim(),
                     firstName: firstName.trim(),
                     lastName: lastName.trim(),
+                    phone: phone,
                     birthday: birthday,
                     aboutMe,
                 });

@@ -18,7 +18,7 @@
                         </div>
     
                         <div>
-                            <p><%= user.address.street %> </p>
+                            <p><%= user.address.street %>, <%= user.address.city %>, <%= user.address.province %></p>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
 
                     <div class="body__profile--contact">
                         <div class="body__profile__contact--phone">
-                            <p>acá irá el número de teléfono</p>
+                            <p><%= user.phone %></p>
                         </div>
     
                         <div class="body__profile__contact--email">
@@ -50,17 +50,9 @@
                     </div>
 
                     <div class="body__profile--products">
-                        <div class="body__profile__product--productsForSale">
+                        <div class="body__profile__product--productsInSale">
                             <h4>Mis productos en venta</h4>
-                            <p>acá irán los productos a la venta</p> <!-- acá irán los productos a la venta -->
-                        </div>
-                        <div class="body__profile__product--soldProducts">
-                            <h4>Mis productos vendidos</h4>
-                            <p>acá irán los productos vendidos</p> <!-- acá irán los productos vendidos -->
-                        </div>
-                        <div class="body__profile__product--favoriteProducts">
-                            <h4>Mis productos favoritos</h4>
-                            <p>acá irán los productos favoritos</p> <!-- acá irán los productos favoritos ♥ -->
+                            <p>acá irán los productos a la venta</p> <!-- acá irán los productos del usuario -->
                         </div>
                     </div>
 
