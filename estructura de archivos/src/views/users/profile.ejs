@@ -18,7 +18,7 @@
                         </div>
     
                         <div>
-                            <p>acá irá la locación</p> <!-- acá irá la dirección -->
+                            <p><%= user.address.street %> </p>
                         </div>
                     </div>
 
@@ -28,7 +28,7 @@
                         </div>
                         
                         <div class="body__profile__userInfo--birthday">
-                            <p><%= moment(user.birthday).format('YYYY-MM-DD') %></p>
+                            <p><%= moment(user.birthday).format('DD-MM-YYYY') %></p>
                         </div>
                     </div>
 

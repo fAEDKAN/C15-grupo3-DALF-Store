@@ -14,7 +14,7 @@ const storageUser = multer.diskStorage({
     },
 });
 
-const fileFilter = (req, file, cb) => {
+/* const fileFilter = (req, file, cb) => {
     if (
         file.mimetype === "image/jpeg" ||
         file.mimetype === "image/jpg" ||
@@ -22,14 +22,14 @@ const fileFilter = (req, file, cb) => {
     ) {
         cb(null, true);
     } else {
-        req.fileValidationError = "Sólo se permiten imágenes en formato .jpg, .jpeg y .png"
+        req.fileValidationError = "Sólo se admiten formatos png, jpg y jpeg"
         return cb(null, false, req.fileValidationError);
     }
-};
+}; */
 
 const uploadUsers = multer({
     storage: storageUser,
-    fileFilter,
+/*     fileFilter, */
     limits: { fileSize: 2000000 }, // 1 millón de bytes = 1 MB - Se limita el tamaño del archivo
 });
 

@@ -6,13 +6,12 @@ const db = require("../database/models");
 module.exports = [
     body("avatarFile")
         .custom((value, { req }) => {
-            let file = req.file;
-            let allowedExt = [".jpg", ".jpeg", ".png"];
-            if (!file) {
-                null;
+            if (!req.file) {
+                return true;
             } else {
-                let fileExt = path.extname(file.originalname);
-                if (!allowedExt.includes(fileExt)) {
+                const allowedExt = ["png", "jpg", "jpeg"];
+                const extension = req.file.originalname.split(".")[1];
+                if (!allowedExt.includes(extension)) {
                     return false;
                 }
                 return true;

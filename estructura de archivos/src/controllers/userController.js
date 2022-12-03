@@ -19,15 +19,19 @@ module.exports = {
         let errors = validationResult(req);
         try {
             if (errors.isEmpty()) {
-                const { userName, email, password } = req.body;
+                const { id, userName, email, password } = req.body;
                 // Si no hay errores creamos usuario y levantamos sesión
                 const user = await db.User.create({
+                    id,
                     userName: userName.trim(),
                     email: email.trim(),
                     password: bcryptjs.hashSync(password.trim(), 10),
                     birthday: null,
                     rolId: 2,
                 });
+                db.Address.create({
+                    userId: user.id
+                })
                 req.session.userLogin = {
                     id: user.id,
                     userName: user.userName,
@@ -102,7 +106,14 @@ module.exports = {
         try {
             // Traemos al usuario guardado en session
             const user = await db.User.findByPk(req.session.userLogin.id, {
-                include: [{ association: "avatar" }],
+                include: [
+                    {
+                        association: "avatar"
+                    },
+                    {
+                        association: "address"
+                    }
+                ],
             });
             // Renderizamos la vista del perfil
             return res.render("users/profile", {
@@ -120,7 +131,13 @@ module.exports = {
         try {
             // Traemos al usuario guardado en session
             const user = await db.User.findByPk(req.session.userLogin.id, {
-                include: [{ association: "avatar" }],
+                include: [
+                    {
+                        association: "avatar"
+                    },
+                    {
+                        association: "address"
+                    }],
             });
             // Renderizamos la vista de edición de perfil de usuario
             return res.render("users/profileUpdate", {
@@ -136,9 +153,19 @@ module.exports = {
     //USER UPDATE
     update: async (req, res) => {
         let errors = validationResult(req);
+
         try {
             if (errors.isEmpty()) {
-                const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+                const {
+                    userName,
+                    firstName,
+                    lastName,
+                    birthday,
+                    street,
+                    city,
+                    province,
+                    aboutMe,
+                } = req.body;
                 // Traemos al usuario guardado en session
                 const user = await db.User.findByPk(req.session.userLogin.id, {
                     include: [{ association: "avatar" }],
@@ -163,25 +190,46 @@ module.exports = {
                         });
                     }
                 }
+
+                await db.Address.update(
+                    {
+                        street: street.trim(),
+                        city: city,
+                        province: province,
+                    },
+                    {
+                        where: {
+                            userId: req.session.userLogin.id,
+                        },
+                    }
+                );
+
                 // Actualizamos los datos del usuario
                 await user.update({
                     userName: userName.trim(),
                     firstName: firstName.trim(),
                     lastName: lastName.trim(),
-                    birthday: birthday ? birthday : user.birthday,
+                    birthday: birthday,
                     aboutMe,
                 });
+
                 return res.redirect("/users/profile");
             } else {
                 let user = await db.User.findByPk(req.session.userLogin.id, {
-                    include: [{ association: "avatar" }],
+                    include: [
+                        {
+                            association: "avatar"
+                        },
+                        {
+                            association: "address"
+                        }],
                 });
                 // Si hay errores los mostramos en la vista
                 return res.render("users/profileUpdate", {
                     errors: errors.mapped(),
                     old: req.body,
                     user,
-                    moment
+                    moment,
                 });
             }
         } catch (error) {

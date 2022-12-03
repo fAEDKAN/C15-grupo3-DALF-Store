@@ -42,10 +42,28 @@
 
                             <div class="body__form__inputs__userData--input">
                                 <label for="birthday">Cumpleaños:</label>
-                                <input type="date" id="birthday" name="birthday" value="<%= moment(user.birthday).format('YYYY-MM-DD') %>">
+                                <input type="date" id="birthday" name="birthday" value="<%= user.birthday %>">
                             </div>
 
-                            
+                            <div>
+                                <label for="street">Domicilio:</label>
+                                <input type="text" placeholder="Calle y altura" name="street" id="street" value="<%= user.address.street %> ">
+                            </div>
+
+                            <div>
+                                <label for="city-select">Ciudad:</label>
+                                <select name="city" id="city-select">
+                                    <option value="<%= user.address.city %>">
+                                        <%= user.address.city %>
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="province-select">Provincia:</label>
+                                <input type="text" id="province" value="<%= user.address.province %>" hidden>
+                                <select name="province" id="province-select"></select>
+                            </div>
 
                             <div class="body__form__inputs__userData__input--textArea">
                                 <label for="aboutMe">Acerca de mí...</label>
