@@ -30,8 +30,8 @@ module.exports = {
                     rolId: 2,
                 });
                 db.Address.create({
-                    userId: user.id
-                })
+                    userId: user.id,
+                });
                 req.session.userLogin = {
                     id: user.id,
                     userName: user.userName,
@@ -108,11 +108,11 @@ module.exports = {
             const user = await db.User.findByPk(req.session.userLogin.id, {
                 include: [
                     {
-                        association: "avatar"
+                        association: "avatar",
                     },
                     {
-                        association: "address"
-                    }
+                        association: "address",
+                    },
                 ],
             });
             // Renderizamos la vista del perfil
@@ -133,11 +133,12 @@ module.exports = {
             const user = await db.User.findByPk(req.session.userLogin.id, {
                 include: [
                     {
-                        association: "avatar"
+                        association: "avatar",
                     },
                     {
-                        association: "address"
-                    }],
+                        association: "address",
+                    },
+                ],
             });
             // Renderizamos la vista de edición de perfil de usuario
             return res.render("users/profileUpdate", {
@@ -177,6 +178,10 @@ module.exports = {
                             userId: user.id,
                         },
                     });
+                    // Si el usuario sube otra imagen, la anterior se elimina de local storage
+                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
+                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
+                    }
                     // Si existe la actualizamos
                     if (avatar) {
                         await avatar.update({
@@ -203,7 +208,6 @@ module.exports = {
                         },
                     }
                 );
-
                 // Actualizamos los datos del usuario
                 await user.update({
                     userName: userName.trim(),
@@ -212,17 +216,17 @@ module.exports = {
                     birthday: birthday,
                     aboutMe,
                 });
-
                 return res.redirect("/users/profile");
             } else {
                 let user = await db.User.findByPk(req.session.userLogin.id, {
                     include: [
                         {
-                            association: "avatar"
+                            association: "avatar",
                         },
                         {
-                            association: "address"
-                        }],
+                            association: "address",
+                        },
+                    ],
                 });
                 // Si hay errores los mostramos en la vista
                 return res.render("users/profileUpdate", {

@@ -30,7 +30,7 @@ const storageUser = multer.diskStorage({
 const uploadUsers = multer({
     storage: storageUser,
 /*     fileFilter, */
-    limits: { fileSize: 2000000 }, // 1 millón de bytes = 1 MB - Se limita el tamaño del archivo
+    limits: { fileSize: 2000000 }, // 1 millón de bytes = 1 MB - Se limita el tamaño del archivo a 2 MB
 });
 
 module.exports = { uploadUsers };
