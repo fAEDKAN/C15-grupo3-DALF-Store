@@ -49,10 +49,16 @@
                                 <label for="birthday">Cumpleaños:</label>
                                 <input type="date" id="birthday" name="birthday" value="<%= user.birthday %>">
                             </div>
-
+                            
                             <div class="body__form__inputs__userData--input">
                                 <label for="street">Domicilio:</label>
-                                <input type="text" placeholder="Calle y altura" name="street" id="street" value="<%= user.address.street %> ">
+                                <input type="text" placeholder="Domicilio" id="street" name="street" value="<%= user.address.street %>">
+                            </div>
+
+                            <div class="body__form__selects__userData--select">
+                                <label for="province-select">Provincia:</label>
+                                <input type="text" id="province" value="<%= user.address.province %>" hidden>
+                                <select name="province" id="province-select"></select>
                             </div>
 
                             <div class="body__form__selects__userData--select">
@@ -62,12 +68,6 @@
                                         <%= user.address.city %>
                                     </option>
                                 </select>
-                            </div>
-
-                            <div class="body__form__selects__userData--select">
-                                <label for="province-select">Provincia:</label>
-                                <input type="text" id="province" value="<%= user.address.province %>" hidden>
-                                <select name="province" id="province-select"></select>
                             </div>
 
                             <div class="body__form__inputs__userData__input--textArea">

@@ -161,8 +161,8 @@ module.exports = {
                     userName,
                     firstName,
                     lastName,
-                    phone,
                     birthday,
+                    phone,
                     street,
                     city,
                     province,
@@ -214,8 +214,9 @@ module.exports = {
                     userName: userName.trim(),
                     firstName: firstName.trim(),
                     lastName: lastName.trim(),
-                    phone: phone,
+                    phone,
                     birthday: birthday,
+                    street,
                     aboutMe,
                 });
                 return res.redirect("/users/profile");
