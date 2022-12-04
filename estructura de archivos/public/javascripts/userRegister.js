@@ -1,4 +1,5 @@
 const $ = (element) => document.getElementById(element);
+const inputs = document.querySelectorAll('#register__form input');
 
 const exRegs = {
     exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
@@ -25,10 +26,11 @@ const validField = (element, target) => {
 
 const validPass = (element, exReg, value) => {
     if (!exReg.test(value)) {
-        $(element).classList.add("inputs__text__warnings");
+        $(element).classList.add("input__pass--denied");
+        $(element).classList.remove("input__pass--granted");
     } else {
-        $(element).classList.add("inputs__text__success");
-        $(element).classList.remove("inputs__text__warnings");
+        $(element).classList.add("input__pass--granted");
+        $(element).classList.remove("input__pass--denied");
     }
 };
 
@@ -69,6 +71,7 @@ const verifyEmail = async (email) => {
         console.log(error);
     }
 }
+
 // Nombre de usuario
 $("userName").addEventListener("blur", async function ({ target }) {
     switch (true) {
@@ -93,6 +96,7 @@ $("userName").addEventListener("blur", async function ({ target }) {
             break;
     }
 });
+
 // Email
 $("email").addEventListener("blur", async function ({ target }) {
     switch (true) {
@@ -114,6 +118,7 @@ $("email").addEventListener("blur", async function ({ target }) {
             break;
     }
 });
+
 // Contraseña
 $("password").addEventListener("focus", () => {
     $("passMsg").hidden = false;
@@ -128,7 +133,7 @@ $("password").addEventListener("blur", function ({ target }) {
         case !exRegs.exRegPass.test(this.value):
             msgError(
                 "passwordError",
-                "La contraseña debe tener una mayúscula, una minúscula, un número, un caracter especial y entre 8 y 25 caracteres",
+                "1 mayúscula - 1 minúscula - 1 número - 1 caracter especial ($@$!%*?&) - 8 a 25 caracteres",
                 target
             );
             break;
@@ -147,6 +152,7 @@ $("password").addEventListener("keyup", function ({ target }) {
     validPass("max", exRegs.exRegMax, target.value);
 });
 
+// Validar contraseña
 $("repass").addEventListener("blur", function ({ target }) {
     switch (true) {
         case !this.value.trim():
@@ -160,6 +166,7 @@ $("repass").addEventListener("blur", function ({ target }) {
             break;
     }
 });
+
 $("register__form").addEventListener("submit", function (e) {
     
     e.preventDefault();
@@ -172,7 +179,7 @@ $("register__form").addEventListener("submit", function (e) {
             elements[i].classList.contains("is-invalid")
         ) {
             elements[i].classList.add("is-invalid");
-            $("msgError").innerText = "Completá correctamente los campos";
+            $("msgError").innerText = "¡Completá los campos correctamente!";
             error = true;
         }
     }
