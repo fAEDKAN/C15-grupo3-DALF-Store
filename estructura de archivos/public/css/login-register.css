@@ -37,8 +37,12 @@ input:-webkit-autofill:active {
 
 .inputs__text__warnings {
     color: var(--C_Ice-Cream);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     text-align: center;
+}
+
+.inputs__text__success {
+    color: var(--C_Lightblue_Logo);
 }
 
 /** BODY | LOGO */
@@ -162,9 +166,13 @@ input:-webkit-autofill:active {
     height: 15px;
 }
 
-
-
 /** BODY | INPUTS | BUTTON */
+
+.body__form__button--btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
 
 .body__form__button--btn button {
     width: 200px;

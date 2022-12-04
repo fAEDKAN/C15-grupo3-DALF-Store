@@ -10,32 +10,54 @@
                 <div class="body__form--title">
                     <h2>Registrarse</h2>
                 </div>
-                <form action="" method="POST">
+                <form id="register__form" action="" method="POST">
                     <div class="body__form--inputs">
                         <div class="body__form__inputs--userData">
+
                             <div class="body__form__inputs__userData--input">
                                 <label for="userName">Nombre de usuario:</label>
-                                <input type="text" placeholder="Nombre de usuario" id="userName" name="userName" value="<%= locals.old && old.userName ? old.userName : null %>">
+                                <input type="text" placeholder="Nombre de usuario" id="userName" name="userName" value="<%= locals.old && old.userName ? old.userName : null %>" class="<%= locals.errors && errors.userName ? 'is-invalid' : null %>">
+                                <i class="form__validation--status fa-solid fa-circle-xmark"></i>
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.userName ? errors.userName.msg : null %></p>
+                                <p class="inputs__text__warnings" id="userNameError"></p>
                             </div>
+
                             <div class="body__form__inputs__userData--input">
                                 <label for="email">E-mail:</label>
-                                <input type="email" placeholder="E-mail" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>">
+                                <input type="email" placeholder="E-mail" id="email" name="email" value="<%= locals.old && old.email ? old.email : null %>" class="<%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                                <i class="form__validation--status fa-solid fa-circle-xmark"></i>
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+                                <p class="inputs__text__warnings" id="emailError"></p>
                             </div>
+
                             <div class="body__form__inputs__userData--input">
                                 <label for="password">Contraseña:</label>
-                                <input type="password" placeholder="Contraseña" id="password" name="password">
+                                <input type="password" placeholder="Contraseña" id="password" name="password" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                                <i class="form__validation--status fa-solid fa-circle-xmark"></i>
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.password ? errors.password.msg : null %></p>
+                                <p class="inputs__text__warnings" id="passwordError"></p>
+                                <ul id="passMsg" class="inputs__text__warnings" hidden>
+                                    <li id="mayus">Una mayúscula</li>
+                                    <li id="minus">Una minúscula</li>
+                                    <li id="num">Un número</li>
+                                    <li id="esp">Un caracter especial</li>
+                                    <li id="min">Mínimo 8 caracteres</li>
+                                    <li id="max">Máximo 25 caracteres</li>
+                                </ul>
                             </div>
+
                             <div class="body__form__inputs__userData--input">
                                 <label for="repass">Confirmar contraseña:</label>
-                                <input type="password" placeholder="Confirmar contraseña" id="repass" name="repass">
+                                <input type="password" placeholder="Confirmar contraseña" id="repass" name="repass" class="<%= locals.errors && errors.repass ? 'is-invalid' : null %>">
+                                <i class="form__validation--status fa-solid fa-circle-xmark"></i>
                                 <p class="inputs__text__warnings"><%= locals.errors && errors.repass ? errors.repass.msg : null %></p>
+                                <p class="inputs__text__warnings" id="repassError"></p>
                             </div>
+                            
                         </div>
                         <div class="body__form__button--btn">
                             <button type="submit">CREAR CUENTA</button>
+                            <p id="msgError" class="inputs__text__warnings"></p>
                         </div>
                     </div>
                 </form>
@@ -46,6 +68,7 @@
                 </div>
             </div>
         </div>
+        <script src="/javascripts/userRegister.js"></script>
     </body>
 
 </html>

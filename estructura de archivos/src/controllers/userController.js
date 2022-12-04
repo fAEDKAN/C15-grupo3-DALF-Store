@@ -288,11 +288,13 @@ module.exports = {
                 },
             });
             // Primero eliminamos el avatar, ya que sino dará error por la FK
-            avatar.destroy({
-                file: req.file
-                    ? req.file.filename
-                    : req.session.userLogin.avatarFile,
-            });
+            if (req.file) {
+                avatar.destroy({
+                    file: req.file
+                        ? req.file.filename
+                        : req.session.userLogin.avatarFile,
+                });
+            }
             // Luego procedemos a eliminar el usuario cuyo ID coincida con el ID que viene por parámetro
             user.destroy(
                 {
