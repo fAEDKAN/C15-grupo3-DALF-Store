@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../logo-DH.png'
+import logo from '../DALF-LOGO.png'
 export const SideBar = () => {
   return (
     <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
