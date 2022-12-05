@@ -10,21 +10,21 @@ module.exports = {
     productsList: async (req, res) => {
         let options = {
             attributes: {
-                exclude: ["createdAt", "updatedAt"],
+                exclude: ["createdAt", "updatedAt", "id", "categoryId", "sectionId", "brandId"],
                 include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
             },
             include: [
                 {
                     association: 'image',
                     attributes: {
-                        exclude: ["createdAt", "updatedAt"],
+                        exclude: ["createdAt", "updatedAt", "id", "productId"],
                         include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/image/', file)`), 'imageURL']]
                     }
                 },
                 {
                     association: 'category',
                     attributes: {
-                        exclude: ["createdAt", "updatedAt"]
+                        exclude: ["createdAt", "updatedAt", "id"]
                     }
                 }
             ]
@@ -50,9 +50,9 @@ module.exports = {
                 ],
                 group: ["categoryId"]
             })
-            
 
-            /* intento de juli
+
+            /*intento de juli
             let CountPByC8 = await db.Product.findAll({
                 attributes: {
                     include: [[Sequelize.fn("COUNT", Sequelize.col("category.id")), "categoryCount"]]
@@ -63,7 +63,7 @@ module.exports = {
                 group: ['category.id']
             })
 
-            /*let CountPByC =
+            /**/let CountPByC =
                 categories.forEach(async category => {
                     let result = await db.Product.count({
                         where: {
@@ -74,9 +74,10 @@ module.exports = {
                             }]
                         }
                     })
+                    return result
 
 
-                });  */
+                });
             //intento funciona de manera individual probado en map
             /*let productsCountByCategory = 
             categories.map(async category => {
@@ -111,8 +112,8 @@ module.exports = {
                     category: categories.name,
                     count :result
                 }}*/
-           
-           
+
+
 
             return res.status(200).json({
                 ok: true,
@@ -120,6 +121,7 @@ module.exports = {
                     status: 200.,
                     //categories,
                     //productsCountByCategory
+                    CountPByC,
                     productsByCategory
                 },
                 data: {
@@ -207,54 +209,78 @@ module.exports = {
     },
     image: async (req, res) => {
         console.log(req.params.image);
-        return res.sendFile(path.join(__dirname, '..', '..','..', 'public', 'images', 'products', req.params.image))
+        return res.sendFile(path.join(__dirname, '..', '..', '..', 'public', 'images', 'products', req.params.image))
     },
     //CARGA DE PRODUCTOS 
     create: async (req, res) => {
-        console.log(req);
-        let errors = validationResult(req);
-        errors = errors.mapped();
+        try {
+            let errors = validationResult(req);
+            errors = errors.mapped();
 
-        if (req.fileValidationError) {
-            errors = {
-                ...errors,
-                images: {
-                    msg: req.fileValidationError
-                }
+            if (req.fileValidationError) {
+                errors = {
+                    ...errors,
+                    images: {
+                        msg: req.fileValidationError
+                    }
+                };
             };
-        };
-        if (Object.entries(errors).length === 0) {
-            const { name, price, discount, category, section, company } = req.body;
+            
+            if (Object.entries(errors).length === 0) {
+                const { name, price, discount, category, section,stock, company } = req.body;
 
-            const product = await db.Product.create({
-                ...req.body,
-                name: name.trim(),
-                price: +price,
-                discount: +discount,
-                categoryId: category,
-                sectionId: section,
-                brandId: company
-            }).catch(error => console.log(error))
-
-            if (req.files && req.files.length > 0) {
-                req.files.forEach(async element => {
-                    await db.Image.create({
-                        file: element.filename,
-                        productId: product.id
-                    })
+                const product = await db.Product.create({
+                    ...req.body,
+                    name: name.trim(),
+                    price: +price,
+                    discount: +discount,
+                    categoryId: category,
+                    sectionId: section,
+                    brandId: company,
+                    stock: +stock
                 })
+
+                if (req.files && req.files.length > 0) {
+                    req.files.forEach(async element => {
+                        await db.Image.create({
+                            file: element.filename,
+                            productId: product.id
+                        })
+                    })
+                }
+            }else{
+                let errorMessages={}
+                for (const key in errors) {
+                   errorMessages = {
+                    ...errorMessages,
+                    [key]: errors.mapped()[key].msg
+                   }
+                }
+                let error = new Error()
+                error.status =400
+                error.message = errorMessages
+                throw error
             }
-            return res.redirect('/');
-        } else {
-            if (req.files.length > 0) {
+            
+            
+            
+           
+        } catch (error) {
+            console.log(error);
+            return res.status(error.status || 500).json({
+                ok: false,
+                msg: error.message
+            })
+            /*if (req.files.length > 0) {
                 req.files.forEach(({ filename }) => {
                     fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename)) && fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'products', filename));
                 })
-            };
+            };*/
         }
     },
+
     //EDICION DE PRODUCTOS 
-    
+
     update: async (req, res) => {
 
         const errors = validationResult(req);
