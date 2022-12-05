@@ -41,8 +41,11 @@ $("price").addEventListener("blur", function ({ target }) {
             msgError("errorPrice", "Es obligatorio establecer un precio", target);
             this.classList.add("is-invalid");
             break;
-        case !exRegs.noSymbols.test(this.value):
+        case !exRegs.exRegNum.test(this.value):
             msgError("errorPrice", "Esta campo solo acepta numeros", target);
+            break;
+            case this.value < 1:
+            msgError("errorPrice", "El precio tiene que ser mayor a 0", target);
             break;
         default:
             validField("errorPrice", target);
@@ -52,12 +55,14 @@ $("price").addEventListener("blur", function ({ target }) {
 
 $("discount").addEventListener("blur", function({target}) {
     switch (true) {
-        case this.value < 0 || this.value > 100:
-            msgError("errorDiscount", "El descuento no puede ser mayor de 100", target);
-            this.classList.add("is-invalid");
+        case !this.value.trim():
+            msgError("errorDiscount", "Este campo es obligatorio", target);
             break;
         case !exRegs.exRegNum.test(this.value):
             msgError("errorDiscount", "Esta campo solo acepta numeros", target);
+            break;
+        case this.value < 1 || this.value > 100:
+            msgError("errorDiscount", "El descuento no puede ser mayor de 100", target);
             break;
         default:
             validField("errorDiscount", target);
@@ -127,9 +132,12 @@ $("description").addEventListener("blur", function ({ target }) {
             msgError("errorDescription", "Es obligatorio establecer una descripción", target);
             this.classList.add("is-invalid");
             break;
-        case !this.value.trim().length > 10 && this.value.trim().length < 250:
+            case this.value.length < 10:
             msgError("errorDescription", "La descripción tiene que tener entre 10 y 250 caracteres", target)
-            console.log();
+            break;
+            case this.value.length > 250:
+            msgError("errorDescription", "La descripción tiene que tener entre 10 y 250 caracteres", target)
+            break;
         default:
             validField("errorDescription", target);
             break;
