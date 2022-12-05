@@ -15,30 +15,30 @@ export const SideBar = () => {
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard - DH movies</span></a>
+					<span>Dashboard - DALF-STORE</span></a>
 			</li>
 
 			<hr className="sidebar-divider"/>
 
-			<div className="sidebar-heading">Actions</div>
+			<div className="sidebar-heading">Navegacion</div>
 
 			<li className="nav-item">
 				<a className="nav-link collapsed" href="/">
 					<i className="fas fa-fw fa-folder"></i>
-					<span>Pages</span>
+					<span>Productos</span>
 				</a>
 			</li>
 
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-chart-area"></i>
-					<span>Charts</span></a>
+					<span>Usuarios</span></a>
 			</li>
 
 			<li className="nav-item">
 				<a className="nav-link" href="/">
 					<i className="fas fa-fw fa-table"></i>
-					<span>Tables</span></a>
+					<span>Otros</span></a>
 			</li>
 
 			<hr className="sidebar-divider d-none d-md-block"/>
