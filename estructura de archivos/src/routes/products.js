@@ -8,6 +8,9 @@ const adminCheck =require('../middlewares/adminCheck');
 const userSessionCheck=require('../middlewares/userSessionCheck')
 const productValidator = require('../validations/productValidator');
 
+
+//GET PRODUCT
+
 //PRODUCTS DETAIL
 router.get('/productDetail/:id', productDetail);
 

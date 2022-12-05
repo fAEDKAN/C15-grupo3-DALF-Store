@@ -8,10 +8,20 @@ const { literal, Op, Sequelize } = require('sequelize');
 
 module.exports = {
     productsList: async (req, res) => {
+        try {
+        //Limite por default 10 en la pagina 1
+        let {limit = 10, page = 1} = req.query;
+        
+        //Limite maximo de productos de la pagina | Cual quier caso se puede cambiar el limite maximo, por si agregan mas productos
+        limit = limit > 100 ? 100: +limit;
+
+        //Limite por default inicio de la pagina es 0 
+        let offset = +limit * (+page - 1);
+
         let options = {
             attributes: {
                 exclude: ["createdAt", "updatedAt", "id", "categoryId", "sectionId", "brandId"],
-                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', productId)`), 'productURL']]
+                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', product.id)`), 'productURL']]
             },
             include: [
                 {
@@ -27,11 +37,21 @@ module.exports = {
                         exclude: ["createdAt", "updatedAt", "id"]
                     }
                 }
-            ]
+            ],
+            limit,
+            offset
         }
 
-        try {
             let { count: total, rows: products } = await db.Product.findAndCountAll(options);
+
+            //Exit & Prev
+            const existPrev = page > 1;
+            const existNext = offset + limit < total;
+            //URL
+            const prev = existPrev ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page - 1}` : null;
+            const next = existNext ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page + 1}` : null;
+
+
             let categories = await db.Category.findAll({
                 attributes: {
                     exclude: ["createdAt", "updatedAt", "id"]
@@ -39,93 +59,20 @@ module.exports = {
             })
             ///////////////////////////////////////////////////////////////////
 
-            let productsByCategory = await db.Product.count({
-                include: [
-                    {
-                        association: 'category',
-                        attributes: {
-                            exclude: ["createdAt", "updatedAt"]
-                        }
-                    }
-                ],
-                group: ["categoryId"]
-            })
-
-
-            /*intento de juli
-            let CountPByC8 = await db.Product.findAll({
-                attributes: {
-                    include: [[Sequelize.fn("COUNT", Sequelize.col("category.id")), "categoryCount"]]
-                },
-                include: [{
-                    model: "Category", attributes: []
-                }],
-                group: ['category.id']
-            })
-
-            /**/let CountPByC =
-                categories.forEach(async category => {
-                    let result = await db.Product.count({
-                        where: {
-                            [Op.or]: [{
-                                categoryId: {
-                                    [Op.substring]: category.id //id de categoria
-                                }
-                            }]
-                        }
-                    })
-                    return result
-
-
-                });
-            //intento funciona de manera individual probado en map
-            /*let productsCountByCategory = 
-            categories.map(async category => {
-                 let result= await db.Product.count({
-                where: {
-                    [Op.or]: [{
-                        categoryId: {
-                            [Op.substring]: category.id //id de categoria
-                        }
-                    }]
-                }
-            })
-            return {
-                category: category.name,
-                count :result
-            }
-            });*/
-            /*let productsCountByCategory =async ()=>{
-                let categories= await db.Category.findAll()
-                await db.Product.count({
-                    include: [
-                        {
-                            association: 'category',
-                            attributes: {
-                                exclude: ["createdAt", "updatedAt"]
-                            }
-                        }
-                    ],
-                    group: ["categoryId"]
-                })
-                return {
-                    category: categories.name,
-                    count :result
-                }}*/
-
-
 
             return res.status(200).json({
                 ok: true,
                 meta: {
-                    status: 200.,
+                    status: 200,
                     //categories,
-                    //productsCountByCategory
-                    CountPByC,
-                    productsByCategory
+                    total,
+                    quantity : products.length,
+                    page,
+                    prev,
+                    next,
+                    
                 },
                 data: {
-                    total,
                     products
                 }
             })

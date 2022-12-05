@@ -18,6 +18,7 @@ var usersRouter = require('./routes/users');
 
 //API routes
 var apiProductsRouter = require('./API/routes/productsRoutes');
+var apiUsersRouter = require('./API/routes/usersRoutes')
 
 var app = express();
 
@@ -44,8 +45,10 @@ app.use(localsUserCheck);
 app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/users', usersRouter);
+
 //APi
 app.use('/api/products', apiProductsRouter)
+app.use('/api/users', apiUsersRouter)
 
 
 // catch 404 and forward to error handler

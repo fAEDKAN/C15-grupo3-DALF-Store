@@ -8,7 +8,7 @@ const users = usuarios.map(
         lastName,
         email,
         password,
-        birthDay,
+        birthday,
         aboutMe,
         rolId,
     }) => {
@@ -18,7 +18,7 @@ const users = usuarios.map(
             lastName,
             email,
             password: hashSync(password, 10),
-            birthDay,
+            birthday,
             aboutMe,
             rolId,
             createdAt: new Date(),
