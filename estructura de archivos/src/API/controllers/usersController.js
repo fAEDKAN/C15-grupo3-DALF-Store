@@ -87,7 +87,7 @@ module.exports = {
                 where: {
                     userName
                 }
-            })
+            });
             return res.status(200).json({
                 ok: true,
                 verified: user ? true : false
@@ -107,7 +107,7 @@ module.exports = {
                 where: {
                     email
                 }
-            })
+            });
             return res.status(200).json({
                 ok: true,
                 verified: user ? true : false

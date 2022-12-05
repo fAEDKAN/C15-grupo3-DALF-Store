@@ -36,10 +36,16 @@ input:-webkit-autofill:active {
 }
 
 .inputs__text__warnings {
+    width: 225px;
     color: var(--C_Ice-Cream);
     font-size: 0.9rem;
     font-weight: 400;
     text-align: center;
+    background-color: var(--C_Blue);
+    padding: 0 5px 0 5px;
+    z-index: 100;
+    position: absolute;
+    top: 100%;
 }
 
 .input__pass--list {
@@ -166,8 +172,9 @@ input:-webkit-autofill:active {
 }
 
 .body__form--inputs input:focus {
-    border: 1px solid var(--C_Lightblue_Logo);
+    border: 2px solid var(--C_Lightblue_Logo);
     outline: none;
+    transition: 0s all;
 }
 
 .body__form--inputs input:focus::placeholder {

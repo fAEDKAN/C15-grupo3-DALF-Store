@@ -77,7 +77,7 @@ $("userName").addEventListener("blur", async function ({ target }) {
         case !this.value.trim():
             msgError("userNameError", "Éste campo es obligatorio", target);
             break;
-        case this.value.trim().length < 3:
+        case this.value.trim().length < 3 || this.value.trim().length > 15:
             msgError(
                 "userNameError",
                 "El nombre de usuario debe contener entre 3 y 15 caracteres",
