@@ -1,5 +1,4 @@
 const $ = (element) => document.getElementById(element);
-const inputs = document.querySelectorAll('#register__form input');
 
 const exRegs = {
     exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,

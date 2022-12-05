@@ -92,7 +92,7 @@ module.exports = {
                 ok: true,
                 verified: user ? true : false
             })
-        } catch {
+        } catch (error) {
             return res.status(error.status || 500).json({
                 ok: false,
                 error: error.message
@@ -112,7 +112,7 @@ module.exports = {
                 ok: true,
                 verified: user ? true : false
             })
-        } catch {
+        } catch (error) {
             return res.status(error.status || 500).json({
                 ok: false,
                 error: error.message
@@ -124,7 +124,10 @@ module.exports = {
         try {
             
         } catch (error) {
-            
+            return res.status(error.status || 500).json({
+                ok: false,
+                error: error.message
+            })
         }
     }
 

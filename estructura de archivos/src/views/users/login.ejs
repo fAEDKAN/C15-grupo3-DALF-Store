@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head',{ title:'home', }) %>
+<%- include('../partials/head',{ title:'home', }) %>
 
     <body id="b0dy__c0nt41n3r">
         <div class="body--form">
             <%- include('../partials/logoForms',{ title:'Iniciar sesión' }) %>
-            
-            <div class="body__form--box">
-                <div class="body__form--title">
-                    <h2>Iniciar sesión</h2>
-                </div>
-                <form action="" method="POST">
-                    <div class="body__form--inputs">
-                        <div class="body__form__inputs--userData">
-                            <div class="body__form__inputs__userData--input">
-                                <label for="email">Email:</label>
-                                <input type="email" placeholder="E-mail" id="email" name="email">
-                                <p class="inputs__text__warnings"><%= locals.errors && errors.email ? errors.email.msg : null %></p>
+
+                <div class="body__form--box">
+                    <div class="body__form--title">
+                        <h2>Iniciar sesión</h2>
+                    </div>
+                    <form id="register__form" action="" method="POST">
+                        <div class="body__form--inputs">
+
+                            <div class="body__form__inputs--userData">
+                                <div class="body__form__inputs__userData--input">
+                                    <label for="email">Email:</label>
+                                    <input type="email" placeholder="E-mail" id="email" name="email"
+                                    class="<%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                                    <p class="inputs__text__warnings">
+                                        <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                    </p>
+                                    <p class="inputs__text__warnings" id="emailError"></p>
+                                </div>
+
+                                <div class="body__form__inputs__userData--input">
+                                    <label for="password">Contraseña:</label>
+                                    <input type="password" placeholder="Contraseña" id="password" name="password"
+                                    class="<%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                                    <i class="form__passToggler fa-regular fa-eye-slash" id="togglePass"></i>
+                                    <p class="inputs__text__warnings">
+                                        <%= locals.errors && errors.password ? errors.password.msg : null %>
+                                    </p>
+                                    <p class="inputs__text__warnings" id="passwordError"></p>
+                                </div>
                             </div>
-                            <div class="body__form__inputs__userData--input">
-                                <label for="password">Contraseña:</label>
-                                <input type="password" placeholder="Contraseña" id="password" name="password">
-                                <i class="form__passToggler fa-regular fa-eye-slash" id="togglePass"></i>
-                                <p class="inputs__text__warnings"><%= locals.errors && errors.password ? errors.password.msg : null %></p>
+                            <div class="body__form__inputs--chckbx">
+                                <label for="remember">Recordarme</label>
+                                <input type="checkbox" id="remember" name="remember">
+                            </div>
+                            <div class="body__form__button--btn">
+                                <button type="submit" id="submit">INGRESAR</button>
                             </div>
                         </div>
-                        <div class="body__form__inputs--chckbx">
-                            <label for="remember">Recordarme</label>
-                            <input type="checkbox" id="remember" name="remember">
+                    </form>
+                    <div class="body__form__redirect">
+                        <div class="body__form__redirect--recoveryPass">
+                            <a href="#">¿Olvidaste tu contraseña?</a>
                         </div>
-                        <div class="body__form__button--btn">
-                            <button type="submit" id="submit">INGRESAR</button>
+                        <div class="body__form__redirect--register">
+                            <a href="/users/register">¿Todavía no tenés una cuenta?</a>
                         </div>
-                    </div>
-                </form>
-                <div class="body__form__redirect">
-                    <div class="body__form__redirect--recoveryPass">
-                        <a href="#">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    <div class="body__form__redirect--register">
-                        <a href="/users/register">¿Todavía no tenés una cuenta?</a>
                     </div>
                 </div>
-            </div>
         </div>
+        <script src="/javascripts/userLogin.js"></script>
     </body>
 
 </html>

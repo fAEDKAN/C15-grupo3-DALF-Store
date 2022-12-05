@@ -14,7 +14,7 @@
                         <div class="body__form--inputs">
                             <div class="body__form__inputs--userData">
 
-                                <div class="body__form__inputs__userData--input" id="user__input--group">
+                                <div class="body__form__inputs__userData--input">
                                     <label for="userName">Nombre de usuario:</label>
                                     <input type="text" placeholder="Nombre de usuario" id="userName" name="userName"
                                         value="<%= locals.old && old.userName ? old.userName : null %>"
@@ -25,7 +25,7 @@
                                     <p class="inputs__text__warnings" id="userNameError"></p>
                                 </div>
 
-                                <div class="body__form__inputs__userData--input" id="user__input--group">
+                                <div class="body__form__inputs__userData--input">
                                     <label for="email">E-mail:</label>
                                     <input type="email" placeholder="E-mail" id="email" name="email"
                                         value="<%= locals.old && old.email ? old.email : null %>"
@@ -36,7 +36,7 @@
                                     <p class="inputs__text__warnings" id="emailError"></p>
                                 </div>
 
-                                <div class="body__form__inputs__userData--input" id="user__input--group">
+                                <div class="body__form__inputs__userData--input">
                                     <label for="password">Contraseña:</label>
                                     <input type="password" placeholder="Contraseña" id="password" name="password"
                                         class="<%= locals.errors && errors.password ? 'is-invalid' : null %>">
@@ -54,7 +54,7 @@
                                     </ul>
                                 </div>
 
-                                <div class="body__form__inputs__userData--input" id="user__input--group">
+                                <div class="body__form__inputs__userData--input">
                                     <label for="repass">Confirmar contraseña:</label>
                                     <input type="password" placeholder="Confirmar contraseña" id="repass" name="repass"
                                         class="<%= locals.errors && errors.repass ? 'is-invalid' : null %>">
