@@ -26,6 +26,9 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING,
             },
+            phone: {
+                type: Sequelize.STRING
+            },
             birthday: {
                 type: Sequelize.DATEONLY,
             },

@@ -19,14 +19,18 @@ module.exports = {
         let errors = validationResult(req);
         try {
             if (errors.isEmpty()) {
-                const { userName, email, password } = req.body;
+                const { id, userName, email, password } = req.body;
                 // Si no hay errores creamos usuario y levantamos sesión
                 const user = await db.User.create({
+                    id,
                     userName: userName.trim(),
                     email: email.trim(),
                     password: bcryptjs.hashSync(password.trim(), 10),
                     birthday: null,
                     rolId: 2,
+                });
+                db.Address.create({
+                    userId: user.id,
                 });
                 req.session.userLogin = {
                     id: user.id,
@@ -102,7 +106,14 @@ module.exports = {
         try {
             // Traemos al usuario guardado en session
             const user = await db.User.findByPk(req.session.userLogin.id, {
-                include: [{ association: "avatar" }],
+                include: [
+                    {
+                        association: "avatar",
+                    },
+                    {
+                        association: "address",
+                    },
+                ],
             });
             // Renderizamos la vista del perfil
             return res.render("users/profile", {
@@ -120,7 +131,14 @@ module.exports = {
         try {
             // Traemos al usuario guardado en session
             const user = await db.User.findByPk(req.session.userLogin.id, {
-                include: [{ association: "avatar" }],
+                include: [
+                    {
+                        association: "avatar",
+                    },
+                    {
+                        association: "address",
+                    },
+                ],
             });
             // Renderizamos la vista de edición de perfil de usuario
             return res.render("users/profileUpdate", {
@@ -136,9 +154,20 @@ module.exports = {
     //USER UPDATE
     update: async (req, res) => {
         let errors = validationResult(req);
+
         try {
             if (errors.isEmpty()) {
-                const { userName, firstName, lastName, birthday, aboutMe } = req.body;
+                const {
+                    userName,
+                    firstName,
+                    lastName,
+                    birthday,
+                    phone,
+                    street,
+                    city,
+                    province,
+                    aboutMe,
+                } = req.body;
                 // Traemos al usuario guardado en session
                 const user = await db.User.findByPk(req.session.userLogin.id, {
                     include: [{ association: "avatar" }],
@@ -150,6 +179,10 @@ module.exports = {
                             userId: user.id,
                         },
                     });
+                    // Si el usuario sube otra imagen, la anterior se elimina de local storage
+                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
+                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
+                    }
                     // Si existe la actualizamos
                     if (avatar) {
                         await avatar.update({
@@ -163,25 +196,47 @@ module.exports = {
                         });
                     }
                 }
+
+                await db.Address.update(
+                    {
+                        street: street.trim(),
+                        city: city,
+                        province: province,
+                    },
+                    {
+                        where: {
+                            userId: req.session.userLogin.id,
+                        },
+                    }
+                );
                 // Actualizamos los datos del usuario
                 await user.update({
                     userName: userName.trim(),
                     firstName: firstName.trim(),
                     lastName: lastName.trim(),
-                    birthday: birthday ? birthday : user.birthday,
+                    phone,
+                    birthday: birthday,
+                    street,
                     aboutMe,
                 });
                 return res.redirect("/users/profile");
             } else {
                 let user = await db.User.findByPk(req.session.userLogin.id, {
-                    include: [{ association: "avatar" }],
+                    include: [
+                        {
+                            association: "avatar",
+                        },
+                        {
+                            association: "address",
+                        },
+                    ],
                 });
                 // Si hay errores los mostramos en la vista
                 return res.render("users/profileUpdate", {
                     errors: errors.mapped(),
                     old: req.body,
                     user,
-                    moment
+                    moment,
                 });
             }
         } catch (error) {
@@ -233,11 +288,13 @@ module.exports = {
                 },
             });
             // Primero eliminamos el avatar, ya que sino dará error por la FK
-            avatar.destroy({
-                file: req.file
-                    ? req.file.filename
-                    : req.session.userLogin.avatarFile,
-            });
+            if (req.file) {
+                avatar.destroy({
+                    file: req.file
+                        ? req.file.filename
+                        : req.session.userLogin.avatarFile,
+                });
+            }
             // Luego procedemos a eliminar el usuario cuyo ID coincida con el ID que viene por parámetro
             user.destroy(
                 {
