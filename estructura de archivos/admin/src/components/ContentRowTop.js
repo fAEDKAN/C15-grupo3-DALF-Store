@@ -1,27 +1,60 @@
-import React from 'react'
+import React, { useEffect, useState ,setstate} from 'react'
+import { GetFetch } from '../hooks/UseFetch'
 import { GenresInDb } from './GenresInDb'
 import { LastMovieInDb } from './LastMovieInDb'
 import { Metrics } from './Metrics'
 
 export const ContentRowTop = () => {
-	const metrics= [
-		{
-			title:"Movies in Data Base",
+
+	const [state, setstate] = useState({
+		loading: true,
+		products:{
+			title:"Productos",
 			color:"primary",
 			icon:"fa-film",
-			data:21
-		},{
-			title:"Total awards",
+			data:0
+		},
+		users:{
+			title:"Usuarios",
 			color:"success",
 			icon:"fa-award",
-			data:79
-		},{
-			title:"Actors quantity",
+			data:0
+		},
+		categories:{
+			title:"Categorias",
 			color:"warning",
 			icon:"fa-user",
-			data:49
+			data:0
 		}
-	]
+		}
+	);
+		const getData = async (endpoint)=>{
+			return await GetFetch(endpoint)
+		}
+
+		useEffect(() => {
+			getData('/totals')
+			.then(({data}) => {
+				setstate({
+				  loading: false,
+				  products: {
+					...state.products,
+					data: data.productsTotal,
+				  },
+				  users: {
+					...users,
+					data: data.usersTotal,
+				  },
+				  categories: {
+					...categories,
+					data: data.categoriesTotal,
+				  },
+				});
+			  })
+			  .catch(() => console.error);
+		}, []);
+
+	const {products, users, categories}=state
   return (
     <div className="container-fluid">
 					<div className="d-sm-flex align-items-center justify-content-between mb-4">
@@ -30,11 +63,9 @@ export const ContentRowTop = () => {
 				
 					<div className="row">
 
-						{
-							metrics.map((metric, index)=>(
-								<Metrics {...metric} key={metric.title + index}/>
-							))
-						}
+								<Metrics {...products} />
+								<Metrics {...users} />
+								<Metrics {...categories} />
 						
 					</div>
 	
