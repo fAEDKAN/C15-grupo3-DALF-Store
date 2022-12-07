@@ -2,7 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Open Sans';
+    font-family: "Open Sans";
     text-decoration: none;
 }
 
@@ -16,7 +16,7 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-text-fill-color: var(--C_Ice-Cream);
@@ -36,9 +36,40 @@ input:-webkit-autofill:active {
 }
 
 .inputs__text__warnings {
+    width: 225px;
     color: var(--C_Ice-Cream);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
     text-align: center;
+    background-color: var(--C_Blue);
+    padding: 0 5px 0 5px;
+    z-index: 100;
+    position: absolute;
+    top: 100%;
+}
+
+.input__pass--list {
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.input__pass--denied {
+    color: var(--C_Ice-Cream);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.input__pass--granted {
+    color: var(--C_Lightblue_Logo);
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-align: left;
+}
+
+.inputs__text__warnings--submit {
+    font-weight: 600;
 }
 
 /** BODY | LOGO */
@@ -111,7 +142,12 @@ input:-webkit-autofill:active {
     outline: none;
     border: none;
     border-bottom: 2px solid;
-    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    border-image: linear-gradient(
+            to right,
+            var(--C_Lightblue_Logo),
+            var(--C_Pink_Logo)
+        )
+        1;
     padding-left: 5px;
     padding-top: 15px;
     transition: 1s all;
@@ -123,11 +159,22 @@ input:-webkit-autofill:active {
 }
 
 .body__form--inputs input:hover {
-    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    border-image: linear-gradient(
+            to left,
+            var(--C_Lightblue_Logo),
+            var(--C_Pink_Logo)
+        )
+        1;
 }
 
 .body__form--inputs input:hover::placeholder {
     color: var(--C_Pink_Logo);
+}
+
+.body__form--inputs input:focus {
+    border: 2px solid var(--C_Lightblue_Logo);
+    outline: none;
+    transition: 0s all;
 }
 
 .body__form--inputs input:focus::placeholder {
@@ -162,9 +209,13 @@ input:-webkit-autofill:active {
     height: 15px;
 }
 
-
-
 /** BODY | INPUTS | BUTTON */
+
+.body__form__button--btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .body__form__button--btn button {
     width: 200px;
@@ -172,15 +223,25 @@ input:-webkit-autofill:active {
     padding: 10px;
     margin: 25px 0 20px;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.050);
-    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    background: rgba(255, 255, 255, 0.05);
+    border-image: linear-gradient(
+            to right,
+            var(--C_Lightblue_Logo),
+            var(--C_Pink_Logo)
+        )
+        1;
     color: var(--C_Ice-Cream);
     font-weight: bold;
     transition: 1s all;
 }
 
 .body__form__button--btn button:hover {
-    border-image: linear-gradient(to right, var(--C_Pink_Logo), var(--C_Lightblue_Logo)) 1;
+    border-image: linear-gradient(
+            to right,
+            var(--C_Pink_Logo),
+            var(--C_Lightblue_Logo)
+        )
+        1;
     color: var(--C_Pink_Logo);
 }
 
@@ -203,12 +264,12 @@ input:-webkit-autofill:active {
 }
 .body__form__redirect a:hover {
     color: var(--C_Lightblue_Logo);
-    font-size: 0.80rem;
+    font-size: 0.8rem;
 }
 
 /** BODY | FORM | PASSWORD TOGGLER */
 
-.body__form__inputs__userData--input i {
+.body__form__inputs__userData--input .form__passToggler {
     cursor: pointer;
     color: var(--C_Ice-Cream);
     position: absolute;

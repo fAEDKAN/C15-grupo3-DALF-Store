@@ -1,25 +1,25 @@
 const { body, check } = require("express-validator");
 const path = require("path");
+const fs = require("fs");
 const db = require("../database/models");
 
 //PROFILE VALIDATIONS
 module.exports = [
     body("avatarFile")
         .custom((value, { req }) => {
-            let file = req.file;
-            let allowedExt = [".jpg", ".jpeg", ".png"];
-            if (!file) {
-                null;
+            if (!req.file) {
+                return true;
             } else {
-                let fileExt = path.extname(file.originalname);
-                if (!allowedExt.includes(fileExt)) {
+                const allowedExt = ["png", "jpg", "jpeg"];
+                const extension = req.file.originalname.split(".")[1];
+                if (!allowedExt.includes(extension)) {
                     return false;
                 }
                 return true;
             }
         })
         .withMessage("Sólo se admiten formatos png, jpg y jpeg"),
-
+    
     check("userName")
         .notEmpty()
         .withMessage("Éste campo es obligatorio")

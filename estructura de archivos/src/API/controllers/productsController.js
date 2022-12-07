@@ -9,8 +9,9 @@ const { literal, Op, Sequelize } = require('sequelize');
 module.exports = {
     productsList: async (req, res) => {
         try {
-        //Limite por default 10 en la pagina 1
-        let {limit = 10, page = 1} = req.query;
+
+        //Limite por default es de 10 por pagina.
+        let {limit = 10, page = 1, order = 'ASC', sortBy = 'id'} = req.query;
         
         //Limite maximo de productos de la pagina | Cual quier caso se puede cambiar el limite maximo, por si agregan mas productos
         limit = limit > 100 ? 100: +limit;
@@ -18,7 +19,17 @@ module.exports = {
         //Limite por default inicio de la pagina es 0 
         let offset = +limit * (+page - 1);
 
+        //Ordenamiento de los productos
+        order = ['ASC','DESC'].includes(order.toUpperCase()) ? order : 'ASC';
+        sortBy =  ['name', 'price', 'discount', 'category'].includes(sortBy.toLowerCase()) ? sortBy : 'id';
+        
+        let orderQuery = sortBy === "category" ? ['category','name',order] :  [sortBy, order];
+
         let options = {
+            subQuery:false,
+				limit,
+				offset,
+                order : [orderQuery],
             attributes: {
                 exclude: ["createdAt", "updatedAt", "id", "categoryId", "sectionId", "brandId"],
                 include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/productDetail/', product.id)`), 'productURL']]
@@ -37,19 +48,32 @@ module.exports = {
                         exclude: ["createdAt", "updatedAt", "id"]
                     }
                 }
-            ],
-            limit,
-            offset
+            ]
         }
 
             let { count: total, rows: products } = await db.Product.findAndCountAll(options);
+
+            const queryKeys = {
+				limit,
+				order,
+				sortBy,
+			}
+
+			let queryUrl = "";
+
+			for (const key in queryKeys) {
+
+				queryUrl += `&${key}=${queryKeys[key]}`
+			
+			}
+
 
             //Exit & Prev
             const existPrev = page > 1;
             const existNext = offset + limit < total;
             //URL
-            const prev = existPrev ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page - 1}` : null;
-            const next = existNext ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page + 1}` : null;
+            const prev = existPrev ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page - 1}${queryUrl}` : null;
+            const next = existNext ? `${req.protocol}://${req.get('host')}/api/products?limit=${limit}&page=${+page + 1}${queryUrl}` : null;
 
 
             let categories = await db.Category.findAll({
@@ -61,9 +85,9 @@ module.exports = {
 
 
             return res.status(200).json({
+                status: 200,
                 ok: true,
                 meta: {
-                    status: 200,
                     //categories,
                     total,
                     quantity : products.length,

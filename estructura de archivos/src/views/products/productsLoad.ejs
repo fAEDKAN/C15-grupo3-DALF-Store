@@ -15,17 +15,18 @@
                     <div>
                         <h3 class="products-titulo">Cargar nuevo producto</h3>
                     </div>
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form id="form-productLoad" action="" method="post" enctype="multipart/form-data">
 
                         <div class="form-box">
                             <label class="form__label" for="name">Título:</label>
-                            <input class="form__input" type="text" id="nombre" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : null %>">
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : null %>">
                             <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
+                            <small id="errorName" class="text-danger"></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label">Categorías:</label>
-                            <select name="category" id="" >
+                            <select name="category" id="category" >
                                 <option value="" hidden selected>Seleccionar categoría...</option>
                                 <% categories.forEach(category => { %>
                                 <option <%= locals.old && old.category && old.category == category.id ? "selected" : "" %> value="<%= category.id %>"><%= category.name %></option>
@@ -33,24 +34,28 @@
                             </select>
                         
                             <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
+                            <small id="errorCategory" class="text-danger"></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label" for="price">Precio:</label>
-                            <input class="form__input" type="number" id="" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : null %>">
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : null %>">
                             <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
+                            <small id="errorPrice" class="text-danger"></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label" for="discount">Descuento:</label>
-                            <input type="text" name="discount" id="" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="discount" id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
                             <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
+                            <small id="errorDiscount" class="text-danger"></small>
                         </div>
 
                         <div class="form-box">
                             <label class="form__label" for="stock">Stock disponible:</label>
-                            <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : null %>">
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="number" id="stock" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : null %>">
                             <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
+                            <small id="errorStock" class="text-danger"></small>
                         </div>
 
                         <div class="form-box">
@@ -61,41 +66,48 @@
                                 <option <%= locals.old && old.section && old.section == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
                                 <% }); %>
                             </select>
-                            <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
+                            <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>
+                            <small id="errorSection" class="text-danger"></small>    
                         </div>
                         
                         <div class="form-box">
                             <label class="form-label">Companía:</label>
-                            <select name="company" id="" >
+                            <select name="company" id="company" >
                                 <option value="" hidden selected>Seleccionar una compania...</option>
                                 <% brands.forEach(company => { %>
                                     <option <%= locals.old && old.company && old.company == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
                                 <% }); %>
                             </select>
                             
-                            <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>    
+                            <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>
+                            <small id="errorCompany" class="text-danger"></small>    
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="descripcion">Descripción:</label>
-                            <textarea name="description" id="" cols="30" rows="5" minlength="20" maxlength="250" placeholder="Breve descripción del producto..."></textarea>
+                            <label class="form__label" for="description">Descripción:</label>
+                            <textarea class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" name="description" id="description" cols="30" rows="5" placeholder="Breve descripción del producto..."></textarea>
+                            <small class="form-error"><%= locals.errors && errors.description ? errors.description.msg : null %></small>
+                            <small id="errorDescription" class="text-danger"></small>
                         </div>
 
                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <input type="file" name="imagen" accept="image/*" multiple>
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept="image/*" multiple>
                             <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
+                            <small id="errorImage" class="text-danger"></small>
                         </div>
 
                         <div class="form-box buttons">
                             <button class="total-comprar" type="reset">Cancelar</button>
                             <button class="total-comprar" type="submit">Agregar</button>
+                            <p id="msgError" class="text-danger" ></p>
                         </div>
                     </form>
                 </div>
     </main>
     <!-- / M A I N -->
     <%- include('../partials/footer',{ title:'home', }) %>
+    <script src="/javascripts/productsLoad.js"></script>
 </body>
 
 </html>
