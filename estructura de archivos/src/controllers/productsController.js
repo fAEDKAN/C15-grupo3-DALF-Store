@@ -189,13 +189,50 @@ module.exports = {
     },
     //CART
     cart: (req, res) => {
-        return res.render('products/cart');
+        const categories = db.Category.findAll()
+		const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+		const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+		
+		Promise.all([categories, brands, sections])
+			.then(([categories, brands, sections]) => {
+				return res.render("products/cart", {
+					categories,
+					brands,
+					sections
+				});
+			})
+			.catch((error) => console.log(error));
     },
     cartAdress: (req, res) => {
-        return res.render('products/cartAdress');
+        const categories = db.Category.findAll()
+		const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+		const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+		
+		Promise.all([categories, brands, sections])
+			.then(([categories, brands, sections]) => {
+				return res.render('products/cartAdress', {
+					categories,
+					brands,
+					sections
+				});
+			})
+			.catch((error) => console.log(error));
+        
     },
     cartPay: (req, res) => {
-        return res.render('products/cartPay');
+        const categories = db.Category.findAll()
+		const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+		const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+		
+		Promise.all([categories, brands, sections])
+			.then(([categories, brands, sections]) => {
+				return res.render('products/cartPay', {
+					categories,
+					brands,
+					sections
+				});
+			})
+			.catch((error) => console.log(error));
     }
 
 }
