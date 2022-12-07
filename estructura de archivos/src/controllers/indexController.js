@@ -96,8 +96,10 @@ const controller = {
 	search: (req, res) => {
 
 		let { keywords } = req.query;
-
-		db.Product.findAll({
+		const categories = db.Category.findAll()
+		const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
+		const sections = db.Section.findAll({ attributes: ['id', 'name'] });
+		let searchResult=db.Product.findAll({
 			where: {
 				[Op.or]: [
 					{
@@ -114,9 +116,13 @@ const controller = {
 			},
 			include: ["image"],	
 		})
-			.then((result) => {
+		Promise.all([categories, brands, sections,searchResult])
+			.then(([categories, brands, sections,searchResult]) => {
 				return res.render("results", {
-					result,
+					searchResult,
+					categories,
+					brands,
+					sections,
 					toThousand,
 					keywords,
 				});

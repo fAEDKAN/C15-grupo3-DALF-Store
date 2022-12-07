@@ -13,9 +13,9 @@
                 </div>
                 <section class="main__section--product main__section--product-result">
                     
-                    <% if (result.length> 0) { %>
+                    <% if (searchResult.length> 0) { %>
                     
-                    <% result.forEach(({id, name, price, image, discount})=> { %>
+                    <% searchResult.forEach(({id, name, price, image, discount})=> { %>
                         <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                     <% }) %>
                     
