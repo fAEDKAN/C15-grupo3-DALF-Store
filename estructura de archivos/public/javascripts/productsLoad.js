@@ -44,7 +44,7 @@ $("price").addEventListener("blur", function ({ target }) {
         case !exRegs.exRegNum.test(this.value):
             msgError("errorPrice", "Esta campo solo acepta numeros", target);
             break;
-            case this.value < 1:
+        case this.value < 1:
             msgError("errorPrice", "El precio tiene que ser mayor a 0", target);
             break;
         default:
@@ -53,13 +53,11 @@ $("price").addEventListener("blur", function ({ target }) {
     }
 });
 
-$("discount").addEventListener("blur", function({target}) {
+$("discount").addEventListener("blur", function ({ target }) {
     switch (true) {
-        case !this.value.trim():
-            msgError("errorDiscount", "Este campo es obligatorio", target);
-            break;
         case !exRegs.exRegNum.test(this.value):
             msgError("errorDiscount", "Esta campo solo acepta numeros", target);
+            this.classList.add("is-invalid");
             break;
         case this.value < 1 || this.value > 100:
             msgError("errorDiscount", "El descuento no puede ser mayor de 100", target);
@@ -132,10 +130,10 @@ $("description").addEventListener("blur", function ({ target }) {
             msgError("errorDescription", "Es obligatorio establecer una descripción", target);
             this.classList.add("is-invalid");
             break;
-            case this.value.length < 10:
+        case this.value.length < 10:
             msgError("errorDescription", "La descripción tiene que tener entre 10 y 250 caracteres", target)
             break;
-            case this.value.length > 250:
+        case this.value.length > 250:
             msgError("errorDescription", "La descripción tiene que tener entre 10 y 250 caracteres", target)
             break;
         default:
@@ -159,20 +157,18 @@ $("image").addEventListener("blur", function ({ target }) {
 $("form-productLoad").addEventListener("submit", function (e) {
     e.preventDefault();
     let error = false;
-    let errorMsg = "¡Hay errores en el creación de tu producto!: \n";
     const elements = this.elements;
     for (let i = 0; i < elements.length - 2; i++) {
         if (!elements[i].value.trim() || elements[i].classList.contains('is-invalid')) {
             elements[i].classList.add('is-invalid')
+            $('msgError').innerText = 'Hay campos con errores o están vacíos';
             error = true;
-            if($(elements[i].id + "Error") != null){
-            errorMsg += elements[i].id + ": " + $(elements[i].id + "Error").innerText + "\n";
-            }
         }
     }
-    if (error) {
-        alert(errorMsg);
-    } else {
-        this.submit();
-    }
+    !error && this.submit()
 });
+
+/* inputs.forEach((input)=>{
+    input.addEventListener('keyup',validarFormulario)
+    input.addEventListener('blur',validarFormulario)
+}) */
