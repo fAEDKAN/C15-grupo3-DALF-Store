@@ -109,11 +109,54 @@ module.exports = {
         }
     },
 
+    verifyUserName: async (req, res) => {
+        try {
+            const { userName } = req.body;
+            let user = await db.User.findOne({
+                where: {
+                    userName
+                }
+            });
+            return res.status(200).json({
+                ok: true,
+                verified: user ? true : false
+            })
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok: false,
+                error: error.message
+            })
+        }
+    },
+
+    verifyEmail: async (req, res) => {
+        try {
+            const { email } = req.body;
+            let user = await db.User.findOne({
+                where: {
+                    email
+                }
+            });
+            return res.status(200).json({
+                ok: true,
+                verified: user ? true : false
+            })
+        } catch (error) {
+            return res.status(error.status || 500).json({
+                ok: false,
+                error: error.message
+            })
+        }
+    },
+
     removeUsers: async (req, res) => {
         try {
             
         } catch (error) {
-            
+            return res.status(error.status || 500).json({
+                ok: false,
+                error: error.message
+            })
         }
     }
 
