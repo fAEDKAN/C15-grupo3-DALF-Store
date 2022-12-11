@@ -1,97 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- H E A D -->
-    <%- include('../partials/head',{ title:'home', }) %>
-        <!-- / H E A D -->
+<!-- H E A D -->
+<%- include('../partials/head',{ title:'home', }) %>
+    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <!-- / H E A D -->
 
-        <body class="products">
-            <!-- H E A D E R -->
-            <%- include('../partials/header',{ title:'home', }) %>
-                <!-- M A I N -->
-                <main id="products__main">
-                    <div class="products-caja">
-                        <div class="">
-                            <h3 class="products-titulo">Editar producto</h3>
-                        </div>
-                        <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST">
-                            <div class="form-box">
-                                <label class="form__label" for="name">Título:</label>
-                                <input class="form__input" type="text" id="name" autocomplete="off" name="name" placeholder="Título del producto" value="<%= locals.old && old.name ? old.name : productToEdit.name %>">
-                                <small class="form-error"><%= locals.errors && errors.name ? errors.name.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label">Categorías:</label>
-                                <select name="category" id="" >
-                                    <% categories.forEach(category => { %>
-                                    <option <%= productToEdit.categoryId == category.id ? "selected" : "" %> value="<%= category.id %>"><%= category.name %></option>
-                                    <% }); %>
-                                </select>
-                                
-                                <small class="form-error"><%= locals.errors && errors.category ? errors.category.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label" for="price">Precio:</label>
-                                <input class="form__input" type="number" id="price" name="price" placeholder="Precio del producto" value="<%= locals.old && old.price ? old.price : productToEdit.price %>">
-                                <small class="form-error"><%= locals.errors && errors.price ? errors.price.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label">Descuento:</label>
-                                <input type="text" name="discount"  id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : productToEdit.discount %>">
-                                <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label" for="stock">Stock disponible:</label>
-                                <input class="form__input" type="number" id="" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : productToEdit.stock %>">
-                                <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form-label">Sección:</label>
-                                <select name="section" id="section">
-                                    <% sections.forEach(section => { %>
-                                        <option <%= productToEdit.sectionId == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
-                                        <% }); %>
-                                </select>
-                                <small class="form-error"><%= locals.errors && errors.section ? errors.section.msg : null %></small>    
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label">Companía:</label>
-                                <select name="company" id="company">
-                                    <% brands.forEach(company => { %>
-                                        <option <%= productToEdit.brandId == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
-                                        <% }); %>
-                                </select>
-                                <small class="form-error"><%= locals.errors && errors.company ? errors.company.msg : null %></small>
-                            </div>
-
-                            <div class="form-box">
-                                <label class="form__label" for="description">Descripción:</label>
-                                <textarea name="description" id="description" cols="30" rows="5" minlength="20" maxlength="250"><%=locals.old && old.description ? old.description : productToEdit.description %></textarea>
-                            </div>
-
-
-                            <div class="form-box load-image">
-                                <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                                <input type="file" name="imagen" accept=".jpg" multiple>
-                                <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
-                            </div>
-
-                            <div class="form-box buttons">
-                                <button class="total-comprar" type="reset">Cancelar</button>
-                                <button class="total-comprar" type="submit">Confirmar</button>
-                            </div>
-                        </form>
+    <body class="products">
+        <!-- H E A D E R -->
+        <%- include('../partials/header',{ title:'home', }) %>
+            <!-- M A I N -->
+            <main id="products__main">
+                <div class="products-caja">
+                    <div class="">
+                        <h3 class="products-titulo">Editar producto</h3>
                     </div>
-                </main>
-                <!-- / M A I N -->
-                <!-- F O O T E R -->
-                <%- include('../partials/footer',{ title:'home', }) %>
-                    <!-- / F O O T E R -->
-                </body>
+                    <form action="/products/update/<%= productToEdit.id %>?_method=PUT" method="POST" id="formEdit">
+                        <div class="form-box">
+                            <label class="form__label" for="name">Título:</label>
+                            <input class="form__input" type="text" id="name" autocomplete="off" name="name"
+                                placeholder="Título del producto"
+                                value="<%= locals.old && old.name ? old.name : productToEdit.name %>">
+                            <small class="form-error">
+                                <%= locals.errors && errors.name ? errors.name.msg : null %>
+                            </small>
+                        </div>
 
-            </html>
+                        <div class="form-box">
+                            <label class="form__label">Categorías:</label>
+                            <select name="category" id="">
+                                <% categories.forEach(category=> { %>
+                                    <option <%=productToEdit.categoryId==category.id ? "selected" : "" %> value="<%=
+                                            category.id %>"><%= category.name %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+
+                            <small class="form-error">
+                                <%= locals.errors && errors.category ? errors.category.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="price">Precio:</label>
+                            <input class="form__input" type="number" id="price" name="price"
+                                placeholder="Precio del producto"
+                                value="<%= locals.old && old.price ? old.price : productToEdit.price %>">
+                            <small class="form-error">
+                                <%= locals.errors && errors.price ? errors.price.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label">Descuento:</label>
+                            <input type="text" name="discount" id="discount" placeholder="Ej: 5"
+                                value="<%= locals.old && old.discount ? old.discount : productToEdit.discount %>">
+                            <small class="form-error">
+                                <%= locals.errors && errors.discount ? errors.discount.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="stock">Stock disponible:</label>
+                            <input class="form__input" type="number" id="" name="stock" placeholder=""
+                                value="<%= locals.old && old.stock ? old.stock : productToEdit.stock %>">
+                            <small class="form-error">
+                                <%= locals.errors && errors.stock ? errors.stock.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form-label">Sección:</label>
+                            <select name="section" id="section">
+                                <% sections.forEach(section=> { %>
+                                    <option <%=productToEdit.sectionId==section.id ? "selected" : "" %> value="<%=
+                                            section.id %>"><%= section.name %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+                            <small class="form-error">
+                                <%= locals.errors && errors.section ? errors.section.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label">Companía:</label>
+                            <select name="company" id="company">
+                                <% brands.forEach(company=> { %>
+                                    <option <%=productToEdit.brandId==company.id ? "selected" : "" %> value="<%=
+                                            company.id %>"><%= company.name %>
+                                    </option>
+                                    <% }); %>
+                            </select>
+                            <small class="form-error">
+                                <%= locals.errors && errors.company ? errors.company.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box">
+                            <label class="form__label" for="description">Descripción:</label>
+                            <textarea name="description" id="description" cols="30" rows="5" minlength="20"
+                                maxlength="250"><%=locals.old && old.description ? old.description : productToEdit.description %></textarea>
+                        </div>
+
+
+                        <div class="form-box load-image">
+                            <label class="form__label" for="imagen">Añadir Imágenes:</label>
+                            <input type="file" name="imagen" accept=".jpg" multiple>
+                            <small class="form-error">
+                                <%= locals.errors && errors.images ? errors.images.msg : null %>
+                            </small>
+                        </div>
+
+                        <div class="form-box buttons">
+                            <button class="total-comprar" type="reset">Cancelar</button>
+                            <button class="total-comprar" id="editConfirm" type="submit">Confirmar</button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <!-- / M A I N -->
+            <!-- F O O T E R -->
+            <%- include('../partials/footer',{ title:'home', }) %>
+                <!-- / F O O T E R -->
+                
+    </body>
+
+</html>
