@@ -111,7 +111,7 @@
                         <ul class="dropdown-menu cointeiner__links_nav_item">
                             <small class="title__nav_item" style="margin-left: -20px;">Descubrir por generos</small>
                             <% categories.forEach(category => { %>
-                                <li><a class="dropdown-item" href="/products/category/<%= category.id %>"><%= category.name %></a></li>
+                                <li><a class="dropdown-item" href="/filter/<%= category.id %>"><%= category.name %></a></li>
                             <% }) %>
                         </ul>
                     </li>
