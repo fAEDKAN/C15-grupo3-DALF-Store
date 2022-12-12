@@ -36,22 +36,22 @@ export const ContentRowTop = () => {
 
 	useEffect(() => {
 		getData("/totals")
-		.then((data) => {
+		.then(({data}) => {
 			setState({
 				loading: false,
 				products: {
 					...state.products,
-					data: data.products
+					data: data.productsTotal,
 				},
 				users: {
 					...state.users,
-					data: data.users
+					data: data.usersTotal,
 				},
 				categories: {
 					...state.categories,
-					data: data.categories
-				}
-			})
+					data: data.categoriesTotal,
+				},
+			});
 		})
 		.catch(() => console.error); 
 	}, []);
