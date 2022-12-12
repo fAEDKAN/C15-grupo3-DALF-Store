@@ -3,7 +3,6 @@ import {Outlet} from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { SideBar } from '../components/SideBar'
 import { TopBar } from '../components/TopBar'
-import { Produtcs } from './Products'
 
 export const Root = () => {
     return (
