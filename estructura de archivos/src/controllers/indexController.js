@@ -128,7 +128,7 @@ const controller = {
 			})
 			.catch((error) => console.log(error));
 	},
-	navBarFilter: async (req, res) => {
+	categoriesFilter: async (req, res) => {
 		let parametro = req.params.x
 		try {
 			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
@@ -139,16 +139,9 @@ const controller = {
 					[Op.or]: [
 						{
 							categoryId: { [Op.substring]: parametro }
-						},
-						{
-							sectionId: { [Op.substring]: parametro }
-						},
-						{
-							brandId: { [Op.substring]: parametro }
 						}
 					]
-				},
-				include: ["image"]
+				},include: ['image'],
 			})
 			console.log(brands);
 			return res.render("results", {

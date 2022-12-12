@@ -2,39 +2,56 @@
     <div class="header__top--general">
         <nav class="navbar navbar-dark bg-dark fixed-top header__top--general-navbar">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                <span class="navbar-toggler-icon"></span></button>
-                <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt="" /></a>
                 <div class="header__top--general-navigation_button">
                     <form action="/search" method="GET" class="header__top--search">
-                        <input type="text" name="keywords" placeholder="Buscar" required>
-                        <div class="header__top--search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
+                        <input type="text" name="keywords" placeholder="Buscar" required />
+                        <div class="header__top--search-button">
+                            <i class="fa-solid fa-magnifying-glass icon"></i>
+                        </div>
                     </form>
 
-                    <button><a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a></button>
+                    <button>
+                        <a href="/products/cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                    </button>
                     <li class="nav-item dropdown header__top--login">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fa-solid fa-user"></i></a>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <% if (locals.userLogin) { %>
-                                <li><a class="dropdown-item" href="/users/profile"><%= userLogin.userName %></a></li>
+                                <li>
+                                    <a class="dropdown-item" href="/users/profile">
+                                        <%= userLogin.userName %>
+                                    </a>
+                                </li>
                                 <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
-                            <% } else { %>
-                            <li><a class="dropdown-item" href="/users/login">Login</a></li>
-                            <li><a class="dropdown-item" href="/users/register">Register</a></li>
-                            <% } %>
+                                <% } else { %>
+                                    <li><a class="dropdown-item" href="/users/login">Login</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/users/register">Register</a>
+                                    </li>
+                                    <% } %>
                         </ul>
                     </li>
                 </div>
-                <div class="offcanvas offcanvas-end  offcanvas-end-edited text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas offcanvas-end offcanvas-end-edited text-bg-dark" tabindex="-1"
+                    id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt=""></a>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt="" /></a>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="padding-top: 25px;">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="padding-top: 25px">
                             <form action="/search" class="header__navbar-nav-searchbar">
-                                <input type="text" name="keywords" placeholder="Buscar" required>
-                                <div class="header__navbar-nav-search-button"><i class="fa-solid fa-magnifying-glass icon"></i></div>
+                                <input type="text" name="keywords" placeholder="Buscar" required />
+                                <div class="header__navbar-nav-search-button">
+                                    <i class="fa-solid fa-magnifying-glass icon"></i>
+                                </div>
                             </form>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">TIENDA</a>
@@ -55,7 +72,9 @@
                                 <a class="nav-link active" aria-current="page" href="#">LISTA DE DESEOS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i class="fa-solid fa-plus"></i> CREAR NUEVO PRODUCTO </a>
+                                <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i
+                                        class="fa-solid fa-plus"></i> CREAR NUEVO PRODUCTO
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Español Latinoamerica | ARS</a>
@@ -67,66 +86,103 @@
             <div class="header_div">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
                     <% if (locals.userLogin) { %>
-                       <li class="nav-item"> <!--  Creación de producto -->
-                        <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i class="fa-solid fa-plus"></i> Crear nuevo producto </a>
-                    </li>
-                <% } %>
-                    <li class="nav-item"> <!-- Tienda -->
-                        <a class="nav-link active" aria-current="page" href="#">Tienda</a>
-                    </li>
-                        <li class="nav-item dropdown"> <!-- Juegos -->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Network</a>
-                        <ul class="dropdown-menu menu_dropdown">
-                            <li>
-                                <small class="title__nav_item" style="margin-left: 1px;">Plataformas</small>
-                                <ul class="cointeiner__links_nav_item" style="list-style: none;">
-                                    <% brands.forEach(brand=> { %>
-                                        <li><a class="dropdown-item" href="/products/<%= brand.id %>"><%= brand.name %></a></li>
-                                    <% }) %>
+                        <li class="nav-item">
+                            <!--  Creación de producto -->
+                            <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i
+                                    class="fa-solid fa-plus"></i> Crear nuevo producto
+                            </a>
+                        </li>
+                        <% } %>
+                            <li class="nav-item">
+                                <!-- Tienda -->
+                                <a class="nav-link active" aria-current="page" href="#">Tienda</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <!-- Juegos -->
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Network</a>
+                                <ul class="dropdown-menu menu_dropdown">
+                                    <li>
+                                        <small class="title__nav_item" style="margin-left: 1px">Plataformas</small>
+                                        <ul class="cointeiner__links_nav_item" style="list-style: none">
+                                            <% brands.forEach(brand=> { %>
+                                                <li>
+                                                    <a class="dropdown-item" href="/brand/<%= brand.id %>">
+                                                        <%= brand.name %>
+                                                    </a>
+                                                </li>
+                                                <% }) %>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown"> <!-- Tarjeta de regalo -->
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Tarjeta de regalo</a>
-                        <ul class="dropdown-menu tarjetaDeRegalo__move">
-                            <li>
-                                <small class="title__nav_item" style="margin-left: 1px;">Lista de tarjetas de regalo</small>
-                                <ul class="cointeiner__links_nav_item" style="list-style: none;">
-                                    <li><a class="dropdown-item" href="#">Steam Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">Xbox Live Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">PSN Juegos</a></li>
-                                    <li><a class="dropdown-item" href="#">PSN Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">Tarjetas pavos de Fortnite</a></li>
-                                    <li><a class="dropdown-item" href="#">Roblox Robux Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">Blizzard Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">Google Play Tarjetas</a></li>
-                                    <li><a class="dropdown-item" href="#">Otras tarjetas de regalo</a></li>
+                            <li class="nav-item dropdown">
+                                <!-- Tarjeta de regalo -->
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Tarjeta de regalo</a>
+                                <ul class="dropdown-menu tarjetaDeRegalo__move">
+                                    <li>
+                                        <small class="title__nav_item" style="margin-left: 1px">Lista de tarjetas de
+                                            regalo</small>
+                                        <ul class="cointeiner__links_nav_item" style="list-style: none">
+                                            <li><a class="dropdown-item" href="#">Steam Tarjetas</a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Xbox Live Tarjetas</a>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">PSN Juegos</a></li>
+                                            <li><a class="dropdown-item" href="#">PSN Tarjetas</a></li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Tarjetas pavos de Fortnite</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Roblox Robux Tarjetas</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Blizzard Tarjetas</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Google Play Tarjetas</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="#">Otras tarjetas de regalo</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Generos</a>
-                        <ul class="dropdown-menu cointeiner__links_nav_item">
-                            <small class="title__nav_item" style="margin-left: -20px;">Descubrir por generos</small>
-                            <% categories.forEach(category => { %>
-                                <li><a class="dropdown-item" href="/filter/<%= category.id %>"><%= category.name %></a></li>
-                            <% }) %>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Secciones</a>
-                        <ul class="dropdown-menu cointeiner__links_nav_item">
-                            <small class="title__nav_item" style="margin-left: -20px;">Secciones</small>
-                            <% sections.forEach(section => { %>
-                                <li><a class="dropdown-item" href="/products/<%= section.id %>"><%= section.name %></a></li>
-                            <% }) %>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" style="font-size: 14px;" aria-current="page" href="#">Español | ARS</a>
-                    </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Generos</a>
+                                <ul class="dropdown-menu cointeiner__links_nav_item">
+                                    <small class="title__nav_item" style="margin-left: -20px">Descubrir por
+                                        generos</small>
+                                    <% categories.forEach(category=> { %>
+                                        <li>
+                                            <a class="dropdown-item" href="/categorias/<%= category.id %>">
+                                                <%= category.name %>
+                                            </a>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Secciones</a>
+                                <ul class="dropdown-menu cointeiner__links_nav_item">
+                                    <small class="title__nav_item" style="margin-left: -20px">Secciones</small>
+                                    <% sections.forEach(section=> { %>
+                                        <li>
+                                            <a class="dropdown-item" href="/section/<%= section.id %>">
+                                                <%= section.name %>
+                                            </a>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" style="font-size: 14px" aria-current="page" href="#">Español
+                                    | ARS</a>
+                            </li>
                 </ul>
             </div>
         </nav>
