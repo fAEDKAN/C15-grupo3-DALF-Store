@@ -145,7 +145,7 @@ const controller = {
 			})
 			console.log(brands);
 			return res.render("results", {
-				searchResult,
+				searchResult, 
 				categories,
 				sections,
 				brands,

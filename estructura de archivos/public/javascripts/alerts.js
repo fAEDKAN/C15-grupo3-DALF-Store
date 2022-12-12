@@ -9,7 +9,10 @@ let deleteForm = document.querySelector('#deleteForm')
                             showCancelButton: true,
                             confirmButtonColor: '#3085d6',
                             cancelButtonColor: '#d33',
-                            confirmButtonText: 'Si, eliminar!'
+                            confirmButtonText: 'Si, eliminar!',
+                            customClass:{
+                                icon:"alertIcon"
+                            }
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 Swal.fire({
