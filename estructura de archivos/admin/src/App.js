@@ -1,13 +1,9 @@
 import './App.css';
-import { SideBar } from './components/SideBar';
-import { ContentWrapper } from './components/ContentWrapper';
-import Home from './pages/Home';
+import { AppRouter } from './routes/AppRouter';
 
 function App() {
   return (
-    <div>
-      <Home/>
-    </div>
+    <AppRouter/>
   );
 }
 

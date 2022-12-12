@@ -1,62 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { fetchWithoutToken } from '../hooks/UseFetch'
-import { Metrics } from './Metrics'
+import { Categories } from "./categories/Categories"
+import { Metrics } from "./metrics/Metrics"
+
 
 export const ContentRowTop = () => {
-	const [state, setState] = useState({
-		loading: true,
-		products: {
-			title: "Productos",
-			color: "primary",
-			icon: "fa-film",
-			data: 0
-		},
-		users: {
-			title: "Usuarios",
-			color: "success",
-			icon: "fa-user",
-			data: 0
-		},
-		categories: {
-			title: "Categorias",
-			color: "warning",
-			icon: "fa-award",
-			data: 0
-		},
-	});
-
-	const getData = async (endpoint) => {
-		try {
-		let response = await fetchWithoutToken(endpoint);
-		return response;
-		} catch (error) {
-			console.log(error);
-		}
-	};
-
-	useEffect(() => {
-		getData("/totals")
-		.then(({data}) => {
-			setState({
-				loading: false,
-				products: {
-					...state.products,
-					data: data.productsTotal,
-				},
-				users: {
-					...state.users,
-					data: data.usersTotal,
-				},
-				categories: {
-					...state.categories,
-					data: data.categoriesTotal,
-				},
-			});
-		})
-		.catch(() => console.error); 
-	}, []);
-
-	const { products, users, categories } = state;
 
 	return (
 		<div className="container-fluid">
@@ -64,11 +10,7 @@ export const ContentRowTop = () => {
 				<h1 className="h3 mb-0 text-gray-800">Dashboard DALF-Store</h1>
 			</div>
 
-			<div className="row">
-				<Metrics {...products} />
-				<Metrics {...users} />
-				<Metrics {...categories} />
-			</div>
+			<Metrics/>
 
 			<div className="row">
 
@@ -89,89 +31,8 @@ export const ContentRowTop = () => {
 					</div>
 				</div>
 
-				<div className="col-lg-6 mb-4">
-					<div className="card shadow mb-4">
-						<div className="card-header py-3">
-							<h5 className="m-0 font-weight-bold text-gray-800">
-								Categorias
-							</h5>
-						</div>
-						<div className="card-body">
-							<div className="row">
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Acción
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Animación
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Aventura
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Ciencia Ficción
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Comedia
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Documental
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Drama
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Fantasia
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Infantiles
-										</div>
-									</div>
-								</div>
-								<div className="col-lg-6 mb-4">
-									<div className="card bg-dark text-white shadow">
-										<div className="card-body">
-											Musical
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				<Categories/>
+				
 			</div>
 		</div>
 	)

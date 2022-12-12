@@ -1,6 +1,6 @@
-const fetchWithoutToken = async (endpoint, method ="GET", date) => {
+const fetchWithoutToken = async (endpoint, method = "GET", data) => {
 
-    const apiUrlBase = "http://localhost:4000/api"
+    const apiUrlBase = "http://localhost:4000/api";
     const url = `${apiUrlBase}${endpoint}`;
 
     let response;
@@ -9,26 +9,25 @@ const fetchWithoutToken = async (endpoint, method ="GET", date) => {
         response = await fetch(url);
     }
 
-    if(method === "POST") {
+    if (method === "POST") {
         response = await fetch(url, {
             method,
+            body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(date)
+                "Content-type": "application/json"
+            }
         })
     }
 
 
     let result = await response.json();
 
-
     return result
 }
 
-const useFetchWithToken = async (endpoint, method ="GET", token, date) => {
+const useFetchWithToken = async (endpoint, method = "GET", token, data) => {
 
-    const apiUrlBase = "http://localhost:4000/api"
+    const apiUrlBase = process.env.REACT_APP_API_URL_BASE;
     const url = `${apiUrlBase}${endpoint}`;
 
     let response;
@@ -42,14 +41,14 @@ const useFetchWithToken = async (endpoint, method ="GET", token, date) => {
         });
     }
 
-    if(method === "POST") {
+    if (method === "POST") {
         response = await fetch(url, {
             method,
+            body: JSON.stringify(data),
             headers: {
-                "Content-Type": "application/json",
+                "Content-type": "application/json",
                 Authorization: token
-            },
-            body: JSON.stringify(date)
+            }
         })
     }
 

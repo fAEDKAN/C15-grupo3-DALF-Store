@@ -5,22 +5,21 @@ module.exports = {
     list: async (req, res) => {
         try {
             let categories = await db.Category.findAll({
-                include: ['products']
+                include: ["product"]
             });
 
             categories = categories.map(category => {
                 return {
-                    totalProducts: category.products.length,
-                    ...category.dataValues
+                    id: category.id,
+                    name: category.name,
+                    createdAt: category.createdAt,
+                    updatedAt: category.updatedAt,
                 }
             })
 
             return res.status(200).json({
                 ok: true,
-                data: {
-                    categories,
-
-                },
+                data: categories,
             });
         } catch (error) {
             return res.status(error.status || 500).json({
