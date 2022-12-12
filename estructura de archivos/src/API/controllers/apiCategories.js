@@ -1,17 +1,25 @@
+
 const db = require("../../database/models");
+
 module.exports = {
-    getTotals: async (req, res) => {
+    list: async (req, res) => {
         try {
-            let usersTotal = await db.User.count();
-            let productsTotal = await db.Product.count();
-            let categoriesTotal = await db.Category.count();
+            let categories = await db.Category.findAll({
+                include: ['products']
+            });
+
+            categories = categories.map(category => {
+                return {
+                    totalProducts: category.products.length,
+                    ...category.dataValues
+                }
+            })
 
             return res.status(200).json({
                 ok: true,
                 data: {
-                    usersTotal,
-                    productsTotal,
-                    categoriesTotal,
+                    categories,
+
                 },
             });
         } catch (error) {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Metrics = ({title, color, icon, data}) => {
+export const Metrics = ({ title, color, icon, data }) => {
     return (
         <div className="col-md-4 mb-4">
             <div className={`card border-left-${color} shadow h-100 py-2`}>
