@@ -9,6 +9,7 @@ var cors = require('cors');
 
 const methodOverride= require('method-override');
 const session = require('express-session');
+const cors =require('cors')
 
 const cookieCheck = require('./middlewares/cookieCheck');
 const localsUserCheck = require('./middlewares/localsUserCheck');
@@ -18,6 +19,7 @@ var productsRouter = require('./routes/products');
 var usersRouter = require('./routes/users');
 
 //API routes
+
 var apiIndexRouter = require('./API/routes/indexRoutes');
 var apiProductsRouter = require('./API/routes/productsRoutes');
 var apiUsersRouter = require('./API/routes/usersRoutes')
@@ -41,7 +43,8 @@ app.use(session({
     resave : false,
     saveUninitialized : true
 }));
-app.use(cors());
+
+app.use(cors())
 
 app.use(cookieCheck);
 app.use(localsUserCheck);
@@ -51,7 +54,8 @@ app.use('/products', productsRouter);
 app.use('/users', usersRouter);
 
 //APi
-app.use('/api', apiIndexRouter)
+
+app.use('/api', apiIndexRouter);
 app.use('/api/products', apiProductsRouter)
 app.use('/api/users', apiUsersRouter)
 app.use('/api/categories', apiCategoriesRouter)
