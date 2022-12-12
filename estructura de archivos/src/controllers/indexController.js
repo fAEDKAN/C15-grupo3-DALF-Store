@@ -185,6 +185,35 @@ const controller = {
 			console.log(error);
 
 		}
+	},
+	brandsFilter: async (req, res) => {
+		let parametro = req.params.x
+		try {
+			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult =await db.Product.findAll({
+				where: {
+					[Op.or]: [
+						{
+							brandId: { [Op.substring]: parametro }
+						}
+					]
+				},include: ['image'],
+			})
+			console.log(brands);
+			return res.render("results", {
+				searchResult,
+				categories,
+				sections,
+				brands,
+				toThousand,
+				parametro
+			})
+		} catch (error) {
+			console.log(error);
+
+		}
 	}
 };
 
