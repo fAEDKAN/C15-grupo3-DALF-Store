@@ -72,7 +72,7 @@ h1 {
 }
 
 .dropdown-menu[data-bs-popper] {
-    left: -138px;
+    left: 0px;
 }
 
 .header__top--arrow::after {
@@ -227,7 +227,7 @@ h1 {
     }
 
     .cointeiner__links_nav_item[data-bs-popper]{
-        left: -57px;
+        left: 0px;
     }
 
     .cointeiner__links_nav_item li a{
@@ -248,6 +248,7 @@ h1 {
         font-size: 16px;
         text-align: center;
         width: 970px;
+        justify-content: center !important;
     }
     .header_div--navbar-desktop li {
         padding: 5px;
@@ -258,7 +259,7 @@ h1 {
         margin-bottom: 14px;
     }
     .header_div {
-        display: block;
+        display: flex;
     }
     .navigation {
         display: flex;
