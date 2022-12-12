@@ -85,25 +85,17 @@
             </div>
             <div class="header_div">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
-                    <% if (locals.userLogin) { %>
-                        <li class="nav-item">
-                            <!--  Creación de producto -->
-                            <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i
-                                    class="fa-solid fa-plus"></i> Crear nuevo producto
-                            </a>
-                        </li>
-                        <% } %>
-                            <li class="nav-item">
-                                <!-- Tienda -->
+                    
+                            <!--<li class="nav-item">
+                                 Tienda 
                                 <a class="nav-link active" aria-current="page" href="#">Tienda</a>
-                            </li>
+                            </li>-->
                             <li class="nav-item dropdown">
                                 <!-- Juegos -->
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Network</a>
+                                    aria-expanded="false">Plataformas</a>
                                 <ul class="dropdown-menu menu_dropdown">
                                     <li>
-                                        <small class="title__nav_item" style="margin-left: 1px">Plataformas</small>
                                         <ul class="cointeiner__links_nav_item" style="list-style: none">
                                             <% brands.forEach(brand=> { %>
                                                 <li>
@@ -116,8 +108,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
-                                <!-- Tarjeta de regalo -->
+                            <!--<li class="nav-item dropdown">
+                                 Tarjeta de regalo 
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                     aria-expanded="false">Tarjeta de regalo</a>
                                 <ul class="dropdown-menu tarjetaDeRegalo__move">
@@ -149,13 +141,11 @@
                                         </ul>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>-->
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Generos</a>
+                                    aria-expanded="false">Categorias</a>
                                 <ul class="dropdown-menu cointeiner__links_nav_item">
-                                    <small class="title__nav_item" style="margin-left: -20px">Descubrir por
-                                        generos</small>
                                     <% categories.forEach(category=> { %>
                                         <li>
                                             <a class="dropdown-item" href="/categorias/<%= category.id %>">
@@ -165,7 +155,7 @@
                                         <% }) %>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
+                            <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                     aria-expanded="false">Secciones</a>
                                 <ul class="dropdown-menu cointeiner__links_nav_item">
@@ -182,7 +172,21 @@
                             <li class="nav-item">
                                 <a class="nav-link active" style="font-size: 14px" aria-current="page" href="#">Español
                                     | ARS</a>
+                            </li>-->
+                            <li class="nav-item">
+                                <a class="nav-link active"  aria-current="page" href="/section/1">Ofertas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active"  aria-current="page" href="/section/2">Recomendados</a>
+                            </li>
+                            <% if (locals.userLogin) { %>
+                                <li class="nav-item">
+                                    <!--  Creación de producto -->
+                                    <a class="nav-link active" aria-current="page" href="/products/productsLoad"><i
+                                            class="fa-solid fa-plus"></i> Crear nuevo producto
+                                    </a>
+                                </li>
+                                <% } %>
                 </ul>
             </div>
         </nav>
