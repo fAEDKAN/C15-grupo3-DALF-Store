@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { fetchWithoutToken } from '../../hooks/useFetch';
+import { fetchWithoutToken } from '../../hooks/UseFetch';
 import { Metric } from './Metric';
 
 export const Metrics = () => {

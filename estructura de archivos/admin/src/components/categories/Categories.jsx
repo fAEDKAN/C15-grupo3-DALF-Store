@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { fetchWithoutToken } from "../../hooks/useFetch";
+import { fetchWithoutToken } from "../../hooks/UseFetch";
 import { Category } from "./Category";
 
 export const Categories = () => {
