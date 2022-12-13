@@ -45,8 +45,8 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="discount">Descuento:</label>
-                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="text" name="discount" id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
+                            <label class="formlabel" for="discount">Descuento:</label>
+                            <input class="forminput form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="number" min="0" max="100" value="0" name="discount" id="discount" placeholder="Ej: 5" value="<%= locals.old && old.discount ? old.discount : null %>">
                             <small class="form-error"><%= locals.errors && errors.discount ? errors.discount.msg : null %></small>
                             <small id="errorDiscount" class="text-danger"></small>
                         </div>
