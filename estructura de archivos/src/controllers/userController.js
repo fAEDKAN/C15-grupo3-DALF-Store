@@ -179,10 +179,12 @@ module.exports = {
                             userId: user.id,
                         },
                     });
-                    // Si el usuario sube otra imagen, la anterior se elimina de local storage
-                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
-                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
-                    }
+
+                    /* // Si el usuario sube otra imagen, la anterior se elimina de local storage
+                    if (fs.existsSync(path.join(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
+                        fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
+                    } */
+
                     // Si existe la actualizamos
                     if (avatar) {
                         await avatar.update({

@@ -39,37 +39,31 @@ input:-webkit-autofill:active {
     width: 225px;
     color: var(--C_Ice-Cream);
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
-    background-color: var(--C_Blue);
-    padding: 0 5px 0 5px;
+    /* padding: 0 5px 0 5px; */
     z-index: 100;
-    position: absolute;
-    top: 100%;
+    /* position: absolute;
+    top: 100%; */
 }
 
 .input__pass--list {
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     text-align: left;
 }
 
 .input__pass--denied {
     color: var(--C_Ice-Cream);
-    font-size: 0.9rem;
-    font-weight: 400;
-    text-align: left;
 }
 
 .input__pass--granted {
     color: var(--C_Lightblue_Logo);
-    font-size: 0.9rem;
-    font-weight: 400;
-    text-align: left;
 }
 
 .inputs__text__warnings--submit {
     font-weight: 600;
+    text-align: center;
 }
 
 /** BODY | LOGO */
