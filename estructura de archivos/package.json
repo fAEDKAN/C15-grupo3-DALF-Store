@@ -9,7 +9,7 @@
         "client:build": "cd admin & npm run build",
         "dev": "concurrently \"npm run server\" \"npm run client:start\"",
         "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
-        "db:reset": "sequelize db:migrate:undo:all & sequelize db:migrate &sequelize db:seed:all"
+        "reset-db": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all & npm run dev"
     },
     "nodemonConfig": {
         "ignore": "*.json"
