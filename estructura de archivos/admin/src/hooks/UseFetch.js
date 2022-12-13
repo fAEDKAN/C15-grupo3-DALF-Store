@@ -1,15 +1,65 @@
-import React from 'react'
+const fetchWithoutToken = async (endpoint, method = "GET", data) => {
 
-const GetFetch = async (endpoint, method ="get", data) => {
-    const apiUrlBase="http://localhost:4000/api"
-    const url= `${apiUrlBase}${endpoint}`
+    const apiUrlBase = "http://localhost:4000/api";
+    const url = `${apiUrlBase}${endpoint}`;
 
-    let response= await fetch(url,{method})
-    let result =await response.json()
+    let response;
 
-  return result
+    if (method === "GET") {
+        response = await fetch(url);
+    }
+
+    if (method === "POST") {
+        response = await fetch(url, {
+            method,
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+    }
+
+
+    let result = await response.json();
+
+    return result
+}
+
+const useFetchWithToken = async (endpoint, method = "GET", token, data) => {
+
+    const apiUrlBase = process.env.REACT_APP_API_URL_BASE;
+    const url = `${apiUrlBase}${endpoint}`;
+
+    let response;
+
+    if (method === "GET") {
+        response = await fetch(url, {
+            method,
+            headers: {
+                Authorization: token
+            }
+        });
+    }
+
+    if (method === "POST") {
+        response = await fetch(url, {
+            method,
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json",
+                Authorization: token
+            }
+        })
+    }
+
+
+    let result = await response.json();
+
+
+    return result
 }
 
 export {
-    GetFetch
+    fetchWithoutToken,
+    useFetchWithToken
 }
