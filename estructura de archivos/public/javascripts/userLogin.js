@@ -35,7 +35,7 @@ const verifyEmail = async (email) => {
 }
 
 // Email
-$("email").addEventListener("blur", async function ({ target }) {
+$("email").addEventListener("keyup", async function ({ target }) {
     switch (true) {
         case !this.value.trim():
             msgError("emailError", "El campo no puede estar vacío", target);
@@ -54,7 +54,7 @@ $("email").addEventListener("blur", async function ({ target }) {
 });
 
 // Contraseña
-$("password").addEventListener("blur", async function ({ target }) {
+$("password").addEventListener("keyup", async function ({ target }) {
     switch (true) {
         case !this.value.trim():
             msgError("passwordError", "El campo no puede estar vacío", target);
