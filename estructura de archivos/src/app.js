@@ -21,7 +21,7 @@ var usersRouter = require('./routes/users');
 var apiIndexRouter = require('./API/routes/indexRoutes');
 var apiProductsRouter = require('./API/routes/productsRoutes');
 var apiUsersRouter = require('./API/routes/usersRoutes')
-var apiCategoriesRouter = require('./API/routes/categories');
+var apiCategoriesRouter = require('./API/routes/categoriesRoutes');
 
 var app = express();
 
