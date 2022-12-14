@@ -54,6 +54,6 @@ module.exports = [
         .notEmpty().withMessage('Es obligatorio establecer una descripción').bail()
         .isLength({
             min: 10,
-            max: 250
+            max: 3000
         }).withMessage('La descripción tiene que tener entre 10 y 250 caracteres')
 ];
