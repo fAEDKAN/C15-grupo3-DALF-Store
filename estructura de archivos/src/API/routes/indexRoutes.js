@@ -1,9 +1,11 @@
+
 const express = require('express');
 const router = express.Router();
 
-const {getTotals} = require('../../API/controllers/indexController');
 
-//api
+const {getTotals} = require('../controllers/indexController');
+
+// /api
 
 router
     .get('/totals', getTotals)

@@ -5,6 +5,7 @@ console.log("productsLoad.js connected!");
 const exRegs = {
     noSymbols: /^[0-9]+(.[0-9]{1,2})?$/,
     discount: /^([1-9]\d{0,1}|100)$/,
+    exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
     exRegNum: /[0-9]/,
     exRegImg: /\.(jpg|jpeg|png|raw|webp)$/i,
 };
@@ -55,12 +56,12 @@ $("price").addEventListener("blur", function ({ target }) {
 
 $("discount").addEventListener("blur", function ({ target }) {
     switch (true) {
-        case !exRegs.exRegNum.test(this.value):
-            msgError("errorDiscount", "Esta campo solo acepta numeros", target);
+        case exRegs.exRegAlfa.test(this.value):
+            msgError("errorDiscount", "Ésta campo solo acepta numeros", target);
             this.classList.add("is-invalid");
             break;
-        case this.value < 1 || this.value > 100:
-            msgError("errorDiscount", "El descuento no puede ser mayor de 100", target);
+        case this.value < 0 || this.value > 100:
+            msgError("errorDiscount", "El descuento no puede ser menor a 0 y no puede ser mayor a 100", target);
             break;
         default:
             validField("errorDiscount", target);
@@ -149,7 +150,7 @@ $("image").addEventListener("blur", function ({ target }) {
             this.classList.add("is-invalid");
             break;
         default:
-            validField("errorDescription", target);
+            validField("errorImage", target);
             break;
     }
 });
@@ -168,7 +169,3 @@ $("form-productLoad").addEventListener("submit", function (e) {
     !error && this.submit()
 });
 
-/* inputs.forEach((input)=>{
-    input.addEventListener('keyup',validarFormulario)
-    input.addEventListener('blur',validarFormulario)
-}) */

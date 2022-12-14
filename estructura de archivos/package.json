@@ -3,9 +3,13 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "nodemon ./src/bin/www",
         "start": "node ./src/bin/www",
-        "reset-db": "sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all & npm run dev"
+        "server": "nodemon ./src/bin/www",
+        "client:start": "cd admin & npm run start",
+        "client:build": "cd admin & npm run build",
+        "dev": "concurrently \"npm run server\" \"npm run client:start\"",
+        "db:create": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
+        "reset-db": "sequelize db:seed:undo:all & sequelize db:migrate:undo:all & sequelize db:migrate & sequelize db:seed:all & npm run dev"
     },
     "nodemonConfig": {
         "ignore": "*.json"
@@ -29,5 +33,8 @@
         "nodemon": "^2.0.20",
         "sequelize": "^6.24.0",
         "sweetalert2": "^11.6.15"
+    },
+    "devDependencies": {
+        "concurrently": "^7.6.0"
     }
 }

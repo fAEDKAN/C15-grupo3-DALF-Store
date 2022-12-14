@@ -1,16 +1,16 @@
 import React from 'react'
 import logo from '../DALF-LOGO.png'
 export const SideBar = () => {
-  return (
-    <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+	return (
+		<ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 			<a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
 				<div className="sidebar-brand-icon">
-					<img className="w-100" src={logo} alt="Digital House"/>
+					<img className="w-100" src={logo} alt="Digital House" />
 				</div>
 			</a>
 
-			<hr className="sidebar-divider my-0"/>
+			<hr className="sidebar-divider my-0" />
 
 			<li className="nav-item active">
 				<a className="nav-link" href="/">
@@ -18,7 +18,7 @@ export const SideBar = () => {
 					<span>Dashboard - DALF-STORE</span></a>
 			</li>
 
-			<hr className="sidebar-divider"/>
+			<hr className="sidebar-divider" />
 
 			<div className="sidebar-heading">Navegacion</div>
 
@@ -41,7 +41,7 @@ export const SideBar = () => {
 					<span>Otros</span></a>
 			</li>
 
-			<hr className="sidebar-divider d-none d-md-block"/>
+			<hr className="sidebar-divider d-none d-md-block" />
 		</ul>
-  )
+	)
 }
