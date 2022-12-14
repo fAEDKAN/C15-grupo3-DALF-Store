@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {list} = require('../controllers/Categories')
+const {list} = require('../controllers/categoriesController')
 
 //  /api/categories 
 
