@@ -82,10 +82,12 @@ input:-webkit-autofill:active {
 .body__form--box {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 55%;
+    align-items: center;
+    position: relative;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 50vh;
 }
 
 /** BODY | TITLE */
@@ -244,7 +246,6 @@ input:-webkit-autofill:active {
 .body__form__redirect {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     flex-direction: column;
     text-align: center;
     gap: 25px;
@@ -256,10 +257,12 @@ input:-webkit-autofill:active {
     font-weight: bold;
     transition: 0.75s;
 }
+
 .body__form__redirect a:hover {
     color: var(--C_Lightblue_Logo);
     font-size: 0.8rem;
 }
+
 
 /** BODY | FORM | PASSWORD TOGGLER */
 
