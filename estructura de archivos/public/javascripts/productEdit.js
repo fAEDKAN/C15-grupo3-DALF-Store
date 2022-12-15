@@ -1,6 +1,6 @@
 const $ = (element) => document.getElementById(element);
 
-console.log("productsLoad.js connected!");
+console.log("productEdit.js connected!");
 
 const exRegs = {
     noSymbols: /^[0-9]+(.[0-9]{1,2})?$/,
