@@ -10,10 +10,9 @@ module.exports = {
 
             categories = categories.map(category => {
                 return {
-                    id: category.id,
                     name: category.name,
-                    createdAt: category.createdAt,
-                    updatedAt: category.updatedAt,
+                    totalProducts: category.product.length,
+                    ...category.dataValues,
                 }
             })
 
