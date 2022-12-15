@@ -1,6 +1,7 @@
 import React from "react";
 import { Categories } from "../components/categories/Categories";
 import { Metrics } from "../components/metrics/Metrics";
+import { Products } from "../components/products/Products"
 
 export const Home = () => {
   return (
@@ -13,6 +14,7 @@ export const Home = () => {
 
       <div className="row">
         <Categories />
+        <Products/>
       </div>
     </div>
   );
