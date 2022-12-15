@@ -36,7 +36,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
-    width: 355px;
+    width: 100%;
 }
 
 .body__profile--title h3 {
@@ -101,8 +101,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: var(--C_Ice-Cream);
 }
