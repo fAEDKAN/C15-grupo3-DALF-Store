@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head',{ title:'Detail', }) %>
+    <%- include('../partials/head',{ title:'Detail', }) %>
 
-    <body>
+        <body>
             <!-- Header -->
-        <%- include('../partials/header')%>
-            <!-- /Header -->
+            <%- include('../partials/header')%>
+                <!-- /Header -->
 
-            <div class="">
+                <!--             <div class="">
                 <h3 class="title__h3">Editar producto</h3>
             </div>
             <main class="productdetail__main">
@@ -118,20 +118,60 @@
                 <div class="detail__product__questions--failed">
                     <p>¿No está tu pregunta?</p>
                     <p>¡Contacta con la tienda!</p>
+                </div> -->
+                <div class="card-wrapper">
+                    <div class="card">
+                        <!-- card left  -->
+                        <div class="product-imgs"></div>
+                        <div class="img-display">
+                            <div class="img-showcase">
+                                <img src="/images/products/<%=
+                                    product.image.length> 0 ?
+                                product.image[0].file :
+                                "default-product-image.jpg" %>" alt="product">
+                            </div>
+                        </div>
+                        <!-- card right -->
+                        <div class="product-content">
+                            <h2 class="product-title">Keys</h2>
+                            <a href="#" class="product-link">Visit Dalf-Store</a>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7(21)</span>
+                            </div>
+                            <div class="product-price">
+                                <p class="last-price">Old price: <span>$500.00</span></p>
+                                <p class="new-price">New Price <span>$300.00 (5%)</span></p>
+                            </div>
+                            <div class="product-detail">
+                                <h2>about this item:</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam similique aliquam odio recusandae tempora, aut saepe perferendis sed dolor eligendi alias ratione tempore! Error officia dolor architecto ab voluptatem cum.</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam similique aliquam odio recusandae tempora, aut saepe perferendis sed dolor eligendi alias ratione tempore! Error officia dolor architecto ab voluptatem cum.</p>
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- ProductRecommended -->
-                    <%- include('../partials/productsRecommended',{ title:'Detail', }) %> 
-                <!-- /ProductRecommended -->
-            </main>
+                <%- include('../partials/productsRecommended',{ title:'Detail',
+                    }) %>
+                    <!-- /ProductRecommended -->
+                </main>
 
-            <!-- footer -->
-            <%- include('../partials/footer',{ title:'home', }) %>
-            <!-- /footer -->
+                <!-- footer -->
+                <%- include('../partials/footer',{ title:'home', }) %>
+                    <!-- /footer -->
 
-            <!-- script -->
-            <script src="/javascripts/glider.js"></script>
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script>
+                    <!-- script -->
+                    <script src="/javascripts/glider.js"></script>
+                    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script>
                 window.addEventListener('load', function() {
                     new Glider(document.querySelector('.glider'), {
                         slidesToShow: 2,
@@ -165,8 +205,8 @@
                     })
                 })
             </script>
-            <script src="../../../javascripts/alerts.js"></script>
-            <!-- /script -->
-    </body>
+                    <script src="../../../javascripts/alerts.js"></script>
+                    <!-- /script -->
+                </body>
 
-</html>
+            </html>
