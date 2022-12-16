@@ -32,9 +32,19 @@ ul, ol {
 .nav-link{
     color:var(--bs-navbar-active-color)
 }
+/*correcciones boostrap*/
 .alertIcon{
     color:var(--C_Pink_Logo)
 }
 .modal-backdrop{
     --bs-backdrop-zindex:0 !important
+}
+.modal{
+    --bs-modal-width:1100px;
+    --bs-modal-bg:var(--C_Grey_Dark);
+    --bs-modal-border-width:3px !important;
+    --bs-modal-border-color:#6c757d !important
+}
+.table{
+    --bs-table-color:var(--C_Ice-Cream)
 }
