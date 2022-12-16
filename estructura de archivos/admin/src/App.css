@@ -10917,7 +10917,7 @@ a:focus {
 }
 
 .text-gray-600 {
-  color: #858796 !important
+  color: rgba(255, 255, 255, .8) !important
 }
 
 .text-gray-700 {
@@ -11064,8 +11064,8 @@ a:focus {
 
 .sidebar .nav-item .nav-link .img-profile,
 .topbar .nav-item .nav-link .img-profile {
-  height: 2rem;
-  width: 2rem
+  height: 3rem;
+  width: 3rem
 }
 
 .topbar {
@@ -11096,7 +11096,7 @@ a:focus {
 
 .topbar .topbar-divider {
   width: 0;
-  border-right: 1px solid #e3e6f0;
+  border-right: 1px solid #808080;
   height: calc(4.375rem - 2rem);
   margin: auto 1rem
 }
@@ -11200,11 +11200,11 @@ a:focus {
 }
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link {
-  color: #d1d3e2
+  color: rgba(255, 255, 255, .8)
 }
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
-  color: #b7b9cc
+  color: #fff
 }
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {
@@ -11405,12 +11405,12 @@ a:focus {
   }
 
   .sidebar .nav-item .nav-link i {
-    font-size: .85rem;
-    margin-right: .25rem
+    font-size: 1rem;
+    margin-right: .75rem
   }
 
   .sidebar .nav-item .nav-link span {
-    font-size: .85rem;
+    font-size: 1rem;
     display: inline
   }
 
@@ -11571,15 +11571,18 @@ a:focus {
 }
 
 .sidebar-dark hr.sidebar-divider {
-  border-top: 1px solid rgba(255, 255, 255, .15)
+  border-top: 1px solid #808080;
 }
 
 .sidebar-dark .sidebar-heading {
-  color: rgba(255, 255, 255, .4)
+  color: #00e4ff;
+  padding-left: 20px;
+  font-size: 0.75rem;
 }
 
 .sidebar-dark .nav-item .nav-link {
-  color: rgba(255, 255, 255, .8)
+  color: rgba(255, 255, 255, .8);
+  padding-left: 20px;
 }
 
 .sidebar-dark .nav-item .nav-link i {
