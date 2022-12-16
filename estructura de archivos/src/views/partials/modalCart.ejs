@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="cartModalLabel">Mi Compra</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="box-cart">
+          <table class="table" id="cart-box">
+            <thead>
+              <tr>
+                <th scope="col">Imagen</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="cart-items">
+             
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+            <div class="d-flex justify-content-between gap-2">
+                <button type="button" class="btn btn-danger">Vaciar carrito</button>
+
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Seguir comprando</button>
+                    <button type="button" class="btn btn-primary">Terminar compra</button>
+                </div>
+            </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

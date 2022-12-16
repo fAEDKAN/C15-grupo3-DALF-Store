@@ -35,3 +35,6 @@ ul, ol {
 .alertIcon{
     color:var(--C_Pink_Logo)
 }
+.modal-backdrop{
+    --bs-backdrop-zindex:0 !important
+}

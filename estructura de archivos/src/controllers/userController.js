@@ -40,6 +40,7 @@ module.exports = {
                         : "DEFAULT-IMAGE.jpg",
                     rol: user.rolId,
                 };
+                
                 return res.redirect("/");
             } else {
                 return res.render("users/register", {
@@ -92,6 +93,42 @@ module.exports = {
                     res.cookie("userDalfStore", req.session.userLogin, {
                         maxAge: 10000 * 60,
                     });
+                }
+                //cart
+                 let order=await db.Order.findOne({
+                    where:{
+                        userId:req.session.userLogin.id,
+                        stateId: 1
+                    },
+                    include:[
+                        {
+                            association:'cart',
+                            attributes:['id','quantity'],
+                            include:[{
+                                association:'product',
+                                attributes:['id','name','price','discount'],
+                                include:['image']
+                            }]
+                        }
+                    ]
+                })
+                if (order) {
+                    req.session.orderCart={
+                        id:order.id,
+                        total: order.total,
+                        items: order.cart
+                    }
+                } else {
+                    let order = await db.Order.create({
+                        total: 0,
+                        userId: req.session.userLogin.id,
+                        stateId: 1
+                    })
+                    req.session.orderCart={
+                        id:order.id,
+                        total: order.total,
+                        items: []
+                    }
                 }
                 return res.redirect("/");
             }

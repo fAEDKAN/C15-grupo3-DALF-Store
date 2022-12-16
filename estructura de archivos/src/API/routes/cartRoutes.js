@@ -1,14 +1,13 @@
+// ************ Require's ************
 const express = require('express');
 const router = express.Router();
 
-const {list, addItem, removeAllItems, removeItem} = require('../../API/controllers/cartController');
-
-//api
+const {list,addItem,removeAllItems,removeQuantity} = require('../../API/controllers/cartController');
 
 router
     .get('/', list)
-    .post('/', addItem)
-    .delete('/:id', removeItem)
-    .delete('/all', removeAllItems)
+    .post('/',addItem)
+    .delete('/:id',removeQuantity)
+    .delete('/all',removeAllItems)
 
 module.exports = router;
