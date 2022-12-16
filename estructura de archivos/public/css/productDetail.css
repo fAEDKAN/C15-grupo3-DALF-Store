@@ -281,6 +281,7 @@ body {
     padding: 5px;
 }
 
+
 @media (min-width: 768px) {
     .detail__product__images{
         display: flex;
@@ -424,4 +425,117 @@ body {
         width: 95%;
     }
 
+}
+
+/* Nuevo productDetails */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+.body-productDetail{
+    line-height: 1.5;
+    margin-top: 10px;
+}
+.card-wrapper{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.card{
+    background-color: var(--C_Grey_Dark);
+}
+/* img{
+    width: 100%;
+    display: block;
+} */
+.img-display{
+    overflow: hidden;
+}
+.product-content{
+    padding: 2rem 1rem;
+}
+.product-title{
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-weight: 700;
+    position: relative;
+    margin: 1rem 0;
+}
+.product-title::after{
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.product-rating{
+    color: #f1cb22;
+}
+.product-rating span{
+    font-weight: 600;
+    color: #dee2e6;
+}
+.product-price{
+    margin : 1rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.product-price span{
+    font-weight: 400;
+}
+.last-price span{
+    color: #f64749;
+    text-decoration: line-through;
+}
+.price-discount{
+    display: flex;
+}
+
+.new-price span{
+    color: var(--C_Ice-Cream);
+    padding-right: 0.5rem;
+}
+
+.discount{
+    color: #27a95d;
+}
+.product-detail h2{
+    text-transform: capitalize;
+    color: var(--C_Ice-Cream);
+    padding-bottom: 0.6rem;
+}
+.product-detail p{
+    font-size: 0.9rem;
+    padding: 0.3rem;
+    opacity: 0.8;
+}
+.product-detail ul{
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+.product-detail ul li{
+    margin: 0;
+    opacity: 0.8;
+}
+.purchase-info{
+}
+.btn{
+    width: 100%;
+    display: block;
+    padding: 0.8rem 0;
+    margin: 1rem 0;
+    outline: none;
+    border-color: var(--C_Lightblue_Logo);
+    color: var(--C_Ice-Cream);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.btn:active{
+    border-color: #ff00a2;
 }
