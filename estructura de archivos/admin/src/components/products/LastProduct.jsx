@@ -1,6 +1,6 @@
 import React from "react";
 
-export const LastProd = ({ name, price, image }) => {
+export const LastProduct = ({ name, price }) => {
     return (
         <div className="col-lg-6 mb-4">
             <div className="card bg-dark text-white shadow">
@@ -10,9 +10,6 @@ export const LastProd = ({ name, price, image }) => {
                     </div>
                     <div>
                         {price}
-                    </div>
-                    <div>
-                        {image}
                     </div>
                 </div>
             </div>

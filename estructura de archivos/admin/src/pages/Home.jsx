@@ -1,7 +1,7 @@
 import React from "react";
 import { Categories } from "../components/categories/Categories";
 import { Metrics } from "../components/metrics/Metrics";
-import { LastProduct } from "../components/products/LatestProduct";
+import { LatestProduct } from "../components/products/LatestProduct";
 import { Products } from "../components/products/Products"
 
 export const Home = () => {
@@ -16,7 +16,7 @@ export const Home = () => {
       <div className="row">
         <Categories />
         <Products />
-        <LastProduct />
+        <LatestProduct />
       </div>
     </div>
   );
