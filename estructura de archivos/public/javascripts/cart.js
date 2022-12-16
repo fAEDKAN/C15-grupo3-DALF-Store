@@ -8,7 +8,7 @@ const showItems = (items) => {
             carrito.innerHTML += `
             <tr>
             <td>
-              <img src="/images/products/${product.images[0].file}" width=80 alt="image">
+              <img src="/images/products/${product.image[0].file}" width=80 alt="image">
             </td>
             <td>
               ${product.name}
@@ -62,7 +62,7 @@ document.getElementById('cartModal').addEventListener('show.bs.modal', async (ev
 const addCartItem = async (id) => {
     try {
 
-        let response = await fetch('/api/carts', {
+        let response = await fetch('/api/cart', {
             method : 'POST',
             body : JSON.stringify({
                 id
@@ -80,14 +80,14 @@ const addCartItem = async (id) => {
         }
         
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 };
 
 const removeQuantity = async (id) => {
     try {
 
-        let response = await fetch('/api/carts/' + id, {
+        let response = await fetch('/api/cart/' + id, {
             method : 'DELETE'
         });
 

@@ -130,6 +130,7 @@ module.exports = {
                         items: []
                     }
                 }
+                console.log(req.session.orderCart)
                 return res.redirect("/");
             }
         } catch (error) {
