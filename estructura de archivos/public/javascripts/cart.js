@@ -61,7 +61,6 @@ document.getElementById('cartModal').addEventListener('show.bs.modal', async (ev
   
 const addCartItem = async (id) => {
     try {
-
         let response = await fetch('/api/cart', {
             method : 'POST',
             body : JSON.stringify({

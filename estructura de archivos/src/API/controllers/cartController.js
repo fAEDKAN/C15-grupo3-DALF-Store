@@ -21,7 +21,7 @@ module.exports = {
 
             const {id} = req.body;
 
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
+            let item = req.session.orderCart.items.find((item)=> item.product.id === +id);
 
             if(item) {
 
@@ -64,7 +64,7 @@ module.exports = {
                   {
                     association : 'product',
                     attributes : ['id','name','price','discount'],
-                    include : ['images']
+                    include : ['image']
                   }
                 ]
                });
