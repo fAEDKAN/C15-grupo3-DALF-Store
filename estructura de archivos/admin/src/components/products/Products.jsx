@@ -12,7 +12,7 @@ export const Products = () => {
     });
 
     useEffect(() => {
-        fetchWithoutToken("/products").then((response) => {
+        fetchWithoutToken("/productsReact").then((response) => {
             if (response.ok) {
                 const { data } = response;
                 setProducts({
@@ -37,7 +37,7 @@ export const Products = () => {
                 </div>
                 <div className="card-body">
                     <div className="row">
-                        {/* {products.data.map((product, index) => (<Product {...product} key={product.name + index} />))} */}
+                    {products.data.map((product, index) => (<Product {...product} key={product.name + index} />))}
                     </div>
                 </div>
             </div>

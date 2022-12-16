@@ -1,5 +1,4 @@
 const fetchWithoutToken = async (endpoint, method = "GET", data) => {
-
     const apiUrlBase = "http://localhost:4000/api";
     const url = `${apiUrlBase}${endpoint}`;
 
@@ -14,19 +13,17 @@ const fetchWithoutToken = async (endpoint, method = "GET", data) => {
             method,
             body: JSON.stringify(data),
             headers: {
-                "Content-type": "application/json"
-            }
-        })
+                "Content-type": "application/json",
+            },
+        });
     }
-
 
     let result = await response.json();
 
-    return result
-}
+    return result;
+};
 
 const useFetchWithToken = async (endpoint, method = "GET", token, data) => {
-
     const apiUrlBase = process.env.REACT_APP_API_URL_BASE;
     const url = `${apiUrlBase}${endpoint}`;
 
@@ -36,8 +33,8 @@ const useFetchWithToken = async (endpoint, method = "GET", token, data) => {
         response = await fetch(url, {
             method,
             headers: {
-                Authorization: token
-            }
+                Authorization: token,
+            },
         });
     }
 
@@ -47,19 +44,14 @@ const useFetchWithToken = async (endpoint, method = "GET", token, data) => {
             body: JSON.stringify(data),
             headers: {
                 "Content-type": "application/json",
-                Authorization: token
-            }
-        })
+                Authorization: token,
+            },
+        });
     }
-
 
     let result = await response.json();
 
+    return result;
+};
 
-    return result
-}
-
-export {
-    fetchWithoutToken,
-    useFetchWithToken
-}
+export { fetchWithoutToken, useFetchWithToken };

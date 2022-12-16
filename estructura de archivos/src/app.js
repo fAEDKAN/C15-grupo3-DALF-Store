@@ -23,6 +23,7 @@ var apiProductsRouter = require('./API/routes/productsRoutes');
 var apiUsersRouter = require('./API/routes/usersRoutes')
 var apiCartRouter = require('./API/routes/cartRoutes')
 var apiCategoriesRouter = require('./API/routes/categoriesRoutes');
+var apiProductsReact = require('./API/routes/reactRoutes')
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/api/products', apiProductsRouter)
 app.use('/api/users', apiUsersRouter)
 app.use('/api/cart', apiCartRouter)
 app.use('/api/categories', apiCategoriesRouter)
+app.use('/api/productsReact', apiProductsReact)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

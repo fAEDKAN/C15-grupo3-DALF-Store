@@ -68,13 +68,13 @@ section {
 
 body {
   margin: 0;
-  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   color: #858796;
   text-align: left;
-  background-color: #fff
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -99,7 +99,7 @@ h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem
+  margin-bottom: 0;
 }
 
 abbr[data-original-title],
@@ -474,6 +474,10 @@ mark {
   background-color: #fcf8e3
 }
 
+.text-title {
+  color: #ffff;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none
@@ -625,7 +629,7 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   margin-right: -.75rem;
-  margin-left: -.75rem
+  margin-left: -.75rem;
 }
 
 .no-gutters {
@@ -4751,10 +4755,10 @@ input[type=submit].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background: rgba(255, 255, 255, 0.025);
   background-clip: border-box;
   border: 1px solid #e3e6f0;
-  border-radius: .35rem
+  /* border-radius: .35rem */
 }
 
 .card>hr {
@@ -4780,7 +4784,7 @@ input[type=submit].btn-block {
 
 .card-body {
   flex: 1 1 auto;
-  padding: 1.25rem
+  padding: 0.5rem
 }
 
 .card-title {
@@ -4807,8 +4811,8 @@ input[type=submit].btn-block {
 .card-header {
   padding: .75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #f8f9fc;
-  border-bottom: 1px solid #e3e6f0
+  background: rgba(255, 229, 255, 0.15);
+  border-bottom: 2px solid #e3e6f0
 }
 
 .card-header:first-child {
@@ -6811,7 +6815,7 @@ button.bg-light:hover {
 }
 
 .bg-dark {
-  background-color: #5a5c69 !important
+  background-color: rgba(255, 229, 255, 0.15) !important
 }
 
 a.bg-dark:focus,
@@ -6822,7 +6826,10 @@ button.bg-dark:hover {
 }
 
 .bg-white {
-  background-color: #fff !important
+  /* background-color: #fff !important */
+  background-color: #858796;
+  background-image: linear-gradient(90deg, #36393f 25%, #202225 100%);
+  background-size: cover
 }
 
 .bg-transparent {
@@ -10448,7 +10455,7 @@ button.bg-dark:hover {
 }
 
 .text-primary {
-  color: #4e73df !important
+  color: #00e4ff !important
 }
 
 a.text-primary:focus,
@@ -10466,7 +10473,7 @@ a.text-secondary:hover {
 }
 
 .text-success {
-  color: #1cc88a !important
+  color: #00FF2C !important
 }
 
 a.text-success:focus,
@@ -10484,7 +10491,7 @@ a.text-info:hover {
 }
 
 .text-warning {
-  color: #f6c23e !important
+  color: #ff00a2 !important
 }
 
 a.text-warning:focus,
@@ -10681,9 +10688,17 @@ a:focus {
 }
 
 #wrapper #content-wrapper {
-  background-color: #f8f9fc;
+  /* background-color: #f8f9fc;
   width: 100%;
-  overflow-x: hidden
+  overflow-x: hidden */
+  width: 100%;
+    height: 100vh;
+    background-image: url(../public/DALF-LOGO-BACKGROUND5blur.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
 #wrapper #content-wrapper #content {
@@ -10793,7 +10808,7 @@ a:focus {
 
 .bg-gradient-secondary {
   background-color: #858796;
-  background-image: linear-gradient(180deg, #858796 10%, #60616f 100%);
+  background-image: linear-gradient(180deg, #36393f 25%, #202225 100%);
   background-size: cover
 }
 
@@ -10910,7 +10925,7 @@ a:focus {
 }
 
 .text-gray-800 {
-  color: #5a5c69 !important
+  color: #ffff !important
 }
 
 .text-gray-900 {
@@ -10927,7 +10942,7 @@ a:focus {
 }
 
 .border-left-primary {
-  border-left: .25rem solid #4e73df !important
+  border-left: .25rem solid #00e4ff !important
 }
 
 .border-bottom-primary {
@@ -10943,7 +10958,7 @@ a:focus {
 }
 
 .border-left-success {
-  border-left: .25rem solid #1cc88a !important
+  border-left: .25rem solid #00FF2C !important
 }
 
 .border-bottom-success {
@@ -10959,7 +10974,7 @@ a:focus {
 }
 
 .border-left-warning {
-  border-left: .25rem solid #f6c23e !important
+  border-left: .25rem solid #ff00a2 !important
 }
 
 .border-bottom-warning {
@@ -11322,7 +11337,7 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-  height: 4.375rem;
+  /* height: 4.375rem; */
   text-decoration: none;
   font-size: 1rem;
   font-weight: 800;
