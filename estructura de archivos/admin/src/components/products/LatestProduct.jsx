@@ -2,27 +2,26 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { fetchWithoutToken } from "../../hooks/UseFetch";
-import { Product } from "./Product";
 
-export const Products = () => {
-    const [products, setProducts] = useState({
+export const LastProduct = () => {
+    const [product, setProduct] = useState({
         loading: true,
         error: null,
         data: [],
     });
 
     useEffect(() => {
-        fetchWithoutToken("/reactProductsAndUsers").then((response) => {
+        fetchWithoutToken("/reactProductsAndUsers/last").then((response) => {
             if (response.ok) {
                 const { data } = response;
-                setProducts({
-                    ...products,
+                setProduct({
+                    ...product,
                     loading: false,
                     data: data,
                 });
             } else {
-                setProducts({
-                    ...products,
+                setProduct({
+                    ...product,
                     error: response.error,
                 });
             }
@@ -33,11 +32,11 @@ export const Products = () => {
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h5 className="m-0 font-weight-bold text-gray-800">Productos</h5>
+                    <h5 className="m-0 font-weight-bold text-gray-800">Último Producto</h5>
                 </div>
                 <div className="card-body">
                     <div className="row">
-                    {products.data.map((product, index) => (<Product {...product} key={product.name + index} />))}
+                        {product.data.name}
                     </div>
                 </div>
             </div>

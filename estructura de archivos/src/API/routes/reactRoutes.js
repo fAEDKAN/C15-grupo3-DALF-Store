@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-const {list} = require('../controllers/reactController')
+const {list, last} = require('../controllers/reactController')
 
-//  /api/productReact 
+//  /api/reactProductsAndUsers
 
 router.get('/', list)
+router.get('/last', last)
 
 module.exports = router
