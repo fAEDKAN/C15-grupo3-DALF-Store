@@ -3,6 +3,7 @@ import { Categories } from "../components/categories/Categories";
 import { Metrics } from "../components/metrics/Metrics";
 import { LatestProduct } from "../components/products/LatestProduct";
 import { Products } from "../components/products/Products"
+import { Users } from "../components/users/Users";
 
 export const Home = () => {
   return (
@@ -14,9 +15,10 @@ export const Home = () => {
       <Metrics />
 
       <div className="row">
-        <Categories />
         <Products />
+        <Categories />
         <LatestProduct />
+        <Users />
       </div>
     </div>
   );

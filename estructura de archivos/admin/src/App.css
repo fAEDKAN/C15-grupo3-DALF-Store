@@ -2642,6 +2642,28 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 .2rem rgba(151, 153, 166, .5)
 }
 
+.avatar-size {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-size img {
+  width: 15%;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.images-size {
+  display: flex;
+  justify-content: center;
+}
+
+.images-size img {
+  width: 50%;
+}
+
 .btn-success {
   color: #fff;
   background-color: #1cc88a;
