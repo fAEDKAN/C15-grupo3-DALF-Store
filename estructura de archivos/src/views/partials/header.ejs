@@ -182,7 +182,7 @@
                             <li class="nav-item">
                                 <a class="nav-link active"  aria-current="page" href="/section/2">Productos</a>
                             </li>
-                            <% if (locals.userLogin) { %>
+                            <% if (locals.userLogin && userLogin.rol === 1) { %>
                                 <li class="nav-item">
                                     <!--  Creación de producto -->
                                     <a class="nav-link active" aria-current="page" href="/products/productsLoad"> Agregar producto
