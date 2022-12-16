@@ -1,12 +1,53 @@
+/** BOX CONTAINER */
+
+.body--form {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+}
+
+.body__profile--box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.body__profile--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
 /** TITLE */
 
+.body__profile--title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
 .body__profile--title h3 {
-    color: var(--C_Ice-Cream);
+    color: white;
+    margin: 0;
 }
 
 .body__profile--title span {
     background-image: linear-gradient(60deg, #00e4ff, #ff00a2);
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent;
     font-weight: bolder;
     font-size: 1.85rem;
@@ -14,20 +55,12 @@
 
 /** USER DATA */
 
-.body__profile--avatarAndLocation {
-    display: flex;
-    justify-content:flex-start;
-    flex-direction: column;
-}
-
 .body__profile--avatar {
     height: 175px;
     width: 175px;
-    position: relative;
-    top: 50%;
-    left: 0;
     overflow: hidden;
     border-radius: 50%;
+    border: 2px solid white;
 }
 
 .body__profile--avatar img {
@@ -36,62 +69,56 @@
     margin: 0;
 }
 
-.body__profile--avatarAndLocation p {
-
+.body__profile--titles {
+    font-size: 0.95rem;
+    color: var(--C_Ice-Cream);
 }
 
-/** USER INFO */
-
-.body__profile--userInfo {
+.body__profile--userData {
     display: flex;
     flex-direction: column;
+    width: 250px;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin: 20px 0 20px 0;
 }
 
-.body__profile__userInfo--fullName {
+.body__profile--userData div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.body__profile__userInfo--birthday {
+.body__profile--userData h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
 }
 
-/** USER CONTACT */
-
-.body__profile--contact {
+.icon--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--C_Ice-Cream);
 }
 
-.body__profile__contact--phone {
+.icon--container i {
+    color: var(--C_Dark);
 }
 
-.body__profile__contact--email {
+.body__profile--edit a {
+    color: var(--C_Lightblue_Logo);
+    font-size: 1rem;
+    transition: 0.75s;
+    font-weight: bold;
 }
 
-/** ABOUT ME */
-
-.body__profile--aboutMe {
-}
-
-.body__profile__aboutMe--text {
-}
-
-/** USER PRODUCTS */
-
-.body__profile--products {
-
-}
-
-.body__profile__product--productsForSale {
-
-}
-
-.body__profile__product--soldProducts {
-
-}
-
-.body__profile__product--favoriteProducts {
-
-}
-
-/** EDIT PROFILE */
-
-.body__profile--edit {
-
+.body__profile--edit a:hover {
+    color: var(--C_Light_Grey);
+    font-size: 0.9rem;
 }
