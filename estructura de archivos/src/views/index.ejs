@@ -35,7 +35,7 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <h2>Oferta del Día</h2>
+        <h2>Juegos en Oferta</h2>
         <section class="main__section--product">
             <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
                 <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>

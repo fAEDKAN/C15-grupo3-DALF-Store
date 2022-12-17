@@ -23,13 +23,10 @@
 
 .main__content h2 {
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     margin: 0;
-    background-color: #212529;
-    border-top: solid 1px #2a2929;
-    border-bottom: solid 1px #2b2d32;
-    border-radius: 10px 10px 0 0;
-    color: #dee2e6;
+    background-color: var(--C_Dark);
+    color: var(--C_Ice-Cream);
 }
 
 #carouselExampleIndicators {
@@ -101,7 +98,7 @@
 }
 
 .main__section--product-content_offers {
-    background-color: #3d47a0;
+    background-color: var(--C_Dark);
     border-top: 2px solid var(--C_Ice-Cream);
     display: flex;
     flex-direction: column;
@@ -119,6 +116,7 @@
 
 .main-section-price-ofert {
     display: flex;
+    align-items: center;
 }
 
 .main__section--product-content {
@@ -149,15 +147,15 @@
 }
 
 .main__section--product-price {
-    font-size: 18px;
+    font-size: 1.25em;
+    font-weight: 600;
     padding-left: 5px;
 }
 
 .main__section--product-discount {
-    font-size: 13px;
-    color: #27a95d;
+    font-size: 0.89em;
+    color: var(--C_Green_Razer);
     padding-left: 5px;
-    padding-top: 1px;
 }
 
 .main-content-buttom {
@@ -172,10 +170,10 @@
     padding: 10px;
     margin: 25px 0 20px;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(212, 212, 212, 0.075);
     border-image: linear-gradient(to right,
-            var(--C_Lightblue_Logo),
-            var(--C_Pink_Logo)) 1;
+            var(--C_Green_Razer),
+            var(--C_Green_Razer)) 1;
     color: var(--C_Ice-Cream);
     font-weight: bold;
     transition: 1s all;
@@ -185,7 +183,7 @@
     border-image: linear-gradient(to right,
             var(--C_Pink_Logo),
             var(--C_Lightblue_Logo)) 1;
-    color: var(--C_Pink_Logo);
+    color: var(--C_Green_Razer);
 }
 
 .main-carousel-button {

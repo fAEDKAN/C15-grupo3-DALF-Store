@@ -8,6 +8,7 @@
     --C_Light_Grey: #606164;
     --C_Pink_Logo: #ff00a2;
     --C_Lightblue_Logo: #00e4ff;
+    --C_Green_Razer: #00FF2C;
     --C_Soft_Gray: #808080;
 }
 
@@ -33,5 +34,5 @@ ul, ol {
     color:var(--bs-navbar-active-color)
 }
 .alertIcon{
-    color:var(--C_Pink_Logo)
+    color: var(--C_Pink_Logo)
 }
