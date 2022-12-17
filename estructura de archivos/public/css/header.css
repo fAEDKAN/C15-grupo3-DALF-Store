@@ -72,7 +72,7 @@ h1 {
 }
 
 .dropdown-menu[data-bs-popper] {
-    left: 0px;
+    left: -102px;
 }
 
 .header__top--arrow::after {
