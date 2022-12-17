@@ -56,7 +56,7 @@
                 <div class="product_and_features">
                     <section class="detail__product__store">
                         <h3 class="title__h3">Descripción</h3>
-                        <p> <%= product.description %> </p>
+                        <p>  </p>
                     </section>
                     <section class="detail__product__features">
                         <h3 class="title__h3">Caracteristicas</h3>
@@ -122,10 +122,9 @@
                 <div class="card-wrapper">
                     <div class="card">
                         <!-- card left  -->
-                        <div class="product-imgs"></div>
                         <div class="img-display">
                             <div class="img-showcase">
-                                <img src="/images/products/<%= product.image.length> 0 ? product.image[0].file : "default-product-image.jpg" %>" alt="product">
+                                <img class="img-product" src="/images/products/<%= product.image.length> 0 ? product.image[0].file : "default-product-image.jpg" %>" alt="product">
                             </div>
                         </div>
                         <!-- card right -->
@@ -143,57 +142,119 @@
                             <div class="product-price">
                                 <p class="last-price">Old price: $ <span><%= product.price %></span></p>
                                 <div class="price-discount">
-                                <p class="new-price">New Price: $ <span><%= (product.price) - (product.price * product.discount / 100)%></span></p>
-                                <% }else{ %>
-                                    <p class="price">$ <%= product.price %></p>
+                                    
+                                    <% }else{ %>
+                                    <div class="product-price">
+                                        <p class="new-price">$ <span><%= product.price %></span></p>
+                                    </div>
+                                    <div class="product-detail">
+                                        <h2>Acerca de este artículo:</h2>
+                                        <ul>
+                                            <li><i class="fa-regular fa-circle-check"></i> Disponibilidad: <span>en stock</span></li>
+                                            <li><i class="fa-regular fa-circle-check"></i> categoría: <span>accion</span></li>
+                                            <li><i class="fa-regular fa-circle-check"></i> Gastos de envío: <span>Gratis</span></li>
+                                        </ul>
+                                    </div>
+        
+                                    <div class="purchase-info">
+                                        <p>Cantidad:<input type="number" min="0" value="1"></p>
+                                        <button type="button" class="btn">
+                                            Comprar ahora
+                                        </button> 
+                                        <button type="button" class="btn">
+                                            Agregar al carrito <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                        <% if (locals.userLogin && userLogin.rol === 1) { %>
+                                            <div>
+                                                <a href="/products/productEdit/<%= product.id %>"><button class="btn" type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
+                                            </div>
+                                            <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" id="deleteForm" style="display: inline-flex">
+                                                <button  type="submit" class="btn">ELIMINAR</button>
+                                            </form>
+                                        <% } %>
+                                        <div class="social-links">
+                                            <p>Compartir:</p>
+                                            <a href="#">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-twitter"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
+                                            <a href="#">
+                                                <i class="fab fa-discord"></i>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <h2>Descripción:</h2>
+                                            <div>
+                                                <p><%= product.description %></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <% } %>
                                     <% if (product.discount > 0) { %>
+                                    <div class="if-price-discount">
+                                    <p class="new-price">New Price: $ <span><%= (product.price) - (product.price * product.discount / 100)%></span></p>
                                     <p class="discount"><%= product.discount %>% OFF</p>
-                                    <% } %>
-                                </div>
-                            </div>
-                            <div class="product-detail">
-                                <h2>Acerca de este artículo:</h2>
-                                <ul>
-                                    <li>Disponibilidad: <span>en stock</span></li>
-                                    <li>categoría: <span>accion</span></li>
-                                    <li>Área de envío: <span>Toda Argentina</span></li>
-                                    <li>Gastos de envío: <span>Gratis</span></li>
-                                </ul>
-                            </div>
-
-                            <div class="purchase-info">
-                                <input type="number" min="0" value="1"> 
-                                <button type="button" class="btn">
-                                    Agregar al carrito <i class="fas fa-shopping-cart"></i>
-                                </button>
-                                <button type="button" class="btn">
-                                    Comprar ahora
-                                </button>
-                                <div class="social-links">
-                                    <p>Compartir:</p>
-                                    <a href="#">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-whatsapp"></i>
-                                    </a>
-                                    <a href="#">
-                                        <i class="fab fa-discord"></i>
-                                    </a>
-                                </div>
-                                <div>
-                                    <h2>Descripción:</h2>
-                                    <div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam similique aliquam odio recusandae tempora, aut saepe perferendis sed dolor eligendi alias ratione tempore! Error officia dolor architecto ab voluptatem cum.</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam similique aliquam odio recusandae tempora, aut saepe perferendis sed dolor eligendi alias ratione tempore! Error officia dolor architecto ab voluptatem cum.</p>
                                     </div>
+                                    <div>
+                                        <div class="product-detail">
+                                            <h2>Acerca de este artículo:</h2>
+                                            <ul>
+                                                <li><i class="fa-regular fa-circle-check"></i> Disponibilidad: <span>en stock</span></li>
+                                                <li><i class="fa-regular fa-circle-check"></i> categoría: <span>accion</span></li>
+                                                <li><i class="fa-regular fa-circle-check"></i> Gastos de envío: <span>Gratis</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="purchase-info">
+                                            <p>Cantidad: <input type="number" min="0" value="1"></p> 
+                                            <button type="button" class="btn">
+                                                Comprar ahora
+                                            </button>
+                                            <button type="button" class="btn">
+                                                Agregar al carrito <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                            <% if (locals.userLogin && userLogin.rol === 1) { %>
+                                                <div>
+                                                    <a href="/products/productEdit/<%= product.id %>"><button class="btn" type="submit"><i class="fa-solid fa-pen-to-square"></i> Editar producto</button></a>
+                                                </div>
+                                                <form action="/products/deleteProduct/<%= product.id %>?_method=DELETE" method="POST" id="deleteForm" style="display: inline-flex">
+                                                    <button  type="submit" class="btn">ELIMINAR</button>
+                                                </form>
+                                            <% } %>
+                                            <div class="social-links">
+                                                <p>Compartir: </p>
+                                                <a href="#">
+                                                    <i class="fab fa-facebook"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fab fa-instagram"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fab fa-whatsapp"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fab fa-discord"></i>
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <h2>Descripción:</h2>
+                                                <div>
+                                                    <p><%= product.description %></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
                                 </div>
                             </div>
                         </div>
