@@ -2,6 +2,7 @@ const db =require('../../database/models')
 
 module.exports = {
     list: async (req, res)=>{
+        
         try {
             return res.status(200).json({
                 ok: true,

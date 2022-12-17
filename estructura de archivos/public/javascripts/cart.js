@@ -49,12 +49,12 @@ document.getElementById('cartModal').addEventListener('show.bs.modal', async (ev
                 const {items} = result.data;
                 showItems(items)
             }else {
-                carrito.innerHTML = "<p class='alert alert-warning w-100 mt-4'>No hay productos en el carrito</p>"
+                carrito.innerHTML = "<p w-100 mt-4'>No hay productos en el carrito</p>"
             }
         }
 
         
-    } catch (error) {
+    } catch (error) { 
         console.log(error)
     }
   })

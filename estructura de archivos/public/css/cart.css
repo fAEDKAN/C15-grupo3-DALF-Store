@@ -4,6 +4,14 @@ body{
     color: #dee2e6; 
 }
 /*****************header****************/
+/******************modal**************/
+.cart-guest{
+    text-align: center;
+    font-size: 18px;
+    padding: 40px 10px;
+}
+
+
 /******************body*****************/
 /**cart**/
 .carrito__main{

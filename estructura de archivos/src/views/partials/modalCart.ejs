@@ -6,7 +6,10 @@
           <h1 class="modal-title fs-5" id="cartModalLabel">Carrito de compras</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body" id="box-cart">
+        <% if (!locals.userLogin) { %>
+          <p class="cart-guest">Debes iniciar sesion para acceder a tu carrito de compras</p>
+         <% } else { %>
+          <div class="modal-body" id="box-cart">
           <table class="table" id="cart-box">
             <thead>
               <tr>
@@ -33,6 +36,9 @@
             </div>
         
         </div>
+        <% } %>
+         
+        
       </div>
     </div>
   </div>
