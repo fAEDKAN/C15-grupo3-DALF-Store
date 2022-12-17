@@ -1,6 +1,12 @@
 #index {
+    box-sizing: border-box;
     background-color: #36393f;
     font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 
 /*  H E A D E R */
@@ -60,6 +66,7 @@
 
 .main__section--product-article img {
     width: 100%;
+    border-top: 2px solid var(--C_Ice-Cream);
 }
 
 .main__section--product-article img:hover {
@@ -95,7 +102,7 @@
 
 .main__section--product-content_offers {
     background-color: #3d47a0;
-    border-top: solid 1px #f8f9fc;
+    border-top: 2px solid var(--C_Ice-Cream);
     display: flex;
     flex-direction: column;
     padding: 10px;
