@@ -1,8 +1,13 @@
 /* Bootstrap */
 
+.dropdown-item {
+    padding: 0 !important;
+}
+
 .menu_dropdown.show{
     display: flex;
-    background-color: #343a40;
+    border: none;
+    background-color: var(--C_Grey_Dark);
 }
 
 .header_div li a {
@@ -13,7 +18,6 @@
 .header_div li a:hover {
     color: white !important;
     transition: 0.5s all;
-    background-color: none;
     background: none;
 }
 
@@ -329,7 +333,7 @@ h1 {
     }
 
     .cointeiner__links_nav_item{
-        background-color: #343a40;
+        background-color: var(--C_Grey_Dark);
     }
 
     .cointeiner__links_nav_item[data-bs-popper]{
@@ -356,11 +360,13 @@ h1 {
         width: 970px;
         justify-content: center !important;
     }
+
     .header_div--navbar-desktop li {
         padding: 5px;
         padding-left: 15px;
         padding-right: 15px;
     }
+
     .header__top--general {
         margin-bottom: 14px;
     }
