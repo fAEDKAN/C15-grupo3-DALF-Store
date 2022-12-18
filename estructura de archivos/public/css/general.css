@@ -31,8 +31,8 @@ ul, ol {
     padding: 0;
 }
 .nav-link{
-    color:var(--bs-navbar-active-color)
+    color:var(--bs-navbar-active-color);
 }
 .alertIcon{
-    color: var(--C_Pink_Logo)
+    color: var(--C_Pink_Logo);
 }

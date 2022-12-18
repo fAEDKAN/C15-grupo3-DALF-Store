@@ -5,6 +5,18 @@
     background-color: #343a40;
 }
 
+.header_div li a {
+    color: var(--C_Ice-Cream) !important;
+    font-weight: 600;
+}
+
+.header_div li a:hover {
+    color: white !important;
+    transition: 0.5s all;
+    background-color: none;
+    background: none;
+}
+
 /** NEW SEARCHBAR */
 
 .header--searchbar {
@@ -289,7 +301,7 @@ h1 {
 
 .header_div {
     width: 100%;
-    background-color: var(--C_Discord)
+    background-color: var(--C_Discord);
 }
 
 @media (min-width: 375px) {

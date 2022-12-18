@@ -114,9 +114,20 @@
     white-space: normal;
 }
 
+.main__section--product-content_offers:hover i {
+    transform: rotate(360deg);
+    color: var(--C_Green_Razer);
+}
+
 .main-section-price-ofert {
     display: flex;
     align-items: center;
+}
+
+.main-section-price-ofert i {
+    position: absolute;
+    left: 85%;
+    transition: 1s all;
 }
 
 .main__section--product-content {
