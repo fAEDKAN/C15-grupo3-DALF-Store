@@ -1,8 +1,109 @@
 /* Bootstrap */
 
+.dropdown-item {
+    padding: 0 !important;
+}
+
 .menu_dropdown.show{
     display: flex;
-    background-color: #343a40;
+    border: none;
+    background-color: var(--C_Grey_Dark);
+}
+
+.header_div li a {
+    color: var(--C_Ice-Cream) !important;
+    font-weight: 600;
+}
+
+.header_div li a:hover {
+    color: white !important;
+    transition: 0.5s all;
+    background: none;
+}
+
+/** NEW SEARCHBAR */
+
+.header--searchbar {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 35px;
+    height: 35px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid var(--C_Lightblue_Logo);
+    padding: 5px;
+}
+
+.header__searchbar--input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 25.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 15px;
+    background-color: white;
+}
+
+.header--searchbar i {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 28.5px;
+    height: 26.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #212529;
+    text-align: center;
+    font-size: 0.8em;
+    transition: all 1s;
+}
+
+.header--searchbar:hover,
+.header--searchbar:valid{
+    width: 300px;
+    cursor: pointer;
+}
+
+.header--searchbar:hover input,
+.header--searchbar:valid input{
+    display: block;
+}
+
+.header--searchbar:hover .fa,
+.header--searchbar:valid .fa{
+    background: #212529;
+    /* transform: rotate(1080deg); */
+    transform: rotate(3turn);
+    color: white;
+
+}
+
+.header--searchbar a {
+    display: none;
+    position: absolute;
+    top: 70px;
+    bottom:0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    color: var(--C_Ice-Cream);
+    text-align: center; 
+    width: 100%;
+}
+
+.header--searchbar:valid a {
+    display: block;
 }
 
 /*  HEADER  GENREAL*/
@@ -122,7 +223,7 @@ h1 {
 
 .header--figure-logo img {
     height: 50px;
-    padding-top: 5px;
+    /* padding-top: 5px; */
     padding-bottom: 5px;
 }
 
@@ -204,13 +305,22 @@ h1 {
 
 .header_div {
     width: 100%;
-    background-color: var(--C_Discord)
+    background-color: var(--C_Discord);
 }
+
+@media (min-width: 375px) {
+    .header--searchbar {
+        display: none;
+    }
+}
+
 
 @media (min-width: 1024px) {
     /* Desktop */
 
-
+    .header--searchbar {
+        display: block;
+    }
 
     .navbar-nav .dropdown-menu{
         position: absolute;
@@ -223,7 +333,7 @@ h1 {
     }
 
     .cointeiner__links_nav_item{
-        background-color: #343a40;
+        background-color: var(--C_Grey_Dark);
     }
 
     .cointeiner__links_nav_item[data-bs-popper]{
@@ -250,11 +360,13 @@ h1 {
         width: 970px;
         justify-content: center !important;
     }
+
     .header_div--navbar-desktop li {
         padding: 5px;
         padding-left: 15px;
         padding-right: 15px;
     }
+
     .header__top--general {
         margin-bottom: 14px;
     }

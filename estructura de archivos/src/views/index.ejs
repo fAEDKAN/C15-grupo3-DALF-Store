@@ -35,20 +35,20 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <h2>Oferta del Día</h2>
+        <h2>Juegos en Oferta</h2>
         <section class="main__section--product">
             <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
                 <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                 <% }) %>
         </section>
         <div class="main-content-buttom"><a href="./products/productsRecommended.ejs"><button class="main-display-button">Ver más</button></a></div>
-        <div id="carouselExampleCaptions" style="margin-bottom: 0px;" class="carousel slide" data-bs-ride="false">
+        <div id="carouselExampleCaptions" style="margin-bottom: 0px;" class="carousel slide second-carousel--banner" data-bs-ride="false">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
+            <div class="carousel-inner second-carousel--banner">
                 <div class="carousel-item active">
                     <img src="/images/banners/banner-de-dalf-store.webp" class="d-block w-100 main--img-banner" alt="">
                     <div class="carousel-caption d-none d-md-block main--carousel-p-color">
