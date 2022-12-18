@@ -21,7 +21,7 @@
                     <li class="nav-item dropdown header__top--login">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown__menu--user">
                             <% if (locals.userLogin) { %>
                                 <li>
                                     <a class="dropdown-item" href="/users/profile">
@@ -41,7 +41,7 @@
                 <div class="offcanvas offcanvas-end offcanvas-end-edited text-bg-dark" tabindex="-1"
                     id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt="" /></a>
+                        <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt="" /></a>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
@@ -85,13 +85,13 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/1">Ofertas</a>
+                                <a class="nav-link active" aria-current="page" href="/section/1">Ofertas</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Recomendados</a>
+                                <a class="nav-link active" aria-current="page" href="/section/2">Recomendados</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Productos</a>
+                                <a class="nav-link active" aria-current="page" href="/section/2">Productos</a>
                             </li>
                             <% if (locals.userLogin && userLogin.rol === 1) { %>
                                 <li class="nav-item">
