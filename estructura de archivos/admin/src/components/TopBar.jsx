@@ -1,5 +1,5 @@
 import React from 'react'
-
+import avatar from '../DEFAULT-IMAGE.jpg'
 export const TopBar = () => {
 	return (
 		<nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -28,8 +28,8 @@ export const TopBar = () => {
 
 				<li className="nav-item dropdown no-arrow">
 					<a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-						<span className="mr-2 d-none d-lg-inline text-gray-600 small">Jordan Walke</span>
-						<img className="img-profile rounded-circle" src="assets/images/jordan-walke.png" alt="Jordan Walke - Creador de React" width="60" />
+						<span className="mr-2 d-none d-lg-inline text-gray-600 small">DALF Admin</span>
+						<img className="img-profile rounded-circle" src={avatar} alt="DALF" width="60" />
 					</a>
 				</li>
 

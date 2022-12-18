@@ -40,6 +40,7 @@ module.exports = {
                         : "DEFAULT-IMAGE.jpg",
                     rol: user.rolId,
                 };
+                
                 return res.redirect("/");
             } else {
                 return res.render("users/register", {
@@ -93,6 +94,43 @@ module.exports = {
                         maxAge: 10000 * 60,
                     });
                 }
+                //cart
+                 let order=await db.Order.findOne({
+                    where:{
+                        userId:req.session.userLogin.id,
+                        stateId: 1
+                    },
+                    include:[
+                        {
+                            association:'cart',
+                            attributes:['id','quantity'],
+                            include:[{
+                                association:'product',
+                                attributes:['id','name','price','discount'],
+                                include:['image']
+                            }]
+                        }
+                    ]
+                })
+                if (order) {
+                    req.session.orderCart={
+                        id:order.id,
+                        total: order.total,
+                        items: order.cart
+                    }
+                } else {
+                    let order = await db.Order.create({
+                        total: 0,
+                        userId: req.session.userLogin.id,
+                        stateId: 1
+                    })
+                    req.session.orderCart={
+                        id:order.id,
+                        total: order.total,
+                        items: []
+                    }
+                }
+                console.log(req.session.orderCart)
                 return res.redirect("/");
             }
         } catch (error) {
@@ -179,10 +217,12 @@ module.exports = {
                             userId: user.id,
                         },
                     });
-                    // Si el usuario sube otra imagen, la anterior se elimina de local storage
-                    if (fs.existsSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
-                        fs.unlinkSync(path.resolve(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
-                    }
+
+                    /* // Si el usuario sube otra imagen, la anterior se elimina de local storage
+                    if (fs.existsSync(path.join(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))) {
+                        fs.unlinkSync(path.join(__dirname, '..', '..', 'public', 'images', 'users', avatar.file))
+                    } */
+
                     // Si existe la actualizamos
                     if (avatar) {
                         await avatar.update({

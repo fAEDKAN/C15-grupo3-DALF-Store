@@ -171,8 +171,8 @@
 }
 
 .main-carousel-button {
-    background-color: #2b2d32;
-    border: solid 1px #000000;
+    background-color: var(--C_Lightblue_Logo);
+    border: solid 2px var(--C_Ice-Cream);
     border-radius: 50%;
 }
 

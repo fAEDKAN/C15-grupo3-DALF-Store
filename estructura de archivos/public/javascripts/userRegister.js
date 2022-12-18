@@ -3,11 +3,11 @@ const $ = (element) => document.getElementById(element);
 const exRegs = {
     exRegAlfa: /^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/,
     exRegEmail: /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/,
-    exRegPass: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,25}/,
+    exRegPass: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-@$!%*?&_.])[A-Za-z\d-@$!%*?&_.]{8,25}/,
     exRegMayu: /[A-Z]/,
     exRegMinu: /[a-z]/,
     exRegNum: /[0-9]/,
-    exRegEsp: /[$@$!%*?&]/,
+    exRegEsp: /[-@$!%*?&_.]/,
     exRegMin: /.{8,}/,
     exRegMax: /.{25}/,
 };
@@ -72,7 +72,7 @@ const verifyEmail = async (email) => {
 }
 
 // Nombre de usuario
-$("userName").addEventListener("blur", async function ({ target }) {
+$("userName").addEventListener("keyup", async function ({ target }) {
     switch (true) {
         case !this.value.trim():
             msgError("userNameError", "Éste campo es obligatorio", target);
@@ -97,7 +97,7 @@ $("userName").addEventListener("blur", async function ({ target }) {
 });
 
 // Email
-$("email").addEventListener("blur", async function ({ target }) {
+$("email").addEventListener("keyup", async function ({ target }) {
     switch (true) {
         case !this.value.trim():
             msgError("emailError", "Éste campo es obligatorio", target);
@@ -126,16 +126,16 @@ $("password").addEventListener("focus", () => {
 $("password").addEventListener("blur", function ({ target }) {
     $("passMsg").hidden = true;
     switch (true) {
-        case !this.value.trim():
+        /* case !this.value.trim():
             msgError("passwordError", "Éste campo es obligatorio", target);
-            break;
-        case !exRegs.exRegPass.test(this.value):
+            break; */
+        /* case !exRegs.exRegPass.test(this.value):
             msgError(
                 "passwordError",
-                "1 mayúscula - 1 minúscula - 1 número - 1 caracter especial ($@$!%*?&) - 8 a 25 caracteres",
+                "1 mayúscula - 1 minúscula - 1 número - 1 caracter especial (-@$!%*?&_.) - 8 a 25 caracteres",
                 target
             );
-            break;
+            break; */
         default:
             validField("passwordError", target);
             break;
@@ -152,11 +152,11 @@ $("password").addEventListener("keyup", function ({ target }) {
 });
 
 // Validar contraseña
-$("repass").addEventListener("blur", function ({ target }) {
+$("repass").addEventListener("keyup", function ({ target }) {
     switch (true) {
-        case !this.value.trim():
+        /* case !this.value.trim():
             msgError("repassError", "Éste campo es obligatorio", target);
-            break;
+            break; */
         case this.value.trim() !== $("password").value.trim():
             msgError("repassError", "Las contraseñas no coinciden", target);
             break;

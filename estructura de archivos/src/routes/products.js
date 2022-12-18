@@ -15,7 +15,7 @@ const productValidator = require('../validations/productValidator');
 router.get('/productDetail/:id', productDetail);
 
 //PRODUCTS lOAD
-router.get('/productsLoad',userSessionCheck, productsLoad);
+router.get('/productsLoad',adminCheck, productsLoad);
 router.post('/productsLoad', uploadProducts.array('imagen'), productValidator, create);
 
 //PRODUCT EDIT

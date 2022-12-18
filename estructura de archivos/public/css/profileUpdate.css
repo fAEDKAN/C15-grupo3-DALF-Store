@@ -8,6 +8,7 @@
     left: 0;
     overflow: hidden;
     border-radius: 50%;
+    border: 2px dashed var(--C_Ice-Cream);
 }
 
 .body__form--profileImg img {
@@ -101,36 +102,38 @@
     color: var(--C_Pink_Logo);
 }
 
-/** BODY | FORMS | REDIRECT */
+/** BODY | FORMS | DELETE ACC */
 
-.body__form__redirect {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-}
-
-.body__form__redirect a {
+.body__form__redirect--unsave a {
     font-size: 0.9rem;
     color: var(--C_Soft_Gray);
     font-weight: bold;
     transition: 0.75s;
 }
-.body__form__redirect a:hover {
-    color: var(--C_Lightblue_Logo);
-    font-size: 0.80rem;
-}
 
-/** BODY | FORMS | DELETE ACC */
+.body__form__redirect--unsave a:hover {
+    color: var(--C_Lightblue_Logo);
+    font-size: 0.8rem;
+}
 
 .body__form__redirect--deleteAcc {
     background-color: rgba(12, 12, 12, 0.25);
+    margin: 15px 0 25px 0;
+    padding: 15px;
+    width: 175px;
+    text-align: center;
 }
 
 .body__form__redirect--deleteAcc a {
     color: var(--C_Light_Grey);
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: 0.75s;
+}
+
+.body__form__redirect--deleteAcc a:hover {
+    color: var(--C_Lightblue_Logo);
+    font-size: 0.8rem;
 }
 
 /** BODY | FORMS | WARNING TEXT  */

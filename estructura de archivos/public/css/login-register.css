@@ -39,37 +39,31 @@ input:-webkit-autofill:active {
     width: 225px;
     color: var(--C_Ice-Cream);
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
-    background-color: var(--C_Blue);
-    padding: 0 5px 0 5px;
+    /* padding: 0 5px 0 5px; */
     z-index: 100;
-    position: absolute;
-    top: 100%;
+    /* position: absolute;
+    top: 100%; */
 }
 
 .input__pass--list {
     font-size: 0.9rem;
-    font-weight: 400;
+    font-weight: 500;
     text-align: left;
 }
 
 .input__pass--denied {
     color: var(--C_Ice-Cream);
-    font-size: 0.9rem;
-    font-weight: 400;
-    text-align: left;
 }
 
 .input__pass--granted {
     color: var(--C_Lightblue_Logo);
-    font-size: 0.9rem;
-    font-weight: 400;
-    text-align: left;
 }
 
 .inputs__text__warnings--submit {
     font-weight: 600;
+    text-align: center;
 }
 
 /** BODY | LOGO */
@@ -88,10 +82,12 @@ input:-webkit-autofill:active {
 .body__form--box {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 55%;
+    align-items: center;
+    position: relative;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 50vh;
 }
 
 /** BODY | TITLE */
@@ -250,7 +246,6 @@ input:-webkit-autofill:active {
 .body__form__redirect {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     flex-direction: column;
     text-align: center;
     gap: 25px;
@@ -262,10 +257,12 @@ input:-webkit-autofill:active {
     font-weight: bold;
     transition: 0.75s;
 }
+
 .body__form__redirect a:hover {
     color: var(--C_Lightblue_Logo);
     font-size: 0.8rem;
 }
+
 
 /** BODY | FORM | PASSWORD TOGGLER */
 
