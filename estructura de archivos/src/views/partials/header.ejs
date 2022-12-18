@@ -9,11 +9,10 @@
                 </button>
                 <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt="" /></a>
                 <div class="header__top--general-navigation_button">
-                    <form action="/search" method="GET" class="header__top--search">
-                        <input type="text" name="keywords" placeholder="Buscar" required />
-                        <div class="header__top--search-button">
-                            <i class="fa-solid fa-magnifying-glass icon"></i>
-                        </div>
+                    
+                    <form action="/search" method="GET" class="header--searchbar">
+                        <input type="text" class="header__searchbar--input" name="keywords" placeholder="Buscá tu juego..." required />
+                            <i class="fa fa-search"></i>
                     </form>
 
                     <button>
@@ -31,9 +30,9 @@
                                 </li>
                                 <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
                                 <% } else { %>
-                                    <li><a class="dropdown-item" href="/users/login">Login</a></li>
+                                    <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
                                     <li>
-                                        <a class="dropdown-item" href="/users/register">Register</a>
+                                        <a class="dropdown-item" href="/users/register">Registrarme</a>
                                     </li>
                                     <% } %>
                         </ul>
@@ -91,21 +90,16 @@
                                 <a class="nav-link active" aria-current="page" href="#">Tienda</a>
                             </li>-->
                             <li class="nav-item dropdown">
-                                <!-- Juegos -->
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                     aria-expanded="false">Plataformas</a>
-                                <ul class="dropdown-menu menu_dropdown">
-                                    <li>
-                                        <ul class="cointeiner__links_nav_item" style="list-style: none">
-                                            <% brands.forEach(brand=> { %>
-                                                <li>
-                                                    <a class="dropdown-item" href="/brand/<%= brand.id %>">
-                                                        <%= brand.name %>
-                                                    </a>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </li>
+                                <ul class="dropdown-menu cointeiner__links_nav_item">
+                                    <% brands.forEach(brand=> { %>
+                                        <li>
+                                            <a class="dropdown-item" href="/brand/<%= brand.id %>">
+                                                <%= brand.name %>
+                                            </a>
+                                        </li>
+                                        <% }) %>
                                 </ul>
                             </li>
                             <!--<li class="nav-item dropdown">
