@@ -440,8 +440,12 @@ body {
     margin-top: 10px;
 }
 .card-wrapper{
-    max-width: 1100px;
+    margin-top: 100px;
     margin: 0 auto;
+    max-width: 1100px;
+    background-color: transparent;
+    border: none;   
+
 }
 .card{
     background-color: var(--C_Grey_Dark);
