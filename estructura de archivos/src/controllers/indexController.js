@@ -193,7 +193,10 @@ const controller = {
 			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
 			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
 			let searchResult = await db.Product.findAll({
-				include: ['image'],
+				order: [['name', 'ASC']],
+				include: [{
+					association: 'image'
+				}]
 			});
 			return res.render("results", {
 				searchResult,
