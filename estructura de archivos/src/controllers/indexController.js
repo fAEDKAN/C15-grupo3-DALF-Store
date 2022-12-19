@@ -14,11 +14,11 @@ const controller = {
 		let productsInSale = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 1,
+					[Op.eq]: 1,
 				},
 			},
 			order: [["createdAt", "DESC"]],
-			limit: 4,
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
@@ -36,11 +36,11 @@ const controller = {
 		let productsRecommended = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 2,
+					[Op.eq]: 2,
 				},
 			},
 			order: [["createdAt", "DESC"]],
-			limit: 4,
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
@@ -183,9 +183,31 @@ const controller = {
 			})
 		} catch (error) {
 			console.log(error);
-
 		}
 	},
+
+	allSectionsProducts: async (req, res) => {
+		let parametro = req.params
+		try {
+			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
+				include: ['image'],
+			});
+			return res.render("results", {
+				searchResult,
+				categories,
+				sections,
+				brands,
+				toThousand,
+				parametro
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	},
+
 	brandsFilter: async (req, res) => {
 		let parametro = req.params.x
 		try {

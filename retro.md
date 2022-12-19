@@ -147,3 +147,85 @@
 
 ## Hacer menos:
 -
+
+************************************************************************************
+
+# Retrospectiva con dinámica "Estrella de Mar" Sprint 6:
+
+## Seguir haciendo:
+-Tener control de los horarios para realizar las tareas del Sprint y Playground.
+-Apoyarnos mutuamente.
+-Trello actualizado.
+-La comunicación con los demás compañeros.
+-Comprometerse a ayudar a cualquier compañero que lo necesite.
+-Entregar las daylis a tiempo.
+-Definir fecha y hora de las daylis o weeklys.
+
+## Hacer más:
+-Planificación individual.
+-Dedicar más tiempo al proyecto.
+-Organizar mejor los horarios.
+
+## Empezar a hacer:
+-Participar más de las presentaciones grupales.
+-Ensayar las presentaciones en grupo.
+
+## Dejar de hacer:
+-
+
+## Hacer menos:
+-
+
+************************************************************************************
+
+# Retrospectiva con dinámica "Estrella de Mar" Sprint 7:
+
+## Seguir haciendo:
+-Organizar los horarios para realizar las tareas.
+-Planificación individual.
+-Dedicar más tiempo al proyecto.
+-Apoyarnos mutuamente.
+-La comunicación con los demás compañeros.
+-Trello actualizado.
+-Comprometerse a ayudar al compañero que lo necesite.
+-Entregar daylis a tiempo.
+-Definir fecha y hora de las dailys o weeklys.
+-Organizar mejor los horarios.
+
+## Hacer más:
+-
+
+## Empezar a hacer:
+-Ensayar presentaciones grupales.
+-Participar más en las presentaciones en grupo.
+
+## Dejar de hacer:
+-
+
+## Hacer menos:
+-
+
+************************************************************************************
+
+# Retrospectiva con dinámica "Estrella de Mar" Sprint 8:
+
+## Seguir haciendo:
+-Planificación individual.
+-Dedicar tiempo al proyecto.
+-Trello actualizado.
+-La comunicación con los compañeros.
+-Ayudar a los compañeros que lo necesiten.
+
+## Hacer más:
+-Organizar mejor los horarios.
+-Acotar tiempo de reuniones.
+-Entregar daylis a tiempo.
+
+## Empezar a hacer:
+-Ensayar presentaciones en grupo y participar más.
+
+## Dejar de hacer:
+-
+
+## Hacer menos:
+-

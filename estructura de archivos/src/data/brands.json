@@ -1,30 +1,38 @@
 [
     {
         "id":1,
-        "name":"otro"
+        "name":"Steam"
     },
     {
         "id":2,
-        "name":"microsoft"
+        "name":"PlayStation"
     },
     {
         "id":3,
-        "name":"steam"
+        "name":"Ubisoft"
     },
     {
         "id":4,
-        "name":"psn"
+        "name":"Prime Gaming"
     },
     {
         "id":5,
-        "name":"ubisoft"
+        "name":"Xbox"
     },
     {
         "id":6,
-        "name":"battle.net"
+        "name":"Epic Games Store"
     },
     {
         "id":7,
-        "name":"xbox"
+        "name":"GOG Galaxy"
+    },
+    {
+        "id":8,
+        "name":"Battle.net"
+    },
+    {
+        "id":9,
+        "name":"Origin"
     }
 ]

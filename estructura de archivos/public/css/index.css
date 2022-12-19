@@ -1,15 +1,19 @@
 #index {
+    box-sizing: border-box;
     background-color: #36393f;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
+    text-decoration: none;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 }
-
 
 /*  H E A D E R */
 
 .header--figure-logo {
     margin: 0 0 0;
 }
-
 
 /* M A I N */
 
@@ -19,17 +23,10 @@
 
 .main__content h2 {
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     margin: 0;
-    background-color: #212529;
-    border-top: solid 1px #2a2929;
-    border-bottom: solid 1px #2b2d32;
-    border-radius: 10px 10px 0 0;
-    color: #dee2e6;
-}
-
-.main--img-banner {
-    height: 20vh;
+    background-color: var(--C_Dark);
+    color: var(--C_Ice-Cream);
 }
 
 #carouselExampleIndicators {
@@ -65,7 +62,8 @@
 }
 
 .main__section--product-article img {
-    width: 100%
+    width: 100%;
+    border-top: 2px solid var(--C_Ice-Cream);
 }
 
 .main__section--product-article img:hover {
@@ -82,7 +80,6 @@
     -webkit-line-clamp: 2;
     line-height: 1.5;
 }
-
 
 /*  Corazón / Articulo favorito */
 
@@ -101,15 +98,47 @@
 }
 
 .main__section--product-content_offers {
-    background-color: #3d47a0;
-    border-top: solid 1px #2b2d32;
+    background-color: var(--C_Dark);
+    border-top: 2px solid var(--C_Ice-Cream);
     display: flex;
     flex-direction: column;
     padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main__section--product-content_offers:hover {
+    transition: 1s all;
+    overflow: visible;
+    white-space: normal;
+}
+
+/* .main__section--product-content_offers:hover i {
+    transform: rotate(360deg);
+    color: var(--C_Green_Razer);
+} */
+
+.main__section--product-content_offers:hover i {
+    animation: shake 2s ease infinite;
+    color: var(--C_Green_Razer);
+}
+
+@keyframes shake {
+	0%, 100% {transform: translateX(0);}
+	10%, 30%, 50%, 70%, 90%{transform: translateX(-10px);}
+	20%, 40%, 60%, 80%{transform: translateX(5px);}
 }
 
 .main-section-price-ofert {
     display: flex;
+    align-items: center;
+}
+
+.main-section-price-ofert i {
+    position: absolute;
+    left: 85%;
+    transition: 1s all;
 }
 
 .main__section--product-content {
@@ -136,19 +165,19 @@
     font-size: 11px;
     color: #b0b2b7;
     padding-left: 5px;
-    width: 100%
+    width: 100%;
 }
 
 .main__section--product-price {
-    font-size: 18px;
+    font-size: 1.25em;
+    font-weight: 600;
     padding-left: 5px;
 }
 
 .main__section--product-discount {
-    font-size: 13px;
-    color: #27a95d;
+    font-size: 0.89em;
+    color: var(--C_Green_Razer);
     padding-left: 5px;
-    padding-top: 1px;
 }
 
 .main-content-buttom {
@@ -158,16 +187,25 @@
 }
 
 .main-display-button {
-    margin-bottom: 10px;
-    color: #dee2e6;
-    background-color: #606164;
-    border: solid 1px #2b2d32;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 17px;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    margin: 25px 0 20px;
+    cursor: pointer;
+    background: rgba(212, 212, 212, 0.075);
+    border-image: linear-gradient(to right,
+            var(--C_Green_Razer),
+            var(--C_Green_Razer)) 1;
+    color: var(--C_Ice-Cream);
+    font-weight: bold;
+    transition: 1s all;
+}
+
+.main-display-button:hover {
+    border-image: linear-gradient(to right,
+            var(--C_Pink_Logo),
+            var(--C_Lightblue_Logo)) 1;
+    color: var(--C_Green_Razer);
 }
 
 .main-carousel-button {
@@ -178,13 +216,11 @@
 
 .main--carousel-p-color {
     color: black;
-    background-color: #6061641c;
 }
 
 .main__section--product-img {
     height: 202.8px;
 }
-
 
 /*  F O O T E R */
 
@@ -193,47 +229,87 @@
 }
 
 @media (min-width: 375px)
-/* Mobile */
 
-{
+/* Mobile */
+    {
+
+    .second-carousel--banner {
+        display: none;
+    }
+
     .main__section--product-favorite {
         top: 13px;
         left: 144px;
     }
+
+    .main__section--product-article {
+        width: 100%;
+        height: 39em;
+    }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: /* 50vh */ 32em;
+    }
 }
 
 @media (min-width: 425px)
-/* Mobile */
 
-{
+/* Mobile */
+    {
     .main__section--product-favorite {
         top: 13px;
         left: 170px;
     }
+
+    .main__section--product-article {
+        width: 100%;
+        height: 43em;
+    }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: /* 57vh */ 36em;
+    }
 }
 
 @media (min-width: 768px)
-/* Tablet*/
 
-{
+/* Tablet*/
+    {
+
     /* HEADER */
     /* MAIN */
     #mid {
         padding-top: 58px;
     }
-    .main--img-banner {
-        height: 35vh;
+
+    .second-carousel--banner {
+        display: block;
     }
+
+    .main__section--product-article {
+        width: 50%;
+        height: 38em;
+    }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: 32em;
+    }
+
     .main__section--product {
         width: 100%;
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
     }
+
     .main__section--product-favorite {
         top: 13px;
         left: 150px;
         display: block;
     }
+
     .main__section--product-description {
         display: block;
         font-size: 15px;
@@ -242,19 +318,29 @@
 }
 
 @media (min-width: 1024px)
-/* Desktop */
 
-{
+/* Desktop */
+    {
+
     /* MAIN */
     .main__content {
         padding-top: 108px;
     }
+
+    .main__section--product {
+        width: 100%;
+    }
+
     .main__section--product-article {
-        width: 20%
+        width: 25%;
+        height: 27.5em;
     }
-    .main--img-banner {
-        height: 45vh;
+
+    .main__section--product-article img {
+        width: 100%;
+        height: /* 35vh */ 21em;
     }
+
     .main__section--product-favorite {
         top: 15px;
         left: 163px;
@@ -262,25 +348,46 @@
 }
 
 @media (min-width: 1185px) {
+
     /* Desktop */
     .main__section--product-favorite {
         left: 289px;
     }
 }
 
-@media (min-width: 1440px)
-/* Desktop */
+@media (min-width: 1200px) {
 
-{
+    .main__section--product-article {
+        width: 25%;
+        height: 31em;
+    }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: 26em;
+    }
+}
+
+@media (min-width: 1440px)
+
+/* Desktop */
+    {
     .main__section--product {
         width: 100%;
+        gap: 1em;
     }
-    .main--img-banner {
-        height: 45vh;
-    }
+
     .main__section--product-article {
-        width: 17%;
+        width: 18%;
+        height: 27.5em;
+        padding: 5px;
     }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: 22em;
+    }
+
     .main__section--product-favorite {
         top: 19px;
         left: 200px;
@@ -288,10 +395,31 @@
 }
 
 @media (min-width: 1680px) {
-    .main--img-banner {
-        height: 55vh;
-    }
+
     .main__section--product-favorite {
         left: 283px;
     }
+}
+
+@media (min-width: 1920px) {
+
+    .main__section--product {
+        width: 100%;
+    }
+
+    .main__section--product-article {
+        width: 12%;
+        height: 24em;
+        padding: 5px;
+    }
+
+    .main__section--product-article img {
+        width: 100%;
+        height: 19em;
+    }
+
+    .main__section--product-img-key {
+        width: 50%;
+    }
+
 }
