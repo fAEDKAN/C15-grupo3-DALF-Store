@@ -14,6 +14,7 @@ module.exports = {
     },
     //PRODUCT DETAIL
     productDetail: (req, res) => {
+
         const categories = db.Category.findAll({ attributes: ['id', 'name'] });
         const sections = db.Section.findAll({ attributes: ['id', 'name'] });
         const brands = db.Brand.findAll({ attributes: ['id', 'name'] });
@@ -22,9 +23,13 @@ module.exports = {
             include: [
                 {
                     association: 'image'
+                },
+                {
+                    association: 'category',
                 }
             ]
-        })
+        });
+
         Promise.all([product, categories, sections, brands,])
         .then(([product, categories, sections, brands]) => {
             return res.render('products/productDetail', { product, categories, sections, brands })
