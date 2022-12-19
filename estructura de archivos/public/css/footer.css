@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     background-color: var(--C_Dark);
     width: 100%;
+    margin: 2em 0 0 0;
 }
 
 .footer--logo {
