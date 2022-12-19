@@ -183,9 +183,31 @@ const controller = {
 			})
 		} catch (error) {
 			console.log(error);
-
 		}
 	},
+
+	allSectionsProducts: async (req, res) => {
+		let parametro = req.params
+		try {
+			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
+				include: ['image'],
+			});
+			return res.render("results", {
+				searchResult,
+				categories,
+				sections,
+				brands,
+				toThousand,
+				parametro
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	},
+
 	brandsFilter: async (req, res) => {
 		let parametro = req.params.x
 		try {

@@ -74,7 +74,7 @@
     outline: 0;
     border: 0;
     display: none;
-    font-size: 1em;
+    font-size: 0.85em;
     border-radius: 20px;
     padding: 0 15px;
     background-color: white;
@@ -132,6 +132,105 @@
     display: block;
 }
 
+/** NEW SEARCHBAR | BURGUER MENU */
+
+.burguermenu--searchbar {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 35px;
+    height: 35px;
+    background: white;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 4px solid var(--C_Lightblue_Logo);
+    padding: 5px;
+}
+
+.burguermenu__searchbar--input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;;
+    height: 25.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 0.85em;
+    border-radius: 20px;
+    padding: 0 15px;
+    background-color: white;
+}
+
+.burguermenu--searchbar i {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 28.5px;
+    height: 26.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #212529;
+    text-align: center;
+    font-size: 0.8em;
+    transition: all 1s;
+}
+
+.burguermenu--searchbar:hover,
+.burguermenu--searchbar:valid{
+    width: 300px;
+    cursor: pointer;
+}
+
+.burguermenu--searchbar:hover input,
+.burguermenu--searchbar:valid input{
+    display: block;
+}
+
+.burguermenu--searchbar:hover .fa,
+.burguermenu--searchbar:valid .fa{
+    background: #212529;
+    /* transform: rotate(1080deg); */
+    transform: rotate(3turn);
+    color: white;
+
+}
+
+.burguermenu--searchbar a {
+    display: none;
+    position: absolute;
+    top: 70px;
+    bottom:0;
+    left: 0;
+    right: 0;
+    font-size: 20px;
+    color: var(--C_Ice-Cream);
+    text-align: center; 
+    width: 100%;
+}
+
+.burguermenu--searchbar:valid a {
+    display: block;
+}
+
+.offcanvas-header {
+    justify-content: center !important;
+    margin: 20px 0 0 0;
+}
+
+.offcanvas-body {
+    width: 100% !important;
+    text-align: center;
+}
+
+.offcanvas.show:not(.hiding), .offcanvas.showing {
+    width: 65% !important;
+}
+
 /*  HEADER  GENREAL*/
 
 #top {
@@ -172,7 +271,6 @@ h1 {
     align-items: center;
     justify-content: space-around;
 }
-
 
 .header__top--general-navbar {
     padding-bottom: 0;
@@ -358,6 +456,45 @@ h1 {
     .header--searchbar {
         display: none;
     }
+
+    .mobile--navbar {
+        color: var(--C_Ice-Cream);
+        font-weight: 600;
+    }
+
+    .mobile--navbar:hover {
+        color: white;
+    }
+
+    .mobile__nav--dropmenu {
+        display: flex !important;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .mobile__navbar--redirect a{
+        color: var(--C_Ice-Cream) !important;
+        font-weight: 600;
+    }
+
+    .mobile__navbar--redirect a:hover{
+        color: white !important;
+    }
+
+    .burguermenu__navbar--list {
+        padding: 0 !important;
+        margin: 2em 0 0 0 !important;
+        gap: 1.5em;
+    }
+
+    .nav__menu--items {
+        text-align: center;
+    }
+
+    .nav__menu--items li {
+        margin: 0 0 10px 0;
+    }
+
 }
 
 

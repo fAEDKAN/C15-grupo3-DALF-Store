@@ -92,7 +92,7 @@
     "brandId": 5,
     "description": "Por primera vez en la serie, el ambiente cerrado y lineal se deja a un lado para incluir escenarios más grandes y dinámicos, debido a que la historia se desarrolla en un poblado de España.",
     "image": "re4-card.jpeg",
-    "sectionId": 2,
+    "sectionId": 1,
     "stock": 1000
   },
   {
@@ -104,7 +104,7 @@
     "brandId": 8,
     "description": "Diablo II fue uno de los juegos más populares del año 2000. 2 Los principales factores que contribuyeron al éxito incluyen la continuación de los populares temas de fantasía oscura y terror del juego anterior.",
     "image": "45.jpg",
-    "sectionId": 2,
+    "sectionId": 1,
     "stock": 792
   },
   {
@@ -152,7 +152,7 @@
     "brandId": 1,
     "description": "El mapa de Dying Light 2 es cuatro veces más grande que el juego original, dividido en siete regiones distintas, cada una con sus propios puntos de referencia y ubicaciones.",
     "image": "dying-light-2-cover-375x500.png",
-    "sectionId": 1,
+    "sectionId": 2,
     "stock": 2380
   },
   {
@@ -282,7 +282,7 @@
     "discount": 0,
     "categoryId": 12,
     "brandId": 6,
-    "description": "paVos para comprar cosméticos en Fortnite.",
+    "description": "paVos para el Fortnite.",
     "image": "th-3915948366.jpg",
     "sectionId": 3,
     "stock": 80
@@ -296,7 +296,7 @@
     "brandId": 7,
     "description": "En el juego, los jugadores pelean contra los enemigos usando la pistola del director, un arma de fuego que puede cambiar de forma. La pistola también puede ser actualizada para mejorar su eficiencia de combate.",
     "image": "th-4014319306.jpg",
-    "sectionId": 2,
+    "sectionId": 1,
     "stock": 293
   },
   {

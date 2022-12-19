@@ -35,14 +35,14 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <h2>Productos en Oferta</h2>
-        <section class="main__section--product">
-            <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
+
+        <h2>Productos Recomendados</h2>
+        <section class="main__section--product ">
+            <% productsRecommended.forEach(({id, name, price, image, discount})=> { %>
                 <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                 <% }) %>
         </section>
-
-        <div class="main-content-buttom"><a href="/section/1"><button class="main-display-button">Ver más</button></a></div>
+        <div class="main-content-buttom"><a href="/section/2"><button class="main-display-button">Ver más</button></a></div>
 
         <div id="carouselExampleCaptions" style="margin-bottom: 0px;" class="carousel slide second-carousel--banner" data-bs-ride="false">
             <div class="carousel-indicators">
@@ -76,14 +76,14 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <h2>Productos Recomendados</h2>
-        <section class="main__section--product ">
-            <% productsRecommended.forEach(({id, name, price, image, discount})=> { %>
+
+        <h2>Productos en Oferta</h2>
+        <section class="main__section--product">
+            <% productsInSale.forEach(({id, name, price, image, discount})=> { %>
                 <%- include("./partials/product",{id, name, price, image, discount, toThousand }) %>
                 <% }) %>
         </section>
-
-        <div class="main-content-buttom"><a href="/section/2"><button class="main-display-button">Ver más</button></a></div>
+        <div class="main-content-buttom"><a href="/section/1"><button class="main-display-button">Ver más</button></a></div>
 
 <!--         <h2>Producto de nuestros usuarios</h2>
         <section class="main__section--product">
