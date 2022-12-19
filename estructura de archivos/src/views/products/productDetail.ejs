@@ -152,7 +152,7 @@
                                         <h2>Acerca de este artículo:</h2>
                                         <ul>
                                             <li><i class="fa-regular fa-circle-check"></i> Disponibilidad: <span>en stock</span></li>
-                                            <li><i class="fa-regular fa-circle-check"></i> categoría: <span>accion</span></li>
+                                            <li><i class="fa-regular fa-circle-check"></i> Categoría: <span>accion</span></li>
                                             <li><i class="fa-regular fa-circle-check"></i> Gastos de envío: <span>Gratis</span></li>
                                         </ul>
                                     </div>
@@ -162,7 +162,7 @@
                                         <button type="button" class="btn">
                                             Comprar ahora
                                         </button> 
-                                        <button type="button" class="btn">
+                                        <button type="button" name="cart"class="btn"onclick="addCartItem('<%=product.id%>')">
                                             Agregar al carrito <i class="fas fa-shopping-cart"></i>
                                         </button>
                                         <% if (locals.userLogin && userLogin.rol === 1) { %>
