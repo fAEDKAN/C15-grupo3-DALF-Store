@@ -25,7 +25,7 @@
   },
   {
     "id": 3,
-    "name": "GTA V: Premium Online Edition [PC]",
+    "name": "GTA V: Premium Online Edition",
     "price": 1999,
     "discount": 20,
     "categoryId": 8,
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "name": "Steam Gift Card $ 5000 (AR$)",
-    "price": 2577,
+    "price": 6000,
     "discount": 0,
     "categoryId": 12,
     "brandId": 1,

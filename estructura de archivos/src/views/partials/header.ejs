@@ -116,7 +116,7 @@
                                 <ul class="dropdown-menu menu_dropdown">
                                     <li>
                                         <ul class="cointeiner__links_nav_item" style="list-style: none">
-                                            <% brands.forEach(brand=> { %>
+                                            <% brands.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach(brand=> { %>
                                                 <li>
                                                     <a class="dropdown-item" href="/brand/<%= brand.id %>">
                                                         <%= brand.name %>
@@ -164,15 +164,15 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                     aria-expanded="false">Categorias</a>
-                                <ul class="dropdown-menu cointeiner__links_nav_item">
-                                    <% categories.forEach(category=> { %>
-                                        <li>
-                                            <a class="dropdown-item" href="/categorias/<%= category.id %>">
-                                                <%= category.name %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
-                                </ul>
+                                    <ul class="dropdown-menu cointeiner__links_nav_item">
+                                        <% categories.sort((a, b) => (a.name > b.name) ? 1 : -1).forEach(category=> { %>
+                                            <li>
+                                                <a class="dropdown-item" href="/categorias/<%= category.id %>">
+                                                    <%= category.name %>
+                                                </a>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active"  aria-current="page" href="/section/1">Ofertas</a>

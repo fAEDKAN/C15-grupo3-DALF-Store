@@ -334,7 +334,7 @@
 
     .main__section--product-article {
         width: 25%;
-        height: 26em;
+        height: 27.5em;
     }
 
     .main__section--product-article img {
@@ -375,6 +375,7 @@
     {
     .main__section--product {
         width: 100%;
+        gap: 1em;
     }
 
     .main__section--product-article {

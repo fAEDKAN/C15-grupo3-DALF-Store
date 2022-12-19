@@ -14,11 +14,11 @@ const controller = {
 		let productsInSale = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 1,
+					[Op.eq]: 1,
 				},
 			},
 			order: [["createdAt", "DESC"]],
-			limit: 4,
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
@@ -36,11 +36,11 @@ const controller = {
 		let productsRecommended = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 2,
+					[Op.eq]: 2,
 				},
 			},
 			order: [["createdAt", "DESC"]],
-			limit: 4,
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
