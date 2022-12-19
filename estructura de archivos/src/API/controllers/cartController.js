@@ -162,50 +162,15 @@ module.exports = {
 
             const {id} = req.params;
 
-            let item = req.session.orderCart.items.find(item => item.product.id === +id);
-
-            if(item.quantity === 1){
                 await db.Cart.destroy({
                     where :{
-                        id : item.id
+                        id :id
                     }
                 });
 
-                const itemsModify = req.session.orderCart.items.filter(element => element.id !== +item.id)
-
                 req.session.orderCart = {
-                    ...req.session.orderCart,
-                    items : itemsModify
+                    ...req.session.orderCart
                    }
-            }else{
-
-                await db.Cart.update(
-                    {
-                        quantity : item.quantity - 1
-                    },
-                    {
-                        where : {
-                            id : item.id
-                        }
-                    }
-                )
-
-                const itemsModify = req.session.orderCart.items.map(element => {
-                    if(element.id === item.id){
-                        element.quantity = element.quantity - 1;
-                        return element
-                    }
-
-                    return element
-                })
-
-                req.session.orderCart = {
-                    ...req.session.orderCart,
-                    items : itemsModify
-                   }
-
-            }
-
             return res.status(201).json({
                 ok : true,
                 data : req.session.orderCart || null

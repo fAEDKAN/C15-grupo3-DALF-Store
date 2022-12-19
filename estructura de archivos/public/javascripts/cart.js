@@ -27,7 +27,7 @@ const showItems = (items) => {
             ${((+product.price - (+product.price * +product.discount ) / 100) * +quantity).toFixed(0)}
             </td>
             <td>
-              <button class="btn btn-sm btn-danger" onclick="removeItem(${product.id})"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-sm btn-danger" onclick="remove(${product.id})"><i class="fas fa-trash"></i></button>
 
             </td>
           </tr>
@@ -87,6 +87,24 @@ const removeQuantity = async (id) => {
     try {
 
         let response = await fetch('/api/cart/' + id, {
+            method : 'DELETE'
+        });
+
+        let result = await response.json();
+
+        if(result.ok) {
+            showItems( result.data.items)
+        }
+
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+const remove = async (id) => {
+    try {
+
+        let response = await fetch('/api/cart/all' , {
             method : 'DELETE'
         });
 
