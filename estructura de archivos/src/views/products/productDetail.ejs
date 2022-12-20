@@ -39,9 +39,8 @@
                                     <div class="product-detail">
                                         <h2>Acerca de este artículo:</h2>
                                         <ul>
-                                            <li><i class="fa-regular fa-circle-check"></i> Disponibilidad: <span>en stock</span></li>
-                                            <li><i class="fa-regular fa-circle-check"></i> Categoría: <span>accion</span></li>
-                                            <li><i class="fa-regular fa-circle-check"></i> Gastos de envío: <span>Gratis</span></li>
+                                            <li><i class="fa-regular fa-circle-check"></i> Stock: <span><%= product.stock %> unidades.</span></li>
+                                            <li><i class="fa-regular fa-circle-check"></i> Categoría: <span><%= product.category.name %>.</span></li>
                                         </ul>
                                     </div>
         
@@ -148,10 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- ProductRecommended -->
-                <%- include('../partials/productsRecommended',{ title:'Detail',
-                    }) %>
-                    <!-- /ProductRecommended -->
+
                 </main>
 
                 <!-- footer -->
