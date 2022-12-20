@@ -27,7 +27,7 @@ const showItems = (items) => {
             ${((+product.price - (+product.price * +product.discount ) / 100) * +quantity).toFixed(0)}
             </td>
             <td>
-              <button class="btn btn-sm btn-cart-itemRemove" onclick="remove(${product.id})"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-sm btn-cart-itemRemove" onclick="removeItem(${product.id})"><i class="fas fa-trash"></i></button>
 
             </td>
           </tr>
@@ -99,6 +99,28 @@ const removeQuantity = async (id) => {
         
     } catch (error) {
         console.error(error);
+    }
+}
+const removeItem = async (id) => {
+    try {
+
+        let response = await fetch('/api/cart/item/'+ id , {
+            method : 'DELETE'
+        });
+
+        let result = await response.json();
+
+        if(result.ok) {
+            showItems( result.data.items)
+        }
+
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(error.status || 500).json({
+            ok : false,
+            msg : error.message || 'Comuniquese con el administrador'
+        })
     }
 }
 const remove = async (id) => {

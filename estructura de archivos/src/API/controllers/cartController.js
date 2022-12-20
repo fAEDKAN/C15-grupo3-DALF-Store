@@ -157,31 +157,47 @@ module.exports = {
             })
         }
     },
-    removeAllItems : async (req,res) => {
-        try {
+        removeItem: async (req,res)=>{
+            try {
 
-            const {id} = req.params;
-
-                await db.Cart.destroy({
-                    where :{
-                        id :id
-                    }
-                });
-
-                req.session.orderCart = {
-                    ...req.session.orderCart
-                   }
-            return res.status(201).json({
-                ok : true,
-                data : req.session.orderCart || null
-            })
+                const {id} = req.params;
+    
+                let item = req.session.orderCart.items.find((item)=> item.product.id === +id);
+    
+                if(item) {
+    
+                    await db.Cart.destroy(
+                        {
+                          where : {
+                            id : item.id
+                          }  
+                        }
+                    )
+                    const itemsModify = req.session.orderCart.items.filter((item)=> item.product.id != +id);
+    
+                    req.session.orderCart = {
+                        ...req.session.orderCart,
+                        items : itemsModify
+                       }
+    
+                }
+    
+                return res.status(201).json({
+                    ok : true,
+                    data : req.session.orderCart || null
+                })
+    
+                
+            } catch (error) {
+                console.log(error);
+                return res.status(error.status || 500).json({
+                    ok : false,
+                    msg : error.message || 'Comuniquese con el administrador'
+                })
+            }
             
-        } catch (error) {
-            console.log(error);
-            return res.status(error.status || 500).json({
-                ok : false,
-                msg : error.message || 'Comuniquese con el administrador'
-            })
+        },
+        removeAllItem:async (req,res)=>{
+
         }
-    }
 }

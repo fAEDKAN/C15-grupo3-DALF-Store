@@ -2,12 +2,12 @@
 const express = require('express');
 const router = express.Router();
 
-const {list,addItem,removeAllItems,removeQuantity} = require('../../API/controllers/cartController');
+const {list,addItem,removeItem,removeQuantity,removeAllItem} = require('../../API/controllers/cartController');
 
 router
     .get('/', list)
     .post('/',addItem)
     .delete('/:id',removeQuantity)
-    .delete('/all',removeAllItems)
-
+    .delete('/item/:id',removeItem)
+    .delete('/all',removeAllItem)
 module.exports = router;
