@@ -197,7 +197,29 @@ module.exports = {
             }
             
         },
-        removeAllItem:async (req,res)=>{
-
+        removeAllItems:async (req,res)=>{
+            try {
+                await db.Order.destroy({
+                    where:{
+                        userId: req.session.userLogin.id,
+                        stateId:1
+                    }
+                })
+                
+                req.session.orderCart={
+                    ...req.session.orderCart,
+                    items: []
+                }
+                return res.status(201).json({
+                    ok : true,
+                    data : req.session.orderCart || null
+                })
+            } catch (error) {
+                console.log(error);
+                return res.status(error.status || 500).json({
+                    ok : false,
+                    msg : error.message || 'Comuniquese con el administrador'
+                })
+            }
         }
 }
