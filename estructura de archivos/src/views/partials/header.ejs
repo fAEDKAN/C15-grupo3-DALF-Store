@@ -1,133 +1,128 @@
 <header id="top">
     <%- include('modalCart') %>
-    <div class="header__top--general">
-        <nav class="navbar navbar-dark bg-dark fixed-top header__top--general-navbar">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt="" /></a>
-                <div class="header__top--general-navigation_button">
-                    
-                    <form action="/search" method="GET" class="header--searchbar">
-                        <input type="text" class="header__searchbar--input" name="keywords" placeholder="Buscá tu juego..." required />
-                            <i class="fa fa-search"></i>
-                    </form>
+        <div class="header__top--general">
+            <nav class="navbar navbar-dark bg-dark fixed-top header__top--general-navbar">
+                <div class="container-fluid">
+                    <a class="header--figure-logo" href="/"><img src="/images/DALF-LOGO.png" alt="" /></a>
 
-                    <button>
-                        <a id="cartModal2" data-bs-toggle="modal" data-bs-target="#cartModal"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                    <li class="nav-item dropdown header__top--login">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-dark">
-                            <% if (locals.userLogin) { %>
-                                <li>
-                                    <a class="dropdown-item" href="/users/profile">
-                                        <%= userLogin.userName %>
-                                    </a>
-                                </li>
-                                <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
-                                <% } else { %>
-                                    <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+
+                    <div class="header__top--general-navigation_button">
+
+                        <form action="/search" method="GET" class="header--searchbar">
+                            <input type="text" class="header__searchbar--input" name="keywords"
+                                placeholder="Buscá tu producto..." required />
+                            <i class="fa fa-search"></i>
+                        </form>
+
+                        <button>
+                            <a id="cartModal2" data-bs-toggle="modal" data-bs-target="#cartModal"><i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+                        </button>
+                        <li class="nav-item dropdown header__top--login">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown__menu--user">
+                                <% if (locals.userLogin) { %>
                                     <li>
-                                        <a class="dropdown-item" href="/users/register">Registrarme</a>
+                                        <a class="dropdown-item" href="/users/profile">
+                                            <%= userLogin.userName %>
+                                        </a>
+                                    </li>
+                                    <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
+                                    <% } else { %>
+                                        <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>
+                                        <li>
+                                            <a class="dropdown-item" href="/users/register">Registrarme</a>
+                                        </li>
+                                        <% } %>
+                            </ul>
+                        </li>
+                    </div>
+                    <div class="offcanvas offcanvas-end offcanvas-end-edited text-bg-dark" tabindex="-1"
+                        id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                        <div class="offcanvas-header">
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 burguermenu__navbar--list"
+                                style="padding-top: 25px">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle mobile--navbar" data-bs-toggle="dropdown"
+                                        href="#" role="button" aria-expanded="false">Plataformas</a>
+                                    <ul class="dropdown-menu cointeiner__links_nav_item nav__menu--items">
+                                        <% brands.forEach(brand=> { %>
+                                            <li>
+                                                <a class="dropdown-item" href="/categorias/<%= brand.id %>">
+                                                    <%= brand.name %>
+                                                </a>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle mobile--navbar" data-bs-toggle="dropdown"
+                                        href="#" role="button" aria-expanded="false">Categorías</a>
+                                    <ul class="dropdown-menu cointeiner__links_nav_item nav__menu--items">
+                                        <% categories.forEach(category=> { %>
+                                            <li>
+                                                <a class="dropdown-item" href="/categorias/<%= category.id %>">
+                                                    <%= category.name %>
+                                                </a>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
+                                </li>
+                                <li class="nav-item mobile__navbar--redirect">
+                                    <a class="nav-link active" aria-current="page" href="/section/1">Ofertas</a>
+                                </li>
+                                <li class="nav-item mobile__navbar--redirect">
+                                    <a class="nav-link active" aria-current="page" href="/section/2">Recomendados</a>
+                                </li>
+                                <li class="nav-item mobile__navbar--redirect">
+                                    <a class="nav-link active" aria-current="page" href="/allProducts">Productos</a>
+                                </li>
+                                <% if (locals.userLogin && userLogin.rol===1) { %>
+                                    <li class="nav-item">
+                                        <!--  Creación de producto -->
+                                        <a class="nav-link active" aria-current="page" href="/products/productsLoad">
+                                            Agregar producto
+                                        </a>
                                     </li>
                                     <% } %>
-                        </ul>
-                    </li>
-                </div>
-                <div class="offcanvas offcanvas-end offcanvas-end-edited text-bg-dark" tabindex="-1"
-                    id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div class="offcanvas-header">
-                        <a class="header--figure-logo" href="/"><img src="/images/logo2.png" alt="" /></a>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
+
+                            </ul>
+                        </div>
                     </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="padding-top: 25px">
-                            <form action="/search" class="header__navbar-nav-searchbar">
-                                <input type="text" name="keywords" placeholder="Buscar" required />
-                                <div class="header__navbar-nav-search-button">
-                                    <i class="fa-solid fa-magnifying-glass icon"></i>
-                                </div>
-                            </form>
-                            <li class="nav-item dropdown">
-                                <!-- Juegos -->
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Plataformas</a>
-                                <ul class="dropdown-menu menu_dropdown">
-                                    <li>
-                                        <ul class="cointeiner__links_nav_item" style="list-style: none">
-                                            <% brands.forEach(brand=> { %>
-                                                <li>
-                                                    <a class="dropdown-item" href="/brand/<%= brand.id %>">
-                                                        <%= brand.name %>
-                                                    </a>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Categorias</a>
-                                <ul class="dropdown-menu cointeiner__links_nav_item">
-                                    <% categories.forEach(category=> { %>
-                                        <li>
-                                            <a class="dropdown-item" href="/categorias/<%= category.id %>">
-                                                <%= category.name %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/1">Ofertas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Recomendados</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Productos</a>
-                            </li>
-                            <% if (locals.userLogin && userLogin.rol === 1) { %>
-                                <li class="nav-item">
-                                    <!--  Creación de producto -->
-                                    <a class="nav-link active" aria-current="page" href="/products/productsLoad"> Agregar producto
-                                    </a>
+                </div>
+                <!----------------------------------------------------pc--------------------------------------------------------->
+                <div class="header_div">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-expanded="false">Plataformas</a>
+                            <ul class="dropdown-menu menu_dropdown">
+                                <li>
+                                    <ul class="cointeiner__links_nav_item" style="list-style: none">
+                                        <% brands.sort((a, b)=> (a.name > b.name) ? 1 : -1).forEach(brand=> { %>
+                                            <li>
+                                                <a class="dropdown-item" href="/brand/<%= brand.id %>">
+                                                    <%= brand.name %>
+                                                </a>
+                                            </li>
+                                            <% }) %>
+                                    </ul>
                                 </li>
-                                <% } %>
-                            
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!----------------------------------------------------pc--------------------------------------------------------->
-            <div class="header_div">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 header_div--navbar-desktop">
-                    
-                            
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Plataformas</a>
-                                <ul class="dropdown-menu menu_dropdown">
-                                    <li>
-                                        <ul class="cointeiner__links_nav_item" style="list-style: none">
-                                            <% brands.forEach(brand=> { %>
-                                                <li>
-                                                    <a class="dropdown-item" href="/brand/<%= brand.id %>">
-                                                        <%= brand.name %>
-                                                    </a>
-                                                </li>
-                                                <% }) %>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--<li class="nav-item dropdown">
+                            </ul>
+                        </li>
+                        <!--<li class="nav-item dropdown">
                                  Tarjeta de regalo 
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                                     aria-expanded="false">Tarjeta de regalo</a>
@@ -161,47 +156,48 @@
                                     </li>
                                 </ul>
                             </li>-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                                    aria-expanded="false">Categorias</a>
-                                <ul class="dropdown-menu cointeiner__links_nav_item">
-                                    <% categories.forEach(category=> { %>
-                                        <li>
-                                            <a class="dropdown-item" href="/categorias/<%= category.id %>">
-                                                <%= category.name %>
-                                            </a>
-                                        </li>
-                                        <% }) %>
-                                </ul>
-                            </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                aria-expanded="false">Categorias</a>
+                            <ul class="dropdown-menu cointeiner__links_nav_item">
+                                <% categories.sort((a, b)=> (a.name > b.name) ? 1 : -1).forEach(category=> { %>
+                                    <li>
+                                        <a class="dropdown-item" href="/categorias/<%= category.id %>">
+                                            <%= category.name %>
+                                        </a>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/section/1">Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/section/2">Recomendados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/allProducts">Todos los Productos</a>
+                        </li>
+                        <% if (locals.userLogin && userLogin.rol===1) { %>
                             <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/1">Ofertas</a>
+                                <!--  Creación de producto -->
+                                <a class="nav-link active" aria-current="page" href="/products/productsLoad"> Agregar
+                                    producto
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Recomendados</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active"  aria-current="page" href="/section/2">Explorar</a>
-                            </li>
-                            <% if (locals.userLogin && userLogin.rol === 1) { %>
-                                <li class="nav-item">
-                                    <!--  Creación de producto -->
-                                    <a class="nav-link active" aria-current="page" href="/products/productsLoad"> Agregar producto
-                                    </a>
-                                </li>
-                                <% } %>
-                </ul>
-            </div>
-        </nav>
-    </div>
+                            <% } %>
+                    </ul>
+                </div>
+            </nav>
+        </div>
 </header>
 <script src="/javascripts/cart.js"></script>
 <script>
     let inputSearch = document.getElementById('search-header-input')
     let search = document.getElementById('search-header')
-    search.addEventListener('submit',(e)=>{
+    search.addEventListener('submit', (e) => {
         e.preventDefault()
-        if(inputSearch.value.length > 1){
+        if (inputSearch.value.length > 1) {
             search.submit()
         }
     })

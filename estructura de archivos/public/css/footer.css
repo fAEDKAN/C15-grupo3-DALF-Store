@@ -5,6 +5,8 @@
     flex-wrap: wrap;
     background-color: var(--C_Dark);
     width: 100%;
+    border-top: 5px solid var(--C_Discord);
+    margin-top: 2em;
 }
 
 .footer--logo {
@@ -40,6 +42,11 @@
     text-align: center;
 }
 
+.footer_nav-aboutUs p {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
 .footer_nav-home ul,
 .footer_nav-aboutUs ul {
     padding: 5px;
@@ -71,7 +78,8 @@
 .footer_social_networks-title{
     width: 100%;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.2rem;
+    font-weight: 600;
     padding: 5px;
 }
 .method-payment-logo {
@@ -108,15 +116,18 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    border: 1px solid var(--C_Lightblue_Logo);
+    border: 2px solid var(--C_Lightblue_Logo);
+    transition: 0.9s all ease;
 }
 
 .footer__lastsection__navbar a:hover figure {
-    border: 1px solid var(--C_Pink_Logo)
+    border: 2px solid var(--C_Pink_Logo);
+    transform: rotate(360deg);
 }
 
 .footer__lastsection__navbar a:hover i {
-    color: var(--C_Pink_Logo)
+    color: var(--C_Pink_Logo);
+    transform: rotate(360deg);
 }
 
 .footer__lastsection__navbar i {
@@ -127,6 +138,7 @@
     text-align: center;
     color: #dee2e6;
     width: 100%;
+    margin: 0.5em;
 }
 
 @media (min-width: 768px) {
@@ -139,7 +151,6 @@
         color: #dee2e6;
         display: flex;
         justify-content: center;
-        padding: 10px 0px 0px;
     }
 
     .footer__lastsection__navbar ul li {
@@ -157,9 +168,9 @@
     .footer_nav-home,
     .footer_nav-aboutUs,
     .footer_nav-app {
-        width: 23%;
+        width: 100%;
         padding: 5px;
-        text-align: start;
+        text-align: center;
     }
 
     .footer__formas-de-pago img {

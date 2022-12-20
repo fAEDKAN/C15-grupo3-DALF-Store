@@ -14,11 +14,11 @@ const controller = {
 		let productsInSale = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 1,
+					[Op.eq]: 1,
 				},
 			},
-			order: [["createdAt", "DESC"]],
-			limit: 4,
+			order: [["discount", "DESC"]],
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
@@ -36,11 +36,11 @@ const controller = {
 		let productsRecommended = db.Product.findAll({
 			where: {
 				sectionId: {
-					[Op.gte]: 2,
+					[Op.eq]: 2,
 				},
 			},
-			order: [["createdAt", "DESC"]],
-			limit: 4,
+			order: [["name", "ASC"]],
+			limit: 7,
 			attributes: {
 				exclude: ["updatedAt", "categoryId"],
 			},
@@ -131,46 +131,17 @@ const controller = {
 	categoriesFilter: async (req, res) => {
 		let parametro = req.params.x
 		try {
-			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
-			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
-			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
-			let searchResult =await db.Product.findAll({
+			const categories = await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands = await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections = await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
 				where: {
 					[Op.or]: [
 						{
 							categoryId: { [Op.substring]: parametro }
 						}
 					]
-				},include: ['image'],
-			})
-			console.log(brands);
-			return res.render("results", {
-				searchResult, 
-				categories,
-				sections,
-				brands,
-				toThousand,
-				parametro
-			})
-		} catch (error) {
-			console.log(error);
-
-		}
-	},
-	sectionsFilter: async (req, res) => {
-		let parametro = req.params.x
-		try {
-			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
-			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
-			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
-			let searchResult =await db.Product.findAll({
-				where: {
-					[Op.or]: [
-						{
-							sectionId: { [Op.substring]: parametro }
-						}
-					]
-				},include: ['image'],
+				}, include: ['image'],
 			})
 			console.log(brands);
 			return res.render("results", {
@@ -186,20 +157,75 @@ const controller = {
 
 		}
 	},
+	sectionsFilter: async (req, res) => {
+		let parametro = req.params.x
+		try {
+			const categories = await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands = await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections = await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
+				where: {
+					[Op.or]: [
+						{
+							sectionId: { [Op.substring]: parametro }
+						}
+					]
+				}, include: ['image'],
+				order: [['discount', 'ASC']]
+			})
+			console.log(brands);
+			return res.render("results", {
+				searchResult,
+				categories,
+				sections,
+				brands,
+				toThousand,
+				parametro
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	},
+
+	allSectionsProducts: async (req, res) => {
+		let parametro = req.params
+		try {
+			const categories = await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands = await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections = await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
+				order: [['name', 'ASC']],
+				include: [{
+					association: 'image'
+				}]
+			});
+			return res.render("results", {
+				searchResult,
+				categories,
+				sections,
+				brands,
+				toThousand,
+				parametro
+			})
+		} catch (error) {
+			console.log(error);
+		}
+	},
+
 	brandsFilter: async (req, res) => {
 		let parametro = req.params.x
 		try {
-			const categories =await db.Category.findAll({ attributes: ['id', 'name'] })
-			const brands =await db.Brand.findAll({ attributes: ['id', 'name'] });
-			const sections =await db.Section.findAll({ attributes: ['id', 'name'] });
-			let searchResult =await db.Product.findAll({
+			const categories = await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands = await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections = await db.Section.findAll({ attributes: ['id', 'name'] });
+			let searchResult = await db.Product.findAll({
 				where: {
 					[Op.or]: [
 						{
 							brandId: { [Op.substring]: parametro }
 						}
 					]
-				},include: ['image'],
+				}, include: ['image'],
 			})
 			console.log(brands);
 			return res.render("results", {

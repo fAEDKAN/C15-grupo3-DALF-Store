@@ -1,42 +1,50 @@
 [
     {
         "id":1,
-        "name":"otro"
+        "name":"Acción"
     },
     {
         "id":2,
-        "name":"accion"
+        "name":"Aventura"
     },
     {
         "id":3,
-        "name":"aventura"
+        "name":"Arcade"
     },
     {
         "id":4,
-        "name":"ftp/tps"
+        "name":"Deportes"
     },
     {
         "id":5,
-        "name":"rpg"
+        "name":"Estrategia"
     },
     {
         "id":6,
-        "name":"simulacion"
+        "name":"Simulación"
     },
     {
         "id":7,
-        "name":"carreras"
+        "name":"FPS/TPS"
     },
     {
         "id":8,
-        "name":"lucha"
+        "name":"MMORPG"
     },
     {
         "id":9,
-        "name":"mmo"
+        "name":"Puzzles"
     },
     {
         "id":10,
-        "name":"arcade"
+        "name":"RPG"
+    },
+    {
+        "id":11,
+        "name":"Terror"
+    },
+    {
+        "id":12,
+        "name":"Otros"
     }
 ]
