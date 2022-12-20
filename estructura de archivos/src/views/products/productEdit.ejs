@@ -92,12 +92,12 @@
                         </div>
 
 
-                        <div class="form-box load-image">
+<!--                         <div class="form-box load-image">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept=".jpg" multiple>
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept="image/*" multiple>
                             <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                             <small id="errorImage" class="text-danger"></small>
-                        </div>
+                        </div> -->
 
                         <div class="form-box buttons">
                             <button class="total-comprar" type="reset" onclick="window.history.go(-1); return false;">Cancelar</button>
@@ -113,7 +113,6 @@
                 <!-- / F O O T E R -->
         
         <script src="/javascripts/productEdit.js"></script>
-        <script src="/javascripts/resetProductEdit.js"></script>
     </body>
 
 </html>

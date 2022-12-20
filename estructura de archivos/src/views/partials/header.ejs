@@ -32,6 +32,11 @@
                                             <%= userLogin.userName %>
                                         </a>
                                     </li>
+                                    <% if (locals.userLogin && userLogin.rol===1) { %>
+                                        <li>
+                                            <a class="dropdown-item" href="http://localhost:3000/">Panel de Control</a>
+                                        </li>
+                                        <% } %>
                                     <li><a class="dropdown-item" href="/users/logout">Salir</a></li>
                                     <% } else { %>
                                         <li><a class="dropdown-item" href="/users/login">Ingresar</a></li>

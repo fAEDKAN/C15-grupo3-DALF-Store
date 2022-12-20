@@ -143,7 +143,7 @@ $("description").addEventListener("blur", function ({ target }) {
     }
 });
 
-$("image").addEventListener("blur", function ({ target }) {
+/* $("image").addEventListener("blur", function ({ target }) {
     switch (true) {
         case !exRegs.exRegImg.test(this.value):
             msgError("errorImage", "El formato de imagen no es compatible", target);
@@ -153,7 +153,7 @@ $("image").addEventListener("blur", function ({ target }) {
             validField("errorImage", target);
             break;
     }
-});
+}); */
 
 $("form-productEdit").addEventListener("submit", function (e) {
     e.preventDefault();
