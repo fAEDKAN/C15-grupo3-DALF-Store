@@ -40,6 +40,15 @@ module.exports = {
                         : "DEFAULT-IMAGE.jpg",
                     rol: user.rolId,
                 };
+                let order = await db.Order.create({
+                    total: 0,
+                    userId: req.session.userLogin.id,
+                    stateId: 1
+                })
+                req.session.orderCart={
+                    id:order.id,
+                    total: order.total,
+                    items: []}
                 
                 return res.redirect("/");
             } else {
