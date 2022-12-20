@@ -16,9 +16,9 @@ export const Home = () => {
 
       <div className="row">
         <Products />
+        <Users />
         <Categories />
         <LatestProduct />
-        <Users />
       </div>
     </div>
   );
