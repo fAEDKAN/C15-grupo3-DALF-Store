@@ -71,9 +71,9 @@
                         </div>
                         
                         <div class="form-box">
-                            <label class="form-label">Companía:</label>
+                            <label class="form-label">Plataforma:</label>
                             <select name="company" id="company" >
-                                <option value="" hidden selected>Seleccionar una compania...</option>
+                                <option value="" hidden selected>Seleccionar plataforma...</option>
                                 <% brands.forEach(company => { %>
                                     <option <%= locals.old && old.company && old.company == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
                                 <% }); %>
@@ -90,8 +90,9 @@
                             <small id="errorDescription" class="text-danger"></small>
                         </div>
 
-                        <div class="form-box load-image">
+                        <div class="form-box load-image product__image--preview">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
+                            <div id="image-preview"></div>
                             <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept="image/*" multiple>
                             <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                             <small id="errorImage" class="text-danger"></small>
@@ -108,6 +109,7 @@
     <!-- / M A I N -->
     <%- include('../partials/footer',{ title:'home', }) %>
     <script src="/javascripts/productsLoad.js"></script>
+    <script src="/javascripts/productUploadImage.js"></script>
 </body>
 
 </html>
