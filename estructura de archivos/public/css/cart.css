@@ -10,6 +10,22 @@ body{
     font-size: 18px;
     padding: 40px 10px;
 }
+.btn-cart-itemRemove{
+    border-color: var(--C_Ice-Cream);
+    color: var(--C_Ice-Cream);
+}
+.btn-cart-itemAdd{
+    border-color:var(--C_Ice-Cream);
+    color: var(--C_Ice-Cream);
+}
+.btn-cart-itemRemove:hover{
+    border-color: #ff00a2;
+    color: var(--C_Ice-Cream);
+}
+.btn-cart-itemAdd:hover{
+    border-color:#00e4ff;
+    color: var(--C_Ice-Cream);
+}
 
 
 /******************body*****************/

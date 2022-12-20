@@ -15,9 +15,9 @@ const showItems = (items) => {
             </td>
             <td>
               <div class="d-flex">
-                <button class="btn btn-sm btn-danger" onclick="removeQuantity(${product.id})"><i class="fas fa-minus"></i></button>
+                <button class="btn btn-sm btn-cart-itemRemove" onclick="removeQuantity(${product.id})"><i class="fas fa-minus"></i></button>
                 <input type="text" style="border: none; width:20px; text-align: center;" value="${+quantity}">
-                <button class="btn btn-sm btn-success" onclick="addCartItem(${product.id})"><i class="fas fa-plus"></i></button>
+                <button class="btn btn-sm btn-cart-itemAdd"  onclick="addCartItem(${product.id})"><i class="fas fa-plus"></i></button>
               </div>
             </td>
             <td>
@@ -27,7 +27,7 @@ const showItems = (items) => {
             ${((+product.price - (+product.price * +product.discount ) / 100) * +quantity).toFixed(0)}
             </td>
             <td>
-              <button class="btn btn-sm btn-danger" onclick="remove(${product.id})"><i class="fas fa-trash"></i></button>
+              <button class="btn btn-sm btn-cart-itemRemove" onclick="remove(${product.id})"><i class="fas fa-trash"></i></button>
 
             </td>
           </tr>
