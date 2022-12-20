@@ -12,7 +12,7 @@ export const User = ({ userName, email, firstName, lastName, avatar }) => {
                         <p>{userName}</p>
                     </div>
                     <div>
-                        {firstName + lastName}
+                    <p>{firstName} {lastName}</p>
                     </div>
                     <div>
                         <p>{email}</p>

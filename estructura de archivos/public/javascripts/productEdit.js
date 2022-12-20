@@ -155,7 +155,7 @@ $("image").addEventListener("blur", function ({ target }) {
     }
 });
 
-$("form-productLoad").addEventListener("submit", function (e) {
+$("form-productEdit").addEventListener("submit", function (e) {
     e.preventDefault();
     let error = false;
     const elements = this.elements;
@@ -168,4 +168,5 @@ $("form-productLoad").addEventListener("submit", function (e) {
     }
     !error && this.submit()
 });
+
 

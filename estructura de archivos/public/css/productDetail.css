@@ -532,7 +532,7 @@ body {
     opacity: 0.9;
 }
 .product-detail i{
-    color: #00FF2C;
+    color: var(--C_Green_Razer);
 }
 .product-detail ul li span{
     font-weight: 400;

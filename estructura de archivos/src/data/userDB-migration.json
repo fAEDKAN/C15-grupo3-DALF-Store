@@ -118,5 +118,19 @@
       "userName": "swaldere",
       "password": "NQvRwItFJI",
       "rolId":2
+   },
+   {
+      "id": 20,
+      "userName": "DALF",
+      "firstName": "Dalf",
+      "lastName": "Store",
+      "email": "dalf15@gmail.com",
+      "password": "Dalf.2022",
+      "phone": null,
+      "birthday": null,
+      "aboutMe": "Dalf-Store ADMIN",
+      "city": null,
+      "province": null,
+      "rolId":1
    }
 ]

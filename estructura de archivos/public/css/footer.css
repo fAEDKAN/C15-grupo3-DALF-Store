@@ -6,6 +6,7 @@
     background-color: var(--C_Dark);
     width: 100%;
     border-top: 5px solid var(--C_Discord);
+    margin-top: 2em;
 }
 
 .footer--logo {
