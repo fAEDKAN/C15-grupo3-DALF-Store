@@ -92,8 +92,8 @@
 
                         <div class="form-box load-image product__image--preview">
                             <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <div id="image-preview"></div>
                             <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept="image/*" multiple>
+                            <div id="image-preview"></div>
                             <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                             <small id="errorImage" class="text-danger"></small>
                         </div>

@@ -1,5 +1,5 @@
 .products {
-    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    background-image: url(../images/DALF-LOGO-BACKGROUND5blur.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -8,6 +8,10 @@
 
 #products__main {
     padding-top: 70px;
+}
+
+.product__image--preview img {
+    height: 15em;
 }
 
 .products-titulo {
