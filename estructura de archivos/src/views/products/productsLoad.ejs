@@ -3,8 +3,6 @@
 <!-- H E A D -->
 <%- include('../partials/head',{ title:'home', }) %>
 <!-- / H E A D -->
-
-
 <body class="products">
     <!-- H E A D E R -->
     <%- include('../partials/header',{ title:'home', }) %>
@@ -12,7 +10,7 @@
     <!-- M A I N -->
     <main id="products__main">
                 <div class="products-caja">
-                    <div>
+                    <div class="products_title-box">
                         <h3 class="products-titulo">Cargar nuevo producto</h3>
                     </div>
                     <form id="form-productLoad" action="" method="post" enctype="multipart/form-data">
@@ -25,9 +23,9 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label">Categorías:</label>
+                            <label class="form__label">Género:</label>
                             <select name="category" id="category" >
-                                <option value="" hidden selected>Seleccionar categoría...</option>
+                                <option value="" hidden selected>Seleccioná el género...</option>
                                 <% categories.forEach(category => { %>
                                 <option <%= locals.old && old.category && old.category == category.id ? "selected" : "" %> value="<%= category.id %>"><%= category.name %></option>
                                 <% }); %>
@@ -52,8 +50,8 @@
                         </div>
 
                         <div class="form-box">
-                            <label class="form__label" for="stock">Stock disponible:</label>
-                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="number" id="stock" name="stock" placeholder="" value="<%= locals.old && old.stock ? old.stock : null %>">
+                            <label class="form__label" for="stock">Stock:</label>
+                            <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="number" id="stock" name="stock" placeholder="Stock disponible" value="<%= locals.old && old.stock ? old.stock : null %>">
                             <small class="form-error"><%= locals.errors && errors.stock ? errors.stock.msg : null %></small>
                             <small id="errorStock" class="text-danger"></small>
                         </div>
@@ -61,7 +59,7 @@
                         <div class="form-box">
                             <label class="form-label">Sección:</label>
                             <select name="section" id="section" >
-                                <option value="" hidden selected>Seleccionar una seccion...</option>
+                                <option value="" hidden selected>Seleccioná la sección...</option>
                                 <% sections.forEach(section => { %>
                                 <option <%= locals.old && old.section && old.section == section.id ? "selected" : "" %> value="<%= section.id %>"><%= section.name %></option>
                                 <% }); %>
@@ -73,7 +71,7 @@
                         <div class="form-box">
                             <label class="form-label">Plataforma:</label>
                             <select name="company" id="company" >
-                                <option value="" hidden selected>Seleccionar plataforma...</option>
+                                <option value="" hidden selected>Seleccioná la plataforma...</option>
                                 <% brands.forEach(company => { %>
                                     <option <%= locals.old && old.company && old.company == company.id ? "selected" : "" %> value="<%= company.id %>"><%= company.name %></option>
                                 <% }); %>
@@ -91,9 +89,9 @@
                         </div>
 
                         <div class="form-box load-image product__image--preview">
-                            <label class="form__label" for="imagen">Añadir Imágenes:</label>
-                            <!-- <div id="image-preview"></div> -->
+                            <!-- <label class="form__label" for="imagen">Añadir Imágenes:</label> -->
                             <input class="form__input form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" type="file" name="imagen" id="image" accept="image/*" multiple>
+                            <div id="image-preview"></div>
                             <small class="form-error"><%= locals.errors && errors.images ? errors.images.msg : null %></small>
                             <small id="errorImage" class="text-danger"></small>
                         </div>

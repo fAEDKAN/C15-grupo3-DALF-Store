@@ -24,3 +24,21 @@
 #### Actualizamos archivo retro.md, dailysResume.md, tablero de Trello y creamos dailys.md.
 #### Nos pusimos al día con los TPs a entregar.
 #### Trabajamos en el Sprint 6, el cual nos dio muchísimos problemas, pero la gran mayoría fueron solucionados (y seguimos trabajando en ello).
+
+# (>o-o)> **DAILYS SPRINT 7** Q(o.oQ)
+
+## Resumen de tareas completadas, impedimentos encontrados y soluciones propuestas:
+
+#### Trabajamos en dicho Sprint, el cual pudimos llevar a cabo de una manera más sencilla que el anterior, ya que contábamos con ciertas tareas ya realizadas.
+#### Nos pusimos al día con los TPs a entregar.
+#### Mantuvimos actualizado nuestro tablero de Trello.
+#### Ensayamos para la presentación del Proyecto Integrador.
+
+# (>O_o)> **DAILYS SPRINT 8** Q('^'Q)
+
+## Resumen de tareas completadas, impedimentos encontrados y soluciones propuestas:
+
+#### Actualizamos nuestro tablero de Trello.
+#### Trabajamos en el Sprint 8 y pequeños ajustes al Sprint 7.
+#### Mejoramos la página para el día de la presentación.
+#### Ensayamos para la presentación del Proyecto Integrador.

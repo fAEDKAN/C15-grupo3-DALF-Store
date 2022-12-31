@@ -1,5 +1,7 @@
 .products {
-    background-image: url(../images/DALF\ BACKGROUND5blur.png);
+    width: 100%;
+    /* height: 100vh; */
+    background-image: url(../images/DALF-LOGO-BACKGROUND5blur.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -7,173 +9,192 @@
 }
 
 #products__main {
-    padding-top: 70px;
-}
-
-.products-titulo {
-    text-align: center;
-    padding: 10px;
-    margin: 0;
-    border-bottom: 1px solid var(--C_Lightblue_Logo);
-    border-radius: 10px 10px 0 0;
-    width: 100%;
-}
-
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 13em 0 5em 0;
 }
 
 .products-caja {
+    display: flex;
     flex-direction: column;
-    width: 100vw;
+    align-items: center;
+}
+
+.products_title-box {
+    text-align: center;
+}
+
+.products_title-box h3 {
+    color: var(--C_Lightblue_Logo);
+    text-transform: uppercase;
+    font-size: 1.85rem;
+    margin: 0;
+}
+
+.products-caja form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2em;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
 }
 
 .form-box {
-    margin: auto;
-    width: 80%;
+    width: 25em;
     display: flex;
-    flex-wrap: wrap;
-    padding-bottom: 15px;
-}
-
-.products-caja form input:hover {
-    transition: 0.5s;
-    border: 1px solid var(--C_Lightblue_Logo);
-    color: var(--C_Lightblue_Logo);
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-box label {
-    color: var(--C_Ice-Cream);
+    font-weight: 600;
     font-size: 1rem;
-    margin: auto;
-    margin-left: 0px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--C_Lightblue_Logo);
+    margin: 0;
 }
 
 .form-box input {
-    display: block;
-    margin: auto;
-    width: 100%;
-    height: 40px;
-    border: 1px solid var(--C_Ice-Cream);
+    width: 20em;
+    height: 2.75em;
     color: var(--C_Ice-Cream);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1940);
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    font-size: 0.9rem;
-    padding-left: 10px;
+    background-color: transparent;
     outline: none;
+    border: none;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(
+            to right,
+            var(--C_Lightblue_Logo),
+            var(--C_Pink_Logo)
+        )
+        1;
+    padding-left: 5px;
+    padding-top: 15px;
+    transition: 1s all;
 }
 
-.products-caja select {
-    display: block;
-    margin: auto;
-    width: 100%;
-    height: 40px;
-    border: 1px solid var(--C_Ice-Cream);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1940);
+.form-box ::placeholder {
     color: var(--C_Ice-Cream);
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    font-size: 0.9rem;
-    padding-left: 10px;
+    transition: 1s all;
+}
+
+.form-box input:hover {
+    border-image: linear-gradient(
+        to left,
+        var(--C_Lightblue_Logo),
+        var(--C_Pink_Logo)
+    )
+    1;
+}
+
+.form-box input:hover::placeholder {
+    color: var(--C_Pink_Logo);
+}
+
+.form-box input:focus {
+    border: 2px solid var(--C_Lightblue_Logo);
     outline: none;
+    transition: 0s all;
 }
 
-.products-caja select:hover {
-    transition: 0.5s;
-    border: 1px solid var(--C_Lightblue_Logo);
-    color: var(--C_Lightblue_Logo);
+.form-box input:focus::placeholder {
+    color: var(--C_Pink_Logo);
 }
 
-.products-caja select option {
-    background: var(--C_Grey_Dark);
-}
-
-.products-caja textarea {
-    display: block;
-    margin: auto;
-    width: 100%;
-    border: 1px solid var(--C_Ice-Cream);
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1940);
+.form-box select {
+    width: 20em;
+    height: 2.75em;
     color: var(--C_Ice-Cream);
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    padding-left: 5px;
+    padding-top: 15px;
+    transition: 1s all;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-box option {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--C_Light_Dark);
+}
+
+.form-box select:hover {
+    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+}
+
+.form-box textarea {
+    resize: none;
+    width: 20em;
+    height: 8.25em;
+    margin-top: 1em;
+    color: var(--C_Ice-Cream);
+    background-color: transparent;
+    outline: none;
+    border: 2px solid;
+    border-image: linear-gradient(to right, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+    padding: 5px 0 0 5px;
+    transition: 1s all;
+}
+
+.form-box textarea::placeholder {
+    color: var(--C_Ice-Cream);
+    transition: 1s all;
+}
+
+.form-box textarea:hover {
+    border-image: linear-gradient(to left, var(--C_Lightblue_Logo), var(--C_Pink_Logo)) 1;
+}
+
+.form-box textarea:hover::placeholder {
+    color: var(--C_Pink_Logo);
+}
+
+.form-box textarea:focus::placeholder {
+    color: var(--C_Pink_Logo);
+    background: transparent;
+}
+
+.form-box small {
+    position: relative;
+    top: 0.25em;
+    color: var(--C_Ice-Cream) !important;
     font-size: 0.9rem;
-    outline: none;
-    padding-left: 10px;
-    outline: none;
-}
-
-.products-caja textarea:hover {
-    transition: 0.5s;
-    border: 1px solid var(--C_Lightblue_Logo);
-    color: var(--C_Lightblue_Logo);
-}
-
-.load-image input {
-    height: 70px;
+    font-weight: 500;
+    text-align: center;
+    z-index: 100;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
 .buttons button {
-    width: 45%;
-    height: 40px;
-    background-color: var(--C_Grey_Dark);
-    color: var(--C_Ice-Cream);
-    border-radius: 5px;
-    border: none;
-    padding: 7px;
-}
-
-.buttons button:hover {
+    width: 8em;
+    height: 3.125em;
+    padding: 10px;
+    margin: 25px 0 20px;
     cursor: pointer;
-    transition: 0s;
+    background: rgba(255, 255, 255, 0.05);
+    border-image: linear-gradient(
+            to right,
+            var(--C_Lightblue_Logo),
+            var(--C_Pink_Logo)
+        )
+        1;
     color: var(--C_Ice-Cream);
-    border: 2px solid var(--C_Lightblue_Logo);
-    background: linear-gradient(#36393f,#212529);
+    font-weight: bold;
+    transition: 1s all;
 }
 
-@media (min-width: 425px) {
-    .products-caja {
-        width: 420px;
-    }
-}
-
-@media (min-width: 1024px) {
-    #products__main {
-        padding-top: 15%;
-    }
-    .products-caja {
-        flex-direction: row;
-        width: 80vw;
-        border: solid 1px var(--C_Lightblue_Logo);
-        box-shadow: #2a2929 5px 5px 5px;
-        border-radius: 5px;
-    }
-    .products-caja form {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding-top: 10px;
-    }
-    .form-box {
-        margin: 0;
-        width: 45%;
-        padding: 0 10px 15px 0;
-    }
-    .load-image {
-        width: 70%;
-    }
+.buttons:hover {
+    border-image: linear-gradient(
+        to right,
+        var(--C_Pink_Logo),
+        var(--C_Lightblue_Logo)
+    )
+    1;
+color: var(--C_Pink_Logo);
 }

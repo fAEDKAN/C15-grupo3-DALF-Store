@@ -52,7 +52,7 @@ const verifyUserName = async (userName) => {
     }
 }
 
-const verifyEmail = async (email) => {
+/* const verifyEmail = async (email) => {
     try {
         let response = await fetch("/api/users/verify-email", {
             method: "POST",
@@ -69,7 +69,7 @@ const verifyEmail = async (email) => {
     } catch (error) {
         console.log(error);
     }
-}
+} */
 
 // Nombre de usuario
 $("userName").addEventListener("keyup", async function ({ target }) {
@@ -109,9 +109,9 @@ $("email").addEventListener("keyup", async function ({ target }) {
                 target
             );
             break;
-        case await verifyEmail(this.value):
+/*         case await verifyEmail(this.value):
             msgError("emailError", "El email ya se encuentra registrado", target);
-            break;
+            break; */
         default:
             validField("emailError", target);
             break;
