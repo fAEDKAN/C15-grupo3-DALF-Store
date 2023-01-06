@@ -240,6 +240,9 @@ const controller = {
 			console.log(error);
 
 		}
+	},
+	contact:(req, res)=>{
+		return res.render("contact")
 	}
 };
 
