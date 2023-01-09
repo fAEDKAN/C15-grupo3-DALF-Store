@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <%- include('./partials/head',{ title:'home', }) %>
-<body>
-    <form action="">
-        <div>
-            <label for=""></label>
-            <input type="text">
+<%- include('./partials/head',{ title:'home', }) %>
+
+    <body class="contact_body">
+        <%- include('../partials/header',{ title:'home', }) %>
+        <div class="motherbox"  >
+            <div id="tituloContact" class="body__form--title"><h2>Contacto</h2></div> 
+            <div class="mensajeContact" >
+                <p id="mensaje" class="contactMessage">Si desea consultar mayor informacion sobre nuestros servicios
+                    ,tiene alguna duda al respecto o tiene alguna idea para proponernos,
+                    no dude en contactarnos</p>
+                <p id="redes" class="contactSocialMedia"></p>
+            </div>
+            <div class="body__form--inputs">
+                <form action="">
+                    <div >
+                        <label for="name"></label>
+                        <input type="text" name="name" placeholder="Nombre">
+                    </div>
+                    <div>
+                        <label for="email"></label>
+                        <input type="email" name="email" placeholder="Email">
+                    </div>
+                    <div>
+                        <label for="asunto"></label>
+                        <input type="text" name="asunto" placeholder="Asunto">
+                    </div>
+                    <div class="body__form__inputs__userData__input--textArea">
+                        <label for="mensaje"></label>
+                        <textarea name="mensaje" id="message" cols="18" rows="5" placeholder="Mensaje"></textarea>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <label for=""></label>
-            <input type="email">
-        </div>
-        <div>
-            <label for=""></label>
-            <input type="text">
-        </div>
-        <div>
-            <label for=""></label>
-            <input type="text">
-        </div>
-    </form>
-</body>
+    </body>
 </html>
