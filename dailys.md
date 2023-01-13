@@ -139,3 +139,116 @@
 #### --AXEL: Subir archivos SQL, Daily y retoques en la edición del producto
 #### --DIEGO: Revisar el Trello, descansar un poco y trabajar en los items del navbar
 #### --FEDE: Verificar que no haya errores en el CRUD de usuarios para poder presentar correctamente el Sprint
+
+# **Daylis -SPRINT 7 & 8-**
+------------------------
+#### Formato:
+#### 1) ¿Qué hice ayer?
+#### 2) ¿Problemas?
+#### 3) ¿Qué voy hacer?
+------------------------
+### --DIEGO:
+
+#### 10/12
+#### 1: Hacer listado de categorias de react y conectarlo con api.
+#### 2: No cargan las categorias.
+#### 3: Descansar 20 minutos y repasar codigo despues de la 12 de la noche.
+
+#### 11/12
+#### 1: Solucione el problema del listados de categorias de react y conectar con api.
+#### 2: Tuve un problema con la base de datos.
+#### 3: Perdir ayuda a mis compañeros.
+
+#### 12/12
+#### 1: Solucionamos el problema de la base de datos.
+#### 2: Ninguno.
+#### 3: Re organizar hoario y ayudar mis compñaeros con react.
+
+#### 13/12
+#### 1: El profesor me actualizo el trello y me dijo que habian problemas en las validaciones de frontEnd productLoad y productEdit...
+#### 2: Error en sintaxis en productLoad.js y ProductEdit.js
+#### 3: Releer el codigo y corregirlo antes del otro día.
+
+#### 14/12
+#### 1: Re haciendo el productDetails.
+#### 2: Ninguni.
+#### 3: Tratar de terminar lo mas pronto y dejarlo con las funciones que tenía antes(Editar, eliminar)
+
+#### 15/12
+#### 1: Seguir trabajando en el productDetails.
+#### 2: Ninguno.
+#### 3: Elimar algunas cosas que sean irrelantes de la pagina.
+
+#### 16/12
+#### 1: Presetancion de la pagina con los profes.
+#### 2: Corregir los errores de la pagina mecionados despues de la presentación
+#### 3: Seguir trabajando en productDetails.
+
+#### 17/12
+#### 1: Terminado de darle unos arreglos al productDetail.
+#### 2: No quiere acomodarse las cajas.
+#### 3: Analizar el codigo y si no encuentro solucion pedir ayuda a mis comapeñros.
+
+#### 18/12
+#### 1: ProductDetails terminado.
+#### 2: Ninguno.
+#### 3: Voy a trabajar en la cancelación de los productos.
+
+#### 19/12
+#### 1: Practica para la presentación.
+#### 2: Ninguno.
+#### 3: Seguir practicando.
+
+### --AXEL:
+
+#### 20/12
+#### 1: acceso a cart solo con login
+#### 2: Ninguno.
+#### 3: estilos de cart, funcionalidad a eliminar item y vaciar carrito
+
+#### 17/12
+#### 1: carrito
+#### 2: Ninguno.
+#### 3: reestringir acceso a cart, agregar validacion a search
+
+#### 16/12
+#### 1: controladores y rutas de carrito
+#### 2: Ninguno.
+#### 3: modificaciones en carrito y su css
+
+#### 14/12
+#### 1: anteriormente se realizaron correcciones generales
+#### 2: Ninguno.
+#### 3: crear carrito con modal
+
+#### 12/12
+#### 1: trabaje en el navbar
+#### 2: Ninguno.
+#### 3: correcciones y funcionaidad navbar
+
+#### 11/12
+#### 1: trabaje con react
+#### 2: Ninguno.
+#### 3: reestructurando navBar
+
+#### 7/12
+#### 1: react iniciado
+#### 2: Ninguno.
+#### 3: arreglos en search y paneles con totales en react
+
+#### 5/12
+#### 1: 
+#### 2: Ninguno.
+#### 3: iniciar react en el proyecto y realizar correcciones en controladores 
+
+### --FEDE:
+
+#### 1/12 al 10/12
+#### 1: Me dediqué a revisar, crear y modificar todas las validaciones, tanto del front como del back.
+#### 2: Algún que otro problemita, pero pude solucionarlo rápido.
+#### 3: Modificar un poco la estética de la página y buscar errores para corregir antes del día de la presentación.
+
+#### 11/12 al 20/12
+#### 1: Corregí errores varios, creé un JSON de aproximadamente 30 productos para que todos tengamos lo mismo en una DB "local", creé usuario ADMIN en JSON para que todos tengamos el mismo usuario en común, añadí mejoras visuales a la página. Trabajé en React para que se muestren todos los usuarios registrados en la página, también un apartado donde se muestra el último producto agregado, añadí mejoras visuales para que el panel de control se vea más personalizado de acuerdo a nuestra página.
+#### 2: Sí, algunos con React pero todo se pudo solucionar.
+#### 3: Realizar las correcciones pertintentes de acuerdo al feedback recibido en la presentación.
