@@ -238,11 +238,19 @@ const controller = {
 			})
 		} catch (error) {
 			console.log(error);
-
 		}
 	},
-	contact:(req, res)=>{
-		return res.render("contact")
+	contact: async (req, res)=>{
+		try {
+			const categories = await db.Category.findAll({ attributes: ['id', 'name'] })
+			const brands = await db.Brand.findAll({ attributes: ['id', 'name'] });
+			const sections = await db.Section.findAll({ attributes: ['id', 'name'] });
+			
+			return res.render("contact",{categories,brands,sections})
+		} catch (error) {
+			return console.log(error)
+		}
+		
 	}
 };
 

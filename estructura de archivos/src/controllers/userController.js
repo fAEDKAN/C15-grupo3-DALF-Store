@@ -303,9 +303,7 @@ module.exports = {
     logout: (req, res) => {
         // Deslogueamos al usuario
         req.session.destroy();
-        res.cookie("userDalfStore", null, {
-            maxAge: -1,
-        });
+         
         return res.redirect("/");
     },
 
